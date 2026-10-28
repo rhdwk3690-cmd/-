@@ -1,11 +1,11 @@
-"""광부 투자터미널: 거래대금 TOP200 + 네이버 공개 화면의 종목별 외국인·기관 순매수 수량.
-
-주의: 이것은 금융 데이터 재배포용 공식 API가 아니다. 수량(주)을 금액(원)으로 환산하지 않는다.
+"""Miner Terminal / TOP200 + foreign & institutional net trade VALUE (KRW).
+KRX fields are KRW. Unofficial Naver fallback accepted ONLY if amount units explicit.
+Never convert shares * price into net-buy value.
 """
 import json
 import re
+from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -15,206 +15,265 @@ import requests
 import streamlit as st
 
 FILE = Path(__file__).resolve().parent / 'data' / 'kr_flow.json'
-SEOUL = ZoneInfo('Asia/Seoul')
+KST = ZoneInfo('Asia/Seoul')
+UA = {'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json, text/plain, */*'}
 
 
 def _read():
     if not FILE.exists():
-        st.warning('거래대금 TOP 200 파일이 없습니다. GitHub Actions에서 Collect KR flows (EOD)를 실행하세요.')
+        st.error('data/kr_flow.json 파일이 없습니다. 거래대금 수집 작업부터 확인하세요.')
         return None
     try:
-        obj = json.loads(FILE.read_text(encoding='utf-8'))
-        st.caption(f"거래대금 기준일: {obj.get('date') or '미확인'} | 수집 시각: {str(obj.get('collected_at_kst') or '미확인')[:16]} KST | 출처: {obj.get('source', '미확인')}")
-        if not obj.get('date'):
-            st.warning('거래대금 TOP 200의 거래 기준일이 검증되지 않았습니다. 당일 순위로 단정하지 마세요.')
-        if obj.get('status') not in ('ok', 'partial'):
-            st.error('거래대금 데이터 수집 실패')
-        with st.expander('거래대금 수집 오류 및 진단'):
-            for err in obj.get('errors', [])[-20:]:
-                st.text(err)
-        return obj
-    except (OSError, ValueError, TypeError) as exc:
-        st.error(f'거래대금 파일을 읽지 못했습니다: {exc}')
+        data = json.loads(FILE.read_text(encoding='utf-8'))
+        st.caption(f"TOP200 거래 기준일: {data.get('date') or '미검증'} | 수집: {str(data.get('collected_at_kst') or '?')[:16]} | {data.get('source')}")
+        if not data.get('date'):
+            st.warning('거래대금 TOP200의 거래 기준일이 아직 검증되지 않았습니다. 당일 순위로 해석하지 마세요.')
+        return data
+    except (OSError, ValueError) as exc:
+        st.error(f'거래대금 파일 오류: {exc}')
         return None
 
 
-def _parse_shares(value):
-    if value is None or isinstance(value, bool):
+def _integer(value):
+    if isinstance(value, bool) or value is None:
         return None
-    if isinstance(value, int):
-        return value
-    s = str(value).strip().replace(',', '').replace(' ', '').replace('＋', '+').replace('−', '-')
-    if re.fullmatch(r'[+-]?\d+', s):
-        return int(s)
-    return None
+    s = str(value).strip().replace(',', '').replace(' ', '').replace('−', '-')
+    return int(s) if re.fullmatch(r'[+-]?\d+', s) else None
 
 
-def _date(value):
-    s = str(value or '').strip()
-    if re.fullmatch(r'\d{8}', s):
-        try:
-            return datetime.strptime(s, '%Y%m%d').date().isoformat()
-        except ValueError:
-            pass
-    return None
-
-
-def _parse_investor_payload(code, data):
-    if not isinstance(data, dict) or not isinstance(data.get('dealTrendInfos'), list):
-        raise ValueError('dealTrendInfos 목록을 찾지 못함 (API 응답 구조 확인 필요)')
-    rows = []
-    today = datetime.now(SEOUL).date()
-    for entry in data['dealTrendInfos']:
-        if not isinstance(entry, dict):
+def _krx_rows(payload):
+    if not isinstance(payload, dict):
+        return {}
+    raw = payload.get('output')
+    if not isinstance(raw, list):
+        raw = payload.get('OutBlock_1')
+    if not isinstance(raw, list):
+        return {}
+    result = {}
+    for row in raw:
+        if not isinstance(row, dict):
             continue
-        date_str = _date(entry.get('bizdate'))
-        if not date_str:
-            continue
-        date_value = datetime.strptime(date_str, '%Y-%m-%d').date()
-        if date_value > today or (today - date_value).days > 21:
-            continue
-        f = _parse_shares(entry.get('foreignerPureBuyQuant'))
-        i = _parse_shares(entry.get('organPureBuyQuant'))
-        if f is None and i is None:
-            continue
-        rows.append({'ticker': code, 'date': date_str, 'foreign_net_shares': f,
-                     'institution_net_shares': i, 'source': 'Naver Finance (unofficial JSON)'})
-    if not rows:
-        raise ValueError('유효한 거래일·순매수 수량 데이터 없음')
-    rows.sort(key=lambda x: x['date'], reverse=True)
-    return rows
+        code = str(row.get('ISU_SRT_CD') or '').strip()
+        value = _integer(row.get('NETBID_TRDVAL'))
+        if re.fullmatch(r'\d{6}', code) and value is not None:
+            result[code] = value
+    return result
 
 
-def _fetch_one(code):
-    if not re.fullmatch(r'\d{6}', code):
-        raise ValueError('잘못된 종목코드')
-    url = f'https://m.stock.naver.com/api/stock/{code}/integration'
-    response = requests.get(url, headers={
-        'User-Agent': 'Mozilla/5.0 (compatible; MinerResearch/1.0)',
-        'Accept': 'application/json', 'Referer': 'https://m.stock.naver.com/'}, timeout=7)
-    response.raise_for_status()
-    return _parse_investor_payload(code, response.json())
+def _krx_for_day(day):
+    """Read-only KRX public site request. May be blocked or require login."""
+    out = {'외국인': {}, '기관': {}}
+    errors = []
+    uri = 'https://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd'
+    headers = {**UA, 'Referer':'https://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd',
+               'Origin':'https://data.krx.co.kr', 'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+    def fetch_one(label, investor, market):
+        form = {'bld':'dbms/MDC/STAT/standard/MDCSTAT02401',
+                'strtDd':day, 'endDd':day, 'mktId':market, 'invstTpCd':investor,
+                'share':'1', 'money':'1'}
+        resp = requests.post(uri, headers=headers, data=form, timeout=6)
+        resp.raise_for_status()
+        records = _krx_rows(resp.json())
+        if not records:
+            raise ValueError('종목 코드와 NETBID_TRDVAL 금액 행 없음 (로그인/차단 가능)')
+        return records
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        jobs = {pool.submit(fetch_one, label, investor, market):(label, market)
+                for label, investor in [('외국인','9000'),('기관','7050')]
+                for market in ('STK','KSQ')}
+        for future in as_completed(jobs):
+            label, market = jobs[future]
+            try:
+                out[label].update(future.result())
+            except Exception as exc:
+                errors.append(f'KRX {label}/{market}: {type(exc).__name__}: {str(exc)[:90]}')
+    return out, errors
+
+
+def _won_text(value):
+    """Parse Naver amount only if a KRW unit is unambiguously present."""
+    if not isinstance(value, str):
+        return None
+    s = value.replace(',', '').replace(' ', '').replace('−', '-').replace('＋','+')
+    match = re.fullmatch(r'([+-]?\d+(?:\.\d+)?)(원|억원|억|백만원|백만|천만원|천만|조원|조)', s)
+    if not match:
+        return None
+    number, unit = match.groups()
+    factors = {'원':1, '억원':10**8, '억':10**8, '백만원':10**6, '백만':10**6,
+               '천만원':10**7, '천만':10**7, '조원':10**12, '조':10**12}
+    return int(round(float(number) * factors[unit]))
+
+
+def _naver_rows(payload):
+    """Accept only 6-digit ticker and an explicitly unit-tagged net trade amount.
+    Do not guess whether plain numeric fields are in KRW/100M/1M/shares.
+    """
+    results = {}
+    def walk(node, depth=0):
+        if depth > 5:
+            return
+        if isinstance(node, list):
+            for item in node[:600]:
+                walk(item, depth + 1)
+        elif isinstance(node, dict):
+            codes = ('itemCode', 'stockCode', 'symbolCode', 'ticker', 'code', 'shortCode')
+            code = str(next((node[k] for k in codes if k in node and node[k]), '')).strip().removeprefix('A')
+            if re.fullmatch(r'\d{6}', code):
+                for name in ('netBuyTradeAmount','netBuyAmount','netBuyTradingValue',
+                             'netBuyTradeValue','netBuyingAmount','pureBuyAmount',
+                             'netPurchaseAmount','netBidTradeValue','순매수거래대금','순매수금액'):
+                    if name in node:
+                        won = _won_text(node[name])
+                        if won is not None:
+                            results[code] = won
+                            break
+            for value in node.values():
+                if isinstance(value, (list, dict)):
+                    walk(value, depth + 1)
+    walk(payload)
+    return results
+
+
+def _naver_fallback():
+    results, errors = {'외국인':{}, '기관':{}}, []
+    urls = [
+        ('legacy', 'https://m.stock.naver.com/front-api/market/tradingTrend/ranking'),
+        ('current', 'https://m.stock.naver.com/front-api/api/domestic/market/trend/trendForeignOrg'),
+    ]
+    for group, inv_legacy, inv_current in [('외국인','foreigner','FOREIGNER'),('기관','institution','ORGANIZATION')]:
+        for variant, url in urls:
+            try:
+                if variant == 'legacy':
+                    params = {'periodType':'daily','stockExchangeType':'KRX', 'investorType':inv_legacy,
+                              'tradingType':'trendBuy','page':1,'pageSize':200}
+                else:
+                    params = {'investorType':inv_current, 'tradeType':'KRX', 'marketType':'ALL',
+                              'startIdx':0, 'pageSize':200, 'periodType':'DAY'}
+                resp = requests.get(url, headers=dict(UA, Referer='https://m.stock.naver.com/'),
+                                    params=params, timeout=6)
+                resp.raise_for_status()
+                amounts = _naver_rows(resp.json())
+                if amounts:
+                    results[group].update(amounts)
+                    break
+                errors.append(f'NAVER {group}/{variant}: 금액 단위가 명시된 행을 찾지 못함')
+            except Exception as exc:
+                errors.append(f'NAVER {group}/{variant}: {type(exc).__name__}: {str(exc)[:85]}')
+    return results, errors
 
 
 @st.cache_data(ttl=1800, show_spinner=False)
-def _investors(codes):
-    records, errors = {}, []
-    codes = tuple(dict.fromkeys(str(code).zfill(6) for code in codes))[:200]
-    with ThreadPoolExecutor(max_workers=3) as pool:
-        jobs = {pool.submit(_fetch_one, code): code for code in codes}
-        for job in as_completed(jobs):
-            code = jobs[job]
-            try:
-                records[code] = job.result()
-            except Exception as exc:
-                errors.append(f'{code}: {type(exc).__name__} ({str(exc)[:90]})')
-    return records, errors
+def _market_amounts():
+    today = datetime.now(KST).date()
+    problems = []
+    for shift in range(4):
+        day = (today - timedelta(days=shift))
+        if day.weekday() >= 5:
+            continue
+        raw, errors = _krx_for_day(day.strftime('%Y%m%d'))
+        problems.extend(errors)
+        if not raw['외국인'] and not raw['기관']:
+            break
+        if len(raw['외국인']) >= 25 and len(raw['기관']) >= 25:
+            return raw, day.isoformat(), 'KRX NETBID_TRDVAL (원)', problems
+    raw, errors = _naver_fallback()
+    problems.extend(errors)
+    if raw['외국인'] or raw['기관']:
+        return raw, None, 'NAVER 비공식 금액 순위 (단위 명시 행만)', problems
+    return {'외국인':{}, '기관':{}}, None, '금액 원자료 없음', problems
 
 
-def _attach(df, count, extra_codes=()):
-    selected = df.head(count)
-    codes = list(selected['ticker'].astype(str).str.zfill(6))
-    for code in extra_codes:
-        code = str(code).zfill(6)
-        if code not in codes:
-            codes.append(code)
-    records, errors = _investors(tuple(codes))
-    by_code = {code: history[0] for code, history in records.items() if history}
-    enriched = df.copy()
-    enriched['수급 기준일'] = enriched['ticker'].astype(str).str.zfill(6).map(
-        lambda code: (by_code.get(code) or {}).get('date'))
-    enriched['외국인 순매수(주)'] = enriched['ticker'].astype(str).str.zfill(6).map(
-        lambda code: (by_code.get(code) or {}).get('foreign_net_shares'))
-    enriched['기관 순매수(주)'] = enriched['ticker'].astype(str).str.zfill(6).map(
-        lambda code: (by_code.get(code) or {}).get('institution_net_shares'))
-    return enriched, records, errors
+def _ranked():
+    obj = _read()
+    if not obj:
+        return None
+    df = pd.DataFrame(obj.get('top200') or [])
+    expected = {'ticker','name','market','close','traded_krw'}
+    if df.empty or not expected.issubset(df.columns):
+        st.error('TOP200 데이터 열이 누락되었습니다.')
+        return None
+    df = df.sort_values('traded_krw', ascending=False, kind='stable').reset_index(drop=True)
+    df.insert(0, '순위', range(1, len(df)+1))
+    return df
 
 
-def _flow_message(records, errors, count):
-    if records:
-        dates = sorted({history[0]['date'] for history in records.values() if history}, reverse=True)
-        st.success(f'수급 조회 {len(records)}/{count}종목 · 자료 날짜: {", ".join(dates[:4])} · 단위: 주식 수량(주)')
+def _with_amounts(frame, amounts):
+    df = frame.copy()
+    codes = df['ticker'].astype(str).str.zfill(6)
+    for investor, column in [('외국인','외국인 순매수(억)'),('기관','기관 순매수(억)')]:
+        df[column] = pd.to_numeric(codes.map(amounts[investor]), errors='coerce') / 100_000_000
+    df['수급 합계(억)'] = df[['외국인 순매수(억)','기관 순매수(억)']].sum(axis=1, min_count=2)
+    df['거래대금(억)'] = pd.to_numeric(df['traded_krw'], errors='coerce') / 100_000_000
+    df['수급 강도(%)'] = df['수급 합계(억)'] / df['거래대금(억)'].replace(0, float('nan')) * 100
+    for c in ['거래대금(억)','외국인 순매수(억)','기관 순매수(억)','수급 합계(억)','수급 강도(%)']:
+        df[c] = df[c].round(2)
+    return df
+
+
+def _present_source(source, date, amounts, errors):
+    foreign, inst = len(amounts['외국인']), len(amounts['기관'])
+    if foreign or inst:
+        st.success(f'금액 원자료: {source} | 외국인 {foreign}종목 · 기관 {inst}종목 | 수급 기준일: {date or "응답 내 검증 불가"}')
     else:
-        st.error('네이버 종목별 순매수 자료를 가져오지 못했습니다. 기존 거래대금 목록은 그대로 유지됩니다.')
-    if errors:
-        with st.expander(f'종목별 조회 실패 {len(errors)}건'):
-            for error in errors[:50]:
-                st.text(error)
-    st.caption('외국인·기관 순매수 수량은 거래대금이 아니며, 수량×종가를 실제 순매수 금액으로 간주하지 않습니다. '
-               '네이버의 비공식 웹 응답으로, 공인된 KRX 확정 자료나 실시간 API로 보장되지 않습니다.')
+        st.error('외국인·기관 순매수 **금액** 수집에 실패했습니다. 자료를 추정하지 않고 빈칸으로 유지합니다.')
+    with st.expander(f'금액 수집 진단 로그 ({len(errors)}건)'):
+        for x in errors[-28:]:
+            st.text(x)
+    st.caption('금액은 수량×종가로 추정하지 않습니다. TOP200과 수급의 기준일이 같지 않으면 수급강도(%)는 숨깁니다.')
 
 
 def cashflow():
-    st.title('💸 자금 흐름 | 외국인·기관 종목별 순매수')
-    obj = _read()
-    if obj is None:
+    st.title('💸 자금 흐름 | 외국인·기관 순매수 **금액**')
+    frame = _ranked()
+    if frame is None:
         return
-    raw = pd.DataFrame(obj.get('top200') or [])
-    if raw.empty:
-        st.warning('TOP 200 원자료가 없습니다.')
-        return
-    st.info('시장 전체의 순매수 금액은 아직 연결되지 않았습니다. 아래는 일부 상위 거래대금 종목의 순매수 수량(주)입니다.')
-    count = st.select_slider('수급을 조회할 거래대금 상위 종목 수', options=[10, 20, 50, 100, 200], value=20, key='cashflow_count')
-    raw = raw.sort_values('traded_krw', ascending=False).reset_index(drop=True)
-    with st.spinner('종목별 외국인·기관 수급 수량 조회 중…'):
-        frame, histories, errors = _attach(raw, count)
-    _flow_message(histories, errors, count)
-    frame = frame.iloc[:count].dropna(subset=['외국인 순매수(주)', '기관 순매수(주)'], how='all').copy()
-    if frame.empty:
-        return
-    frame['종목'] = frame['name']
-    st.dataframe(frame[['종목', 'ticker', '수급 기준일', '외국인 순매수(주)', '기관 순매수(주)']],
-                 hide_index=True, use_container_width=True)
-    dates = frame['수급 기준일'].dropna().value_counts()
-    if dates.empty:
-        return
-    dominant_date = dates.index[0]
-    same = frame[frame['수급 기준일'] == dominant_date]
-    st.subheader(f'외국인·기관 종목별 순매수 수량 비교 · {dominant_date}')
-    chart = go.Figure()
-    for key, label in [('외국인 순매수(주)', '외국인'), ('기관 순매수(주)', '기관')]:
-        chart.add_trace(go.Bar(x=same['종목'], y=same[key], name=label))
-    chart.update_layout(barmode='group', height=360, yaxis_title='순매수 (주)', margin=dict(l=10,r=10,t=35,b=60))
-    st.plotly_chart(chart, use_container_width=True)
-    st.caption('각 종목의 수급 날짜가 다르면 가장 많이 관측된 날짜만 차트에 포함합니다. 서로 다른 종목의 주식 수량을 합쳐 시장 총수급으로 표시하지 않습니다.')
+    with st.spinner('외국인·기관 순매수 거래대금 원자료 확인…'):
+        amounts, date, source, errors = _market_amounts()
+    _present_source(source, date, amounts, errors)
+    df = _with_amounts(frame, amounts)
+    if not date or date != json.loads(FILE.read_text(encoding='utf-8')).get('date'):
+        df['수급 강도(%)'] = float('nan')
+    options = ['전체','KOSPI','KOSDAQ']
+    market = st.selectbox('시장', options, key='flow_market')
+    if market != '전체':
+        df = df[df['market'] == market]
+    count = st.select_slider('표시할 종목 수', options=[20,50,100,200], value=50, key='flow_money_count')
+    df = df.head(count)
+    columns = ['순위','name','ticker','외국인 순매수(억)','기관 순매수(억)','수급 합계(억)','수급 강도(%)']
+    st.dataframe(df[columns], hide_index=True, use_container_width=True,
+                 column_config={'name':'종목명','ticker':'코드'})
+    paired = df.dropna(subset=['외국인 순매수(억)','기관 순매수(억)'])
+    if not paired.empty:
+        top = paired.assign(abs_sum=paired['수급 합계(억)'].abs()).nlargest(20,'abs_sum')
+        fig = go.Figure()
+        fig.add_bar(x=top['name'], y=top['외국인 순매수(억)'], name='외국인')
+        fig.add_bar(x=top['name'], y=top['기관 순매수(억)'], name='기관')
+        fig.update_layout(barmode='relative', yaxis_title='억원', height=380)
+        st.plotly_chart(fig, use_container_width=True)
 
 
 def top200():
-    st.title('📊 거래대금 TOP 200 | 국내 주식')
-    obj = _read()
-    if obj is None:
+    st.title('📊 거래대금 TOP 200 | 외국인·기관 순매수 금액')
+    frame = _ranked()
+    if frame is None:
         return
-    frame = pd.DataFrame(obj.get('top200') or [])
-    if frame.empty:
-        st.warning('TOP 200 거래대금 데이터가 없습니다.')
-        return
-    frame = frame.sort_values('traded_krw', ascending=False, kind='stable').reset_index(drop=True)
-    frame.insert(0, '순위', range(1, len(frame) + 1))
-    st.caption('아래 수급 컬럼은 비공식 네이버 자료의 순매수 수량(주)입니다. 실제 순매수 금액(원)은 아직 미연동입니다.')
-    limit = st.select_slider('외국인·기관 수급 조회 범위 (전체 거래대금 순위 기준)',
-                             options=[10,20,50,100,200], value=20, key='top_flow_count')
+    with st.spinner('금액 원자료 확인…'):
+        amounts, date, source, errors = _market_amounts()
+    _present_source(source, date, amounts, errors)
+    frame = _with_amounts(frame, amounts)
+    if not date or date != json.loads(FILE.read_text(encoding='utf-8')).get('date'):
+        frame['수급 강도(%)'] = float('nan')
     market = st.selectbox('시장', ['전체','KOSPI','KOSDAQ'])
-    term = st.text_input('종목명 / 종목코드 검색', '').strip()
-    match = frame
     if market != '전체':
-        match = match[match['market'] == market].copy()
-    if term:
-        match = match[match['name'].str.contains(term, case=False, regex=False, na=False) |
-                      match['ticker'].astype(str).str.contains(term, regex=False, na=False)].copy()
-    extras = tuple(match['ticker'].astype(str).tolist()[:10]) if term else ()
-    with st.spinner('외국인·기관 수급 수량 조회 중…'):
-        frame, histories, errors = _attach(frame, limit, extras)
-    _flow_message(histories, errors, min(200, limit + len(extras)))
-    if market != '전체':
-        frame = frame[frame['market'] == market].copy()
+        frame = frame[frame['market'] == market]
+    term = st.text_input('종목명/종목코드 검색', '').strip()
     if term:
         frame = frame[frame['name'].str.contains(term, case=False, regex=False, na=False) |
-                      frame['ticker'].astype(str).str.contains(term, regex=False, na=False)].copy()
-    frame['거래대금(억)'] = (pd.to_numeric(frame['traded_krw'], errors='coerce') / 1e8).round(1)
-    cols = ['순위', 'name', 'ticker', 'market', 'close', '거래대금(억)',
-            '수급 기준일', '외국인 순매수(주)', '기관 순매수(주)']
-    st.dataframe(frame[cols], use_container_width=True, hide_index=True,
+                      frame['ticker'].astype(str).str.contains(term, regex=False, na=False)]
+    columns = ['순위','name','ticker','market','close','거래대금(억)',
+               '외국인 순매수(억)','기관 순매수(억)','수급 합계(억)','수급 강도(%)']
+    st.dataframe(frame[columns], use_container_width=True, hide_index=True,
                  column_config={'name':'종목명','ticker':'종목코드','market':'시장','close':'종가'})
-    st.caption('검색해도 원래 전체 TOP 200 순위가 유지됩니다. 순매수 수량이 비어 있는 종목은 수급을 조회하지 못했거나 조회 범위 밖입니다.')
-    st.download_button('TOP 200 CSV 저장', frame[cols].to_csv(index=False).encode('utf-8-sig'),
-                       'kr_top200_with_investor_shares.csv', 'text/csv')
+    st.caption('순위는 원래 TOP200 전체 거래대금 순위입니다. 수급자료가 없으면 금액이 비어 있습니다.')
+    st.download_button('TOP200 금액 수급 CSV 저장', frame[columns].to_csv(index=False).encode('utf-8-sig'),
+                       'miner_flow_top200_krw.csv', 'text/csv')
