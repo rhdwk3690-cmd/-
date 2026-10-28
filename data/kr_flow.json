@@ -1,0 +1,30 @@
+{
+  "collected_at_kst": "2026-10-28T21:45:29.586612+09:00",
+  "status": "unavailable",
+  "source": "pykrx / KRX-derived public data (best effort)",
+  "date": null,
+  "top200": [],
+  "market_flows": {},
+  "errors": [
+    "20261028 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261028 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261027 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261027 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261026 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261026 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261025 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261025 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261024 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261024 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261023 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261023 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261022 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261022 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261021 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261021 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261020 KOSPI 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "20261020 KOSDAQ 거래대금 조회 실패: KeyError: \"None of [Index(['시가', '고가', '저가', '종가'], dtype='object')] are in the [columns]\"",
+    "RuntimeError: 유효한 KOSPI/KOSDAQ 종목별 거래대금 자료를 확보하지 못했습니다."
+  ],
+  "notice": "종가 기준 확정 데이터만 제공. 장중 실시간 수급이 아닙니다. KRX 제공 정책 변경 시 실패할 수 있습니다."
+}
