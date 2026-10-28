@@ -8,7 +8,7 @@ from scripts.snapshot_panel import show_cloud_snapshot
 
 st.title('⛏️ 광부 투자터미널 · 종합상황판')
 st.caption('클라우드 수집 종가 스냅샷과 Yahoo 차트 조회 | 실시간 시세가 아닙니다')
-show_cloud_snapshot()
+
 st.divider()
 st.subheader('시장 상세 조회 · Yahoo Finance')
 MARKETS = {'코스피':'^KS11','코스닥':'^KQ11','S&P500':'^GSPC','나스닥':'^IXIC','원/달러':'KRW=X','미국 10년 국채 수익률':'^TNX','VIX':'^VIX','WTI 선물':'CL=F','Brent 선물':'BZ=F'}
@@ -82,3 +82,8 @@ with d:
             st.info('외국인·기관 순매수 오실레이터와 TOP 200 수급은 별도 한국거래소 데이터 연결이 필요합니다. 가격/거래량으로 순매수를 추정하지 않습니다.')
         except Exception as e:st.error(f'종목 조회 실패: {e}')
 st.caption('연구용. 자동 조회 제공 여부와 시차는 데이터 공급원 상황에 따라 달라질 수 있습니다.')
+
+st.divider()
+
+with st.expander("📡 클라우드 데이터 수집 현황", expanded=False):
+    show_cloud_snapshot()
