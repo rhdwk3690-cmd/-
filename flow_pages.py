@@ -99,7 +99,7 @@ def _fetch_one(code):
 @st.cache_data(ttl=1800, show_spinner=False)
 def _investors(codes):
     records, errors = {}, []
-    codes = tuple(dict.fromkeys(str(code).zfill(6) for code in codes))[:50]
+    codes = tuple(dict.fromkeys(str(code).zfill(6) for code in codes))[:200]
     with ThreadPoolExecutor(max_workers=3) as pool:
         jobs = {pool.submit(_fetch_one, code): code for code in codes}
         for job in as_completed(jobs):
@@ -154,7 +154,7 @@ def cashflow():
         st.warning('TOP 200 원자료가 없습니다.')
         return
     st.info('시장 전체의 순매수 금액은 아직 연결되지 않았습니다. 아래는 일부 상위 거래대금 종목의 순매수 수량(주)입니다.')
-    count = st.select_slider('수급을 조회할 거래대금 상위 종목 수', options=[10, 20, 30, 50], value=20, key='cashflow_count')
+    count = st.select_slider('수급을 조회할 거래대금 상위 종목 수', options=[10, 20, 50, 100, 200], value=20, key='cashflow_count')
     raw = raw.sort_values('traded_krw', ascending=False).reset_index(drop=True)
     with st.spinner('종목별 외국인·기관 수급 수량 조회 중…'):
         frame, histories, errors = _attach(raw, count)
@@ -192,7 +192,7 @@ def top200():
     frame.insert(0, '순위', range(1, len(frame) + 1))
     st.caption('아래 수급 컬럼은 비공식 네이버 자료의 순매수 수량(주)입니다. 실제 순매수 금액(원)은 아직 미연동입니다.')
     limit = st.select_slider('외국인·기관 수급 조회 범위 (전체 거래대금 순위 기준)',
-                             options=[10,20,30,50], value=20, key='top_flow_count')
+                             options=[10,20,50,100,200], value=20, key='top_flow_count')
     market = st.selectbox('시장', ['전체','KOSPI','KOSDAQ'])
     term = st.text_input('종목명 / 종목코드 검색', '').strip()
     match = frame
@@ -204,7 +204,7 @@ def top200():
     extras = tuple(match['ticker'].astype(str).tolist()[:10]) if term else ()
     with st.spinner('외국인·기관 수급 수량 조회 중…'):
         frame, histories, errors = _attach(frame, limit, extras)
-    _flow_message(histories, errors, min(50, limit + len(extras)))
+    _flow_message(histories, errors, min(200, limit + len(extras)))
     if market != '전체':
         frame = frame[frame['market'] == market].copy()
     if term:
