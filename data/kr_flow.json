@@ -1,8 +1,9 @@
 {
-  "collected_at_kst": "2026-10-28T21:53:16.264111+09:00",
+  "collected_at_kst": "2026-10-28T21:58:52.036828+09:00",
   "status": "partial",
-  "source": "FinanceDataReader KRX-MARCAP (unverified trading date)",
+  "source": "FinanceDataReader KRX-MARCAP (public aggregator)",
   "date": null,
+  "date_quality": "unverified",
   "top200": [
     {
       "ticker": "000660",
@@ -1807,8 +1808,13 @@
   ],
   "market_flows": {},
   "errors": [
-    "KRX_API_KEY not configured; official market close feed unavailable.",
-    "FinanceDataReader response does not reliably identify trading date; date deliberately blank."
+    "KRX_API_KEY not configured; official API feed not used",
+    "005930: historical Close/Amount unavailable",
+    "000660: historical Close/Amount unavailable",
+    "005380: historical Close/Amount unavailable",
+    "068270: historical Close/Amount unavailable",
+    "035420: historical Close/Amount unavailable",
+    "Trading date unverified: fewer than 2 same-day Close+Amount matches or ambiguous dates"
   ],
-  "notice": "외국인·기관 수급 미제공. 거래대금 순위는 실시간이 아니며 수집일과 시세 기준일이 다를 수 있습니다."
+  "notice": "EOD trading-value snapshot; NOT live. Investor net purchases unavailable. Collection time is not trade date."
 }
