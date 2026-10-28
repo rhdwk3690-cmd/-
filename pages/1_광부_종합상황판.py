@@ -150,6 +150,3 @@ st.caption('연구용. 자동 조회 제공 여부와 시차는 데이터 공급
 st.divider()
 with st.expander('📡 클라우드 데이터 수집 현황',expanded=False):
     show_cloud_snapshot()
-
-with st.expander("📡 클라우드 데이터 수집 현황", expanded=False):
-    show_cloud_snapshot()
