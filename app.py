@@ -140,6 +140,7 @@ def research():
         st.download_button('CSV 다운로드',test.to_csv(index_label='Date').encode('utf-8-sig'),f'{market}_research.csv','text/csv')
     st.warning('연구용 가상 백테스트입니다. 다음 거래일 수익률 반영, 종가 체결 단순화; 세금·시장충격·슬리피지 미반영. 실전 결과를 보장하지 않습니다.')
 
+from flow_pages import cashflow as cashflow, top200 as top200
 pages=[
     st.Page('pages/1_광부_종합상황판.py',title='종합 상황판',icon='🌎',default=True),
     st.Page(cashflow,title='자금 흐름',icon='💸'),
