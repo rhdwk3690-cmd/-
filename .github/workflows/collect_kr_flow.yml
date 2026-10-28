@@ -2,7 +2,6 @@ name: Collect KR flows (EOD)
 on:
   workflow_dispatch:
   schedule:
-    # 18:37 KST Mon-Fri (09:37 UTC), after typical final investor figures publication
     - cron: '37 9 * * 1-5'
 permissions:
   contents: write
@@ -19,15 +18,20 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install data dependencies
-        run: python -m pip install --disable-pip-version-check 'pykrx>=1.0.45' pandas requests
-      - name: Collect EOD market flow
+        run: python -m pip install --disable-pip-version-check pandas requests finance-datareader
+      - name: Collect EOD market ranking
+        env:
+          KRX_API_KEY: ${{ secrets.KRX_API_KEY }}
         run: python scripts/collect_kr_flow.py
-      - name: Commit EOD snapshot
+      - name: Commit EOD data when changed
+        if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/kr_flow.json
-          if ! git diff --cached --quiet; then
-            git commit -m 'data: refresh KR end-of-day flow'
-            git push
+          if [ -f data/kr_flow.json ]; then
+            git add data/kr_flow.json
+            if ! git diff --cached --quiet; then
+              git commit -m 'data: refresh KR ranking diagnostic'
+              git push
+            fi
           fi
