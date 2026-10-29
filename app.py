@@ -387,6 +387,35 @@ def market_signal():
     .miner-detail-note{background:#112334;border-left:3px solid #4daaba;border-radius:7px;color:#c5d8e7;padding:11px 14px;font-size:13px;margin:7px 0}
     </style>''', unsafe_allow_html=True)
 
+    
+    # 핵심 근거 요약 6개 버튼 - 실제 Streamlit 버튼 직접 지정
+    st.markdown("""
+    <style>
+    .stApp.stApp.stApp.stApp
+    [data-testid="stHorizontalBlock"] button {
+        background: #15293a !important;
+        border: 1px solid #35536a !important;
+        color: #f0f7ff !important;
+        -webkit-text-fill-color: #f0f7ff !important;
+        border-radius: 14px !important;
+    }
+
+    .stApp.stApp.stApp.stApp
+    [data-testid="stHorizontalBlock"] button * {
+        color: #f0f7ff !important;
+        -webkit-text-fill-color: #f0f7ff !important;
+        opacity: 1 !important;
+    }
+
+    .stApp.stApp.stApp.stApp
+    [data-testid="stHorizontalBlock"] button:hover {
+        background: #233f53 !important;
+        border-color: #70cbe0 !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    
     if 'miner_signal_view' not in st.session_state:
         st.session_state.miner_signal_view = '종합'
     view = st.session_state.miner_signal_view
