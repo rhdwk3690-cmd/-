@@ -545,3 +545,20 @@ pages=[
 ]
 nav=st.navigation(pages,position='sidebar',expanded=True)
 nav.run()
+
+
+# 시장 신호판 흰색 버튼 글씨 가독성 수정
+st.markdown("""
+<style>
+.stApp [class*="st-key-miner_signal_refresh"] button,
+.stApp [class*="st-key-miner_signal_refresh"] button *,
+.stApp [class*="st-key-miner_signal_back"] button,
+.stApp [class*="st-key-miner_signal_back"] button * {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+}
+</style>
+""", unsafe_allow_html=True)
+  
