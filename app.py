@@ -140,7 +140,7 @@ def research():
         st.download_button('CSV 다운로드',test.to_csv(index_label='Date').encode('utf-8-sig'),f'{market}_research.csv','text/csv')
     st.warning('연구용 가상 백테스트입니다. 다음 거래일 수익률 반영, 종가 체결 단순화; 세금·시장충격·슬리피지 미반영. 실전 결과를 보장하지 않습니다.')
 
-# ── MARKET SIGNAL V2: 독립 홈 화면 ─────────────────────────────────────────
+# ── MARKET SIGNAL: 독립 홈 화면 ─────────────────────────────────────────
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from html import escape
@@ -290,178 +290,247 @@ def signal_data_card(name, item):
 
 def market_signal():
     st.markdown('''<style>
-      .miner-head{padding:24px 26px;border-radius:17px;background:linear-gradient(118deg,#102e38,#17283b 58%,#10202e);border:1px solid #294658;color:#f4f8fc;margin-bottom:14px}
-      .miner-eyebrow{font-size:12px;letter-spacing:1.9px;color:#81bbc3;font-weight:800}
-      .miner-headline{font-size:31px;font-weight:900;margin:6px 0}
-      .miner-description{color:#acbfcd;font-size:14px}
-      .miner-index-card{color:#f4f8fc;background:linear-gradient(145deg,#152938,#101c2b);padding:19px 22px;border-radius:15px;border:1px solid #2f485b;min-height:177px}
-      .miner-label{font-size:14px;color:#9bb5c7;font-weight:750}
-      .miner-number{font-weight:850;font-size:29px;margin:9px 0 3px}
-      .miner-sub{font-size:12px;color:#a7b9c8;margin-top:4px}
-      .miner-score{color:#f5f8fa;background:#132332;border:1px solid #315063;border-radius:15px;padding:19px 22px}
-      .miner-score-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-      .miner-strip{height:18px;display:flex;gap:3px;overflow:hidden;border-radius:10px;background:#0d1623}
-      .miner-strip span{flex:1}
-      .miner-range{display:flex;justify-content:space-between;font-size:12px;color:#afc2d1;margin-top:7px}
-      .miner-note{border-left:3px solid #59b7bf;padding:9px 15px;background:#112431;border-radius:6px;color:#c7dae8;font-size:14px}
+    /* 시장 신호 화면에만 적용되는 검정색 터미널 스타일 */
+    .stApp{background:#080e16!important;color:#e9f0f8!important}
+    .stApp [data-testid="stSidebar"]{background:#0d1521!important;border-right:1px solid #253346!important}
+    .stApp [data-testid="stSidebar"] a,
+    .stApp [data-testid="stSidebar"] span,
+    .stApp [data-testid="stSidebar"] p{color:#e1eaf4!important}
+    .stApp [data-testid="stHeader"]{background:rgba(8,14,22,.96)!important}
+    .stApp [data-testid="stMarkdownContainer"] h1,
+    .stApp [data-testid="stMarkdownContainer"] h2,
+    .stApp [data-testid="stMarkdownContainer"] h3,
+    .stApp [data-testid="stMarkdownContainer"] h4{color:#edf5ff!important}
+    .stApp [data-testid="stMarkdownContainer"] p,
+    .stApp [data-testid="stMarkdownContainer"] li{color:#cbd8e7}
+    .stApp [data-testid="stCaptionContainer"]{color:#92a9c3!important}
+    .stApp [data-testid="stMetric"]{background:#121f2e!important;border:1px solid #2b4055!important;border-radius:12px}
+    .stApp [data-testid="stMetric"] *{color:#f2f7fb!important}
+    .stApp [data-testid="stInfo"]{background:#132438}
+    .stApp div[data-testid="stHorizontalBlock"] div[data-testid="column"] div.stButton button {
+       background:linear-gradient(138deg,#152334,#101a29)!important;
+       border:1px solid #35495d!important;border-radius:14px!important;
+       color:#eef5fb!important;width:100%;min-height:122px;
+       white-space:pre-line;text-align:left!important;
+       justify-content:flex-start!important;line-height:1.55;padding:17px 22px!important;
+       box-shadow:0 2px 12px #0000001e;transition:all .16s ease;
+    }
+    .stApp div[data-testid="stHorizontalBlock"] div[data-testid="column"] div.stButton button:hover {
+       background:#20364a!important;border-color:#6aaec6!important;
+       transform:translateY(-2px);box-shadow:0 8px 22px #0004;
+    }
+    .stApp div[data-testid="stHorizontalBlock"] div[data-testid="column"] div.stButton button p{color:#eef5fb!important}
+    .miner-hero{background:linear-gradient(112deg,#0d2538,#121c2e 68%,#0b1624);border:1px solid #2c4a61;border-radius:17px;padding:21px 25px;color:#f0f7fb;margin-bottom:10px}
+    .miner-eyebrow{font-size:11px;letter-spacing:2px;color:#8cd5e0;font-weight:800}
+    .miner-hero-title{font-size:27px;line-height:1.25;font-weight:900;margin:8px 0}
+    .miner-sub{font-size:12px;color:#a5b9c9}
+    .miner-index{background:linear-gradient(145deg,#152636,#0f1a29);border:1px solid #344b5c;border-radius:13px;padding:17px 20px;min-height:151px;color:#f4f7fb}
+    .miner-index-title{color:#a4bfce;font-size:13px;font-weight:800}
+    .miner-index-price{font-size:27px;font-weight:850;margin:8px 0}
+    .miner-gauge{background:#121e2b;border:1px solid #324456;border-radius:14px;padding:18px 22px;color:white;margin:8px 0 10px}
+    .miner-segments{display:flex;gap:3px;height:16px;border-radius:10px;overflow:hidden;margin-top:17px}
+    .miner-segments span{flex:1}
+    .miner-zones{display:flex;justify-content:space-between;color:#9aafc4;font-size:11px;margin-top:7px}
+    .miner-detail-note{background:#112334;border-left:3px solid #4daaba;border-radius:7px;color:#c5d8e7;padding:11px 14px;font-size:13px;margin:7px 0}
     </style>''', unsafe_allow_html=True)
-    st.markdown('''<div class='miner-head'>
-      <div class='miner-eyebrow'>⛏ MINER'S TERMINAL · MARKET SIGNAL V2</div>
-      <div class='miner-headline'>지금 시장은 어디에 있는가?</div>
-      <div class='miner-description'>3초 요약으로 시장의 방향을 보고, 아래에서 수급·추세·매도 압력의 근거를 확인합니다.</div>
+
+    if 'miner_signal_view' not in st.session_state:
+        st.session_state.miner_signal_view = '종합'
+    view = st.session_state.miner_signal_view
+    st.markdown('''<div class="miner-hero">
+       <div class="miner-eyebrow">⛏ MINER'S TERMINAL · MARKET SIGNAL V3.1</div>
+       <div class="miner-hero-title">지금 시장은 어디에 있는가?</div>
+       <div class="miner-sub">검정색 시장 신호판 · 요약 카드를 눌러 상세 분석으로 이동</div>
     </div>''', unsafe_allow_html=True)
-
-    header1, header2 = st.columns([3, 1])
-    with header1:
-        st.caption('Yahoo Finance 지수 일봉 · 장중 값 변동 가능 · 한국시간 기준 · 자동 갱신 15분')
-    with header2:
-        if st.button('🔄 데이터 다시 조회', key='signal_v2_reload', use_container_width=True):
-            load_signal_data.clear()
+    if view == '종합':
+        st.caption('KOSPI·KOSDAQ · Yahoo Finance 일봉(지연 가능) · 종가 확정 전 수치 변동 가능 · 캐시 15분')
+    else:
+        if st.button('←  시장 신호 종합으로 돌아가기', key='miner_signal_back'):
+            st.session_state.miner_signal_view = '종합'
             st.rerun()
+        st.caption('상세 분석 · Yahoo Finance 일봉 · 연구용 자체 계산')
 
-    datasets, states, issues = {}, {}, {}
-    with st.spinner('지수 가격과 추세를 조회하고 있습니다...'):
+    if st.button('🔄 시장 신호 데이터 새로 조회', key='miner_signal_refresh'):
+        load_signal_data.clear()
+        st.rerun()
+
+    datasets, states, errors = {}, {}, {}
+    with st.spinner('코스피·코스닥 가격 데이터를 불러오는 중...'):
         for name, ticker in SIGNAL_TICKERS.items():
             try:
                 datasets[name] = load_signal_data(ticker)
                 states[name] = signal_snapshot(datasets[name])
             except Exception as exc:
-                issues[name] = str(exc)
-    for name, issue in issues.items():
-        st.warning(f'{name} 조회 실패: {issue}')
+                errors[name] = str(exc)
+    for name, msg in errors.items():
+        st.warning(f'{name}: 조회 실패 — {msg}')
 
-    st.subheader('🚦 코스피·코스닥 시장 신호')
-    a, b = st.columns(2)
-    with a:
-        st.markdown(signal_data_card('KOSPI', states.get('KOSPI')), unsafe_allow_html=True)
-    with b:
-        st.markdown(signal_data_card('KOSDAQ', states.get('KOSDAQ')), unsafe_allow_html=True)
+    if view == '종합':
+        # 1) 스탁이지 참고: 지수 상태 2개 → 게이지 → 6개 클릭 가능한 요약 카드
+        st.markdown('#### 🚦 코스피·코스닥 신호')
+        cols = st.columns(2, gap='small')
+        for name, col in zip(SIGNAL_TICKERS, cols):
+            with col:
+                s = states.get(name)
+                if s is None:
+                    st.markdown(f'<div class="miner-index"><b>{name}</b><p>데이터 조회 대기</p></div>', unsafe_allow_html=True)
+                    continue
+                move = '#6ce4b2' if s['pct'] >= 0 else '#ff8e92'
+                short, long = s['short'], s['long']
+                st.markdown(
+                    '<div class="miner-index">'
+                    f'<div class="miner-index-title">{name} &nbsp; <span style="float:right">{s["date"]:%Y-%m-%d}</span></div>'
+                    f'<div class="miner-index-price">{s["close"]:,.2f} <span style="font-size:15px;color:{move}">{s["pct"]:+.2f}%</span></div>'
+                    f'<div style="font-size:14px">단기 <b style="color:{short[1]}">{short[0]}</b>'
+                    f' &nbsp; | &nbsp; 장기 <b style="color:{long[1]}">{long[0]}</b></div>'
+                    f'<div class="miner-sub" style="margin-top:10px">MA20 {s["ma20"]:,.0f} · MA200 {s["ma200"]:,.0f}</div>'
+                    '</div>', unsafe_allow_html=True)
 
-    st.subheader('🌡️ 시장 추세 게이지')
-    if len(states) == 2:
-        score = int(round(100 * sum(sum(map(int, item['flags'])) for item in states.values()) / 8))
-        buckets = [(20, '위험', '#ef7777'), (40, '방어', '#e2a05b'),
-                   (60, '중립', '#f1cf73'), (80, '양호', '#82d8ad'),
-                   (100, '강세', '#58e0ae')]
-        zone = next(z for threshold, z, _ in buckets if score <= threshold)
-        pointer = max(1.5, min(98.5, float(score)))
-        bars = ''.join(
-            f"<span style='background:{color}'></span>"
-            for _, _, color in buckets
-        )
-        st.markdown(f"""<div class='miner-score'>
-           <div class='miner-score-top'>
-             <div><div style='font-size:13px;color:#adc5d2'>단순 가격 추세 조건 8개 종합</div>
-                  <div style='font-size:24px;font-weight:900'>{zone} 구간</div></div>
-             <div style='font-size:33px;font-weight:900'>{score}
-               <span style='font-size:13px;color:#9db4c5'> / 100</span></div>
-           </div>
-           <div style='position:relative;padding-top:20px;margin-top:12px'>
-             <div style='position:absolute;top:0;left:{pointer}%;transform:translateX(-50%);font-size:16px'>▼</div>
-             <div class='miner-strip'>{bars}</div>
-             <div class='miner-range'><span>위험</span><span>방어</span><span>중립</span><span>양호</span><span>강세</span></div>
-           </div>
-           <div class='miner-sub' style='margin-top:16px'>코스피·코스닥 이동평균 조건 각 4개를 동일 가중치로 산출한 연구용 지수. 위험 선호도 설문이나 추천 주식 비중이 아닙니다.</div>
-         </div>""", unsafe_allow_html=True)
-        last_dates = [item['date'] for item in states.values()]
-        if len(set(last_dates)) > 1:
-            st.warning('KOSPI와 KOSDAQ의 최종 데이터 기준일이 다릅니다. 비교에 주의하세요.')
-        optimistic = sum(item['short'][0] == '양호' for item in states.values())
-        if optimistic == 2:
-            explanation = '두 지수의 단기 추세가 모두 양호합니다. 장기 신호와 거래량 신호를 함께 확인하세요.'
-        elif optimistic == 0:
-            explanation = '두 지수 모두 단기 추세가 확실히 양호한 상태는 아닙니다. 무리한 추세 추종에는 주의가 필요합니다.'
+        st.markdown('#### 🌡️ 지금 여긴 · 시장 추세 게이지')
+        if len(states) == 2:
+            fulfilled = sum(sum(bool(x) for x in s['flags']) for s in states.values())
+            score = round(100 * fulfilled / 8)
+            zone = ('위험' if score <= 20 else '방어' if score <= 40 else
+                    '중립' if score <= 60 else '양호' if score <= 80 else '강세')
+            bars = [('위험','#b9484c'),('방어','#db9a55'),('중립','#e4c669'),('양호','#78b68f'),('강세','#279768')]
+            segments = ''.join(f'<span style="background:{c}"></span>' for _,c in bars)
+            pct = min(max(float(score), 1.5), 98.5)
+            st.markdown(f'''<div class="miner-gauge">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:14px">
+                  <div><div class="miner-sub">지수 이동평균 추세 조건 8개 종합</div>
+                  <div style="font-size:25px;font-weight:900">{zone} 구간</div></div>
+                  <div style="font-size:32px;font-weight:900">{score}<span style="font-size:14px;color:#a1b6c7"> / 100</span></div>
+                </div>
+                <div style="position:relative;padding-top:19px">
+                  <div style="position:absolute;top:0;left:{pct}%;transform:translateX(-50%);font-size:16px">▼</div>
+                  <div class="miner-segments">{segments}</div>
+                  <div class="miner-zones">{''.join(f'<span>{k}</span>' for k,_ in bars)}</div>
+                </div><div class="miner-sub" style="margin-top:10px">가격 추세 참고 점수 · 주식 권장 비중이 아닙니다</div>
+            </div>''', unsafe_allow_html=True)
+            if len({s['date'] for s in states.values()}) != 1:
+                st.warning('두 지수의 데이터 기준일이 서로 달라 종합 점수 해석에 주의가 필요합니다.')
         else:
-            explanation = '두 지수의 단기 추세가 엇갈립니다. 시장 전체 강세로 단정하기보다 지수별 차이를 확인하세요.'
-        st.markdown(f"<div class='miner-note'><b>오늘의 추세 해석</b> · {escape(explanation)}</div>", unsafe_allow_html=True)
-    else:
-        st.info('두 지수 데이터가 모두 확보돼야 추세 점수를 표시합니다. 확인되지 않은 점수는 만들지 않습니다.')
+            st.info('두 지수의 가격 자료가 모두 확보될 때만 시장 점수를 표시합니다.')
 
-    st.subheader('📊 시장 체력 · 지수 모멘텀')
-    metric_names = [('return20', '최근 20거래일', '%'),
-                    ('return60', '최근 60거래일', '%'),
-                    ('drawdown52', '52주 최고치 대비', '%'),
-                    ('rsi', 'RSI (14일)', '')]
-    for name in SIGNAL_TICKERS:
-        if name not in states:
-            continue
-        s = states[name]
-        st.markdown(f'**{name}**')
-        cols = st.columns(4)
-        for col, (key, label, unit) in zip(cols, metric_names):
-            val = s[key]
-            if pd.isna(val):
-                col.metric(label, '계산 불가')
-            elif key == 'rsi':
-                col.metric(label, f'{val:.1f}')
-            else:
-                col.metric(label, f'{val:+.1f}{unit}')
-    st.caption('이 수치는 지수 가격 기반 지표입니다. 개별 종목의 20·200일선 상회 비율이나 ADR을 뜻하지 않습니다.')
+        def dd_summary(name):
+            if name not in datasets:
+                return '조회 대기'
+            days = dd_days(datasets[name])
+            return f'{len(days)}일' if days is not None else '거래량 자료 부족'
 
-    st.subheader('🔻 매도 압력 · 🔺 반등 확인')
-    col_dd, col_ftd = st.columns(2)
-    for market, df in datasets.items():
-        with col_dd:
-            dd = dd_days(df)
-            if dd is None:
-                st.info(f'{market} · DD: 지수 거래량 유효 자료 부족 → 판정 보류')
+        def ftd_summary(name):
+            if name not in datasets:
+                return '조회 대기'
+            if not signal_volume_ok(datasets[name]):
+                return '거래량 자료 부족'
+            date = ftd_candidate(datasets[name])
+            return f'{date:%m/%d} 후보' if date is not None else '최근 후보 미발견'
+
+        st.markdown('#### 🧭 핵심 근거 요약 · 카드를 누르면 상세 화면')
+        kp = states.get('KOSPI'); kq = states.get('KOSDAQ')
+        cards = [
+            ('시장 체력','📊 시장 체력',
+             f'20일 수익률  코스피 {kp["return20"]:+.1f}% / 코스닥 {kq["return20"]:+.1f}%' if kp and kq else '지수 모멘텀 자료 조회 대기'),
+            ('매도 압력','🔻 매도 압력 · DD',
+             f'최근 25거래일  코스피 {dd_summary("KOSPI")} / 코스닥 {dd_summary("KOSDAQ")}'),
+            ('반등 확인','🔺 반등 확인 · FTD',
+             f'코스피 {ftd_summary("KOSPI")} / 코스닥 {ftd_summary("KOSDAQ")}'),
+            ('증시 자금','💰 증시 자금',
+             '예탁금 · 신용잔고 · 오실레이터  |  원자료 연동 대기'),
+            ('외국인·기관 수급','🏦 외국인·기관 수급',
+             '일별 순매수 금액은 기존 「자금 흐름」에 연결됨'),
+            ('추세 차트','📈 시장 추세 변화',
+             '코스피·코스닥 가격 / MA20·MA50·MA200 차트'),
+        ]
+        for i in range(0, len(cards), 2):
+            left, right = st.columns(2, gap='small')
+            for col, (id_, title, description) in zip((left, right), cards[i:i+2]):
+                with col:
+                    if st.button(f'{title}\n{description}\n↗ 상세 분석 보기',
+                                 key=f'miner_card_{i}_{id_}', use_container_width=True):
+                        st.session_state.miner_signal_view = id_
+                        st.rerun()
+        st.markdown('<div class="miner-detail-note">● 신호는 지수 가격·거래량으로 계산한 참고 지표입니다. 전 종목 ADR, 신용잔고·예탁금은 아직 연결되지 않아 표시하지 않습니다.</div>', unsafe_allow_html=True)
+        return
+
+    # 2) 위의 카드에서 진입하는 상세 화면: 기본 페이지에는 펼치지 않음
+    st.markdown(f'### {view} · 상세 분석')
+    if view == '시장 체력':
+        st.caption('현재 연결된 값은 지수 가격 기반입니다. 시장 전체 종목 폭 지표와 다릅니다.')
+        fields = [('return20','최근 20거래일','%'),('return60','최근 60거래일','%'),
+                  ('drawdown52','52주 최고 종가 대비','%'),('rsi','RSI (14일)','')]
+        for name in SIGNAL_TICKERS:
+            if name not in states:
+                st.info(f'{name} · 지수 자료 대기')
+                continue
+            s = states[name]
+            st.markdown(f'**{name}** · 기준일 {s["date"]:%Y-%m-%d}')
+            cols = st.columns(4)
+            for col, (key, title, unit) in zip(cols, fields):
+                value = s[key]
+                col.metric(title, '자료 부족' if pd.isna(value) else
+                           f'{value:.1f}' if key == 'rsi' else f'{value:+.1f}{unit}')
+            st.divider()
+        st.info('전 종목 20일·200일선 상회 비율, ADR, 52주 신고가·신저가 종목 수는 과거 전 종목 가격 확보 후 추가합니다.')
+
+    elif view == '매도 압력':
+        st.caption('Distribution Day: 지수 -0.2% 이하 하락과 거래량 증가가 겹친 날 (간이 정의).')
+        for name, df in datasets.items():
+            days = dd_days(df)
+            if days is None:
+                st.warning(f'{name}: 거래량 누락으로 판정 보류')
             else:
-                st.metric(f'{market} · 최근 25거래일 간이 DD', f'{len(dd)}일')
-                st.caption('최근 발생일: ' + (', '.join(day.strftime('%m/%d') for day in dd[-4:]) if dd else '없음'))
-        with col_ftd:
+                st.metric(f'{name} · 최근 25거래일 간이 DD', f'{len(days)}일')
+                st.write('발생일: ' + (', '.join(d.strftime('%Y-%m-%d') for d in days) if days else '없음'))
+        st.info('지수 거래량 기반 간이 지표이며 실제 기관 순매도 금액이나 공식 IBD Distribution Day 계산과 다릅니다.')
+
+    elif view == '반등 확인':
+        st.caption('Follow-Through Day: 반등 과정에서 강한 상승과 거래량 증가를 확인하는 간이 후보.')
+        for name, df in datasets.items():
             if not signal_volume_ok(df):
-                st.info(f'{market} · FTD: 지수 거래량 유효 자료 부족 → 판정 보류')
+                st.warning(f'{name}: 거래량 누락으로 판정 보류')
             else:
-                ftd = ftd_candidate(df)
-                if ftd is None:
-                    st.info(f'{market} · 최근 25거래일 간이 FTD 후보 없음')
+                day = ftd_candidate(df)
+                if day is None:
+                    st.info(f'{name}: 최근 25거래일 간이 FTD 후보 없음')
                 else:
-                    st.success(f'{market} · 간이 FTD 후보: {ftd:%Y-%m-%d}')
-    st.caption('DD: 지수 일봉 하락률 ≤ -0.2%이고 거래량이 전일보다 증가한 날의 단순 합계. FTD는 자체 간이 반등 후보로, 공식 IBD 지표 또는 실제 기관 순매매 자료가 아닙니다.')
+                    st.success(f'{name}: 간이 FTD 후보 발생일 {day:%Y-%m-%d}')
+        st.info('공식 William O’Neil / IBD 신호가 아니며 추세 반전이나 투자 수익을 보장하지 않습니다.')
 
-    st.subheader('💹 시장 추세 · 이동평균선 상세')
-    selected = st.radio('지수', list(SIGNAL_TICKERS), horizontal=True, key='signal_v2_selected')
-    if selected in datasets:
-        df = datasets[selected]
-        fig = go.Figure()
-        lines = [('Close', '지수', '#edf2f9', 2.6),
-                 ('MA20', 'MA20', '#54c4d8', 1.8),
-                 ('MA50', 'MA50', '#e2ad68', 1.8),
-                 ('MA200', 'MA200', '#d891a8', 1.8)]
-        for key, title, color, width in lines:
-            fig.add_trace(go.Scatter(
-                x=df.index[-180:], y=df[key].iloc[-180:], mode='lines',
-                name=title, line=dict(color=color, width=width),
-            ))
-        fig.update_layout(
-            height=390, margin=dict(t=12, l=6, r=6, b=15),
-            hovermode='x unified', legend=dict(orientation='h', y=-.17),
-        )
-        st.plotly_chart(fig, use_container_width=True)
-        st.caption(f'{selected} · 기준일 {df.index[-1]:%Y-%m-%d} · Yahoo Finance (일봉)')
-    else:
-        st.info('차트를 표시할 수 있는 지수 데이터가 없습니다.')
+    elif view == '추세 차트':
+        name = st.radio('지수 선택', list(SIGNAL_TICKERS), horizontal=True, key='miner_v31_chart_name')
+        if name not in datasets:
+            st.info('지수 자료 조회 대기')
+        else:
+            df = datasets[name]
+            fig = go.Figure()
+            for key, label, color in [('Close','지수','#dceffb'),('MA20','MA20','#4ad0e2'),
+                                      ('MA50','MA50','#e5a75d'),('MA200','MA200','#d68ca9')]:
+                fig.add_trace(go.Scatter(x=df.index[-180:], y=df[key].iloc[-180:],
+                                         name=label, line=dict(color=color,width=2 if key=='Close' else 1.5)))
+            fig.update_layout(height=440, margin=dict(l=5,r=5,t=15,b=15),
+                              hovermode='x unified', legend=dict(orientation='h',y=-.15),
+                              paper_bgcolor='#101a28',plot_bgcolor='#101a28',
+                              font=dict(color='#dae8f5'))
+            st.plotly_chart(fig, use_container_width=True)
+            st.caption(f'{name} · 기준 {df.index[-1]:%Y-%m-%d} · Yahoo Finance')
 
-    st.subheader('🧭 다음 확장 · 시장 내부 / 증시 자금')
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.info('**시장 내부 체력**\n\nADR · 전 종목 20/200일선 상회 비율 · 신고가/신저가\n\n**과거 전 종목 시세 확보 후 연결**')
-    with c2:
-        st.info('**증시 자금 여건**\n\n투자자예탁금 · 신용잔고/예탁금 · 신용 오실레이터\n\n**원자료 연동 및 기준일 검증 후 연결**')
-    with c3:
-        st.info('**실제 외국인·기관 수급**\n\n종목별 일별 순매수 금액은 기존 **자금 흐름** 메뉴에서 확인\n\n**장중 잠정 수급은 보류**')
+    elif view == '증시 자금':
+        st.info('투자자예탁금, 신용잔고, 신용잔고/예탁금, 신용 오실레이터는 공급처 원자료 확인 후 연결합니다.')
+        st.caption('현재 유효한 시계열이 없어 임의의 숫자나 점수를 표시하지 않습니다.')
 
-    with st.expander('🔎 상세 근거 · 계산식 · 한계'):
-        st.markdown('''**단기 추세 신호**: 종가 > MA20 및 MA20 > MA50. 각 조건 충족 개수 0/1/2 → 경계/중립/양호.  
-**장기 추세 신호**: 종가 > MA200 및 MA50 > MA200. 같은 분류.  
-**시장 추세 게이지**: KOSPI·KOSDAQ 각각 4개, 총 8개 조건 충족 비율 × 100. 이동평균 기반이며 검증된 투자 수익률·권장 보유 비중을 의미하지 않습니다.  
-**최근 20·60일 성과**: 당일 종가 / N거래일 전 종가 − 1.  
-**52주 고점 대비**: 최근 252거래일 최고 종가 대비 현재 종가의 비율.  
-**RSI(14)**: 가격 상승폭/하락폭의 Wilder 방식 지수평활 평균 기반.  
-**간이 DD**: 최근 25거래일에서 전일보다 지수가 0.2% 이상 하락하고 거래량이 증가한 날. 실제 기관 매도액을 확인하는 지표가 아닙니다.  
-**간이 FTD 후보**: 최근 60거래일 최고가 대비 8% 이상 하락했던 국면의 국지적 저점을 찾고, 이후 반등 시도 4~10일차에 지수 +1.5% 이상 상승과 거래량 증가를 확인합니다. 공식 윌리엄 오닐·IBD 신호와 다르고, 신호 유효성을 검증하지 않았습니다.  
-**원자료**: Yahoo Finance 지수 일봉. 거래량이 누락된 기간에는 거래량 기반 신호를 계산하지 않으며, 장중 데이터는 종가 확정 전 바뀔 수 있습니다.  
-**예정 데이터**: ADR, 시장 전체 상회 비율, 신용잔고·예탁금 등은 원자료 확보 및 확인 전까지 숫자를 만들지 않습니다.''')
+    elif view == '외국인·기관 수급':
+        st.success('외국인·기관·개인의 종목별 일별 순매수 금액은 왼쪽 「자금 흐름」 메뉴에서 조회할 수 있습니다.')
+        st.info('장중 잠정 수급은 보류 중입니다. 일별 확정/게시 데이터와 장중 추정치를 섞지 않습니다.')
+
+    with st.expander('🔎 신호 계산 근거 · 한계'):
+        st.markdown('''**단기 신호**: 종가 > MA20, MA20 > MA50 (2개 중 0/1/2 충족 = 경계/중립/양호).  
+**장기 신호**: 종가 > MA200, MA50 > MA200 (동일 방식).  
+**시장 게이지**: 코스피·코스닥 각각 4개, 총 8개 추세 조건을 동일 가중치로 합산. 추천 주식 비중 아님.  
+**DD**: 최근 25거래일, 지수 -0.2% 이하 하락 + 거래량 증가의 단순 집계. 기관 순매도액이 아님.  
+**FTD 후보**: 60일 고점 대비 8% 이상 조정된 저점 뒤 반등 시도 4~10일차 +1.5% 이상 상승과 거래량 증가. 공식 IBD 판정과 다름.  
+**출처**: Yahoo Finance 지수 일봉. 지연·누락 및 장중 값 수정 가능. ADR·신용·예탁금은 실제 자료 확보 후 추가.''')
+
 
 from flow_pages import cashflow as cashflow, top200 as top200
 pages=[
