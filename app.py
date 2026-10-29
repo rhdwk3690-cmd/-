@@ -614,6 +614,152 @@ def market_signal():
 **출처**: Yahoo Finance 지수 일봉. 지연·누락 및 장중 값 수정 가능. ADR·신용·예탁금은 실제 자료 확보 후 추가.''')
 
 
+# ==================================================
+# MINER TERMINAL | GLOBAL DARK DESIGN
+# 모든 8개 메뉴에서 사용하는 공통 스타일
+# 기존 기능과 계산식은 변경하지 않음
+# ==================================================
+
+import plotly.io as pio
+pio.templates.default = "plotly_dark"
+
+st.markdown("""
+<style>
+
+/* 1. 전체 화면과 사이드바 */
+.stApp {
+    background: #080e16 !important;
+    color: #eaf1fa !important;
+}
+
+.stApp [data-testid="stSidebar"] {
+    background: #0d1521 !important;
+    border-right: 1px solid #253346 !important;
+}
+
+.stApp [data-testid="stSidebar"] a,
+.stApp [data-testid="stSidebar"] span,
+.stApp [data-testid="stSidebar"] p {
+    color: #e4edf7 !important;
+}
+
+.stApp [data-testid="stHeader"] {
+    background: rgba(8,14,22,0.96) !important;
+}
+
+/* 2. 제목과 설명 */
+.stApp h1,
+.stApp h2,
+.stApp h3 {
+    color: #f0f7ff !important;
+}
+
+.stApp h1 {
+    background: linear-gradient(
+        115deg, #102b40, #101b2a
+    );
+    border: 1px solid #305068;
+    border-radius: 16px;
+    padding: 18px 22px;
+}
+
+.stApp [data-testid="stCaptionContainer"] {
+    color: #a7b9ca !important;
+}
+
+/* 3. 모든 일반 버튼과 다운로드 버튼 */
+.stApp .stButton > button,
+.stApp .stDownloadButton > button,
+.stApp .stFormSubmitButton > button {
+    background: #15293a !important;
+    border: 1px solid #35536a !important;
+    border-radius: 12px !important;
+    color: #f0f7ff !important;
+    -webkit-text-fill-color: #f0f7ff !important;
+    font-weight: 650 !important;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.stApp .stButton > button *,
+.stApp .stDownloadButton > button *,
+.stApp .stFormSubmitButton > button * {
+    color: #f0f7ff !important;
+    -webkit-text-fill-color: #f0f7ff !important;
+    opacity: 1 !important;
+}
+
+/* 4. 마우스 올림 효과 */
+.stApp .stButton > button:hover,
+.stApp .stDownloadButton > button:hover,
+.stApp .stFormSubmitButton > button:hover {
+    background: #233f53 !important;
+    border-color: #70cbe0 !important;
+}
+
+.stApp .stButton > button:disabled {
+    opacity: 0.5 !important;
+}
+
+/* 5. 지표 숫자 카드 */
+.stApp [data-testid="stMetric"] {
+    background: #122131 !important;
+    border: 1px solid #30495e !important;
+    border-radius: 14px !important;
+    padding: 14px !important;
+}
+
+.stApp [data-testid="stMetricLabel"],
+.stApp [data-testid="stMetricValue"] {
+    color: #eef6ff !important;
+}
+
+/* 6. 입력창 */
+.stApp input:not([type="checkbox"]),
+.stApp textarea {
+    background: #111f2e !important;
+    border-color: #355067 !important;
+    color: #f0f7ff !important;
+    -webkit-text-fill-color: #f0f7ff !important;
+}
+
+.stApp [data-baseweb="select"] > div {
+    background: #111f2e !important;
+    border-color: #355067 !important;
+    color: #f0f7ff !important;
+}
+
+/* 7. 데이터 표 */
+.stApp [data-testid="stDataFrame"] {
+    border: 1px solid #30495e !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+/* 8. 탭 */
+.stApp .stTabs [data-baseweb="tab"] {
+    color: #b1c5d6 !important;
+}
+
+.stApp .stTabs [aria-selected="true"] {
+    color: #70cbe0 !important;
+    border-bottom-color: #70cbe0 !important;
+}
+
+/* 9. 접기/펼치기 상세 분석 */
+.stApp [data-testid="stExpander"] {
+    background: #101c2a !important;
+    border: 1px solid #30495e !important;
+    border-radius: 12px !important;
+}
+
+/* 10. 구분선 */
+.stApp hr {
+    border-color: #2c4053 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 from flow_pages import cashflow as cashflow, top200 as top200
 pages=[
     st.Page(market_signal,title='시장 신호',icon='🚦',default=True),
