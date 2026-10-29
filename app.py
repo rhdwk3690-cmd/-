@@ -288,7 +288,60 @@ def signal_data_card(name, item):
     )
 
 
+
 def market_signal():
+    # 광부 시장신호판 공통 버튼 디자인
+    st.markdown("""
+    <style>
+    /* 핵심 근거 요약 6개 버튼 */
+    body .stApp.stApp:has(.miner-hero)
+    [data-testid="stHorizontalBlock"]
+    [data-testid="column"] button {
+        background: #15293a !important;
+        border: 1px solid #35536a !important;
+        color: #f0f7ff !important;
+        -webkit-text-fill-color: #f0f7ff !important;
+        border-radius: 14px !important;
+        font-weight: 700 !important;
+    }
+
+    /* 버튼 안의 글씨도 밝게 */
+    body .stApp.stApp:has(.miner-hero)
+    [data-testid="stHorizontalBlock"]
+    [data-testid="column"] button * {
+        color: #f0f7ff !important;
+        -webkit-text-fill-color: #f0f7ff !important;
+        opacity: 1 !important;
+    }
+
+    /* 마우스를 올렸을 때 */
+    body .stApp.stApp:has(.miner-hero)
+    [data-testid="stHorizontalBlock"]
+    [data-testid="column"] button:hover {
+        background: #233f53 !important;
+        border-color: #70cbe0 !important;
+    }
+
+    /* 새로 조회 / 뒤로가기 버튼 */
+    body .stApp.stApp
+    [class*="st-key-miner_signal_refresh"] button,
+    body .stApp.stApp
+    [class*="st-key-miner_signal_back"] button {
+        background: #f8fafc !important;
+        color: #111827 !important;
+        -webkit-text-fill-color: #111827 !important;
+    }
+
+    body .stApp.stApp
+    [class*="st-key-miner_signal_refresh"] button *,
+    body .stApp.stApp
+    [class*="st-key-miner_signal_back"] button * {
+        color: #111827 !important;
+        -webkit-text-fill-color: #111827 !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
     st.markdown('''<style>
     /* 시장 신호 화면에만 적용되는 검정색 터미널 스타일 */
     .stApp{background:#080e16!important;color:#e9f0f8!important}
