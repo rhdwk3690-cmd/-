@@ -597,3 +597,32 @@ div[data-testid="column"]
 }
 </style>
 """, unsafe_allow_html=True)
+
+
+# 광부 시장신호판 다크 버튼 디자인 통일
+st.markdown("""
+<style>
+.stApp div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]
+[class*="st-key-miner_card_"] button {
+    background: #15293a !important;
+    border: 1px solid #35536a !important;
+    color: #f0f7ff !important;
+    border-radius: 14px !important;
+}
+
+.stApp [class*="st-key-miner_card_"] button *,
+.stApp [class*="st-key-miner_card_"] button p {
+    color: #f0f7ff !important;
+    -webkit-text-fill-color: #f0f7ff !important;
+    opacity: 1 !important;
+}
+
+.stApp div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]
+[class*="st-key-miner_card_"] button:hover {
+    background: #233f53 !important;
+    border-color: #70cbe0 !important;
+}
+</style>
+""", unsafe_allow_html=True)
