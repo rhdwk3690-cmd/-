@@ -9,6 +9,54 @@ import plotly.graph_objects as go
 import streamlit as st
 import yfinance as yf
 
+# 계좌 방어 레이더 가독성 개선
+st.markdown("""
+<style>
+
+/* 선택창, 슬라이더, 입력 항목 제목 */
+.stApp [data-testid="stWidgetLabel"],
+.stApp [data-testid="stWidgetLabel"] *,
+.stApp [data-testid="stSelectbox"] label *,
+.stApp [data-testid="stSlider"] label * {
+    color: #f0f7ff !important;
+    -webkit-text-fill-color: #f0f7ff !important;
+    opacity: 1 !important;
+    font-weight: 600 !important;
+}
+
+/* 보유 종목 입력 접기/펼치기 제목 */
+.stApp [data-testid="stExpander"] summary {
+    background: #16283a !important;
+    color: #f0f7ff !important;
+    border-radius: 10px !important;
+}
+
+.stApp [data-testid="stExpander"] summary *,
+.stApp [data-testid="stExpander"] summary p {
+    color: #f0f7ff !important;
+    -webkit-text-fill-color: #f0f7ff !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+}
+
+/* 보조 설명 */
+.stApp [data-testid="stCaptionContainer"],
+.stApp [data-testid="stCaptionContainer"] * {
+    color: #b9cadb !important;
+    opacity: 1 !important;
+}
+
+/* 경고 및 안내 문구 */
+.stApp [data-testid="stAlert"] p {
+    color: #f4f4f5 !important;
+    -webkit-text-fill-color: #f4f4f5 !important;
+    opacity: 1 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 st.title('🛡️ 광부 투자터미널 | 계좌 방어 레이더')
 st.caption('실제 계좌가 아닌, 입력한 종목·비중에 대한 과거 위험 분석입니다.')
 
