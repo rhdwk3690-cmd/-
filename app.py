@@ -458,7 +458,25 @@ def market_signal():
                     st.markdown(f'<div class="miner-index"><b>{name}</b><p>데이터 조회 대기</p></div>', unsafe_allow_html=True)
                     continue
                 move = '#6ce4b2' if s['pct'] >= 0 else '#ff8e92'
+                
                 short, long = s['short'], s['long']
+
+                # 기존 지수 카드 안에 오닐식 시장 상태 통합
+                o = oneil_market_state(datasets[name])
+                o_status = escape(str(o['status']))
+
+                if o['status'] == '판정 보류':
+                    o_detail = '거래량 검증 필요 · DD/FTD 판정 보류'
+                else:
+                    ftd_date = (
+                        o['ftd'].strftime('%m/%d')
+                        if o['ftd'] is not None else '없음'
+                    )
+                    o_detail = (
+                        f'유효 DD {len(o["dd"])}일 · '
+                        f'FTD {ftd_date}'
+                    )
+
                 st.markdown(
                     '<div class="miner-index">'
                     f'<div class="miner-index-title">{name} &nbsp; <span style="float:right">{s["date"]:%Y-%m-%d}</span></div>'
@@ -466,6 +484,8 @@ def market_signal():
                     f'<div style="font-size:14px">단기 <b style="color:{short[1]}">{short[0]}</b>'
                     f' &nbsp; | &nbsp; 장기 <b style="color:{long[1]}">{long[0]}</b></div>'
                     f'<div class="miner-sub" style="margin-top:10px">MA20 {s["ma20"]:,.0f} · MA200 {s["ma200"]:,.0f}</div>'
+                    f'<div style="margin-top:10px;padding-top:10px;border-top:1px solid #35536a;font-size:12px;color:#c8d9e9">'
+                    f'<b style="color:#8dddea">오닐식 상태: {o_status}</b> · {escape(o_detail)}</div>'
                     '</div>', unsafe_allow_html=True)
 
         st.markdown('#### 🌡️ 지금 여긴 · 시장 추세 게이지')
@@ -1098,63 +1118,6 @@ def ftd_candidate(df):
     if state['status'] in ('상승 확인', '상승 압박'):
         return state['ftd']
     return None
-
-
-# 기존 시장신호 화면에 오닐식 시장 상태 추가
-_base_market_signal_v31 = market_signal
-
-
-def market_signal():
-    st.markdown('#### 🧭 오닐식 시장 상태 · 공개 규칙 + 자체 위험 판정')
-
-    cols = st.columns(2, gap='small')
-
-    for (name, ticker), col in zip(SIGNAL_TICKERS.items(), cols):
-        with col:
-            try:
-                df = load_signal_data(ticker)
-                state = oneil_market_state(df)
-
-                day = (
-                    state['day1'].strftime('%m/%d')
-                    if state['day1'] is not None else '—'
-                )
-
-                ftd = (
-                    state['ftd'].strftime('%Y-%m-%d')
-                    if state['ftd'] is not None else '—'
-                )
-
-                label = escape(state['status'])
-                why = escape(state['reason'])
-
-                st.markdown(f'''
-                <div style="background:#15293a;color:#f0f7ff;
-                     border:1px solid #35536a;border-radius:14px;
-                     padding:15px 19px;min-height:175px">
-                  <div style="font-size:13px;color:#a9bfd0">{name}</div>
-                  <div style="font-size:23px;font-weight:850;
-                       color:#f0f7ff;margin:7px 0">{label}</div>
-                  <div style="color:#d3e3f3;font-size:13px;line-height:1.7">
-                    랠리 시작: {day} · FTD: {ftd}
-                    <br>유효 DD: {len(state['dd'])}회
-                    <br>{why}
-                  </div>
-                </div>''', unsafe_allow_html=True)
-
-                if state['status'] == '판정 보류':
-                    st.warning(f'{name}: 가격·지수 거래량 원자료 확인 필요')
-
-            except Exception as exc:
-                st.warning(f'{name}: 오닐식 판정 보류 — {exc}')
-
-    st.caption(
-        '랠리 Day 1·FTD·DD는 IBD 공개 규칙 기반. '
-        '조정 진입·상승 압박·추세 실패는 광부 자체 판정이며 '
-        'IBD 공식 시장 상태와 다릅니다.'
-    )
-
-    return _base_market_signal_v31()
 
 
 from flow_pages import cashflow as cashflow, top200 as top200
