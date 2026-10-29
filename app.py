@@ -610,8 +610,7 @@ def market_signal():
 **장기 신호**: 종가 > MA200, MA50 > MA200 (동일 방식).  
 **시장 게이지**: 코스피·코스닥 각각 4개, 총 8개 추세 조건을 동일 가중치로 합산. 추천 주식 비중 아님.  
 **DD**: 최근 25거래일, 지수 -0.2% 이하 하락 + 거래량 증가의 단순 집계. 기관 순매도액이 아님.  
-**FTD 후보**: 60일 고점 대비 8% 이상 조정된 저점 뒤 반등 시도 4~10일차 +1.5% 이상 상승과 거래량 증가. 공식 IBD 판정과 다름.  
-**출처**: Yahoo Finance 지수 일봉. 지연·누락 및 장중 값 수정 가능. ADR·신용·예탁금은 실제 자료 확보 후 추가.''')
+**FTD**: 조정 후 랠리 Day 1을 기록하고 기준 저점을 유지한 상태에서 4거래일차 이후 지수 1% 이상 상승과 전일 대비 거래량 증가를 확인합니다. 조정 진입·상승 압박·추세 실패는 자체 판정이며 IBD 공식 시장 상태와 다릅니다.
 
 
 # ==================================================
@@ -942,7 +941,102 @@ def ftd_candidate(df):
                 break
 
     return max(found) if found else None
+# ============================================================
+# 광부 투자터미널 | IBD 공개 규칙 기반 시장 상태 엔진
+# 붙여넣기 위치: app.py의 `from flow_pages import cashflow` 바로 위
+# 기존 함수들은 새 정의로 덮어쓰며, 기존 8개 메뉴는 유지
+# ============================================================
 
+ONEIL_FTD_GAIN = 0.01  # 2026 IBD 공개 교육자료: 대체로 1% 이상 + 거래량 증가
+
+
+def signal_volume_ok(df):
+    """지수 거래량이 유효한지 검사. 0/NaN이면 FTD/DD 확정 금지."""
+    needed = {'Close', 'Low', 'Volume'}
+    if not needed.issubset(df.columns) or len(df) < 205:
+        return False
+    recent = df[['Close', 'Low', 'Volume']].tail(260).apply(
+        pd.to_numeric, errors='coerce'
+    )
+    return bool(recent.notna().all().all() and
+                (recent[['Close', 'Low', 'Volume']] > 0).all().all())
+
+
+def _oneil_dd_asof(close, volume, i):
+    """i일 현재 유효한 DD: -0.2%, 거래량 증가, 25일 경과/5% 회복 시 제외."""
+    days = []
+    for j in range(max(1, i - 24), i + 1):
+        if (close[j] <= close[j - 1] * 0.998 and
+                volume[j] > volume[j - 1]):
+            if j == i or not (close[j + 1:i + 1] >= close[j] * 1.05).any():
+                days.append(j)
+    return days
+
+
+def oneil_market_state(df):
+    """
+    공개 정량 규칙: Day1 상승마감, 저점 유지, Day4+ 1%+ 거래량 증가,
+    DD -0.2%/거래량 증가, 25거래일/5% 상승 소멸.
+    자체 규칙(IBD 공식 아님): 조정 진입/상승 압박/추세 실패 판정.
+    """
+    empty = dict(status='판정 보류', day1=None, rally_days=0, ftd=None,
+                 dd=[], reason='지수 가격·거래량 데이터가 부족합니다.', events=[])
+    if not signal_volume_ok(df):
+        return empty
+
+    df = df.sort_index()
+    close = pd.to_numeric(df['Close']).to_numpy(dtype=float)
+    low = pd.to_numeric(df['Low']).to_numpy(dtype=float)
+    volume = pd.to_numeric(df['Volume']).to_numpy(dtype=float)
+    ma50 = pd.Series(close).rolling(50).mean().to_numpy()
+    dates = df.index
+    start = max(50, len(df) - 260)
+    state = '관찰'
+    day1 = None
+    rally_low = None
+    ftd = None
+    events = []
+    reason = '조정 진입 조건을 감시 중입니다.'
+
+    for i in range(start, len(df)):
+        dd = _oneil_dd_asof(close, volume, i)
+        below50_2 = (close[i] < ma50[i] and
+                     close[i - 1] < ma50[i - 1])
+        below50_3 = (below50_2 and
+                     close[i - 2] < ma50[i - 2])
+
+        if state == '관찰':
+            # 자체 조정 진입 기준: 50일선 아래 이틀 연속 마감.
+            if below50_2:
+                state = '조정'
+                reason = '50일선 아래 2거래일 마감(광부 자체 조정 기준)'
+                events.append((dates[i], '조정 진입', reason))
+            continue
+
+        if state == '조정':
+            # IBD 공개 원칙의 명확한 부분만 자동화: 첫 상승마감 = Day 1.
+            # 하락했지만 고가 부근 마감한 예외는 판정하지 않음.
+            if close[i] > close[i - 1]:
+                day1 = i
+                rally_low = low[i]
+                ftd = None
+                state = '랠리 시도'
+                reason = '상승마감으로 랠리 시도 1일차 시작'
+                events.append((dates[i], 'Day 1', reason))
+            continue
+
+        if state == '랠리 시도':
+            if low[i] < rally_low:
+                state = '조정'
+                day1, rally_low, ftd = None, None, None
+                reason = 'Day 1 기준 저점 이탈 → 랠리 시도 실패'
+                events.append((dates[i], '랠리 실패', reason))
+                continue
+
+            day_number = i - day1 + 1
+            gain = close[i] / close[i - 1] - 1
+            if (day_number >= 4 and gain >= ONEIL_FTD_GAIN
+                    and volume[i] > volume[i - 1]):
 from flow_pages import cashflow as cashflow, top200 as top200
 pages=[
     st.Page(market_signal,title='시장 신호',icon='🚦',default=True),
