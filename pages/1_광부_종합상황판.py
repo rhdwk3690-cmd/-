@@ -924,3 +924,18 @@ st.caption(
     '⛏️ 광부 종합상황판 V2 · '
     '지연 시세 및 자료 오류 가능 · 투자 참고용'
 )
+
+# 새로 조회 / 돌아가기 버튼 글씨 가독성 수정
+st.markdown("""
+<style>
+.stApp [class*="st-key-overview_reload"] button,
+.stApp [class*="st-key-overview_reload"] button *,
+.stApp [class*="st-key-overview_back"] button,
+.stApp [class*="st-key-overview_back"] button * {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    opacity: 1 !important;
+    font-weight: 700 !important;
+}
+</style>
+""", unsafe_allow_html=True)
