@@ -760,6 +760,189 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# ============================================================
+# WILLIAM O'NEIL / IBD - 공개 정량 규칙 기반 DD / FTD 엔진
+# KOSPI·KOSDAQ 적용용. IBD 공식 제공 판정값은 아님.
+# ============================================================
+
+ONEIL_FTD_MIN_GAIN = 0.0125
+
+# 조정 국면을 자동 식별하기 위한 보조 가정
+# -8%는 IBD의 유일한 공식 조정 기준이 아님
+ONEIL_CORRECTION = 0.08
+
+
+def _oneil_prepare(df):
+    c = pd.to_numeric(df['Close'], errors='coerce')
+    v = pd.to_numeric(df['Volume'], errors='coerce')
+    l = pd.to_numeric(df['Low'], errors='coerce')
+
+    if (
+        len(df) < 125
+        or c.tail(27).isna().any()
+        or v.tail(27).isna().any()
+        or l.tail(27).isna().any()
+        or (v.tail(27) <= 0).any()
+    ):
+        return None
+
+    return c, v, l
+
+
+def dd_days(df):
+    """
+    Distribution Day:
+    1. 지수 전일 대비 -0.2% 이상 하락
+    2. 거래량 전일보다 증가
+    3. 최근 25거래일 내 발생
+    4. 이후 DD 종가 대비 5% 상승 시 집계 제외
+    """
+    ready = _oneil_prepare(df)
+
+    if ready is None:
+        return None
+
+    close, volume, low = ready
+    active = []
+
+    for i in range(max(1, len(df) - 25), len(df)):
+
+        decline = (
+            close.iloc[i] / close.iloc[i - 1] - 1
+        )
+
+        is_distribution = (
+            decline <= -0.002
+            and volume.iloc[i] > volume.iloc[i - 1]
+        )
+
+        if not is_distribution:
+            continue
+
+        # 이후 5% 상승을 달성한 DD는 더 이상 집계하지 않음
+        recovered = (
+            close.iloc[i + 1:]
+            >= close.iloc[i] * 1.05
+        ).any()
+
+        if not recovered:
+            active.append(df.index[i])
+
+    return active
+
+
+def ftd_candidate(df):
+    """
+    Follow-Through Day:
+    1. 조정 국면에서 반등 시도 1일차 확인
+    2. 반등 시도 저점 유지
+    3. 랠리 시도 4거래일차 이후
+    4. 지수 +1.25% 이상 상승
+    5. 거래량 전일보다 증가
+    6. 이후 랠리 기준 저점 이탈 시 무효
+
+    참고:
+    조정 국면 -8% 및 최근 10일 저점 탐색은
+    한국 지수 적용을 위한 자동 판정 보조 규칙.
+    """
+    ready = _oneil_prepare(df)
+
+    if ready is None:
+        return None
+
+    close, volume, low = ready
+    n = len(df)
+    found = []
+
+    for day1 in range(max(121, n - 120), n - 3):
+
+        # 랠리 시도 1일차: 전일보다 높은 종가
+        if close.iloc[day1] <= close.iloc[day1 - 1]:
+            continue
+
+        # 직전 저점이 최근 10거래일 저점인지 확인
+        if (
+            pd.isna(low.iloc[day1 - 1])
+            or pd.isna(low.iloc[day1])
+            or low.iloc[day1 - 1]
+            > low.iloc[day1 - 11:day1].min()
+        ):
+            continue
+
+        # 선행 조정 국면 확인
+        prior_peak = close.iloc[
+            day1 - 121:day1
+        ].max()
+
+        if not (
+            prior_peak > 0
+            and low.iloc[day1 - 1]
+            <= prior_peak * (1 - ONEIL_CORRECTION)
+        ):
+            continue
+
+        # 랠리 시도가 지켜야 할 기준 저점
+        rally_low = min(
+            float(low.iloc[day1 - 1]),
+            float(low.iloc[day1])
+        )
+
+        if not pd.notna(rally_low):
+            continue
+
+        # day1+3 = 랠리 시도 4일차
+        for day in range(day1 + 1, n):
+
+            # 저점 이탈: 해당 랠리 시도 무효
+            if (
+                not pd.notna(low.iloc[day])
+                or low.iloc[day] < rally_low
+            ):
+                break
+
+            if day < day1 + 3:
+                continue
+
+            # 거래량 자료가 정상인지 확인
+            if not (
+                pd.notna(volume.iloc[day])
+                and pd.notna(volume.iloc[day - 1])
+                and volume.iloc[day] > 0
+                and volume.iloc[day - 1] > 0
+            ):
+                continue
+
+            gain = (
+                close.iloc[day]
+                / close.iloc[day - 1]
+                - 1
+            )
+
+            is_ftd = (
+                gain >= ONEIL_FTD_MIN_GAIN
+                and volume.iloc[day] > volume.iloc[day - 1]
+                and close.iloc[day] > close.iloc[day1]
+            )
+
+            if is_ftd:
+
+                # FTD 이후 랠리 저점을 이탈했는지 확인
+                invalidated = (
+                    low.iloc[day + 1:].dropna()
+                    < rally_low
+                ).any()
+
+                if invalidated:
+                    break
+
+                # 기존 대시보드의 최근 25거래일 표시 유지
+                if n - 1 - day <= 25:
+                    found.append(df.index[day])
+
+                break
+
+    return max(found) if found else None
+
 from flow_pages import cashflow as cashflow, top200 as top200
 pages=[
     st.Page(market_signal,title='시장 신호',icon='🚦',default=True),
