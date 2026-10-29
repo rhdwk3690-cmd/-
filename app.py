@@ -1037,7 +1037,128 @@ def oneil_market_state(df):
             gain = close[i] / close[i - 1] - 1
             if (day_number >= 4 and gain >= ONEIL_FTD_GAIN
                     and volume[i] > volume[i - 1]):
+
+                ftd = i
+                state = '상승 확인'
+                reason = f'Day {day_number}: +{gain * 100:.2f}%, 거래량 증가'
+                events.append((dates[i], 'FTD', reason))
+            else:
+                reason = f'랠리 시도 Day {day_number}, FTD 확인 대기'
+            continue
+
+        # FTD 이후 시장 상태 추적
+        if state in ('상승 확인', '상승 압박'):
+            if low[i] < rally_low and below50_2:
+                state = '조정'
+                day1, rally_low, ftd = None, None, None
+                reason = 'FTD 랠리 저점 이탈 + 50일선 하회(광부 자체 판정)'
+                events.append((dates[i], '추세 실패', reason))
+
+            elif state == '상승 압박' and below50_3 and len(dd) >= 4:
+                state = '조정'
+                day1, rally_low, ftd = None, None, None
+                reason = '50일선 3일 하회 + DD 4회 이상(광부 자체 판정)'
+                events.append((dates[i], '조정 재진입', reason))
+
+            elif len(dd) >= 3 or below50_2:
+                if state != '상승 압박':
+                    events.append((
+                        dates[i], '상승 압박',
+                        f'DD {len(dd)}회 또는 50일선 2일 하회'
+                    ))
+                state = '상승 압박'
+                reason = f'DD {len(dd)}회 / 50일선 2일 하회 여부: {below50_2}'
+
+            elif close[i] > ma50[i] and len(dd) <= 2:
+                if state == '상승 압박':
+                    events.append((dates[i], '상승 회복', 'DD 감소·50일선 회복'))
+                state = '상승 확인'
+                reason = f'FTD 이후 50일선 위, 유효 DD {len(dd)}회'
+
+    dd = _oneil_dd_asof(close, volume, len(df) - 1)
+
+    return dict(
+        status=state,
+        day1=dates[day1] if day1 is not None else None,
+        rally_days=(len(df) - day1) if state == '랠리 시도' else 0,
+        ftd=dates[ftd] if ftd is not None else None,
+        dd=[dates[j] for j in dd],
+        reason=reason,
+        events=events[-30:]
+    )
+
+
+def dd_days(df):
+    state = oneil_market_state(df)
+    return None if state['status'] == '판정 보류' else state['dd']
+
+
+def ftd_candidate(df):
+    state = oneil_market_state(df)
+    if state['status'] in ('상승 확인', '상승 압박'):
+        return state['ftd']
+    return None
+
+
+# 기존 시장신호 화면에 오닐식 시장 상태 추가
+_base_market_signal_v31 = market_signal
+
+
+def market_signal():
+    st.markdown('#### 🧭 오닐식 시장 상태 · 공개 규칙 + 자체 위험 판정')
+
+    cols = st.columns(2, gap='small')
+
+    for (name, ticker), col in zip(SIGNAL_TICKERS.items(), cols):
+        with col:
+            try:
+                df = load_signal_data(ticker)
+                state = oneil_market_state(df)
+
+                day = (
+                    state['day1'].strftime('%m/%d')
+                    if state['day1'] is not None else '—'
+                )
+
+                ftd = (
+                    state['ftd'].strftime('%Y-%m-%d')
+                    if state['ftd'] is not None else '—'
+                )
+
+                label = escape(state['status'])
+                why = escape(state['reason'])
+
+                st.markdown(f'''
+                <div style="background:#15293a;color:#f0f7ff;
+                     border:1px solid #35536a;border-radius:14px;
+                     padding:15px 19px;min-height:175px">
+                  <div style="font-size:13px;color:#a9bfd0">{name}</div>
+                  <div style="font-size:23px;font-weight:850;
+                       color:#f0f7ff;margin:7px 0">{label}</div>
+                  <div style="color:#d3e3f3;font-size:13px;line-height:1.7">
+                    랠리 시작: {day} · FTD: {ftd}
+                    <br>유효 DD: {len(state['dd'])}회
+                    <br>{why}
+                  </div>
+                </div>''', unsafe_allow_html=True)
+
+                if state['status'] == '판정 보류':
+                    st.warning(f'{name}: 가격·지수 거래량 원자료 확인 필요')
+
+            except Exception as exc:
+                st.warning(f'{name}: 오닐식 판정 보류 — {exc}')
+
+    st.caption(
+        '랠리 Day 1·FTD·DD는 IBD 공개 규칙 기반. '
+        '조정 진입·상승 압박·추세 실패는 광부 자체 판정이며 '
+        'IBD 공식 시장 상태와 다릅니다.'
+    )
+
+    return _base_market_signal_v31()
+
+
 from flow_pages import cashflow as cashflow, top200 as top200
+
 pages=[
     st.Page(market_signal,title='시장 신호',icon='🚦',default=True),
     st.Page('pages/1_광부_종합상황판.py',title='종합 상황판',icon='🌎'),
