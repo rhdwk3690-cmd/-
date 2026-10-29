@@ -562,3 +562,38 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
   
+
+# 광부 시장신호판 버튼 디자인 통일
+# 흰색 배경 + 검정색 글씨 + 하늘색 호버
+st.markdown("""
+<style>
+/* 핵심 근거 요약의 6개 클릭 카드 */
+.stApp div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]
+[class*="st-key-miner_card_"] button {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #111827 !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+}
+
+/* 카드 안의 제목·설명·아이콘 */
+.stApp [class*="st-key-miner_card_"] button,
+.stApp [class*="st-key-miner_card_"] button *,
+.stApp [class*="st-key-miner_signal_refresh"] button *,
+.stApp [class*="st-key-miner_signal_back"] button * {
+    color: #111827 !important;
+    -webkit-text-fill-color: #111827 !important;
+    opacity: 1 !important;
+}
+
+/* 마우스를 올렸을 때 */
+.stApp div[data-testid="stHorizontalBlock"]
+div[data-testid="column"]
+[class*="st-key-miner_card_"] button:hover {
+    background: #dbeafe !important;
+    border-color: #60a5fa !important;
+}
+</style>
+""", unsafe_allow_html=True)
