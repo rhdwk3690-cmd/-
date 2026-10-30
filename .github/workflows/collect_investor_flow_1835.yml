@@ -1,0 +1,36 @@
+name: Collect verified TOP200 investor flows (EOD)
+on:
+  workflow_dispatch:
+  schedule:
+    # KST 18:35 weekdays (UTC 09:35). Publication may be delayed.
+    - cron: '35 9 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: kr-investor-flow
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install runtime requirements
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Query published investor flows within API limits
+        run: python scripts/collect_investor_flow.py
+      - name: Commit snapshot even if some symbols unavailable
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [ -f data/kr_investor_flow.json ]; then
+            git add data/kr_investor_flow.json
+            if ! git diff --cached --quiet; then
+              git commit -m 'data: update verified-date published investor flows'
+              git push
+            fi
+          fi
