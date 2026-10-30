@@ -602,6 +602,9 @@ def market_signal():
                     st.success(f'{name}: 간이 FTD 후보 발생일 {day:%Y-%m-%d}')
         st.info('공식 William O’Neil / IBD 신호가 아니며 추세 반전이나 투자 수익을 보장하지 않습니다.')
 
+        from miner_ftd_audit import show_ftd_audit
+        show_ftd_audit(datasets, oneil_market_state)
+
     elif view == '추세 차트':
         name = st.radio('지수 선택', list(SIGNAL_TICKERS), horizontal=True, key='miner_v31_chart_name')
         if name not in datasets:
