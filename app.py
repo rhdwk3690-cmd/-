@@ -586,6 +586,9 @@ def market_signal():
                 st.write('발생일: ' + (', '.join(d.strftime('%Y-%m-%d') for d in days) if days else '없음'))
         st.info('지수 거래량 기반 간이 지표이며 실제 기관 순매도 금액이나 공식 IBD Distribution Day 계산과 다릅니다.')
 
+        from miner_dd_audit import show_dd_audit
+        show_dd_audit(datasets, dd_days)
+
     elif view == '반등 확인':
         st.caption('Follow-Through Day: 반등 과정에서 강한 상승과 거래량 증가를 확인하는 간이 후보.')
         for name, df in datasets.items():
