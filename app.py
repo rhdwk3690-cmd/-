@@ -573,7 +573,10 @@ def market_signal():
                 col.metric(title, '자료 부족' if pd.isna(value) else
                            f'{value:.1f}' if key == 'rsi' else f'{value:+.1f}{unit}')
             st.divider()
-        st.info('전 종목 20일·200일선 상회 비율, ADR, 52주 신고가·신저가 종목 수는 과거 전 종목 가격 확보 후 추가합니다.')
+
+        from miner_breadth import show_market_breadth
+        show_market_breadth()
+
 
     elif view == '매도 압력':
         st.caption('Distribution Day: 지수 -0.2% 이하 하락과 거래량 증가가 겹친 날 (간이 정의).')
