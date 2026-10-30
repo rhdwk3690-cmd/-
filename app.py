@@ -1120,6 +1120,11 @@ def ftd_candidate(df):
     return None
 
 
+from miner_volume import install as install_market_volume
+load_signal_data, signal_volume_ok, oneil_market_state = install_market_volume(
+    load_signal_data, oneil_market_state
+)
+
 from flow_pages import cashflow as cashflow, top200 as top200
 
 pages=[
