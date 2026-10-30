@@ -1,19 +1,19 @@
 {
-  "collected_at_utc": "2026-10-30T02:48:27.036051+00:00",
-  "collected_at_kst": "2026-10-30T11:48:27.036051+09:00",
+  "collected_at_utc": "2026-10-30T03:47:32.824946+00:00",
+  "collected_at_kst": "2026-10-30T12:47:32.824946+09:00",
   "markets": {
     "KOSPI": {
       "ticker": "^KS11",
-      "price": 5628.06006,
-      "change_pct": -5.214,
+      "price": 5657.77979,
+      "change_pct": -4.714,
       "price_date": "2026-10-30",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "KOSDAQ": {
       "ticker": "^KQ11",
-      "price": 721.81,
-      "change_pct": -4.171,
+      "price": 722.01001,
+      "change_pct": -4.145,
       "price_date": "2026-10-30",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
@@ -36,16 +36,16 @@
     },
     "USD/KRW": {
       "ticker": "KRW=X",
-      "price": 1338.84998,
-      "change_pct": -0.111,
+      "price": 1336.5,
+      "change_pct": -0.286,
       "price_date": "2026-10-30",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "WTI": {
       "ticker": "CL=F",
-      "price": 103.45,
-      "change_pct": 0.652,
+      "price": 103.42,
+      "change_pct": 0.623,
       "price_date": "2026-10-29",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
