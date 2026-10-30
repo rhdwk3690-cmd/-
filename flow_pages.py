@@ -1,190 +1,100 @@
-"""광부 투자터미널 | 매동 수급 금액: 계좌·인증키 불필요, 실제 게시 금액만."""
+"""광부 투자터미널: 검증된 거래대금 TOP200 + 별도 자동 수집 외국인/기관 금액."""
+from __future__ import annotations
+
+import hashlib
 import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime, timedelta
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 import pandas as pd
 import plotly.graph_objects as go
-import requests
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
-SNAP = ROOT / 'data' / 'kr_flow.json'
-KST = ZoneInfo('Asia/Seoul')
-API = 'https://maedong.kr/api/v1/stock/{}/flow'
-
-
-@st.cache_data(ttl=3600, show_spinner=False)
-def fetch_flow(code):
-    r = requests.get(
-        API.format(code),
-        params={'from': (datetime.now(KST).date() - timedelta(days=10)).isoformat()},
-        headers={'User-Agent': 'MinerDashboard/1.0 (personal research)'},
-        timeout=12
-    )
-    r.raise_for_status()
-    data = r.json()
-    if (not isinstance(data, dict)
-        or str(data.get('code', '')).zfill(6) != code
-        or not isinstance(data.get('rows'), list)):
-        raise ValueError('예상과 다른 응답 형식/종목코드')
-    rows = []
-    for record in data['rows']:
-        if not isinstance(record, dict):
-            continue
-        day = str(record.get('date', ''))
-        if not (len(day) == 10 and day[4] == '-' and day[7] == '-'):
-            continue
-        foreign = pd.to_numeric(record.get('foreign_net_krw'), errors='coerce')
-        inst = pd.to_numeric(record.get('institution_net_krw'), errors='coerce')
-        personal = pd.to_numeric(record.get('individual_net_krw'), errors='coerce')
-        if pd.isna(foreign) and pd.isna(inst):
-            continue
-        rows.append({
-            'date': day, 'foreign': foreign,
-            'institution': inst, 'personal': personal
-        })
-    if not rows:
-        return None
-    return max(rows, key=lambda x: x['date'])
+RANK_FILE = ROOT / 'data' / 'kr_flow.json'
+FLOW_FILE = ROOT / 'data' / 'kr_investor_flow.json'
 
 
 @st.cache_data(ttl=120, show_spinner=False)
 def load_top():
-    raw = json.loads(SNAP.read_text(encoding='utf-8'))
-    df = pd.DataFrame(raw.get('top200') or [])
-    if df.empty:
-        raise ValueError('TOP 200 데이터가 비어 있습니다.')
+    obj = json.loads(RANK_FILE.read_text(encoding='utf-8'))
+    if obj.get('status') != 'verified' or not obj.get('date'):
+        raise ValueError('검증된 TOP200 거래 기준일이 없습니다. 수집 작업을 점검하세요.')
+    df = pd.DataFrame(obj.get('top200') or [])
     required = {'ticker', 'name', 'market', 'traded_krw', 'close'}
-    if not required.issubset(df.columns):
-        raise ValueError('TOP 200 필수 필드 누락')
-    df = df.sort_values(
-        'traded_krw', ascending=False, kind='stable'
-    ).reset_index(drop=True)
+    if len(df) != 200 or not required.issubset(df.columns):
+        raise ValueError('TOP200 개수 또는 필수 컬럼이 맞지 않습니다.')
+    df['ticker'] = df['ticker'].astype(str).str.zfill(6)
+    if df['ticker'].duplicated().any():
+        raise ValueError('TOP200 종목코드 중복')
+    df['traded_krw'] = pd.to_numeric(df['traded_krw'], errors='coerce')
+    df = df.sort_values('traded_krw', ascending=False, kind='stable').reset_index(drop=True)
     df.insert(0, '순위', range(1, len(df) + 1))
-    return df, raw
+    return df, obj
 
 
-def fetch_many(codes):
-    found, errors = {}, []
-    with ThreadPoolExecutor(max_workers=3) as pool:
-        futures = {pool.submit(fetch_flow, c): c for c in codes}
-        for future in as_completed(futures):
-            code = futures[future]
-            try:
-                found[code] = future.result()
-            except Exception as exc:
-                errors.append(f'{code}: {str(exc)[:110]}')
-    return found, errors
+@st.cache_data(ttl=120, show_spinner=False)
+def load_flow():
+    if not FLOW_FILE.exists():
+        return None
+    return json.loads(FLOW_FILE.read_text(encoding='utf-8'))
+
+
+def get_snapshot(df, meta):
+    flow = load_flow()
+    if not flow:
+        return {}, '외국인·기관 자동 수집 파일이 아직 없습니다. GitHub Actions에서 Collect verified TOP200 investor flows를 실행하세요.', None
+    codes = df['ticker'].tolist()
+    expected = hashlib.sha256((meta['date'] + '|' + ','.join(codes)).encode('utf-8')).hexdigest()
+    if flow.get('date') != meta['date'] or flow.get('fingerprint') != expected:
+        return {}, '수급 파일과 거래대금 TOP200의 거래일/종목 구성이 다릅니다. 수급을 표시하지 않습니다.', flow
+    if not isinstance(flow.get('rows'), dict):
+        return {}, '수급 파일 형식 오류: rows가 객체가 아닙니다.', flow
+    return flow['rows'], None, flow
 
 
 def prepare():
     try:
         frame, meta = load_top()
-    except Exception as exc:
-        st.error(f'TOP 200 파일 오류: {exc}')
+    except (ValueError, OSError, json.JSONDecodeError) as exc:
+        st.error(f'TOP200 원자료 오류: {exc}')
         return None
-    st.caption(
-        f"거래대금 수집처: {meta.get('source', '미확인')} · "
-        f"거래 기준일: {meta.get('date') or '미검증'}"
-    )
-    if not meta.get('date'):
-        st.warning(
-            '거래대금 TOP 200 거래일은 미검증입니다. '
-            '수급일과 같다고 가정하지 않습니다.'
-        )
-
-    n = st.select_slider(
-        '매동 수급 조회 종목 수 (거래대금 상위)',
-        options=[10, 20, 50, 100, 200],
-        value=20
-    )
-    st.caption(
-        '매동 API: 인증 없음, 분당 60회·일 400회 제한. '
-        '200종목 첫 조회는 지연/429가 발생할 수 있습니다. '
-        '이후 1시간 캐시 사용.'
-    )
-    if n >= 100:
-        st.warning(
-            '100~200종목은 호출 한도에 주의하세요. '
-            '최초에는 20종목으로 검증을 권장합니다.'
-        )
-
-    start = st.button('🔄 선택 종목 수급 금액 조회', type='primary')
-    if not start and 'flow_results' not in st.session_state:
-        st.info(
-            '조회 버튼을 누르면 외국인·기관 순매수 금액(원)을 가져옵니다.'
-        )
-        return None
-
-    if start:
-        codes = (
-            frame.head(n)['ticker'].astype(str).str.zfill(6).tolist()
-        )
-        with st.spinner(f'수급 {len(codes)}종목 조회 중…'):
-            found, errors = fetch_many(codes)
-        st.session_state.flow_results = (found, errors, n)
-
-    found, errors, checked = st.session_state.flow_results
-    code = frame['ticker'].astype(str).str.zfill(6)
-
-    for field, label in [
-        ('date', '수급 기준일'),
-        ('foreign', '외국인 순매수(억)'),
-        ('institution', '기관 순매수(억)'),
-        ('personal', '개인 순매수(억)')
+    st.caption(f'거래대금: {meta.get("source", "미확인")} · 거래 기준일 {meta["date"]} · 검증 완료 (확정 EOD)')
+    records, issue, flow = get_snapshot(frame, meta)
+    if issue:
+        st.warning(issue)
+    elif flow:
+        st.caption(f'수급: {flow.get("source", "매동 공개 API")} · 수집시각 {flow.get("collected_at_kst", "-")}')
+        st.caption(f'조회 {len(flow.get("attempted_codes") or [])}/200종목 · 금액 확인 {flow.get("published_codes", 0)}종목 · 외국인·기관 모두 확인 {flow.get("complete_codes", 0)}종목')
+        if flow.get('errors'):
+            with st.expander(f'API 조회 실패 {len(flow["errors"])}건'):
+                for x in flow['errors'][:50]:
+                    st.text(str(x)[:180])
+    for key, label in [
+        ('foreign_net_krw', '외국인 순매수(억)'),
+        ('institution_net_krw', '기관 순매수(억)'),
+        ('individual_net_krw', '개인 순매수(억)')
     ]:
-        frame[label] = code.map(
-            lambda c: (found.get(c) or {}).get(field)
+        frame[label] = frame['ticker'].map(
+            lambda code: (records.get(code) or {}).get(key)
         )
-        if field != 'date':
-            frame[label] = (
-                pd.to_numeric(frame[label], errors='coerce') / 1e8
-            ).round(2)
+        frame[label] = pd.to_numeric(frame[label], errors='coerce') / 100_000_000
 
-    frame['수급 합계(억)'] = frame[
-        ['외국인 순매수(억)', '기관 순매수(억)']
-    ].sum(axis=1, min_count=2).round(2)
-    frame['거래대금(억)'] = (
-        pd.to_numeric(frame['traded_krw'], errors='coerce') / 1e8
-    ).round(1)
-
-    same = (
-        frame['수급 기준일'].notna()
-        & (frame['수급 기준일'] == meta.get('date'))
+    frame['수급 기준일'] = frame['ticker'].map(
+        lambda code: (records.get(code) or {}).get('date')
     )
-    frame['수급강도(%)'] = (
-        frame['수급 합계(억)']
-        / frame['거래대금(억)'] * 100
-    ).where(same).round(2)
-
-    count = sum(1 for x in found.values() if x is not None)
-    if count:
-        st.success(
-            f'조회 결과: {count}/{checked}종목에 금액 수급 확인 '
-            '· 원자료: maedong.kr'
-        )
-    else:
-        st.error('금액 수급을 조회하지 못했습니다.')
-
-    dates = frame['수급 기준일'].dropna().value_counts()
-    if not dates.empty:
-        st.caption(
-            '수급 기준일 분포: '
-            + ', '.join(f'{d} ({c}종목)' for d, c in dates.items())
-        )
-    if errors:
-        with st.expander(f'조회 실패 {len(errors)}건'):
-            for err in errors[:60]:
-                st.text(err)
-
-    st.caption(
-        '순매수 금액은 매동의 _net_krw 필드(원)를 1억원으로 '
-        '나눈 값입니다. 0과 미수집(null)은 구별합니다. '
-        '수급 원천의 독립 검증은 별도 필요합니다.'
-    )
+    same_date = frame['수급 기준일'].eq(meta['date'])
+    money_cols = ['외국인 순매수(억)', '기관 순매수(억)', '개인 순매수(억)']
+    frame[money_cols] = frame[money_cols].where(same_date, other=float('nan'))
+    frame['수급 합계(억)'] = frame[money_cols[:2]].sum(axis=1, min_count=2)
+    frame['거래대금(억)'] = frame['traded_krw'] / 100_000_000
+    frame['수급강도(%)'] = (frame['수급 합계(억)'] / frame['거래대금(억)'] * 100).where(frame['거래대금(억)'] > 0)
+    frame['확인상태'] = '미수집'
+    partial = frame[money_cols[:2]].notna().any(axis=1)
+    complete = frame[money_cols[:2]].notna().all(axis=1)
+    frame.loc[partial, '확인상태'] = '일부 확인'
+    frame.loc[complete, '확인상태'] = '확인'
+    for x in money_cols + ['수급 합계(억)', '수급강도(%)', '거래대금(억)']:
+        frame[x] = frame[x].round(2)
     return frame
 
 
@@ -193,89 +103,38 @@ def cashflow():
     frame = prepare()
     if frame is None:
         return
-
-    market = st.selectbox(
-        '시장', ['전체', 'KOSPI', 'KOSDAQ'], key='cashmarket'
-    )
+    market = st.selectbox('시장', ['전체', 'KOSPI', 'KOSDAQ'], key='cashmarket')
     if market != '전체':
-        frame = frame[frame['market'] == market]
-
-    columns = [
-        '순위', 'name', '수급 기준일',
-        '외국인 순매수(억)', '기관 순매수(억)',
-        '개인 순매수(억)', '수급 합계(억)'
-    ]
-    st.dataframe(
-        frame[columns], use_container_width=True,
-        hide_index=True, column_config={'name': '종목명'}
-    )
-
-    paired = frame.dropna(
-        subset=['외국인 순매수(억)', '기관 순매수(억)']
-    )
+        frame = frame[frame['market'].eq(market)]
+    st.caption('종목별 순매수 금액(억원)만 표시. 미수집은 빈칸, 실제 0원은 0으로 구분합니다.')
+    cols = ['순위', 'name', '수급 기준일', '확인상태', '외국인 순매수(억)', '기관 순매수(억)', '개인 순매수(억)', '수급 합계(억)']
+    st.dataframe(frame[cols], hide_index=True, use_container_width=True, column_config={'name': '종목명'})
+    paired = frame.dropna(subset=['외국인 순매수(억)', '기관 순매수(억)']).head(20)
     if not paired.empty:
-        sample = paired.head(20)
         fig = go.Figure()
-        fig.add_bar(
-            x=sample['name'],
-            y=sample['외국인 순매수(억)'],
-            name='외국인'
-        )
-        fig.add_bar(
-            x=sample['name'],
-            y=sample['기관 순매수(억)'],
-            name='기관'
-        )
-        fig.update_layout(
-            barmode='relative', yaxis_title='억원', height=360
-        )
+        fig.add_bar(name='외국인', x=paired['name'], y=paired['외국인 순매수(억)'])
+        fig.add_bar(name='기관', x=paired['name'], y=paired['기관 순매수(억)'])
+        fig.update_layout(barmode='relative', height=350, yaxis_title='억원')
         st.plotly_chart(fig, use_container_width=True)
+    st.download_button('📥 투자자별 수급 CSV', frame[cols].to_csv(index=False).encode('utf-8-sig'), 'miner_cashflow.csv', mime='text/csv')
 
 
 def top200():
-    st.title('📊 TOP 200 | 거래대금·실제 게시 순매수 금액')
+    st.title('📊 TOP 200 | 거래대금 순위 · 투자자별 순매수')
     frame = prepare()
     if frame is None:
         return
-
-    market = st.selectbox(
-        '시장', ['전체', 'KOSPI', 'KOSDAQ'], key='topmarket'
-    )
+    market = st.selectbox('시장', ['전체', 'KOSPI', 'KOSDAQ'], key='topmarket')
     if market != '전체':
-        frame = frame[frame['market'] == market]
-
+        frame = frame[frame['market'].eq(market)]
     term = st.text_input('종목명 또는 종목코드 검색').strip()
     if term:
-        frame = frame[
-            frame['name'].str.contains(
-                term, case=False, regex=False, na=False
-            )
-            | frame['ticker'].astype(str).str.contains(
-                term, regex=False, na=False
-            )
-        ]
-
-    columns = [
-        '순위', 'name', 'ticker', 'market', 'close',
-        '거래대금(억)', '수급 기준일',
-        '외국인 순매수(억)', '기관 순매수(억)',
-        '개인 순매수(억)', '수급 합계(억)', '수급강도(%)'
-    ]
-    st.dataframe(
-        frame[columns],
-        use_container_width=True,
-        hide_index=True,
-        column_config={
-            'name': '종목명', 'ticker': '코드',
-            'market': '시장', 'close': '종가'
-        }
-    )
-    st.caption(
-        '거래대금 원래 순위 유지. 수급 데이터가 없는 종목은 '
-        '빈칸으로 표시하며 0으로 추정하지 않습니다.'
-    )
-    st.download_button(
-        'TOP 200 수급 CSV',
-        frame[columns].to_csv(index=False).encode('utf-8-sig'),
-        'miner_flow.csv', 'text/csv'
-    )
+        frame = frame[frame['name'].str.contains(term, case=False, regex=False, na=False) |
+                      frame['ticker'].str.contains(term, regex=False, na=False)]
+    cols = ['순위', 'name', 'ticker', 'market', 'close', '거래대금(억)',
+            '수급 기준일', '확인상태', '외국인 순매수(억)', '기관 순매수(억)',
+            '개인 순매수(억)', '수급 합계(억)', '수급강도(%)']
+    st.dataframe(frame[cols], hide_index=True, use_container_width=True,
+                 column_config={'name': '종목명', 'ticker': '종목코드', 'market': '시장', 'close': '종가'})
+    st.caption('검색해도 원래 거래대금 TOP200 순위는 유지합니다. 외국인·기관 모두 게시되고 날짜가 같은 경우에만 수급강도를 표시합니다.')
+    st.download_button('📥 TOP 200 수급 CSV', frame[cols].to_csv(index=False).encode('utf-8-sig'), 'miner_flow_top200.csv', mime='text/csv')
