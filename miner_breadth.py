@@ -207,5 +207,6 @@ def show_market_breadth():
                                'miner_adr20_history.csv', mime='text/csv', key='miner_breadth_adr_csv')
         except (requests.RequestException, ValueError, KeyError) as exc:
             st.warning(f'전체시장 ADR20 계산 보류: {exc}')
-    st.info('20·50·200일선 상회 종목 비율은 아직 산출하지 않습니다. 전 종목의 같은 기준일 과거 종가와 충분한 이력이 확보돼야 정확하게 계산할 수 있습니다.')
+        from miner_ma_breadth import show_ma_breadth
+    show_ma_breadth()
     st.caption('ADR20은 현재 주가의 방향을 알려주는 종목 수 비율이며 투자 판단·추세 전환을 보장하지 않습니다. KRX 공식 ADR이 아닌 공개 자료 기반 자체 산출입니다.')
