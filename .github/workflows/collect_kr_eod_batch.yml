@@ -2,12 +2,11 @@ name: Collect KR EOD data (single 18:35 batch)
 on:
   workflow_dispatch:
   schedule:
-    # Monday-Friday 18:35 KST (09:35 UTC); each provider's own published date is preserved.
+    # Weekdays 18:35 Korea (09:35 UTC), published source dates preserved.
     - cron: '35 9 * * 1-5'
 permissions:
   contents: write
 concurrency:
-  # Shared with legacy manual EOD workflows; avoid concurrent git pushes and duplicate API calls.
   group: miner-kr-eod-all
   cancel-in-progress: false
 jobs:
@@ -21,19 +20,19 @@ jobs:
           python-version: '3.11'
       - name: Install existing collector dependencies
         run: python -m pip install --disable-pip-version-check requests pandas numpy
-      - name: Collect ranking, investors, total cash, futures, and liquidity once in sequence
+      - name: Collect existing market sources and bounded dated ADR20 in sequence
         env:
           KRX_API_KEY: ${{ secrets.KRX_API_KEY }}
         run: python scripts/run_kr_eod_batch.py
-      - name: Commit all successful source files after every collection attempt
+      - name: Commit successfully validated snapshots and ADR detail patch
         if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          for f in data/kr_flow.json data/kr_investor_flow.json data/kr_market_total_flow.json data/kr_futures_flow.json data/kr_market_liquidity.json data/kr_kofia_liquidity.json; do
+          for f in data/kr_flow.json data/kr_investor_flow.json data/kr_market_total_flow.json data/kr_futures_flow.json data/kr_market_liquidity.json data/kr_kofia_liquidity.json data/kr_market_adr20.json miner_breadth.py; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then
-            git commit -m 'data: collect verified KR EOD market signals in one batch'
+            git commit -m 'data: update verified KR EOD market sources and stored ADR20'
             git push
           fi
