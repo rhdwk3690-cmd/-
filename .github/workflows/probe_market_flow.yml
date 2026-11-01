@@ -1,0 +1,92 @@
+name: Probe modern Naver market investor API (diagnostic only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Test KOSPI and KOSDAQ JSON endpoint; log schema only
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import json
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timedelta
+          from zoneinfo import ZoneInfo
+          
+          BASE='https://stock.naver.com'
+          # Only test recent completed Korean weekday. The source response date, not this estimate, governs data legitimacy.
+          today=datetime.now(ZoneInfo('Asia/Seoul')).date()
+          day=today-timedelta(days=1)
+          while day.weekday()>=5:
+              day-=timedelta(days=1)
+          print('API CONNECTION PROBE ONLY; no market flow will be saved or inferred.')
+          print('Target query date:',day,'(request hint; response must supply its own trade date for production)')
+          HEADERS={
+           'User-Agent':'Mozilla/5.0 (compatible; MinerDashboardProbe/1.0)',
+           'Accept':'application/json',
+           'Referer':'https://stock.naver.com/',
+          }
+          
+          def shape(value, level=0):
+              if isinstance(value,dict):
+                  out={'type':'object','keys':list(value)[:30]}
+                  if level<2:
+                      for k,v in list(value.items())[:10]:
+                          if isinstance(v,(dict,list)):
+                              out['child:'+k]=shape(v,level+1)
+                  return out
+              if isinstance(value,list):
+                  return {'type':'array','length':len(value),'first':shape(value[0],level+1) if value and level<3 else None}
+              return {'type':type(value).__name__}
+          
+          def request(method,path,payload=None):
+              content=None if payload is None else json.dumps(payload,separators=(',',':')).encode()
+              request=urllib.request.Request(BASE+path,data=content,headers={**HEADERS, **({'Content-Type':'application/json'} if content else {})},method=method)
+              try:
+                  with urllib.request.urlopen(request,timeout=13) as response:
+                      body=response.read(800000)
+                      status=response.status
+                      ct=response.headers.get('Content-Type','')
+              except urllib.error.HTTPError as exc:
+                  print(f'{method} HTTP {exc.code} for {path.split("?")[0]} (no access bypass or retry)')
+                  return False
+              except (urllib.error.URLError,TimeoutError) as exc:
+                  print(f'{method} network failure {type(exc).__name__}: {str(exc)[:180]}')
+                  return False
+              print(f'{method} HTTP {status}, Content-Type {ct}, bytes {len(body)}')
+              try:
+                  obj=json.loads(body)
+                  print('Schema:',json.dumps(shape(obj),ensure_ascii=False)[:2700])
+                  # Print just one record for manual unit/date review; all fields are public market data.
+                  for array in [obj.get('content'),obj.get('data'),obj.get('items'),obj.get('rows')]:
+                      if isinstance(array,list) and array:
+                          print('First record:',json.dumps(array[0],ensure_ascii=False)[:2100]);break
+                  return True
+              except (ValueError,AttributeError) as exc:
+                  print('Response is not recognized JSON:',type(exc).__name__,'preview:',body[:150].decode('utf-8','replace'))
+                  return False
+          
+          ok=[]
+          for market in ('KOSPI','KOSDAQ'):
+              params=urllib.parse.urlencode({'tradeType':'KRX','marketType':market,'bizdate':day.strftime('%Y%m%d'),'startIdx':0,'pageSize':5})
+              print('\nMARKET:',market,'/api/domestic/market/trend/daily')
+              ok.append(request('GET','/api/domestic/market/trend/daily?'+params))
+          # Alternative aggregate is tested only if the daily API didn't work. No background polling.
+          if not all(ok):
+              print('\nALTERNATIVE: aggregateInvestor POST')
+              for market in ('KOSPI','KOSDAQ'):
+                  print('MARKET:',market)
+                  request('POST','/api/domestic/home/marketaggregate/aggregateInvestor',
+                          {'sections':{'investorTrend':{'tradeType':'KRX','marketType':market,'periodType':'TIME'}}})
+          if not all(ok):
+              print('PROBE RESULT: At least one daily market JSON request failed. Collector remains disabled.')
+              sys.exit(1)
+          print('PROBE RESULT: Both daily JSON URLs replied. Data units and actual dates must be verified before enabling the collector.')
+          PY
