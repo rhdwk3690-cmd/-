@@ -1,0 +1,33 @@
+name: Retire duplicate Npay deposits and credit comparison
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  retire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Keep official KOFIA and remove obsolete Npay deposit/credit UI and batch stage
+        run: python scripts/retire_naver_liquidity.py
+      - name: Remove Npay deposit/credit cached JSON and manual collection workflow
+        run: |
+          git rm -f --ignore-unmatch data/kr_market_liquidity.json .github/workflows/collect_market_liquidity.yml
+      - name: Commit narrow cleanup without touching spot/futures/TOP200
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/run_kr_eod_batch.py market_signal_summary.py kofia_liquidity_ui.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'cleanup: use only KOFIA for credit deposits; remove Npay comparison'
+            git push
+          else
+            echo 'No changes needed.'
+          fi
