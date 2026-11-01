@@ -1,0 +1,105 @@
+name: Clarify price trend gauge and protect market signal panels
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Safely patch only app.py
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          p = Path('app.py')
+          source = p.read_text(encoding='utf-8')
+          old_source = source
+          replacements = [
+              (
+                  "        from market_regime_ui import render_market_environment_compact\n"
+                  "        render_market_environment_compact(states, datasets, oneil_market_state, quality_reports)",
+                  "        try:\n"
+                  "            from market_regime_ui import render_market_environment_compact\n"
+                  "            render_market_environment_compact(states, datasets, oneil_market_state, quality_reports)\n"
+                  "        except Exception as exc:\n"
+                  "            st.warning('시장 관찰 환경 표시 오류 · 지수 신호 화면은 계속 이용할 수 있습니다.')\n"
+                  "            st.caption(f'부가 화면 오류 유형: {type(exc).__name__} · 운영 로그에서 원인을 확인하세요.')",
+              ),
+              (
+                  "st.markdown('#### 🌡️ 지금 여긴 · 시장 추세 게이지')",
+                  "st.markdown('#### 🌡️ 지수 가격추세 게이지 · 시장 환경 판정과 별개')",
+              ),
+              (
+                  "zone = ('위험' if score <= 20 else '방어' if score <= 40 else",
+                  "zone = ('매우 약세' if score <= 20 else '약세' if score <= 40 else",
+              ),
+              (
+                  "bars = [('위험','#b9484c'),('방어','#db9a55'),('중립','#e4c669'),('양호','#78b68f'),('강세','#279768')]",
+                  "bars = [('매우 약세','#b9484c'),('약세','#db9a55'),('중립','#e4c669'),('양호','#78b68f'),('강세','#279768')]",
+              ),
+              (
+                  '<div class="miner-sub">지수 이동평균 추세 조건 8개 종합</div>',
+                  '<div class="miner-sub">가격 추세 {fulfilled}/8 충족 · 백분율 참고치</div>',
+              ),
+              (
+                  '가격 추세 참고 점수 · 주식 권장 비중이 아닙니다',
+                  '이동평균 8개 조건의 충족률 · DD·FTD·ADR20 미포함 · 매수 비중 지시 아님',
+              ),
+              (
+                  '        from market_signal_summary import render_market_signal_integrity\n'
+                  '        render_market_signal_integrity(states, datasets, oneil_market_state)',
+                  "        try:\n"
+                  "            from market_signal_summary import render_market_signal_integrity\n"
+                  "            render_market_signal_integrity(states, datasets, oneil_market_state)\n"
+                  "        except Exception as exc:\n"
+                  "            st.warning('시장 근거판 표시 오류 · 위의 시장신호 요약은 계속 이용할 수 있습니다.')\n"
+                  "            st.caption(f'근거판 오류 유형: {type(exc).__name__} · 운영 로그에서 원인을 확인하세요.')",
+              ),
+          ]
+          for old, new in replacements:
+              if source.count(new) == 1:
+                  print('ALREADY PATCHED:', old.splitlines()[0][:65])
+              elif source.count(old) == 1 and source.count(new) == 0:
+                  source = source.replace(old, new, 1)
+                  print('PATCHED:', old.splitlines()[0][:65])
+              else:
+                  raise SystemExit('ABORT: source anchor missing or duplicated: ' + old.splitlines()[0][:75])
+          ast.parse(source, filename=str(p))
+          if source.count("def market_signal():") != 1 or source.count('nav.run()') != 1:
+              raise SystemExit('ABORT: dashboard entrypoint mismatch')
+          if source.count('render_market_environment_compact(states, datasets, oneil_market_state, quality_reports)') != 1:
+              raise SystemExit('ABORT: market panel call count changed')
+          if source.count('render_market_signal_integrity(states, datasets, oneil_market_state)') != 1:
+              raise SystemExit('ABORT: evidence panel call count changed')
+          if source != old_source:
+              p.write_text(source, encoding='utf-8')
+              print('SUCCESS: only app.py updated; market calculations remain unchanged')
+          else:
+              print('ALREADY INSTALLED: app.py unchanged')
+          PY
+      - name: Syntax and market regime unit tests
+        run: |
+          python -m py_compile app.py market_regime_ui.py market_signal_summary.py market_regime.py
+          python -m unittest discover -s tests -p 'test_market_regime.py' -v
+          git diff --check
+          git diff --stat -- app.py
+      - name: Commit app.py only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'ui: clarify trend gauge and protect optional market signal panels'
+            git push
+          else
+            echo 'No changes needed.'
+          fi
