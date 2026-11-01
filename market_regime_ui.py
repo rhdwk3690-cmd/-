@@ -38,45 +38,68 @@ def _sources_info():
             pass
 
 
-def render_market_environment(states,datasets,oneil_market_state):
-    st.divider()
-    st.markdown('### 🧭 시장 환경 판단 · 실험 규칙 v1')
-    st.caption('DD·FTD 독립검증, 지수 가격추세 8개 조건, 저장된 ADR20을 결합한 **매수 가능 환경 필터**입니다. 아직 백테스트로 검증되지 않은 가설이며 종목 매수·매도 지시나 추천 주식 비중이 아닙니다.')
-    from market_signal_qa import assess_market_signal
-    qa={}
-    for name in ('KOSPI','KOSDAQ'):
-        if name in datasets:
-            try:
-                qa[name]=assess_market_signal(datasets[name],oneil_market_state)
-            except Exception as exc:
-                qa[name]={'status':'withheld','reason':f'{type(exc).__name__} 오류'}
-    result=classify_environment(states,qa,_json('data/kr_market_adr20.json'),today=datetime.now(KST).date())
-    if result['code']=='withheld':
-        st.warning('시장 환경 **판정 보류** · ' + '; '.join(result['reasons']))
-        st.caption('누락된 지수 거래량을 임의 보정하거나 저장 ADR 대신 다른 날짜 자료를 사용하지 않습니다.')
-    else:
-        color='error' if result['code']=='defensive' else 'info'
-        st.markdown(f'**현재 관찰 환경: {result["status"]}**')
-        left,mid,right=st.columns(3)
-        left.metric('가격 추세 조건',f'{result["price_flags"]}/8')
-        mid.metric('전체시장 ADR20',f'{result["adr20"]["value"]:.2f}%')
-        right.metric('유효 DD',f'코스피 {result["dd_counts"]["KOSPI"]} / 코스닥 {result["dd_counts"]["KOSDAQ"]}')
-        st.caption(f'지수 가격 {result["date"]} · ADR {result["adr20"]["date"]} · 독립검증된 FTD {result["ftd_count"]}개 지수')
-        for s in result['reasons']:
-            st.write('• '+s)
-        if result['code']=='defensive':
-            st.warning('새로운 포지션 확대보다 위험 노출과 기존 보유종목의 추세 이탈 여부를 우선 확인할 환경입니다. 기계적 전량 매도 신호는 아닙니다.')
-        elif result['code'] in {'conditional','expansion'}:
-            st.info('시장의 진입 환경만 충족한 상태입니다. 실적 증가·시장 대비 RS·DI/ADX·ATR·손절/포지션 크기 조건을 종목별로 추가 검증해야 합니다.')
-    from market_regime_journal_ui import render_journal_history
-    render_journal_history()
-    with st.expander('실험적 판정 규칙 · 기준값과 독립 보조근거',expanded=False):
-        st.markdown('''- **방어 우선:** 어느 한 지수 DD≥4회, 또는 추세≤3/8 & ADR20<80%, 또는 추세≤2/8 & ADR20<100%.
-- **매수 확대 조건 검토:** 양 지수 유효 FTD, 추세≥6/8, 각 DD≤2회, ADR20≥110%, 양 지수 시장 상태 `상승 확인`.
-- **조건부 시험 진입:** 최소 한 지수 유효 FTD, 추세≥4/8, 각 DD≤2회, ADR20≥90%.
-- **반등 관찰:** 위 세 조건 어디에도 속하지 않는 검증 완료 구간.
-- **판정 보류:** DD·FTD 검증 실패, 지수 날짜 불일치·지연, ADR20 미검증 또는 지연.
+def render_market_environment_compact(states, datasets, oneil_market_state, quality_reports=None):
+    """Compact, clickable environment headline. Detail opens only on request.
 
-ADR 경계값 80·90·110과 DD/추세 조건은 **검증되지 않은 초기 가설**입니다. 20거래일 이후 손익·MDD·매매 횟수 등의 백테스트를 거쳐 조정해야 합니다.''')
-        _sources_info()
-        st.caption(f'규칙 버전: {RULE_VERSION} · 동시 거래일 자료를 우선하며 금투협·외국인 수급은 규칙 점수에 임의 합산하지 않음')
+    Reuses the independent audits calculated by the market signal home;
+    no new market score, no changed rule, no data interpolation.
+    """
+    from market_signal_qa import assess_market_signal
+    if quality_reports is None:
+        quality_reports = {}
+        for name in ('KOSPI', 'KOSDAQ'):
+            if name in datasets:
+                try:
+                    quality_reports[name] = assess_market_signal(datasets[name], oneil_market_state)
+                except Exception as exc:
+                    quality_reports[name] = {'status':'withheld', 'reason':type(exc).__name__}
+    result = classify_environment(
+        states, quality_reports, _json('data/kr_market_adr20.json'),
+        today=datetime.now(KST).date())
+    icon = {
+        'defensive':'🛡️', 'watch':'👀', 'conditional':'🧪',
+        'expansion':'📈', 'withheld':'⏸️'
+    }.get(result['code'], '⏸️')
+    label = result['status']
+    st.markdown('### 🧭 현재 시장 관찰 환경')
+    with st.expander(f'{icon} **{label}**  ·  눌러서 판정 근거 보기', expanded=False):
+        if result['code'] == 'withheld':
+            st.warning('독립 검증이 통과되지 않아 시장 환경 판정을 보류합니다.')
+            for why in result.get('reasons', []):
+                st.write('• ' + str(why))
+            st.caption('검증되지 않은 거래량이나 다른 날짜의 ADR을 임의 보정하지 않습니다.')
+        else:
+            a, b, c = st.columns(3)
+            a.metric('가격 추세', f'{result["price_flags"]}/8')
+            b.metric('전체 시장 ADR20', f'{result["adr20"]["value"]:.2f}%')
+            c.metric('유효 DD', f'코스피 {result["dd_counts"]["KOSPI"]} / 코스닥 {result["dd_counts"]["KOSDAQ"]}')
+            st.caption(f'지수 종가 {result["date"]} · ADR {result["adr20"]["date"]} · 독립 검증 FTD {result["ftd_count"]}개 지수')
+            st.markdown('**판정 근거**')
+            for why in result.get('reasons', []):
+                st.write('• ' + str(why))
+            if result['code'] == 'defensive':
+                st.warning('포지션 확대보다 위험 노출과 보유 종목의 추세 이탈을 우선 점검할 환경입니다. 전량 매도 신호는 아닙니다.')
+            elif result['code'] in ('conditional', 'expansion'):
+                st.info('시장의 진입 환경만 관찰한 결과입니다. 실제 매수에는 분기 이익 증가·상대강도·DI/ADX·ATR 등 종목별 검증이 필요합니다.')
+        if st.toggle('판정 기준·출처 더 보기', value=False, key='miner_compact_env_rules'):
+            st.markdown("""- **방어 우선:** 한 지수의 유효 DD가 4회 이상, 또는 추세≤3/8 & ADR20<80%, 또는 추세≤2/8 & ADR20<100%.
+- **매수 확대 조건 검토:** 양 지수 검증된 FTD, 추세≥6/8, 지수별 DD≤2회, ADR20≥110%, 양 지수 시장 상태 상승 확인.
+- **조건부 시험 진입:** 최소 한 지수의 유효 FTD, 추세≥4/8, DD≤2회, ADR20≥90%.
+- **반등 관찰:** 위 세 환경에 들지 않는 검증 완료 구간.
+- **판정 보류:** 데이터 누락, 독립검증 실패, 기준일 불일치 또는 지연.
+
+기준값은 백테스트로 입증된 것이 아닌 **초기 가설**이며, 이 분류는 개별 종목 매수·매도 신호가 아닙니다.""")
+            _sources_info()
+            st.caption(f'판정 버전: {RULE_VERSION} · DD·FTD는 독립검증을 통과한 경우만 사용')
+    stamp = result.get('date') or '확인 대기'
+    st.caption(f'가격 기준일 {stamp} · 검증된 원자료만 사용 · 연구용 시장 환경 관찰, 매매 지시 아님')
+
+
+def render_market_environment(states, datasets, oneil_market_state):
+    """Keep research history below the market evidence panel, initially folded.
+
+    The compact primary status now appears at the very top of market signal home.
+    """
+    from market_regime_journal_ui import render_journal_history
+    with st.expander('📚 시장 환경 판정 이력 · 5·20·60거래일 사후성과', expanded=False):
+        render_journal_history()

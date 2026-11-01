@@ -457,6 +457,10 @@ def market_signal():
             quality_reports[name] = {'status': 'withheld', 'reason': f'독립검산 오류 ({type(exc).__name__})'}
 
     if view == '종합':
+        # Clean market regime status: tap once to inspect verified evidence.
+        from market_regime_ui import render_market_environment_compact
+        render_market_environment_compact(states, datasets, oneil_market_state, quality_reports)
+
         # 1) 스탁이지 참고: 지수 상태 2개 → 게이지 → 6개 클릭 가능한 요약 카드
         st.markdown('#### 🚦 코스피·코스닥 신호')
         cols = st.columns(2, gap='small')
