@@ -1,0 +1,198 @@
+{
+  "status": "verified",
+  "source": "maedong.kr public market breadth (KOSPI+KOSDAQ combined)",
+  "source_url": "https://maedong.kr/api/v1/market",
+  "market_scope": "KOSPI+KOSDAQ aggregate market breadth; as classified by provider",
+  "source_data_quality": "prior-weekday dated observations; provisional current date excluded",
+  "unit": "stocks",
+  "latest_date": "2026-10-30",
+  "observations": 25,
+  "adr20": {
+    "start_date": "2026-10-01",
+    "end_date": "2026-10-30",
+    "days": 20,
+    "up_sum": 20785,
+    "down_sum": 30032,
+    "value_pct": 69.21
+  },
+  "history": [
+    {
+      "date": "2026-09-22",
+      "up": 1008,
+      "down": 1465,
+      "flat": 175,
+      "universe_total": 2648
+    },
+    {
+      "date": "2026-09-23",
+      "up": 1167,
+      "down": 1332,
+      "flat": 149,
+      "universe_total": 2648
+    },
+    {
+      "date": "2026-09-28",
+      "up": 1578,
+      "down": 930,
+      "flat": 142,
+      "universe_total": 2650
+    },
+    {
+      "date": "2026-09-29",
+      "up": 803,
+      "down": 1708,
+      "flat": 145,
+      "universe_total": 2656
+    },
+    {
+      "date": "2026-09-30",
+      "up": 1156,
+      "down": 1358,
+      "flat": 143,
+      "universe_total": 2657
+    },
+    {
+      "date": "2026-10-01",
+      "up": 1772,
+      "down": 755,
+      "flat": 131,
+      "universe_total": 2658
+    },
+    {
+      "date": "2026-10-02",
+      "up": 1458,
+      "down": 1043,
+      "flat": 158,
+      "universe_total": 2659
+    },
+    {
+      "date": "2026-10-06",
+      "up": 1437,
+      "down": 1106,
+      "flat": 113,
+      "universe_total": 2656
+    },
+    {
+      "date": "2026-10-07",
+      "up": 929,
+      "down": 1587,
+      "flat": 142,
+      "universe_total": 2658
+    },
+    {
+      "date": "2026-10-08",
+      "up": 870,
+      "down": 1656,
+      "flat": 128,
+      "universe_total": 2654
+    },
+    {
+      "date": "2026-10-12",
+      "up": 389,
+      "down": 2185,
+      "flat": 77,
+      "universe_total": 2651
+    },
+    {
+      "date": "2026-10-13",
+      "up": 669,
+      "down": 1879,
+      "flat": 103,
+      "universe_total": 2651
+    },
+    {
+      "date": "2026-10-14",
+      "up": 1290,
+      "down": 1227,
+      "flat": 134,
+      "universe_total": 2651
+    },
+    {
+      "date": "2026-10-15",
+      "up": 223,
+      "down": 2380,
+      "flat": 48,
+      "universe_total": 2651
+    },
+    {
+      "date": "2026-10-16",
+      "up": 2230,
+      "down": 357,
+      "flat": 62,
+      "universe_total": 2649
+    },
+    {
+      "date": "2026-10-19",
+      "up": 1863,
+      "down": 673,
+      "flat": 110,
+      "universe_total": 2646
+    },
+    {
+      "date": "2026-10-20",
+      "up": 428,
+      "down": 2121,
+      "flat": 99,
+      "universe_total": 2648
+    },
+    {
+      "date": "2026-10-21",
+      "up": 1204,
+      "down": 1292,
+      "flat": 153,
+      "universe_total": 2649
+    },
+    {
+      "date": "2026-10-22",
+      "up": 454,
+      "down": 2099,
+      "flat": 98,
+      "universe_total": 2651
+    },
+    {
+      "date": "2026-10-23",
+      "up": 577,
+      "down": 1967,
+      "flat": 104,
+      "universe_total": 2648
+    },
+    {
+      "date": "2026-10-26",
+      "up": 470,
+      "down": 2100,
+      "flat": 76,
+      "universe_total": 2646
+    },
+    {
+      "date": "2026-10-27",
+      "up": 1684,
+      "down": 819,
+      "flat": 148,
+      "universe_total": 2651
+    },
+    {
+      "date": "2026-10-28",
+      "up": 1723,
+      "down": 816,
+      "flat": 112,
+      "universe_total": 2651
+    },
+    {
+      "date": "2026-10-29",
+      "up": 605,
+      "down": 1921,
+      "flat": 123,
+      "universe_total": 2649
+    },
+    {
+      "date": "2026-10-30",
+      "up": 510,
+      "down": 2049,
+      "flat": 89,
+      "universe_total": 2648
+    }
+  ],
+  "collected_at_kst": "2026-11-01T15:31:43.652664+09:00",
+  "notice": "Free public non-KRX source; the earliest/backfilled dates were not independently reconciled against KRX. Holidays absent, not zero-filled. No intraday provisional.",
+  "skipped_or_invalid_dates": []
+}

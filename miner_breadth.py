@@ -191,22 +191,8 @@ def show_market_breadth():
     except (requests.RequestException, ValueError, KeyError, pd.errors.ParserError) as exc:
         st.warning(f'시장별 상승·하락 종목 수 판정 보류: {exc}')
 
-    st.markdown('##### 전체시장 ADR20 (20거래일 상승 종목 합계 ÷ 하락 종목 합계 × 100)')
-    if st.button('📈 ADR20 최신 데이터 계산 / 새로 확인', key='miner_breadth_adr_start'):
-        st.session_state['miner_breadth_adr_open'] = True
-    if st.session_state.get('miner_breadth_adr_open'):
-        try:
-            with st.spinner('전체 시장 20거래일 상승·하락 종목 수 검증 중...'):
-                hist, ratio = load_adr20()
-            st.metric('전체 시장 ADR20', f'{ratio:.1f}%')
-            st.caption(f'자료일: {hist["날짜"].iloc[-1]:%Y-%m-%d} · 최근 20거래일 · KOSPI+KOSDAQ 통합 · 매동 시장 폭 공개 API · 당일 속보 포함 가능')
-            st.dataframe(hist.assign(날짜=hist['날짜'].dt.strftime('%Y-%m-%d')).sort_values('날짜',ascending=False),
-                         hide_index=True, use_container_width=True)
-            st.download_button('📥 ADR20 근거 20거래일 CSV',
-                               hist.assign(날짜=hist['날짜'].dt.strftime('%Y-%m-%d')).to_csv(index=False).encode('utf-8-sig'),
-                               'miner_adr20_history.csv', mime='text/csv', key='miner_breadth_adr_csv')
-        except (requests.RequestException, ValueError, KeyError) as exc:
-            st.warning(f'전체시장 ADR20 계산 보류: {exc}')
+    from market_signal_adr_ui import show_adr_history
+    show_adr_history(compact=False)
     from miner_ma_breadth import show_ma_breadth
     show_ma_breadth()
     st.caption('ADR20은 현재 주가의 방향을 알려주는 종목 수 비율이며 투자 판단·추세 전환을 보장하지 않습니다. KRX 공식 ADR이 아닌 공개 자료 기반 자체 산출입니다.')
