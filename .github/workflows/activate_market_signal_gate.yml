@@ -1,0 +1,30 @@
+name: Gate DD and FTD cards on independent QA results
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate independent QA and safeguard all DD and FTD views
+        run: |
+          python -m py_compile market_signal_qa.py scripts/activate_market_signal_gate.py
+          python scripts/activate_market_signal_gate.py
+      - name: Commit market-signal presentation gate only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'ui: gate all DD and FTD labels on independent source audit'
+            git push
+          fi
