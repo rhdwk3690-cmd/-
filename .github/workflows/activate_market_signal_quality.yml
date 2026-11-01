@@ -1,0 +1,30 @@
+name: Validate DD and FTD display with independent market audit
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test source syntax and patch only existing market views
+        run: |
+          python -m py_compile market_signal_qa.py scripts/activate_market_signal_quality.py
+          python scripts/activate_market_signal_quality.py
+      - name: Commit UI-only corrections
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.py market_signal_summary.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'ui: reconcile DD FTD descriptions and independently validate market signal'
+            git push
+          fi
