@@ -458,8 +458,12 @@ def market_signal():
 
     if view == '종합':
         # Clean market regime status: tap once to inspect verified evidence.
-        from market_regime_ui import render_market_environment_compact
-        render_market_environment_compact(states, datasets, oneil_market_state, quality_reports)
+        try:
+            from market_regime_ui import render_market_environment_compact
+            render_market_environment_compact(states, datasets, oneil_market_state, quality_reports)
+        except Exception as exc:
+            st.warning('시장 관찰 환경 표시 오류 · 지수 신호 화면은 계속 이용할 수 있습니다.')
+            st.caption(f'부가 화면 오류 유형: {type(exc).__name__} · 운영 로그에서 원인을 확인하세요.')
 
         # 1) 스탁이지 참고: 지수 상태 2개 → 게이지 → 6개 클릭 가능한 요약 카드
         st.markdown('#### 🚦 코스피·코스닥 신호')
@@ -495,18 +499,18 @@ def market_signal():
                     f'<b style="color:#8dddea">오닐식 상태: {o_status}</b> · {escape(o_detail)}</div>'
                     '</div>', unsafe_allow_html=True)
 
-        st.markdown('#### 🌡️ 지금 여긴 · 시장 추세 게이지')
+        st.markdown('#### 🌡️ 지수 가격추세 게이지 · 시장 환경 판정과 별개')
         if len(states) == 2:
             fulfilled = sum(sum(bool(x) for x in s['flags']) for s in states.values())
             score = round(100 * fulfilled / 8)
-            zone = ('위험' if score <= 20 else '방어' if score <= 40 else
+            zone = ('매우 약세' if score <= 20 else '약세' if score <= 40 else
                     '중립' if score <= 60 else '양호' if score <= 80 else '강세')
-            bars = [('위험','#b9484c'),('방어','#db9a55'),('중립','#e4c669'),('양호','#78b68f'),('강세','#279768')]
+            bars = [('매우 약세','#b9484c'),('약세','#db9a55'),('중립','#e4c669'),('양호','#78b68f'),('강세','#279768')]
             segments = ''.join(f'<span style="background:{c}"></span>' for _,c in bars)
             pct = min(max(float(score), 1.5), 98.5)
             st.markdown(f'''<div class="miner-gauge">
                 <div style="display:flex;justify-content:space-between;align-items:center;gap:14px">
-                  <div><div class="miner-sub">지수 이동평균 추세 조건 8개 종합</div>
+                  <div><div class="miner-sub">가격 추세 {fulfilled}/8 충족 · 백분율 참고치</div>
                   <div style="font-size:25px;font-weight:900">{zone} 구간</div></div>
                   <div style="font-size:32px;font-weight:900">{score}<span style="font-size:14px;color:#a1b6c7"> / 100</span></div>
                 </div>
@@ -514,7 +518,7 @@ def market_signal():
                   <div style="position:absolute;top:0;left:{pct}%;transform:translateX(-50%);font-size:16px">▼</div>
                   <div class="miner-segments">{segments}</div>
                   <div class="miner-zones">{''.join(f'<span>{k}</span>' for k,_ in bars)}</div>
-                </div><div class="miner-sub" style="margin-top:10px">가격 추세 참고 점수 · 주식 권장 비중이 아닙니다</div>
+                </div><div class="miner-sub" style="margin-top:10px">이동평균 8개 조건의 충족률 · DD·FTD·ADR20 미포함 · 매수 비중 지시 아님</div>
             </div>''', unsafe_allow_html=True)
             if len({s['date'] for s in states.values()}) != 1:
                 st.warning('두 지수의 데이터 기준일이 서로 달라 종합 점수 해석에 주의가 필요합니다.')
@@ -558,8 +562,12 @@ def market_signal():
                         st.session_state.miner_signal_view = id_
                         st.rerun()
         st.markdown('<div class="miner-detail-note">● 신호는 지수 가격·거래량으로 계산한 참고 지표입니다. 시장 폭 지표는 별도 원자료를 사용합니다. 예탁금·신용잔고는 게시일 기준으로 지연될 수 있습니다.</div>', unsafe_allow_html=True)
-        from market_signal_summary import render_market_signal_integrity
-        render_market_signal_integrity(states, datasets, oneil_market_state)
+        try:
+            from market_signal_summary import render_market_signal_integrity
+            render_market_signal_integrity(states, datasets, oneil_market_state)
+        except Exception as exc:
+            st.warning('시장 근거판 표시 오류 · 위의 시장신호 요약은 계속 이용할 수 있습니다.')
+            st.caption(f'근거판 오류 유형: {type(exc).__name__} · 운영 로그에서 원인을 확인하세요.')
         return
 
     # 2) 위의 카드에서 진입하는 상세 화면: 기본 페이지에는 펼치지 않음
