@@ -1,0 +1,84 @@
+name: Repair market-regime journal QA and activate EOD history
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Match recorded market-engine gate to deployed 80-session QA
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          p=Path('scripts/collect_market_regime_journal.py')
+          src=p.read_text(encoding='utf-8')
+          old=(
+              "    def original_volume_ok(df):\n"
+              "        if not {'Close','Low','Volume'}.issubset(df.columns) or len(df)<205:\n"
+              "            return False\n"
+              "        t=df[['Close','Low','Volume']].tail(260).apply(pd.to_numeric,errors='coerce')\n"
+              "        return bool(t.notna().all().all() and (t>0).all().all())"
+          )
+          new=(
+              "    def original_volume_ok(df):\n"
+              "        # Match miner_volume.install: 80 validated consecutive bars.\n"
+              "        if not {'Close','Low','Volume'}.issubset(df.columns) or len(df)<80:\n"
+              "            return False\n"
+              "        t=df[['Close','Low','Volume']].tail(80).apply(pd.to_numeric,errors='coerce')\n"
+              "        return bool(t.notna().all().all() and (t>0).all().all())"
+          )
+          if src.count(old)==1:
+              updated=src.replace(old,new,1)
+              ast.parse(updated,filename=str(p))
+              p.write_text(updated,encoding='utf-8')
+              print('REPAIRED: journal replays the installed 80-session gate')
+          elif src.count(new)==1:
+              ast.parse(src,filename=str(p))
+              print('ALREADY FIXED: 80-session gate matches deployed app')
+          else:
+              raise SystemExit('ABORT: source anchor changed; original file preserved')
+          PY
+      - name: Verify source and journal tests including a 110-session engine replay
+        run: |
+          python -m pip install --disable-pip-version-check pandas numpy
+          python -m py_compile scripts/collect_market_regime_journal.py scripts/activate_market_regime_journal.py market_regime_journal.py market_regime_journal_ui.py
+          python -m unittest discover -s tests -p 'test_market_regime_journal.py' -v
+          python - <<'PY'
+          import numpy as np
+          import pandas as pd
+          from scripts.collect_market_regime_journal import current_engine
+          n=110
+          df=pd.DataFrame({
+              'Close': np.linspace(100,115,n),
+              'Low': np.linspace(99,114,n),
+              'Volume': np.arange(1,n+1,dtype=float)*1000,
+          }, index=pd.bdate_range('2026-05-01',periods=n))
+          result=current_engine()(df)
+          assert result.get('status')!='판정 보류', result
+          print('PASS: 110 verified consecutive bars no longer rejected by the 205-session legacy gate')
+          PY
+      - name: Activate only journal panel and optional EOD stage
+        run: |
+          python scripts/activate_market_regime_journal.py
+          python scripts/activate_market_regime_journal.py
+      - name: Commit source repair plus verified EOD/UI integration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/collect_market_regime_journal.py scripts/run_kr_eod_batch.py .github/workflows/collect_kr_eod_batch.yml market_regime_ui.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'fix: align journal DD FTD replay with live 80-session QA and activate EOD history'
+            git push
+          else
+            echo 'Source repair and EOD/UI activation were already applied.'
+          fi
