@@ -1,7 +1,6 @@
-"""광부 투자터미널: TOP200 표본 자금 흐름(시장 판단)과 종목 선별(탐색) 분리.
+"""광부 투자터미널: 시장 전체 현물 수급과 거래대금 TOP200 표본을 구분.
 
-중요: 시장 전체의 외국인·기관 수급이 아니라 매일 교체되는 거래대금 TOP200
-표본의 수급이다. 원천 거래일/종목 구성 불일치는 표시하지 않는다.
+전체 현물은 독립된 KRX 일별 검증 파일에서, TOP200은 별도 표본 수급에서 표시한다.
 """
 from __future__ import annotations
 
@@ -14,6 +13,7 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from flow_signals import merge_history, rolling_strength, summarize_snapshot, valid_history
+from market_total_ui import render_market_totals
 
 ROOT = Path(__file__).resolve().parent
 RANK_FILE = ROOT / 'data' / 'kr_flow.json'
@@ -214,27 +214,28 @@ def show_flow_signals(meta=None, market='ALL'):
 
 
 def cashflow():
-    """시장 상황 판단용 요약: 종목 검색/랭킹 표를 의도적으로 제외."""
-    st.title('💸 자금 흐름 | 시장별 자금 방향')
-    st.caption('외국인·기관 수급이 어느 시장에 집중되는지 평가합니다. 현재는 KOSPI·KOSDAQ 전체가 아닌 거래대금 TOP200 표본입니다.')
-    frame = prepare()
-    if frame is None:
-        return
-    summary, flow, issue = _summary_data()
-    if issue:
-        st.warning(issue)
-        st.info('전체 시장 현물·선물 순매수는 별도 원자료를 확보한 뒤 연결합니다.')
-        return
-
-    st.markdown('### 코스피 vs 코스닥 · 자금 흐름 비교')
-    table = _market_table(summary)
-    st.dataframe(table, hide_index=True, use_container_width=True)
-    st.download_button('📥 시장별 자금 흐름 CSV', table.to_csv(index=False).encode('utf-8-sig'),
-                       'miner_market_flow.csv', mime='text/csv', key='miner_market_flow_csv')
-    choice = st.selectbox('상세 관찰 시장', ['전체 TOP200', 'KOSPI 표본', 'KOSDAQ 표본'], key='miner_market_flow_scope')
-    selected = {'전체 TOP200': 'ALL', 'KOSPI 표본': 'KOSPI', 'KOSDAQ 표본': 'KOSDAQ'}[choice]
-    show_flow_signals(market=selected)
-    st.info('전체 시장 투자자별 현물 순매수·선물 순매수는 아직 별도 데이터가 연결되지 않았습니다. 표본 합계를 전체 시장 수급으로 해석하지 마세요.')
+    """시장 전체 자금 흐름을 우선 표시하고 TOP200은 표본 비교로만 제공."""
+    st.title('💸 자금 흐름 | 코스피·코스닥 전체 현물 수급')
+    st.caption('KRX 시장 전체 현물 순매수와 거래대금 상위 TOP200 표본을 분리합니다.')
+    render_market_totals()
+    with st.expander('🔎 거래대금 TOP200 표본 수급 비교 (시장 전체 집계 아님)'):
+        st.caption('표본 합계는 시장 전체 수급과 다르며, 두 자료는 서로 다른 거래일일 수 있습니다.')
+        summary, flow, issue = _summary_data()
+        if issue:
+            st.warning(issue)
+        else:
+            table = _market_table(summary)
+            st.dataframe(table, hide_index=True, use_container_width=True)
+            st.download_button('📥 TOP200 표본 시장별 수급 CSV',
+                               table.to_csv(index=False).encode('utf-8-sig'),
+                               'miner_top200_market_flow.csv', mime='text/csv',
+                               key='miner_market_flow_csv')
+            choice = st.selectbox('표본 상세', ['전체 TOP200', 'KOSPI 표본', 'KOSDAQ 표본'],
+                                  key='miner_market_flow_scope')
+            selected = {'전체 TOP200': 'ALL', 'KOSPI 표본': 'KOSPI',
+                        'KOSDAQ 표본': 'KOSDAQ'}[choice]
+            show_flow_signals(market=selected)
+    st.caption('KOSPI200 선물 투자자별 매매동향은 아직 미연결. 현물 수급을 선물로 오인하지 않습니다.')
 
 
 def top200():
