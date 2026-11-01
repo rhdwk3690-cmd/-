@@ -1,0 +1,35 @@
+name: Collect KR market liquidity & activate UI
+on:
+  workflow_dispatch:
+  schedule:
+    # 19:10 KST weekdays. Npay data can be delayed; source date is always shown.
+    - cron: '10 10 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: miner-market-liquidity
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate and collect investor deposits and margin loan balances
+        run: python scripts/collect_market_liquidity.py
+      - name: Activate the existing market-signal liquidity card on manual run
+        if: github.event_name == 'workflow_dispatch'
+        run: python scripts/activate_market_liquidity_ui.py
+      - name: Commit verified raw values and limited UI change
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/kr_market_liquidity.json
+          if [ "${{ github.event_name }}" = 'workflow_dispatch' ]; then git add app.py; fi
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: publish date-checked investor deposits and credit balances'
+            git push
+          fi
