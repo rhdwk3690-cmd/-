@@ -1,0 +1,36 @@
+name: Collect KR full-market investor net flows
+on:
+  workflow_dispatch:
+  schedule:
+    # Separate from TOP200 collection at 18:35 KST; KRX may publish later.
+    - cron: '50 9 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: kr-full-market-net-flows
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install free KRX scrape client
+        run: python -m pip install --disable-pip-version-check 'pykrx>=1.0.48,<2' 'pandas>=2.0,<3'
+      - name: Fetch dated KRX KOSPI and KOSDAQ investor net totals
+        run: python scripts/collect_market_total_flow.py
+      - name: Commit verified market totals (if present)
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [ -f data/kr_market_total_flow.json ]; then
+            git add data/kr_market_total_flow.json
+            if ! git diff --cached --quiet; then
+              git commit -m 'data: collect verified KR full-market investor flows'
+              git push
+            fi
+          fi
