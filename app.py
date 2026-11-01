@@ -526,7 +526,7 @@ def market_signal():
             if not signal_volume_ok(datasets[name]):
                 return '거래량 자료 부족'
             date = ftd_candidate(datasets[name])
-            return f'{date:%m/%d} 후보' if date is not None else '최근 후보 미발견'
+            return f'{date:%m/%d} 유효' if date is not None else '유효 FTD 없음'
 
         st.markdown('#### 🧭 핵심 근거 요약 · 카드를 누르면 상세 화면')
         kp = states.get('KOSPI'); kq = states.get('KOSDAQ')
@@ -581,13 +581,13 @@ def market_signal():
 
 
     elif view == '매도 압력':
-        st.caption('Distribution Day: 지수 -0.2% 이하 하락과 거래량 증가가 겹친 날 (간이 정의).')
+        st.caption('유효 DD: 지수 -0.2% 이하 하락 + 거래량 증가. 최근 25거래일 내 발생하되 이후 종가 5% 회복 시 제외하는 자체 기준입니다.')
         for name, df in datasets.items():
             days = dd_days(df)
             if days is None:
                 st.warning(f'{name}: 거래량 누락으로 판정 보류')
             else:
-                st.metric(f'{name} · 최근 25거래일 간이 DD', f'{len(days)}일')
+                st.metric(f'{name} · 유효 DD (25거래일)', f'{len(days)}회')
                 st.write('발생일: ' + (', '.join(d.strftime('%Y-%m-%d') for d in days) if days else '없음'))
         st.info('지수 거래량 기반 간이 지표이며 실제 기관 순매도 금액이나 공식 IBD Distribution Day 계산과 다릅니다.')
 
@@ -595,16 +595,16 @@ def market_signal():
         show_dd_audit(datasets, dd_days)
 
     elif view == '반등 확인':
-        st.caption('Follow-Through Day: 반등 과정에서 강한 상승과 거래량 증가를 확인하는 간이 후보.')
+        st.caption('FTD: 조정 후 Day 1부터 4거래일째 이후 지수 1% 이상 상승과 거래량 증가를 확인하는 광부 자체 유효 신호입니다.')
         for name, df in datasets.items():
             if not signal_volume_ok(df):
                 st.warning(f'{name}: 거래량 누락으로 판정 보류')
             else:
                 day = ftd_candidate(df)
                 if day is None:
-                    st.info(f'{name}: 최근 25거래일 간이 FTD 후보 없음')
+                    st.info(f'{name}: 현재 유효 FTD 없음 (독립감사 아래 참조)')
                 else:
-                    st.success(f'{name}: 간이 FTD 후보 발생일 {day:%Y-%m-%d}')
+                    st.success(f'{name}: 현재 유효 FTD 발생일 {day:%Y-%m-%d} (독립감사 아래 참조)')
         st.info('공식 William O’Neil / IBD 신호가 아니며 추세 반전이나 투자 수익을 보장하지 않습니다.')
 
         from miner_ftd_audit import show_ftd_audit
@@ -640,7 +640,7 @@ def market_signal():
         st.markdown('''**단기 신호**: 종가 > MA20, MA20 > MA50 (2개 중 0/1/2 충족 = 경계/중립/양호).  
 **장기 신호**: 종가 > MA200, MA50 > MA200 (동일 방식).  
 **시장 게이지**: 코스피·코스닥 각각 4개, 총 8개 추세 조건을 동일 가중치로 합산. 추천 주식 비중 아님.  
-**DD**: 최근 25거래일, 지수 -0.2% 이하 하락 + 거래량 증가의 단순 집계. 기관 순매도액이 아님.  
+**DD**: 지수 -0.2% 이하 하락 + 거래량 증가 후 최근 25거래일 내 유지되고 종가 5% 반등으로 소멸하지 않은 건수. 기관 순매도액이 아님.  
 **FTD**: 조정 후 랠리 Day 1을 기록하고 기준 저점을 유지한 상태에서 4거래일차 이후 지수 1% 이상 상승과 전일 대비 거래량 증가를 확인합니다. 조정 진입·상승 압박·추세 실패는 자체 판정이며 IBD 공식 시장 상태와 다릅니다.''')
 
 

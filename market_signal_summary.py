@@ -39,18 +39,16 @@ def show_price(datasets,states,oneil_market_state):
     score=sum(sum(bool(flag) for flag in s['flags']) for s in states.values())
     st.metric('이동평균 기반 추세 조건',f'{score} / 8')
     st.caption(f'{next(iter(days))} 기준 · 기존 지수 추세 게이지. 예탁금·신용잔고·ADR 점수를 섞지 않음')
+    from market_signal_qa import assess_market_signal
     for name in ('KOSPI','KOSDAQ'):
-        if name not in datasets:continue
-        try:
-            o=oneil_market_state(datasets[name])
-            dd=o.get('dd')
-            dd_text=f'{len(dd)}개' if isinstance(dd,(list,tuple)) else '미확인'
-            ftd=o.get('ftd')
-            ftd_text=ftd.strftime('%Y-%m-%d') if ftd is not None else '없음'
-            st.caption(f'{name}: 자체 유효 DD {dd_text} · FTD 후보 {ftd_text} · 시장 상태 {o.get("status","보류")}')
-        except (ValueError,KeyError,IndexError,TypeError,AttributeError):
-            st.caption(f'{name}: DD·FTD 검증 보류')
-    st.caption('DD·FTD는 가격과 지수 거래량에 기반한 자체 구현으로 IBD 공식 판정이 아닙니다.')
+        if name not in datasets: continue
+        audit=assess_market_signal(datasets[name],oneil_market_state)
+        if audit['status']!='verified':
+            st.warning(f'{name}: DD·FTD 검증 보류 — {audit["reason"]}')
+            continue
+        ftd_text=audit['ftd'] or '현재 유효 없음'
+        st.caption(f'{name}: 검증된 유효 DD {audit["dd_count"]}회 · FTD {ftd_text} · 상태 {audit["market_status"]} · 거래량 연속 80일 검증')
+    st.caption('DD·FTD는 광부 자체 지수 가격·거래량 규칙. 네이버 지수 거래량은 야후 종가와 날짜 대조했으나 KRX/IBD 공식 신호가 아닙니다.')
 
 def show_official_liquidity():
     st.markdown('**💰 공식 증시 자금 · 예탁금·신용융자**')
@@ -114,4 +112,6 @@ def render_market_signal_integrity(states,datasets,oneil_market_state):
     with right:
         show_official_liquidity()
         show_flows()
+    from market_signal_qa import render_quality_detail
+    render_quality_detail(datasets, oneil_market_state)
     st.caption('시장 추세 게이지는 기존 8개 가격 조건만 반영. ADR20·금투협 자금·DD·FTD·현물/선물 수급은 독립 근거이며 종합 점수화는 별도 백테스트 이후 검토합니다.')
