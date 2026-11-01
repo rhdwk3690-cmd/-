@@ -10,6 +10,7 @@ import json
 import os
 import re
 import time
+import sys
 from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -18,6 +19,10 @@ from zoneinfo import ZoneInfo
 import requests
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from flow_signals import summarize_snapshot, merge_history
+
 RANK_FILE = ROOT / 'data' / 'kr_flow.json'
 FLOW_FILE = ROOT / 'data' / 'kr_investor_flow.json'
 KST = ZoneInfo('Asia/Seoul')
@@ -92,24 +97,43 @@ def save(out):
     os.replace(tmp, FLOW_FILE)
 
 
+def _with_history(out, ranking, previous):
+    """실제 일별 합산 지표를 기존 수급 JSON에 저장 - 별도 Actions 파일 필요 없음."""
+    summary = summarize_snapshot(ranking, out)
+    past = previous.get('history') if isinstance(previous, dict) else []
+    past = merge_history(past, previous.get('summary') if isinstance(previous, dict) else None)
+    out['summary'] = summary
+    out['history'] = merge_history(past, summary)
+    return out
+
+
 def run(session=None, sleeper=time.sleep, wait=WAIT_SECONDS, max_codes=200):
     date, codes = validated_ranking()
+    ranking = json.loads(RANK_FILE.read_text(encoding='utf-8'))
     codes = codes[:min(200, max_codes)]
     signature = fingerprint(date, codes)
     try:
         old = json.loads(FLOW_FILE.read_text(encoding='utf-8'))
     except (FileNotFoundError, json.JSONDecodeError, OSError):
         old = None
-    # 이미 같은 TOP200을 모두 요청했다면 수급 API 일간 400회 제한 낭비하지 않음.
+
+    # 이미 같은 목록 전수 조회가 끝났다면 새 API 요청 없이 구버전 파일에 summary/history를 덧붙인다.
     if old and old.get('fingerprint') == signature and set(old.get('attempted_codes') or []) == set(codes):
+        if not old.get('summary') or not old.get('history'):
+            enriched = _with_history(dict(old), ranking, old)
+            save(enriched)
+            print(f'Backfilled summary for {date} without an additional API call.')
+            return enriched
         print(f'Already queried all {len(codes)} codes for {date}; skipping.')
         return old
+
     if old and old.get('fingerprint') == signature:
         attempted = set(old.get('attempted_codes') or [])
         rows = dict(old.get('rows') or {})
         errors = list(old.get('errors') or [])
     else:
         attempted, rows, errors = set(), {}, []
+
     own_session = session is None
     session = session or requests.Session()
     try:
@@ -131,16 +155,15 @@ def run(session=None, sleeper=time.sleep, wait=WAIT_SECONDS, max_codes=200):
             except (requests.RequestException, ValueError, KeyError, TypeError) as exc:
                 errors.append(f'{code}: {type(exc).__name__}: {str(exc)[:120]}')
             attempted.add(code)
-            # 중간에 자동화가 종료되어도 이미 수집한 응답은 보존
             if len(attempted) % 20 == 0:
-                save(build_snapshot(date, codes, signature, attempted, rows, errors))
+                save(_with_history(build_snapshot(date, codes, signature, attempted, rows, errors), ranking, old))
     finally:
         if own_session:
             session.close()
-    out = build_snapshot(date, codes, signature, attempted, rows, errors)
+    out = _with_history(build_snapshot(date, codes, signature, attempted, rows, errors), ranking, old)
     save(out)
     print(f"date={date}, attempted={len(attempted)}/200, any_flow={out['published_codes']}, "
-          f"full_flow={out['complete_codes']}, status={out['status']}")
+          f"full_flow={out['complete_codes']}, status={out['status']}, history={len(out['history'])}")
     return out
 
 
