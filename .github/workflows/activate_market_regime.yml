@@ -1,0 +1,31 @@
+name: Activate validated market environment rule panel
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax and fail-closed market regime rule tests
+        run: |
+          python -m py_compile market_regime.py market_regime_ui.py scripts/activate_market_regime.py
+          python -m unittest discover -s tests -p 'test_market_regime.py' -v
+          python scripts/activate_market_regime.py
+      - name: Commit market signal summary UI change only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add market_signal_summary.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'ui: classify verified market-entry environment without arbitrary composite score'
+            git push
+          fi
