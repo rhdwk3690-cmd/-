@@ -105,6 +105,13 @@ def render_market_liquidity():
     source_age=(datetime.now(ZoneInfo('Asia/Seoul')).date()-df.index[-1].date()).days
     st.caption(f"자료 기준일 **{obj['latest_date']}** · {len(df)}개 게시 거래일 · 출처: Npay 증권 비공식 공개 JSON · 수집시각 {obj.get('collected_at_kst','-')}")
     st.warning('단위 주의: API 원문에는 단위 표기가 없습니다. 아래 조원 금액은 **원자료 1단위=1억원으로 해석한 참고값**이며 금융투자협회 공식 수치와 독립 대조가 아직 필요합니다. 비율·오실레이터는 동일 단위가 약분됩니다.')
+    from market_signal_integrity import audit_npay_history
+    audit = audit_npay_history(h)
+    if audit['credit_status'] == 'mismatched':
+        st.error(f"공식 대조 불일치: {audit['baseline_date']} 신용융자 금투협 {audit['credit_official_trillion']:.5f}조 vs Npay {audit['credit_npay_trillion']:.5f}조. "
+                 '아래 신용잔고/예탁금 비율은 비공식 원천 기준이므로 공식 위험 점수로 사용하지 않습니다.')
+    else:
+        st.warning('신용융자 공식 교차검증 최신 자료 미확인. 아래 레버리지 비율은 참고용이며 종합 신호에 합산하지 않습니다.')
     if source_age>5:
         st.warning(f'마지막 게시 기준일은 {source_age}일 전입니다. 당일 지수 신호와 동일 날짜로 비교하지 마세요.')
 

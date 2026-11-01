@@ -553,6 +553,8 @@ def market_signal():
                         st.session_state.miner_signal_view = id_
                         st.rerun()
         st.markdown('<div class="miner-detail-note">● 신호는 지수 가격·거래량으로 계산한 참고 지표입니다. 시장 폭 지표는 별도 원자료를 사용합니다. 예탁금·신용잔고는 게시일 기준으로 지연될 수 있습니다.</div>', unsafe_allow_html=True)
+        from market_signal_summary import render_market_signal_integrity
+        render_market_signal_integrity(states, datasets, oneil_market_state)
         return
 
     # 2) 위의 카드에서 진입하는 상세 화면: 기본 페이지에는 펼치지 않음
