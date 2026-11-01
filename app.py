@@ -629,8 +629,8 @@ def market_signal():
             st.caption(f'{name} · 기준 {df.index[-1]:%Y-%m-%d} · Yahoo Finance')
 
     elif view == '증시 자금':
-        from market_liquidity_ui import render_market_liquidity
-        render_market_liquidity()
+        from kofia_liquidity_ui import render_kofia_liquidity
+        render_kofia_liquidity()
 
     elif view == '외국인·기관 수급':
         st.success('외국인·기관·개인의 종목별 일별 순매수 금액은 왼쪽 「자금 흐름」 메뉴에서 조회할 수 있습니다.')

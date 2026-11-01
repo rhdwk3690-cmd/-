@@ -1,0 +1,1893 @@
+{
+  "status": "official_source_validated",
+  "source": "KOFIA FreeSIS official statistics website (public read-only JSON)",
+  "source_url": "https://freesis.kofia.or.kr/stat/main.do",
+  "data_access_url": "https://freesis.kofia.or.kr/meta/getMetaDataList.do",
+  "data_access_method": "Public website JSON, not the separate approved-key KOFIA OpenAPI",
+  "unit": "KRW_million",
+  "unit_confirmed_from": "FreeSIS official public homepage: 백만원",
+  "credit_definition": "신용거래융자 전체 (KOSPI/KOSDAQ market total from FreeSIS credit balance screen)",
+  "deposit_definition": "투자자예탁금 (장내파생상품 거래예수금 포함)",
+  "latest_date": "2026-10-29",
+  "observations": 268,
+  "collected_at_kst": "2026-11-01T15:19:26.034806+09:00",
+  "history": [
+    {
+      "date": "2025-09-22",
+      "deposit_million_krw": 73560788,
+      "credit_million_krw": 23160995,
+      "credit_kospi_million_krw": 14046911,
+      "credit_kosdaq_million_krw": 9114083
+    },
+    {
+      "date": "2025-09-23",
+      "deposit_million_krw": 74921264,
+      "credit_million_krw": 23286691,
+      "credit_kospi_million_krw": 14134036,
+      "credit_kosdaq_million_krw": 9152655
+    },
+    {
+      "date": "2025-09-24",
+      "deposit_million_krw": 75197067,
+      "credit_million_krw": 23364313,
+      "credit_kospi_million_krw": 14151139,
+      "credit_kosdaq_million_krw": 9213174
+    },
+    {
+      "date": "2025-09-25",
+      "deposit_million_krw": 75995189,
+      "credit_million_krw": 23519906,
+      "credit_kospi_million_krw": 14226035,
+      "credit_kosdaq_million_krw": 9293871
+    },
+    {
+      "date": "2025-09-26",
+      "deposit_million_krw": 75617889,
+      "credit_million_krw": 23537790,
+      "credit_kospi_million_krw": 14223322,
+      "credit_kosdaq_million_krw": 9314468
+    },
+    {
+      "date": "2025-09-29",
+      "deposit_million_krw": 76808482,
+      "credit_million_krw": 23463228,
+      "credit_kospi_million_krw": 14164543,
+      "credit_kosdaq_million_krw": 9298686
+    },
+    {
+      "date": "2025-09-30",
+      "deposit_million_krw": 76447369,
+      "credit_million_krw": 23492840,
+      "credit_kospi_million_krw": 14244693,
+      "credit_kosdaq_million_krw": 9248147
+    },
+    {
+      "date": "2025-10-01",
+      "deposit_million_krw": 76530136,
+      "credit_million_krw": 23345839,
+      "credit_kospi_million_krw": 14121818,
+      "credit_kosdaq_million_krw": 9224021
+    },
+    {
+      "date": "2025-10-02",
+      "deposit_million_krw": 73135876,
+      "credit_million_krw": 23341255,
+      "credit_kospi_million_krw": 14078990,
+      "credit_kosdaq_million_krw": 9262265
+    },
+    {
+      "date": "2025-10-10",
+      "deposit_million_krw": 76322460,
+      "credit_million_krw": 23243706,
+      "credit_kospi_million_krw": 13985986,
+      "credit_kosdaq_million_krw": 9257721
+    },
+    {
+      "date": "2025-10-13",
+      "deposit_million_krw": 80190101,
+      "credit_million_krw": 23267748,
+      "credit_kospi_million_krw": 14003454,
+      "credit_kosdaq_million_krw": 9264294
+    },
+    {
+      "date": "2025-10-14",
+      "deposit_million_krw": 79974887,
+      "credit_million_krw": 23558561,
+      "credit_kospi_million_krw": 14243392,
+      "credit_kosdaq_million_krw": 9315170
+    },
+    {
+      "date": "2025-10-15",
+      "deposit_million_krw": 78651417,
+      "credit_million_krw": 23828839,
+      "credit_kospi_million_krw": 14483809,
+      "credit_kosdaq_million_krw": 9345029
+    },
+    {
+      "date": "2025-10-16",
+      "deposit_million_krw": 76537436,
+      "credit_million_krw": 23775822,
+      "credit_kospi_million_krw": 14415042,
+      "credit_kosdaq_million_krw": 9360779
+    },
+    {
+      "date": "2025-10-17",
+      "deposit_million_krw": 78314510,
+      "credit_million_krw": 23879969,
+      "credit_kospi_million_krw": 14479035,
+      "credit_kosdaq_million_krw": 9400933
+    },
+    {
+      "date": "2025-10-20",
+      "deposit_million_krw": 80625741,
+      "credit_million_krw": 24055155,
+      "credit_kospi_million_krw": 14604406,
+      "credit_kosdaq_million_krw": 9450749
+    },
+    {
+      "date": "2025-10-21",
+      "deposit_million_krw": 80329780,
+      "credit_million_krw": 23926313,
+      "credit_kospi_million_krw": 14491256,
+      "credit_kosdaq_million_krw": 9435056
+    },
+    {
+      "date": "2025-10-22",
+      "deposit_million_krw": 80480303,
+      "credit_million_krw": 24241954,
+      "credit_kospi_million_krw": 14766954,
+      "credit_kosdaq_million_krw": 9475000
+    },
+    {
+      "date": "2025-10-23",
+      "deposit_million_krw": 80168381,
+      "credit_million_krw": 24419952,
+      "credit_kospi_million_krw": 14890560,
+      "credit_kosdaq_million_krw": 9529392
+    },
+    {
+      "date": "2025-10-24",
+      "deposit_million_krw": 79482481,
+      "credit_million_krw": 24651838,
+      "credit_kospi_million_krw": 15083364,
+      "credit_kosdaq_million_krw": 9568474
+    },
+    {
+      "date": "2025-10-27",
+      "deposit_million_krw": 81091075,
+      "credit_million_krw": 24776660,
+      "credit_kospi_million_krw": 15186978,
+      "credit_kosdaq_million_krw": 9589681
+    },
+    {
+      "date": "2025-10-28",
+      "deposit_million_krw": 83873131,
+      "credit_million_krw": 24823045,
+      "credit_kospi_million_krw": 15206652,
+      "credit_kosdaq_million_krw": 9616393
+    },
+    {
+      "date": "2025-10-29",
+      "deposit_million_krw": 85915908,
+      "credit_million_krw": 25096806,
+      "credit_kospi_million_krw": 15460011,
+      "credit_kosdaq_million_krw": 9636795
+    },
+    {
+      "date": "2025-10-30",
+      "deposit_million_krw": 85713610,
+      "credit_million_krw": 25272595,
+      "credit_kospi_million_krw": 15605150,
+      "credit_kosdaq_million_krw": 9667445
+    },
+    {
+      "date": "2025-10-31",
+      "deposit_million_krw": 85456932,
+      "credit_million_krw": 25526891,
+      "credit_kospi_million_krw": 15817250,
+      "credit_kosdaq_million_krw": 9709640
+    },
+    {
+      "date": "2025-11-03",
+      "deposit_million_krw": 86770436,
+      "credit_million_krw": 25461864,
+      "credit_kospi_million_krw": 15781983,
+      "credit_kosdaq_million_krw": 9679880
+    },
+    {
+      "date": "2025-11-04",
+      "deposit_million_krw": 86832592,
+      "credit_million_krw": 25511751,
+      "credit_kospi_million_krw": 15797236,
+      "credit_kosdaq_million_krw": 9714514
+    },
+    {
+      "date": "2025-11-05",
+      "deposit_million_krw": 88270869,
+      "credit_million_krw": 25822465,
+      "credit_kospi_million_krw": 16062683,
+      "credit_kosdaq_million_krw": 9759782
+    },
+    {
+      "date": "2025-11-06",
+      "deposit_million_krw": 86955673,
+      "credit_million_krw": 25878152,
+      "credit_kospi_million_krw": 16093351,
+      "credit_kosdaq_million_krw": 9784801
+    },
+    {
+      "date": "2025-11-07",
+      "deposit_million_krw": 85722161,
+      "credit_million_krw": 26216547,
+      "credit_kospi_million_krw": 16346519,
+      "credit_kosdaq_million_krw": 9870028
+    },
+    {
+      "date": "2025-11-10",
+      "deposit_million_krw": 83109660,
+      "credit_million_krw": 26119765,
+      "credit_kospi_million_krw": 16291077,
+      "credit_kosdaq_million_krw": 9828688
+    },
+    {
+      "date": "2025-11-11",
+      "deposit_million_krw": 83030408,
+      "credit_million_krw": 25991776,
+      "credit_kospi_million_krw": 16225900,
+      "credit_kosdaq_million_krw": 9765876
+    },
+    {
+      "date": "2025-11-12",
+      "deposit_million_krw": 82468593,
+      "credit_million_krw": 26009766,
+      "credit_kospi_million_krw": 16255034,
+      "credit_kosdaq_million_krw": 9754732
+    },
+    {
+      "date": "2025-11-13",
+      "deposit_million_krw": 82584491,
+      "credit_million_krw": 26251500,
+      "credit_kospi_million_krw": 16481350,
+      "credit_kosdaq_million_krw": 9770150
+    },
+    {
+      "date": "2025-11-14",
+      "deposit_million_krw": 82724559,
+      "credit_million_krw": 26403331,
+      "credit_kospi_million_krw": 16631690,
+      "credit_kosdaq_million_krw": 9771641
+    },
+    {
+      "date": "2025-11-17",
+      "deposit_million_krw": 85944802,
+      "credit_million_krw": 26602943,
+      "credit_kospi_million_krw": 16743159,
+      "credit_kosdaq_million_krw": 9859785
+    },
+    {
+      "date": "2025-11-18",
+      "deposit_million_krw": 79661502,
+      "credit_million_krw": 26796568,
+      "credit_kospi_million_krw": 16946970,
+      "credit_kosdaq_million_krw": 9849598
+    },
+    {
+      "date": "2025-11-19",
+      "deposit_million_krw": 80027611,
+      "credit_million_krw": 26835841,
+      "credit_kospi_million_krw": 17015793,
+      "credit_kosdaq_million_krw": 9820048
+    },
+    {
+      "date": "2025-11-20",
+      "deposit_million_krw": 78212051,
+      "credit_million_krw": 26847120,
+      "credit_kospi_million_krw": 17058191,
+      "credit_kosdaq_million_krw": 9788929
+    },
+    {
+      "date": "2025-11-21",
+      "deposit_million_krw": 78826325,
+      "credit_million_krw": 26761247,
+      "credit_kospi_million_krw": 17028465,
+      "credit_kosdaq_million_krw": 9732782
+    },
+    {
+      "date": "2025-11-24",
+      "deposit_million_krw": 80195335,
+      "credit_million_krw": 26761702,
+      "credit_kospi_million_krw": 17034147,
+      "credit_kosdaq_million_krw": 9727555
+    },
+    {
+      "date": "2025-11-25",
+      "deposit_million_krw": 75622307,
+      "credit_million_krw": 26666986,
+      "credit_kospi_million_krw": 16989274,
+      "credit_kosdaq_million_krw": 9677712
+    },
+    {
+      "date": "2025-11-26",
+      "deposit_million_krw": 77954553,
+      "credit_million_krw": 26492119,
+      "credit_kospi_million_krw": 16861010,
+      "credit_kosdaq_million_krw": 9631109
+    },
+    {
+      "date": "2025-11-27",
+      "deposit_million_krw": 77471172,
+      "credit_million_krw": 26444082,
+      "credit_kospi_million_krw": 16855553,
+      "credit_kosdaq_million_krw": 9588529
+    },
+    {
+      "date": "2025-11-28",
+      "deposit_million_krw": 77911992,
+      "credit_million_krw": 26445065,
+      "credit_kospi_million_krw": 16853654,
+      "credit_kosdaq_million_krw": 9591410
+    },
+    {
+      "date": "2025-12-01",
+      "deposit_million_krw": 80176651,
+      "credit_million_krw": 26582351,
+      "credit_kospi_million_krw": 16941967,
+      "credit_kosdaq_million_krw": 9640385
+    },
+    {
+      "date": "2025-12-02",
+      "deposit_million_krw": 77067324,
+      "credit_million_krw": 26799037,
+      "credit_kospi_million_krw": 17163357,
+      "credit_kosdaq_million_krw": 9635680
+    },
+    {
+      "date": "2025-12-03",
+      "deposit_million_krw": 76964366,
+      "credit_million_krw": 26831012,
+      "credit_kospi_million_krw": 17114607,
+      "credit_kosdaq_million_krw": 9716405
+    },
+    {
+      "date": "2025-12-04",
+      "deposit_million_krw": 77406998,
+      "credit_million_krw": 26895874,
+      "credit_kospi_million_krw": 17094623,
+      "credit_kosdaq_million_krw": 9801251
+    },
+    {
+      "date": "2025-12-05",
+      "deposit_million_krw": 78137070,
+      "credit_million_krw": 27076309,
+      "credit_kospi_million_krw": 17184317,
+      "credit_kosdaq_million_krw": 9891992
+    },
+    {
+      "date": "2025-12-08",
+      "deposit_million_krw": 79385990,
+      "credit_million_krw": 27355467,
+      "credit_kospi_million_krw": 17432956,
+      "credit_kosdaq_million_krw": 9922511
+    },
+    {
+      "date": "2025-12-09",
+      "deposit_million_krw": 80575403,
+      "credit_million_krw": 27333487,
+      "credit_kospi_million_krw": 17414901,
+      "credit_kosdaq_million_krw": 9918586
+    },
+    {
+      "date": "2025-12-10",
+      "deposit_million_krw": 80566459,
+      "credit_million_krw": 27406497,
+      "credit_kospi_million_krw": 17451839,
+      "credit_kosdaq_million_krw": 9954659
+    },
+    {
+      "date": "2025-12-11",
+      "deposit_million_krw": 81641531,
+      "credit_million_krw": 27391215,
+      "credit_kospi_million_krw": 17389363,
+      "credit_kosdaq_million_krw": 10001852
+    },
+    {
+      "date": "2025-12-12",
+      "deposit_million_krw": 83941863,
+      "credit_million_krw": 27379592,
+      "credit_kospi_million_krw": 17340889,
+      "credit_kosdaq_million_krw": 10038703
+    },
+    {
+      "date": "2025-12-15",
+      "deposit_million_krw": 82864679,
+      "credit_million_krw": 27418784,
+      "credit_kospi_million_krw": 17353166,
+      "credit_kosdaq_million_krw": 10065618
+    },
+    {
+      "date": "2025-12-16",
+      "deposit_million_krw": 84352786,
+      "credit_million_krw": 27337687,
+      "credit_kospi_million_krw": 17271577,
+      "credit_kosdaq_million_krw": 10066110
+    },
+    {
+      "date": "2025-12-17",
+      "deposit_million_krw": 83526293,
+      "credit_million_krw": 27528779,
+      "credit_kospi_million_krw": 17389027,
+      "credit_kosdaq_million_krw": 10139752
+    },
+    {
+      "date": "2025-12-18",
+      "deposit_million_krw": 81710726,
+      "credit_million_krw": 27344532,
+      "credit_kospi_million_krw": 17264651,
+      "credit_kosdaq_million_krw": 10079881
+    },
+    {
+      "date": "2025-12-19",
+      "deposit_million_krw": 81034422,
+      "credit_million_krw": 27266021,
+      "credit_kospi_million_krw": 17213669,
+      "credit_kosdaq_million_krw": 10052352
+    },
+    {
+      "date": "2025-12-22",
+      "deposit_million_krw": 81719604,
+      "credit_million_krw": 27243930,
+      "credit_kospi_million_krw": 17207819,
+      "credit_kosdaq_million_krw": 10036111
+    },
+    {
+      "date": "2025-12-23",
+      "deposit_million_krw": 81076938,
+      "credit_million_krw": 27265131,
+      "credit_kospi_million_krw": 17231418,
+      "credit_kosdaq_million_krw": 10033713
+    },
+    {
+      "date": "2025-12-24",
+      "deposit_million_krw": 83304002,
+      "credit_million_krw": 27270110,
+      "credit_kospi_million_krw": 17197544,
+      "credit_kosdaq_million_krw": 10072566
+    },
+    {
+      "date": "2025-12-26",
+      "deposit_million_krw": 85425076,
+      "credit_million_krw": 27247572,
+      "credit_kospi_million_krw": 17131457,
+      "credit_kosdaq_million_krw": 10116116
+    },
+    {
+      "date": "2025-12-29",
+      "deposit_million_krw": 86475780,
+      "credit_million_krw": 27294510,
+      "credit_kospi_million_krw": 17167807,
+      "credit_kosdaq_million_krw": 10126703
+    },
+    {
+      "date": "2025-12-30",
+      "deposit_million_krw": 87398579,
+      "credit_million_krw": 27299548,
+      "credit_kospi_million_krw": 17136086,
+      "credit_kosdaq_million_krw": 10163462
+    },
+    {
+      "date": "2025-12-31",
+      "deposit_million_krw": 87829057,
+      "credit_million_krw": 27286469,
+      "credit_kospi_million_krw": 17126099,
+      "credit_kosdaq_million_krw": 10160370
+    },
+    {
+      "date": "2026-01-02",
+      "deposit_million_krw": 89521075,
+      "credit_million_krw": 27420700,
+      "credit_kospi_million_krw": 17235406,
+      "credit_kosdaq_million_krw": 10185294
+    },
+    {
+      "date": "2026-01-05",
+      "deposit_million_krw": 89130391,
+      "credit_million_krw": 27622356,
+      "credit_kospi_million_krw": 17419695,
+      "credit_kosdaq_million_krw": 10202661
+    },
+    {
+      "date": "2026-01-06",
+      "deposit_million_krw": 88633858,
+      "credit_million_krw": 27796261,
+      "credit_kospi_million_krw": 17590138,
+      "credit_kosdaq_million_krw": 10206123
+    },
+    {
+      "date": "2026-01-07",
+      "deposit_million_krw": 89765035,
+      "credit_million_krw": 27870759,
+      "credit_kospi_million_krw": 17593221,
+      "credit_kosdaq_million_krw": 10277538
+    },
+    {
+      "date": "2026-01-08",
+      "deposit_million_krw": 92853739,
+      "credit_million_krw": 28190294,
+      "credit_kospi_million_krw": 17864561,
+      "credit_kosdaq_million_krw": 10325733
+    },
+    {
+      "date": "2026-01-09",
+      "deposit_million_krw": 88872017,
+      "credit_million_krw": 28349745,
+      "credit_kospi_million_krw": 17941133,
+      "credit_kosdaq_million_krw": 10408612
+    },
+    {
+      "date": "2026-01-12",
+      "deposit_million_krw": 88988049,
+      "credit_million_krw": 28522408,
+      "credit_kospi_million_krw": 18116833,
+      "credit_kosdaq_million_krw": 10405575
+    },
+    {
+      "date": "2026-01-13",
+      "deposit_million_krw": 88048929,
+      "credit_million_krw": 28657441,
+      "credit_kospi_million_krw": 18266333,
+      "credit_kosdaq_million_krw": 10391107
+    },
+    {
+      "date": "2026-01-14",
+      "deposit_million_krw": 89309938,
+      "credit_million_krw": 28599293,
+      "credit_kospi_million_krw": 18198979,
+      "credit_kosdaq_million_krw": 10400314
+    },
+    {
+      "date": "2026-01-15",
+      "deposit_million_krw": 92603047,
+      "credit_million_krw": 28745580,
+      "credit_kospi_million_krw": 18290635,
+      "credit_kosdaq_million_krw": 10454945
+    },
+    {
+      "date": "2026-01-16",
+      "deposit_million_krw": 91218177,
+      "credit_million_krw": 28933786,
+      "credit_kospi_million_krw": 18447408,
+      "credit_kosdaq_million_krw": 10486379
+    },
+    {
+      "date": "2026-01-19",
+      "deposit_million_krw": 93862316,
+      "credit_million_krw": 28995014,
+      "credit_kospi_million_krw": 18472188,
+      "credit_kosdaq_million_krw": 10522826
+    },
+    {
+      "date": "2026-01-20",
+      "deposit_million_krw": 95525974,
+      "credit_million_krw": 29058554,
+      "credit_kospi_million_krw": 18551999,
+      "credit_kosdaq_million_krw": 10506554
+    },
+    {
+      "date": "2026-01-21",
+      "deposit_million_krw": 96331743,
+      "credit_million_krw": 29082114,
+      "credit_kospi_million_krw": 18509121,
+      "credit_kosdaq_million_krw": 10572993
+    },
+    {
+      "date": "2026-01-22",
+      "deposit_million_krw": 95727595,
+      "credit_million_krw": 28925745,
+      "credit_kospi_million_krw": 18452386,
+      "credit_kosdaq_million_krw": 10473358
+    },
+    {
+      "date": "2026-01-23",
+      "deposit_million_krw": 93809507,
+      "credit_million_krw": 29055410,
+      "credit_kospi_million_krw": 18599163,
+      "credit_kosdaq_million_krw": 10456247
+    },
+    {
+      "date": "2026-01-26",
+      "deposit_million_krw": 97540543,
+      "credit_million_krw": 29346682,
+      "credit_kospi_million_krw": 18862856,
+      "credit_kosdaq_million_krw": 10483826
+    },
+    {
+      "date": "2026-01-27",
+      "deposit_million_krw": 100282602,
+      "credit_million_krw": 29244996,
+      "credit_kospi_million_krw": 18784747,
+      "credit_kosdaq_million_krw": 10460249
+    },
+    {
+      "date": "2026-01-28",
+      "deposit_million_krw": 103362323,
+      "credit_million_krw": 29596166,
+      "credit_kospi_million_krw": 19151033,
+      "credit_kosdaq_million_krw": 10445133
+    },
+    {
+      "date": "2026-01-29",
+      "deposit_million_krw": 103707195,
+      "credit_million_krw": 30092487,
+      "credit_kospi_million_krw": 19592259,
+      "credit_kosdaq_million_krw": 10500228
+    },
+    {
+      "date": "2026-01-30",
+      "deposit_million_krw": 106032452,
+      "credit_million_krw": 30277851,
+      "credit_kospi_million_krw": 19854894,
+      "credit_kosdaq_million_krw": 10422957
+    },
+    {
+      "date": "2026-02-02",
+      "deposit_million_krw": 111296538,
+      "credit_million_krw": 30473064,
+      "credit_kospi_million_krw": 20098211,
+      "credit_kosdaq_million_krw": 10374853
+    },
+    {
+      "date": "2026-02-03",
+      "deposit_million_krw": 105584468,
+      "credit_million_krw": 30539766,
+      "credit_kospi_million_krw": 20268065,
+      "credit_kosdaq_million_krw": 10271701
+    },
+    {
+      "date": "2026-02-04",
+      "deposit_million_krw": 100817155,
+      "credit_million_krw": 30935180,
+      "credit_kospi_million_krw": 20623891,
+      "credit_kosdaq_million_krw": 10311289
+    },
+    {
+      "date": "2026-02-05",
+      "deposit_million_krw": 104866667,
+      "credit_million_krw": 30786792,
+      "credit_kospi_million_krw": 20466799,
+      "credit_kosdaq_million_krw": 10319994
+    },
+    {
+      "date": "2026-02-06",
+      "deposit_million_krw": 109009927,
+      "credit_million_krw": 31099495,
+      "credit_kospi_million_krw": 20668013,
+      "credit_kosdaq_million_krw": 10431482
+    },
+    {
+      "date": "2026-02-09",
+      "deposit_million_krw": 98590517,
+      "credit_million_krw": 31607698,
+      "credit_kospi_million_krw": 21182942,
+      "credit_kosdaq_million_krw": 10424756
+    },
+    {
+      "date": "2026-02-10",
+      "deposit_million_krw": 95299599,
+      "credit_million_krw": 31560720,
+      "credit_kospi_million_krw": 21185393,
+      "credit_kosdaq_million_krw": 10375327
+    },
+    {
+      "date": "2026-02-11",
+      "deposit_million_krw": 98163375,
+      "credit_million_krw": 31318010,
+      "credit_kospi_million_krw": 20918416,
+      "credit_kosdaq_million_krw": 10399594
+    },
+    {
+      "date": "2026-02-12",
+      "deposit_million_krw": 103018385,
+      "credit_million_krw": 31466410,
+      "credit_kospi_million_krw": 20960376,
+      "credit_kosdaq_million_krw": 10506034
+    },
+    {
+      "date": "2026-02-13",
+      "deposit_million_krw": 99273599,
+      "credit_million_krw": 31476674,
+      "credit_kospi_million_krw": 20942212,
+      "credit_kosdaq_million_krw": 10534462
+    },
+    {
+      "date": "2026-02-19",
+      "deposit_million_krw": 106570048,
+      "credit_million_krw": 31593229,
+      "credit_kospi_million_krw": 20944448,
+      "credit_kosdaq_million_krw": 10648781
+    },
+    {
+      "date": "2026-02-20",
+      "deposit_million_krw": 104129136,
+      "credit_million_krw": 31638448,
+      "credit_kospi_million_krw": 20977105,
+      "credit_kosdaq_million_krw": 10661343
+    },
+    {
+      "date": "2026-02-23",
+      "deposit_million_krw": 108290073,
+      "credit_million_krw": 31712325,
+      "credit_kospi_million_krw": 21121450,
+      "credit_kosdaq_million_krw": 10590875
+    },
+    {
+      "date": "2026-02-24",
+      "deposit_million_krw": 107903182,
+      "credit_million_krw": 31960208,
+      "credit_kospi_million_krw": 21279520,
+      "credit_kosdaq_million_krw": 10680687
+    },
+    {
+      "date": "2026-02-25",
+      "deposit_million_krw": 109467654,
+      "credit_million_krw": 32134040,
+      "credit_kospi_million_krw": 21399130,
+      "credit_kosdaq_million_krw": 10734910
+    },
+    {
+      "date": "2026-02-26",
+      "deposit_million_krw": 119483202,
+      "credit_million_krw": 32368488,
+      "credit_kospi_million_krw": 21496796,
+      "credit_kosdaq_million_krw": 10871692
+    },
+    {
+      "date": "2026-02-27",
+      "deposit_million_krw": 118748760,
+      "credit_million_krw": 32668983,
+      "credit_kospi_million_krw": 21672790,
+      "credit_kosdaq_million_krw": 10996193
+    },
+    {
+      "date": "2026-03-03",
+      "deposit_million_krw": 129818794,
+      "credit_million_krw": 32804073,
+      "credit_kospi_million_krw": 21778077,
+      "credit_kosdaq_million_krw": 11025996
+    },
+    {
+      "date": "2026-03-04",
+      "deposit_million_krw": 132068238,
+      "credit_million_krw": 33197791,
+      "credit_kospi_million_krw": 22231204,
+      "credit_kosdaq_million_krw": 10966587
+    },
+    {
+      "date": "2026-03-05",
+      "deposit_million_krw": 130887316,
+      "credit_million_krw": 33694521,
+      "credit_kospi_million_krw": 22815279,
+      "credit_kosdaq_million_krw": 10879241
+    },
+    {
+      "date": "2026-03-06",
+      "deposit_million_krw": 129957423,
+      "credit_million_krw": 32789896,
+      "credit_kospi_million_krw": 22348354,
+      "credit_kosdaq_million_krw": 10441542
+    },
+    {
+      "date": "2026-03-09",
+      "deposit_million_krw": 127421841,
+      "credit_million_krw": 31690508,
+      "credit_kospi_million_krw": 21562347,
+      "credit_kosdaq_million_krw": 10128161
+    },
+    {
+      "date": "2026-03-10",
+      "deposit_million_krw": 125584440,
+      "credit_million_krw": 31803317,
+      "credit_kospi_million_krw": 21631564,
+      "credit_kosdaq_million_krw": 10171753
+    },
+    {
+      "date": "2026-03-11",
+      "deposit_million_krw": 119027974,
+      "credit_million_krw": 31758385,
+      "credit_kospi_million_krw": 21609005,
+      "credit_kosdaq_million_krw": 10149380
+    },
+    {
+      "date": "2026-03-12",
+      "deposit_million_krw": 120146171,
+      "credit_million_krw": 32141942,
+      "credit_kospi_million_krw": 21821252,
+      "credit_kosdaq_million_krw": 10320690
+    },
+    {
+      "date": "2026-03-13",
+      "deposit_million_krw": 119696048,
+      "credit_million_krw": 32683362,
+      "credit_kospi_million_krw": 22185649,
+      "credit_kosdaq_million_krw": 10497713
+    },
+    {
+      "date": "2026-03-16",
+      "deposit_million_krw": 117801150,
+      "credit_million_krw": 33219147,
+      "credit_kospi_million_krw": 22620778,
+      "credit_kosdaq_million_krw": 10598370
+    },
+    {
+      "date": "2026-03-17",
+      "deposit_million_krw": 114778257,
+      "credit_million_krw": 33331617,
+      "credit_kospi_million_krw": 22706498,
+      "credit_kosdaq_million_krw": 10625120
+    },
+    {
+      "date": "2026-03-18",
+      "deposit_million_krw": 112280744,
+      "credit_million_krw": 33487589,
+      "credit_kospi_million_krw": 22846034,
+      "credit_kosdaq_million_krw": 10641555
+    },
+    {
+      "date": "2026-03-19",
+      "deposit_million_krw": 115644268,
+      "credit_million_krw": 33307626,
+      "credit_kospi_million_krw": 22691397,
+      "credit_kosdaq_million_krw": 10616230
+    },
+    {
+      "date": "2026-03-20",
+      "deposit_million_krw": 120696831,
+      "credit_million_krw": 33255008,
+      "credit_kospi_million_krw": 22616375,
+      "credit_kosdaq_million_krw": 10638633
+    },
+    {
+      "date": "2026-03-23",
+      "deposit_million_krw": 121899192,
+      "credit_million_krw": 33348618,
+      "credit_kospi_million_krw": 22725036,
+      "credit_kosdaq_million_krw": 10623582
+    },
+    {
+      "date": "2026-03-24",
+      "deposit_million_krw": 119759946,
+      "credit_million_krw": 33421855,
+      "credit_kospi_million_krw": 22845615,
+      "credit_kosdaq_million_krw": 10576239
+    },
+    {
+      "date": "2026-03-25",
+      "deposit_million_krw": 108849805,
+      "credit_million_krw": 33028524,
+      "credit_kospi_million_krw": 22634659,
+      "credit_kosdaq_million_krw": 10393864
+    },
+    {
+      "date": "2026-03-26",
+      "deposit_million_krw": 111579004,
+      "credit_million_krw": 32752416,
+      "credit_kospi_million_krw": 22447926,
+      "credit_kosdaq_million_krw": 10304490
+    },
+    {
+      "date": "2026-03-27",
+      "deposit_million_krw": 112837249,
+      "credit_million_krw": 32784474,
+      "credit_kospi_million_krw": 22456119,
+      "credit_kosdaq_million_krw": 10328355
+    },
+    {
+      "date": "2026-03-30",
+      "deposit_million_krw": 111074174,
+      "credit_million_krw": 32601763,
+      "credit_kospi_million_krw": 22284736,
+      "credit_kosdaq_million_krw": 10317027
+    },
+    {
+      "date": "2026-03-31",
+      "deposit_million_krw": 110288948,
+      "credit_million_krw": 32922615,
+      "credit_kospi_million_krw": 22559682,
+      "credit_kosdaq_million_krw": 10362934
+    },
+    {
+      "date": "2026-04-01",
+      "deposit_million_krw": 111676635,
+      "credit_million_krw": 32981021,
+      "credit_kospi_million_krw": 22609406,
+      "credit_kosdaq_million_krw": 10371616
+    },
+    {
+      "date": "2026-04-02",
+      "deposit_million_krw": 108573983,
+      "credit_million_krw": 32725506,
+      "credit_kospi_million_krw": 22506384,
+      "credit_kosdaq_million_krw": 10219122
+    },
+    {
+      "date": "2026-04-03",
+      "deposit_million_krw": 109016507,
+      "credit_million_krw": 32443983,
+      "credit_kospi_million_krw": 22278863,
+      "credit_kosdaq_million_krw": 10165120
+    },
+    {
+      "date": "2026-04-06",
+      "deposit_million_krw": 107467398,
+      "credit_million_krw": 32845902,
+      "credit_kospi_million_krw": 22643583,
+      "credit_kosdaq_million_krw": 10202318
+    },
+    {
+      "date": "2026-04-07",
+      "deposit_million_krw": 108921448,
+      "credit_million_krw": 32657681,
+      "credit_kospi_million_krw": 22468639,
+      "credit_kosdaq_million_krw": 10189042
+    },
+    {
+      "date": "2026-04-08",
+      "deposit_million_krw": 109833228,
+      "credit_million_krw": 32730005,
+      "credit_kospi_million_krw": 22573506,
+      "credit_kosdaq_million_krw": 10156499
+    },
+    {
+      "date": "2026-04-09",
+      "deposit_million_krw": 112807019,
+      "credit_million_krw": 32720017,
+      "credit_kospi_million_krw": 22636117,
+      "credit_kosdaq_million_krw": 10083900
+    },
+    {
+      "date": "2026-04-10",
+      "deposit_million_krw": 115364212,
+      "credit_million_krw": 32901431,
+      "credit_kospi_million_krw": 22750606,
+      "credit_kosdaq_million_krw": 10150824
+    },
+    {
+      "date": "2026-04-13",
+      "deposit_million_krw": 116107492,
+      "credit_million_krw": 33216818,
+      "credit_kospi_million_krw": 22986628,
+      "credit_kosdaq_million_krw": 10230189
+    },
+    {
+      "date": "2026-04-14",
+      "deposit_million_krw": 117672486,
+      "credit_million_krw": 33282445,
+      "credit_kospi_million_krw": 23040602,
+      "credit_kosdaq_million_krw": 10241844
+    },
+    {
+      "date": "2026-04-15",
+      "deposit_million_krw": 117165120,
+      "credit_million_krw": 33356678,
+      "credit_kospi_million_krw": 23096979,
+      "credit_kosdaq_million_krw": 10259698
+    },
+    {
+      "date": "2026-04-16",
+      "deposit_million_krw": 119074288,
+      "credit_million_krw": 33872266,
+      "credit_kospi_million_krw": 23425867,
+      "credit_kosdaq_million_krw": 10446400
+    },
+    {
+      "date": "2026-04-17",
+      "deposit_million_krw": 120585455,
+      "credit_million_krw": 34027932,
+      "credit_kospi_million_krw": 23509583,
+      "credit_kosdaq_million_krw": 10518349
+    },
+    {
+      "date": "2026-04-20",
+      "deposit_million_krw": 121817265,
+      "credit_million_krw": 34259238,
+      "credit_kospi_million_krw": 23625640,
+      "credit_kosdaq_million_krw": 10633598
+    },
+    {
+      "date": "2026-04-21",
+      "deposit_million_krw": 121286062,
+      "credit_million_krw": 34694635,
+      "credit_kospi_million_krw": 23994978,
+      "credit_kosdaq_million_krw": 10699657
+    },
+    {
+      "date": "2026-04-22",
+      "deposit_million_krw": 122538133,
+      "credit_million_krw": 34810689,
+      "credit_kospi_million_krw": 24058499,
+      "credit_kosdaq_million_krw": 10752190
+    },
+    {
+      "date": "2026-04-23",
+      "deposit_million_krw": 126035131,
+      "credit_million_krw": 35079918,
+      "credit_kospi_million_krw": 24243090,
+      "credit_kosdaq_million_krw": 10836828
+    },
+    {
+      "date": "2026-04-24",
+      "deposit_million_krw": 125686926,
+      "credit_million_krw": 35463009,
+      "credit_kospi_million_krw": 24579345,
+      "credit_kosdaq_million_krw": 10883664
+    },
+    {
+      "date": "2026-04-27",
+      "deposit_million_krw": 125950282,
+      "credit_million_krw": 35537755,
+      "credit_kospi_million_krw": 24652710,
+      "credit_kosdaq_million_krw": 10885045
+    },
+    {
+      "date": "2026-04-28",
+      "deposit_million_krw": 127413417,
+      "credit_million_krw": 35689655,
+      "credit_kospi_million_krw": 24811639,
+      "credit_kosdaq_million_krw": 10878016
+    },
+    {
+      "date": "2026-04-29",
+      "deposit_million_krw": 129732118,
+      "credit_million_krw": 36068250,
+      "credit_kospi_million_krw": 25017693,
+      "credit_kosdaq_million_krw": 11050556
+    },
+    {
+      "date": "2026-04-30",
+      "deposit_million_krw": 124759101,
+      "credit_million_krw": 35713079,
+      "credit_kospi_million_krw": 24683557,
+      "credit_kosdaq_million_krw": 11029522
+    },
+    {
+      "date": "2026-05-04",
+      "deposit_million_krw": 124840571,
+      "credit_million_krw": 35838919,
+      "credit_kospi_million_krw": 24816912,
+      "credit_kosdaq_million_krw": 11022007
+    },
+    {
+      "date": "2026-05-06",
+      "deposit_million_krw": 130743350,
+      "credit_million_krw": 35429768,
+      "credit_kospi_million_krw": 24500853,
+      "credit_kosdaq_million_krw": 10928915
+    },
+    {
+      "date": "2026-05-07",
+      "deposit_million_krw": 136989027,
+      "credit_million_krw": 35507187,
+      "credit_kospi_million_krw": 24553059,
+      "credit_kosdaq_million_krw": 10954128
+    },
+    {
+      "date": "2026-05-08",
+      "deposit_million_krw": 135299146,
+      "credit_million_krw": 35950018,
+      "credit_kospi_million_krw": 24942683,
+      "credit_kosdaq_million_krw": 11007335
+    },
+    {
+      "date": "2026-05-11",
+      "deposit_million_krw": 134098716,
+      "credit_million_krw": 35998500,
+      "credit_kospi_million_krw": 25046079,
+      "credit_kosdaq_million_krw": 10952421
+    },
+    {
+      "date": "2026-05-12",
+      "deposit_million_krw": 137417444,
+      "credit_million_krw": 36267738,
+      "credit_kospi_million_krw": 25403831,
+      "credit_kosdaq_million_krw": 10863907
+    },
+    {
+      "date": "2026-05-13",
+      "deposit_million_krw": 137120084,
+      "credit_million_krw": 36074005,
+      "credit_kospi_million_krw": 25313547,
+      "credit_kosdaq_million_krw": 10760457
+    },
+    {
+      "date": "2026-05-14",
+      "deposit_million_krw": 133508767,
+      "credit_million_krw": 36469784,
+      "credit_kospi_million_krw": 25826781,
+      "credit_kosdaq_million_krw": 10643004
+    },
+    {
+      "date": "2026-05-15",
+      "deposit_million_krw": 132859687,
+      "credit_million_krw": 36567516,
+      "credit_kospi_million_krw": 25987572,
+      "credit_kosdaq_million_krw": 10579943
+    },
+    {
+      "date": "2026-05-18",
+      "deposit_million_krw": 132985285,
+      "credit_million_krw": 36396655,
+      "credit_kospi_million_krw": 25899488,
+      "credit_kosdaq_million_krw": 10497167
+    },
+    {
+      "date": "2026-05-19",
+      "deposit_million_krw": 126959944,
+      "credit_million_krw": 35856070,
+      "credit_kospi_million_krw": 25523374,
+      "credit_kosdaq_million_krw": 10332696
+    },
+    {
+      "date": "2026-05-20",
+      "deposit_million_krw": 125643978,
+      "credit_million_krw": 36237024,
+      "credit_kospi_million_krw": 26003624,
+      "credit_kosdaq_million_krw": 10233400
+    },
+    {
+      "date": "2026-05-21",
+      "deposit_million_krw": 122381941,
+      "credit_million_krw": 36472380,
+      "credit_kospi_million_krw": 26364442,
+      "credit_kosdaq_million_krw": 10107938
+    },
+    {
+      "date": "2026-05-22",
+      "deposit_million_krw": 121245209,
+      "credit_million_krw": 36355524,
+      "credit_kospi_million_krw": 26419905,
+      "credit_kosdaq_million_krw": 9935618
+    },
+    {
+      "date": "2026-05-26",
+      "deposit_million_krw": 124576854,
+      "credit_million_krw": 36254787,
+      "credit_kospi_million_krw": 26399276,
+      "credit_kosdaq_million_krw": 9855511
+    },
+    {
+      "date": "2026-05-27",
+      "deposit_million_krw": 128574969,
+      "credit_million_krw": 36690036,
+      "credit_kospi_million_krw": 26833716,
+      "credit_kosdaq_million_krw": 9856320
+    },
+    {
+      "date": "2026-05-28",
+      "deposit_million_krw": 131131823,
+      "credit_million_krw": 37068718,
+      "credit_kospi_million_krw": 27184083,
+      "credit_kosdaq_million_krw": 9884635
+    },
+    {
+      "date": "2026-05-29",
+      "deposit_million_krw": 131585593,
+      "credit_million_krw": 38022681,
+      "credit_kospi_million_krw": 28024472,
+      "credit_kosdaq_million_krw": 9998209
+    },
+    {
+      "date": "2026-06-01",
+      "deposit_million_krw": 132599248,
+      "credit_million_krw": 37681169,
+      "credit_kospi_million_krw": 27845647,
+      "credit_kosdaq_million_krw": 9835522
+    },
+    {
+      "date": "2026-06-02",
+      "deposit_million_krw": 136811118,
+      "credit_million_krw": 37709128,
+      "credit_kospi_million_krw": 27924185,
+      "credit_kosdaq_million_krw": 9784943
+    },
+    {
+      "date": "2026-06-04",
+      "deposit_million_krw": 139694762,
+      "credit_million_krw": 37737597,
+      "credit_kospi_million_krw": 28031687,
+      "credit_kosdaq_million_krw": 9705910
+    },
+    {
+      "date": "2026-06-05",
+      "deposit_million_krw": 134234434,
+      "credit_million_krw": 37838377,
+      "credit_kospi_million_krw": 28273482,
+      "credit_kosdaq_million_krw": 9564895
+    },
+    {
+      "date": "2026-06-08",
+      "deposit_million_krw": 136384688,
+      "credit_million_krw": 37790396,
+      "credit_kospi_million_krw": 28326450,
+      "credit_kosdaq_million_krw": 9463946
+    },
+    {
+      "date": "2026-06-09",
+      "deposit_million_krw": 130118913,
+      "credit_million_krw": 37929018,
+      "credit_kospi_million_krw": 28573169,
+      "credit_kosdaq_million_krw": 9355849
+    },
+    {
+      "date": "2026-06-10",
+      "deposit_million_krw": 127606552,
+      "credit_million_krw": 36773649,
+      "credit_kospi_million_krw": 27807841,
+      "credit_kosdaq_million_krw": 8965807
+    },
+    {
+      "date": "2026-06-11",
+      "deposit_million_krw": 127371833,
+      "credit_million_krw": 36656474,
+      "credit_kospi_million_krw": 27874378,
+      "credit_kosdaq_million_krw": 8782096
+    },
+    {
+      "date": "2026-06-12",
+      "deposit_million_krw": 121056634,
+      "credit_million_krw": 36879281,
+      "credit_kospi_million_krw": 28110836,
+      "credit_kosdaq_million_krw": 8768446
+    },
+    {
+      "date": "2026-06-15",
+      "deposit_million_krw": 120581711,
+      "credit_million_krw": 37076954,
+      "credit_kospi_million_krw": 28296079,
+      "credit_kosdaq_million_krw": 8780874
+    },
+    {
+      "date": "2026-06-16",
+      "deposit_million_krw": 124551647,
+      "credit_million_krw": 37385632,
+      "credit_kospi_million_krw": 28531116,
+      "credit_kosdaq_million_krw": 8854516
+    },
+    {
+      "date": "2026-06-17",
+      "deposit_million_krw": 124632043,
+      "credit_million_krw": 37800525,
+      "credit_kospi_million_krw": 28843289,
+      "credit_kosdaq_million_krw": 8957236
+    },
+    {
+      "date": "2026-06-18",
+      "deposit_million_krw": 128408618,
+      "credit_million_krw": 37979688,
+      "credit_kospi_million_krw": 28927467,
+      "credit_kosdaq_million_krw": 9052221
+    },
+    {
+      "date": "2026-06-19",
+      "deposit_million_krw": 129353455,
+      "credit_million_krw": 38478688,
+      "credit_kospi_million_krw": 29397728,
+      "credit_kosdaq_million_krw": 9080960
+    },
+    {
+      "date": "2026-06-22",
+      "deposit_million_krw": 132185720,
+      "credit_million_krw": 38531191,
+      "credit_kospi_million_krw": 29470718,
+      "credit_kosdaq_million_krw": 9060472
+    },
+    {
+      "date": "2026-06-23",
+      "deposit_million_krw": 136831367,
+      "credit_million_krw": 38093622,
+      "credit_kospi_million_krw": 29133243,
+      "credit_kosdaq_million_krw": 8960378
+    },
+    {
+      "date": "2026-06-24",
+      "deposit_million_krw": 136552702,
+      "credit_million_krw": 38632824,
+      "credit_kospi_million_krw": 29754263,
+      "credit_kosdaq_million_krw": 8878561
+    },
+    {
+      "date": "2026-06-25",
+      "deposit_million_krw": 126992350,
+      "credit_million_krw": 38048381,
+      "credit_kospi_million_krw": 29389386,
+      "credit_kosdaq_million_krw": 8658995
+    },
+    {
+      "date": "2026-06-26",
+      "deposit_million_krw": 126604894,
+      "credit_million_krw": 37761576,
+      "credit_kospi_million_krw": 29329632,
+      "credit_kosdaq_million_krw": 8431944
+    },
+    {
+      "date": "2026-06-29",
+      "deposit_million_krw": 132469655,
+      "credit_million_krw": 37807006,
+      "credit_kospi_million_krw": 29425399,
+      "credit_kosdaq_million_krw": 8381608
+    },
+    {
+      "date": "2026-06-30",
+      "deposit_million_krw": 121633951,
+      "credit_million_krw": 37328228,
+      "credit_kospi_million_krw": 29234568,
+      "credit_kosdaq_million_krw": 8093660
+    },
+    {
+      "date": "2026-07-01",
+      "deposit_million_krw": 120083674,
+      "credit_million_krw": 37339343,
+      "credit_kospi_million_krw": 29338829,
+      "credit_kosdaq_million_krw": 8000514
+    },
+    {
+      "date": "2026-07-02",
+      "deposit_million_krw": 119926438,
+      "credit_million_krw": 37718683,
+      "credit_kospi_million_krw": 29634401,
+      "credit_kosdaq_million_krw": 8084282
+    },
+    {
+      "date": "2026-07-03",
+      "deposit_million_krw": 118259372,
+      "credit_million_krw": 37792211,
+      "credit_kospi_million_krw": 29677370,
+      "credit_kosdaq_million_krw": 8114841
+    },
+    {
+      "date": "2026-07-06",
+      "deposit_million_krw": 112208237,
+      "credit_million_krw": 37660002,
+      "credit_kospi_million_krw": 29561210,
+      "credit_kosdaq_million_krw": 8098792
+    },
+    {
+      "date": "2026-07-07",
+      "deposit_million_krw": 112325979,
+      "credit_million_krw": 37065396,
+      "credit_kospi_million_krw": 29074973,
+      "credit_kosdaq_million_krw": 7990423
+    },
+    {
+      "date": "2026-07-08",
+      "deposit_million_krw": 110874403,
+      "credit_million_krw": 37199867,
+      "credit_kospi_million_krw": 29239165,
+      "credit_kosdaq_million_krw": 7960702
+    },
+    {
+      "date": "2026-07-09",
+      "deposit_million_krw": 107127865,
+      "credit_million_krw": 36633641,
+      "credit_kospi_million_krw": 28837405,
+      "credit_kosdaq_million_krw": 7796236
+    },
+    {
+      "date": "2026-07-10",
+      "deposit_million_krw": 105575754,
+      "credit_million_krw": 35573983,
+      "credit_kospi_million_krw": 28019642,
+      "credit_kosdaq_million_krw": 7554341
+    },
+    {
+      "date": "2026-07-13",
+      "deposit_million_krw": 109011570,
+      "credit_million_krw": 34788619,
+      "credit_kospi_million_krw": 27447168,
+      "credit_kosdaq_million_krw": 7341451
+    },
+    {
+      "date": "2026-07-14",
+      "deposit_million_krw": 111282480,
+      "credit_million_krw": 34707755,
+      "credit_kospi_million_krw": 27452720,
+      "credit_kosdaq_million_krw": 7255034
+    },
+    {
+      "date": "2026-07-15",
+      "deposit_million_krw": 109866972,
+      "credit_million_krw": 34370184,
+      "credit_kospi_million_krw": 27135448,
+      "credit_kosdaq_million_krw": 7234735
+    },
+    {
+      "date": "2026-07-16",
+      "deposit_million_krw": 108081874,
+      "credit_million_krw": 33362442,
+      "credit_kospi_million_krw": 26253368,
+      "credit_kosdaq_million_krw": 7109075
+    },
+    {
+      "date": "2026-07-20",
+      "deposit_million_krw": 112519003,
+      "credit_million_krw": 33332642,
+      "credit_kospi_million_krw": 26206459,
+      "credit_kosdaq_million_krw": 7126183
+    },
+    {
+      "date": "2026-07-21",
+      "deposit_million_krw": 106692980,
+      "credit_million_krw": 33558388,
+      "credit_kospi_million_krw": 26420477,
+      "credit_kosdaq_million_krw": 7137911
+    },
+    {
+      "date": "2026-07-22",
+      "deposit_million_krw": 103876545,
+      "credit_million_krw": 33042098,
+      "credit_kospi_million_krw": 26028687,
+      "credit_kosdaq_million_krw": 7013411
+    },
+    {
+      "date": "2026-07-23",
+      "deposit_million_krw": 104297489,
+      "credit_million_krw": 32749219,
+      "credit_kospi_million_krw": 25838628,
+      "credit_kosdaq_million_krw": 6910591
+    },
+    {
+      "date": "2026-07-24",
+      "deposit_million_krw": 105637070,
+      "credit_million_krw": 32671670,
+      "credit_kospi_million_krw": 25745724,
+      "credit_kosdaq_million_krw": 6925945
+    },
+    {
+      "date": "2026-07-27",
+      "deposit_million_krw": 109167491,
+      "credit_million_krw": 32741063,
+      "credit_kospi_million_krw": 25835506,
+      "credit_kosdaq_million_krw": 6905557
+    },
+    {
+      "date": "2026-07-28",
+      "deposit_million_krw": 107199449,
+      "credit_million_krw": 33194040,
+      "credit_kospi_million_krw": 26271969,
+      "credit_kosdaq_million_krw": 6922071
+    },
+    {
+      "date": "2026-07-29",
+      "deposit_million_krw": 109592595,
+      "credit_million_krw": 32995046,
+      "credit_kospi_million_krw": 26175088,
+      "credit_kosdaq_million_krw": 6819958
+    },
+    {
+      "date": "2026-07-30",
+      "deposit_million_krw": 104658382,
+      "credit_million_krw": 32153119,
+      "credit_kospi_million_krw": 25508658,
+      "credit_kosdaq_million_krw": 6644461
+    },
+    {
+      "date": "2026-07-31",
+      "deposit_million_krw": 104135408,
+      "credit_million_krw": 28934997,
+      "credit_kospi_million_krw": 22840599,
+      "credit_kosdaq_million_krw": 6094398
+    },
+    {
+      "date": "2026-08-03",
+      "deposit_million_krw": 102825553,
+      "credit_million_krw": 27443854,
+      "credit_kospi_million_krw": 21614091,
+      "credit_kosdaq_million_krw": 5829763
+    },
+    {
+      "date": "2026-08-04",
+      "deposit_million_krw": 110407061,
+      "credit_million_krw": 27403828,
+      "credit_kospi_million_krw": 21589188,
+      "credit_kosdaq_million_krw": 5814640
+    },
+    {
+      "date": "2026-08-05",
+      "deposit_million_krw": 103212504,
+      "credit_million_krw": 28417966,
+      "credit_kospi_million_krw": 22520319,
+      "credit_kosdaq_million_krw": 5897647
+    },
+    {
+      "date": "2026-08-06",
+      "deposit_million_krw": 104071197,
+      "credit_million_krw": 28794010,
+      "credit_kospi_million_krw": 22868507,
+      "credit_kosdaq_million_krw": 5925503
+    },
+    {
+      "date": "2026-08-07",
+      "deposit_million_krw": 104206412,
+      "credit_million_krw": 29230368,
+      "credit_kospi_million_krw": 23099946,
+      "credit_kosdaq_million_krw": 6130422
+    },
+    {
+      "date": "2026-08-10",
+      "deposit_million_krw": 100718025,
+      "credit_million_krw": 30023768,
+      "credit_kospi_million_krw": 23838401,
+      "credit_kosdaq_million_krw": 6185366
+    },
+    {
+      "date": "2026-08-11",
+      "deposit_million_krw": 97928935,
+      "credit_million_krw": 30038722,
+      "credit_kospi_million_krw": 23770378,
+      "credit_kosdaq_million_krw": 6268345
+    },
+    {
+      "date": "2026-08-12",
+      "deposit_million_krw": 99976460,
+      "credit_million_krw": 30418753,
+      "credit_kospi_million_krw": 24198821,
+      "credit_kosdaq_million_krw": 6219932
+    },
+    {
+      "date": "2026-08-13",
+      "deposit_million_krw": 100068383,
+      "credit_million_krw": 30926266,
+      "credit_kospi_million_krw": 24534908,
+      "credit_kosdaq_million_krw": 6391359
+    },
+    {
+      "date": "2026-08-14",
+      "deposit_million_krw": 100710332,
+      "credit_million_krw": 30867510,
+      "credit_kospi_million_krw": 24327182,
+      "credit_kosdaq_million_krw": 6540328
+    },
+    {
+      "date": "2026-08-18",
+      "deposit_million_krw": 104755058,
+      "credit_million_krw": 31104533,
+      "credit_kospi_million_krw": 24394711,
+      "credit_kosdaq_million_krw": 6709822
+    },
+    {
+      "date": "2026-08-19",
+      "deposit_million_krw": 106575016,
+      "credit_million_krw": 31312008,
+      "credit_kospi_million_krw": 24487369,
+      "credit_kosdaq_million_krw": 6824640
+    },
+    {
+      "date": "2026-08-20",
+      "deposit_million_krw": 105354289,
+      "credit_million_krw": 31893895,
+      "credit_kospi_million_krw": 24974174,
+      "credit_kosdaq_million_krw": 6919721
+    },
+    {
+      "date": "2026-08-21",
+      "deposit_million_krw": 100745646,
+      "credit_million_krw": 32416288,
+      "credit_kospi_million_krw": 25561165,
+      "credit_kosdaq_million_krw": 6855123
+    },
+    {
+      "date": "2026-08-24",
+      "deposit_million_krw": 103013654,
+      "credit_million_krw": 32628246,
+      "credit_kospi_million_krw": 25753152,
+      "credit_kosdaq_million_krw": 6875094
+    },
+    {
+      "date": "2026-08-25",
+      "deposit_million_krw": 102534150,
+      "credit_million_krw": 32848307,
+      "credit_kospi_million_krw": 25902153,
+      "credit_kosdaq_million_krw": 6946154
+    },
+    {
+      "date": "2026-08-26",
+      "deposit_million_krw": 98917653,
+      "credit_million_krw": 33102367,
+      "credit_kospi_million_krw": 26246926,
+      "credit_kosdaq_million_krw": 6855441
+    },
+    {
+      "date": "2026-08-27",
+      "deposit_million_krw": 96709071,
+      "credit_million_krw": 33329014,
+      "credit_kospi_million_krw": 26478840,
+      "credit_kosdaq_million_krw": 6850174
+    },
+    {
+      "date": "2026-08-28",
+      "deposit_million_krw": 98704872,
+      "credit_million_krw": 33337971,
+      "credit_kospi_million_krw": 26386089,
+      "credit_kosdaq_million_krw": 6951882
+    },
+    {
+      "date": "2026-08-31",
+      "deposit_million_krw": 99704432,
+      "credit_million_krw": 33252658,
+      "credit_kospi_million_krw": 26290467,
+      "credit_kosdaq_million_krw": 6962191
+    },
+    {
+      "date": "2026-09-01",
+      "deposit_million_krw": 98169090,
+      "credit_million_krw": 33430161,
+      "credit_kospi_million_krw": 26429397,
+      "credit_kosdaq_million_krw": 7000763
+    },
+    {
+      "date": "2026-09-02",
+      "deposit_million_krw": 102267236,
+      "credit_million_krw": 33440441,
+      "credit_kospi_million_krw": 26415996,
+      "credit_kosdaq_million_krw": 7024445
+    },
+    {
+      "date": "2026-09-03",
+      "deposit_million_krw": 97761496,
+      "credit_million_krw": 33542016,
+      "credit_kospi_million_krw": 26455419,
+      "credit_kosdaq_million_krw": 7086597
+    },
+    {
+      "date": "2026-09-04",
+      "deposit_million_krw": 93549981,
+      "credit_million_krw": 33595812,
+      "credit_kospi_million_krw": 26528987,
+      "credit_kosdaq_million_krw": 7066825
+    },
+    {
+      "date": "2026-09-07",
+      "deposit_million_krw": 93925789,
+      "credit_million_krw": 33190325,
+      "credit_kospi_million_krw": 26156115,
+      "credit_kosdaq_million_krw": 7034210
+    },
+    {
+      "date": "2026-09-08",
+      "deposit_million_krw": 96986329,
+      "credit_million_krw": 32738698,
+      "credit_kospi_million_krw": 25743987,
+      "credit_kosdaq_million_krw": 6994711
+    },
+    {
+      "date": "2026-09-09",
+      "deposit_million_krw": 102846170,
+      "credit_million_krw": 32409222,
+      "credit_kospi_million_krw": 25315145,
+      "credit_kosdaq_million_krw": 7094076
+    },
+    {
+      "date": "2026-09-10",
+      "deposit_million_krw": 107657276,
+      "credit_million_krw": 32359893,
+      "credit_kospi_million_krw": 25216162,
+      "credit_kosdaq_million_krw": 7143731
+    },
+    {
+      "date": "2026-09-11",
+      "deposit_million_krw": 107056001,
+      "credit_million_krw": 32264888,
+      "credit_kospi_million_krw": 25122672,
+      "credit_kosdaq_million_krw": 7142216
+    },
+    {
+      "date": "2026-09-14",
+      "deposit_million_krw": 106817908,
+      "credit_million_krw": 32623060,
+      "credit_kospi_million_krw": 25469696,
+      "credit_kosdaq_million_krw": 7153365
+    },
+    {
+      "date": "2026-09-15",
+      "deposit_million_krw": 105327532,
+      "credit_million_krw": 32831961,
+      "credit_kospi_million_krw": 25620409,
+      "credit_kosdaq_million_krw": 7211552
+    },
+    {
+      "date": "2026-09-16",
+      "deposit_million_krw": 99574864,
+      "credit_million_krw": 33073525,
+      "credit_kospi_million_krw": 25909937,
+      "credit_kosdaq_million_krw": 7163588
+    },
+    {
+      "date": "2026-09-17",
+      "deposit_million_krw": 97491073,
+      "credit_million_krw": 33073017,
+      "credit_kospi_million_krw": 25950716,
+      "credit_kosdaq_million_krw": 7122301
+    },
+    {
+      "date": "2026-09-18",
+      "deposit_million_krw": 98334648,
+      "credit_million_krw": 32914624,
+      "credit_kospi_million_krw": 25777008,
+      "credit_kosdaq_million_krw": 7137616
+    },
+    {
+      "date": "2026-09-21",
+      "deposit_million_krw": 98138613,
+      "credit_million_krw": 33055486,
+      "credit_kospi_million_krw": 25895759,
+      "credit_kosdaq_million_krw": 7159727
+    },
+    {
+      "date": "2026-09-22",
+      "deposit_million_krw": 100982555,
+      "credit_million_krw": 32819168,
+      "credit_kospi_million_krw": 25609148,
+      "credit_kosdaq_million_krw": 7210020
+    },
+    {
+      "date": "2026-09-23",
+      "deposit_million_krw": 101634868,
+      "credit_million_krw": 32776434,
+      "credit_kospi_million_krw": 25526956,
+      "credit_kosdaq_million_krw": 7249477
+    },
+    {
+      "date": "2026-09-28",
+      "deposit_million_krw": 104489234,
+      "credit_million_krw": 32858170,
+      "credit_kospi_million_krw": 25566251,
+      "credit_kosdaq_million_krw": 7291919
+    },
+    {
+      "date": "2026-09-29",
+      "deposit_million_krw": 107725670,
+      "credit_million_krw": 32920005,
+      "credit_kospi_million_krw": 25593489,
+      "credit_kosdaq_million_krw": 7326516
+    },
+    {
+      "date": "2026-09-30",
+      "deposit_million_krw": 104664400,
+      "credit_million_krw": 33390129,
+      "credit_kospi_million_krw": 26057234,
+      "credit_kosdaq_million_krw": 7332895
+    },
+    {
+      "date": "2026-10-01",
+      "deposit_million_krw": 104637666,
+      "credit_million_krw": 33480843,
+      "credit_kospi_million_krw": 26145638,
+      "credit_kosdaq_million_krw": 7335205
+    },
+    {
+      "date": "2026-10-02",
+      "deposit_million_krw": 100842194,
+      "credit_million_krw": 33628238,
+      "credit_kospi_million_krw": 26274978,
+      "credit_kosdaq_million_krw": 7353260
+    },
+    {
+      "date": "2026-10-06",
+      "deposit_million_krw": 101048627,
+      "credit_million_krw": 33559143,
+      "credit_kospi_million_krw": 26256444,
+      "credit_kosdaq_million_krw": 7302699
+    },
+    {
+      "date": "2026-10-07",
+      "deposit_million_krw": 100379607,
+      "credit_million_krw": 33516739,
+      "credit_kospi_million_krw": 26096341,
+      "credit_kosdaq_million_krw": 7420398
+    },
+    {
+      "date": "2026-10-08",
+      "deposit_million_krw": 100109941,
+      "credit_million_krw": 33811321,
+      "credit_kospi_million_krw": 26324143,
+      "credit_kosdaq_million_krw": 7487178
+    },
+    {
+      "date": "2026-10-12",
+      "deposit_million_krw": 100438881,
+      "credit_million_krw": 34288699,
+      "credit_kospi_million_krw": 26715212,
+      "credit_kosdaq_million_krw": 7573487
+    },
+    {
+      "date": "2026-10-13",
+      "deposit_million_krw": 100098275,
+      "credit_million_krw": 34252868,
+      "credit_kospi_million_krw": 26727467,
+      "credit_kosdaq_million_krw": 7525401
+    },
+    {
+      "date": "2026-10-14",
+      "deposit_million_krw": 97428012,
+      "credit_million_krw": 33705742,
+      "credit_kospi_million_krw": 26268574,
+      "credit_kosdaq_million_krw": 7437167
+    },
+    {
+      "date": "2026-10-15",
+      "deposit_million_krw": 96912122,
+      "credit_million_krw": 32749897,
+      "credit_kospi_million_krw": 25532078,
+      "credit_kosdaq_million_krw": 7217819
+    },
+    {
+      "date": "2026-10-16",
+      "deposit_million_krw": 94402968,
+      "credit_million_krw": 32252822,
+      "credit_kospi_million_krw": 25042128,
+      "credit_kosdaq_million_krw": 7210695
+    },
+    {
+      "date": "2026-10-19",
+      "deposit_million_krw": 92096622,
+      "credit_million_krw": 31108258,
+      "credit_kospi_million_krw": 24189850,
+      "credit_kosdaq_million_krw": 6918408
+    },
+    {
+      "date": "2026-10-20",
+      "deposit_million_krw": 90297588,
+      "credit_million_krw": 30513862,
+      "credit_kospi_million_krw": 23694349,
+      "credit_kosdaq_million_krw": 6819513
+    },
+    {
+      "date": "2026-10-21",
+      "deposit_million_krw": 89634398,
+      "credit_million_krw": 30271026,
+      "credit_kospi_million_krw": 23448586,
+      "credit_kosdaq_million_krw": 6822440
+    },
+    {
+      "date": "2026-10-22",
+      "deposit_million_krw": 88684195,
+      "credit_million_krw": 30363298,
+      "credit_kospi_million_krw": 23522884,
+      "credit_kosdaq_million_krw": 6840414
+    },
+    {
+      "date": "2026-10-23",
+      "deposit_million_krw": 89862621,
+      "credit_million_krw": 30152159,
+      "credit_kospi_million_krw": 23310648,
+      "credit_kosdaq_million_krw": 6841511
+    },
+    {
+      "date": "2026-10-26",
+      "deposit_million_krw": 88682580,
+      "credit_million_krw": 30067740,
+      "credit_kospi_million_krw": 23268474,
+      "credit_kosdaq_million_krw": 6799266
+    },
+    {
+      "date": "2026-10-27",
+      "deposit_million_krw": 90102980,
+      "credit_million_krw": 29637189,
+      "credit_kospi_million_krw": 22959294,
+      "credit_kosdaq_million_krw": 6677896
+    },
+    {
+      "date": "2026-10-28",
+      "deposit_million_krw": 88297500,
+      "credit_million_krw": 29329009,
+      "credit_kospi_million_krw": 22741356,
+      "credit_kosdaq_million_krw": 6587653
+    },
+    {
+      "date": "2026-10-29",
+      "deposit_million_krw": 88713283,
+      "credit_million_krw": 29088592,
+      "credit_kospi_million_krw": 22547805,
+      "credit_kosdaq_million_krw": 6540787
+    }
+  ],
+  "note": "Official published balances, not real-time flows. Compare Npay on matching dates only; no synthetic data."
+}
