@@ -1,0 +1,77 @@
+name: Probe market deposits and margin-credit data (read-only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect current Npay investor-deposit JSON structure
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timedelta, timezone
+          from zoneinfo import ZoneInfo
+
+          ROOT = 'https://stock.naver.com'
+          date_to = datetime.now(ZoneInfo('Asia/Seoul')).date()
+          date_from = date_to - timedelta(days=100)
+          urls = [
+              ('daily-list', '/api/domestic/market/trendDeposit?' + urllib.parse.urlencode({'startIdx':0,'pageSize':5})),
+              ('date-range-chart', '/api/domestic/market/trendDeposit/chart?' + urllib.parse.urlencode({'startDate':date_from.strftime('%Y%m%d'), 'endDate':date_to.strftime('%Y%m%d')})),
+          ]
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          opener = urllib.request.build_opener(NoRedirect())
+
+          def structure(item, depth=0):
+              if depth > 5:
+                  return type(item).__name__
+              if isinstance(item, dict):
+                  return {str(k):structure(v,depth+1) for k,v in list(item.items())[:25]}
+              if isinstance(item, list):
+                  return {'length':len(item), 'first':structure(item[0],depth+1) if item else None}
+              return type(item).__name__
+
+          success = 0
+          for label, path in urls:
+              print('\n=== SOURCE', label, path.partition('?')[0], '===', flush=True)
+              req = urllib.request.Request(ROOT + path, headers={
+                  'Accept':'application/json',
+                  'Referer':'https://stock.naver.com/',
+                  'User-Agent':'Mozilla/5.0 (compatible; MinerTerminalResearch/1.0)',
+              }, method='GET')
+              try:
+                  with opener.open(req,timeout=20) as resp:
+                      body = resp.read(500_000)
+                      ctype = resp.headers.get('Content-Type','')
+                      print('HTTP:',resp.status,'type:',ctype,'bytes:',len(body),flush=True)
+                  if 'json' not in ctype.lower():
+                      print('NOT_JSON; unsupported for collector',flush=True)
+                      continue
+                  obj=json.loads(body)
+                  print('SCHEMA:',json.dumps(structure(obj),ensure_ascii=False)[:6000],flush=True)
+                  if isinstance(obj,dict):
+                      for k in ('content','data','items','rows'):
+                          if isinstance(obj.get(k),list):
+                              print('SAMPLE:',json.dumps(obj[k][:2],ensure_ascii=False)[:9000],flush=True)
+                              break
+                  elif isinstance(obj,list):
+                      print('SAMPLE:',json.dumps(obj[:2],ensure_ascii=False)[:9000],flush=True)
+                  success += 1
+              except urllib.error.HTTPError as exc:
+                  print('HTTP_ERROR:',exc.code,'do not retry/bypass access controls',flush=True)
+              except (urllib.error.URLError,TimeoutError,OSError,ValueError,UnicodeError) as exc:
+                  print('FAILED:',type(exc).__name__,str(exc)[:300],flush=True)
+          print('\nPROBE_SUMMARY: valid JSON responses',success,'/ 2. No data modified.',flush=True)
+          if success == 0:
+              raise SystemExit(2)
+          PY
