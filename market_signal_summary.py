@@ -114,4 +114,6 @@ def render_market_signal_integrity(states,datasets,oneil_market_state):
         show_flows()
     from market_signal_qa import render_quality_detail
     render_quality_detail(datasets, oneil_market_state)
+    from market_regime_ui import render_market_environment
+    render_market_environment(states, datasets, oneil_market_state)
     st.caption('시장 추세 게이지는 기존 8개 가격 조건만 반영. ADR20·금투협 자금·DD·FTD·현물/선물 수급은 독립 근거이며 종합 점수화는 별도 백테스트 이후 검토합니다.')
