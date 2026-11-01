@@ -1,14 +1,10 @@
 name: Collect KR flows (EOD)
 on:
   workflow_dispatch:
-  schedule:
-    # KST weekdays 18:20, ahead of 18:35 investor-flow job.
-    # T+1 stock snapshot: a given day's ranking normally becomes available next trading day.
-    - cron: '20 9 * * 1-5'
 permissions:
   contents: write
 concurrency:
-  group: kr-eod-flow
+  group: miner-kr-eod-all
   cancel-in-progress: false
 jobs:
   collect:

@@ -1,13 +1,10 @@
 name: Collect verified TOP200 investor flows (EOD)
 on:
   workflow_dispatch:
-  schedule:
-    # KST 18:35 weekdays (UTC 09:35). Publication may be delayed.
-    - cron: '35 9 * * 1-5'
 permissions:
   contents: write
 concurrency:
-  group: kr-investor-flow
+  group: miner-kr-eod-all
   cancel-in-progress: false
 jobs:
   collect:

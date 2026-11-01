@@ -1,13 +1,10 @@
 name: Collect KOSPI200 futures investor flow (Npay FUT)
 on:
   workflow_dispatch:
-  schedule:
-    # 19:00 KST (10:00 UTC), after 18:50 full-market spot collection.
-    - cron: '0 10 * * 1-5'
 permissions:
   contents: write
 concurrency:
-  group: miner-kospi200-futures
+  group: miner-kr-eod-all
   cancel-in-progress: false
 jobs:
   collect:

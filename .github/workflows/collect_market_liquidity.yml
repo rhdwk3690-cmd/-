@@ -1,13 +1,10 @@
 name: Collect KR market liquidity & activate UI
 on:
   workflow_dispatch:
-  schedule:
-    # 19:10 KST weekdays. Npay data can be delayed; source date is always shown.
-    - cron: '10 10 * * 1-5'
 permissions:
   contents: write
 concurrency:
-  group: miner-market-liquidity
+  group: miner-kr-eod-all
   cancel-in-progress: false
 jobs:
   collect:

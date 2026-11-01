@@ -1,13 +1,10 @@
 name: Collect KR full-market investor net flows (modern Naver JSON)
 on:
   workflow_dispatch:
-  schedule:
-    # 18:50 KST weekdays, after TOP200 collection (18:35 KST)
-    - cron: '50 9 * * 1-5'
 permissions:
   contents: write
 concurrency:
-  group: kr-full-market-net-flows
+  group: miner-kr-eod-all
   cancel-in-progress: false
 jobs:
   collect:

@@ -1,13 +1,10 @@
 name: Collect official KOFIA liquidity and activate market signal
 on:
   workflow_dispatch:
-  schedule:
-    # Weekdays 19:25 Korea time (UTC+9); KOFIA data might still reflect prior business day.
-    - cron: '25 10 * * 1-5'
 permissions:
   contents: write
 concurrency:
-  group: miner-kofia-liquidity
+  group: miner-kr-eod-all
   cancel-in-progress: false
 jobs:
   collect:
