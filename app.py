@@ -538,7 +538,7 @@ def market_signal():
             ('반등 확인','🔺 반등 확인 · FTD',
              f'코스피 {ftd_summary("KOSPI")} / 코스닥 {ftd_summary("KOSDAQ")}'),
             ('증시 자금','💰 증시 자금',
-             '예탁금 · 신용잔고 · 오실레이터  |  원자료 연동 대기'),
+             '예탁금 · 신용잔고 · 5/20일 오실레이터  |  일별 게시 자료'),
             ('외국인·기관 수급','🏦 외국인·기관 수급',
              '일별 순매수 금액은 기존 「자금 흐름」에 연결됨'),
             ('추세 차트','📈 시장 추세 변화',
@@ -552,7 +552,7 @@ def market_signal():
                                  key=f'miner_card_{i}_{id_}', use_container_width=True):
                         st.session_state.miner_signal_view = id_
                         st.rerun()
-        st.markdown('<div class="miner-detail-note">● 신호는 지수 가격·거래량으로 계산한 참고 지표입니다. 전 종목 ADR, 신용잔고·예탁금은 아직 연결되지 않아 표시하지 않습니다.</div>', unsafe_allow_html=True)
+        st.markdown('<div class="miner-detail-note">● 신호는 지수 가격·거래량으로 계산한 참고 지표입니다. 시장 폭 지표는 별도 원자료를 사용합니다. 예탁금·신용잔고는 게시일 기준으로 지연될 수 있습니다.</div>', unsafe_allow_html=True)
         return
 
     # 2) 위의 카드에서 진입하는 상세 화면: 기본 페이지에는 펼치지 않음
@@ -627,8 +627,8 @@ def market_signal():
             st.caption(f'{name} · 기준 {df.index[-1]:%Y-%m-%d} · Yahoo Finance')
 
     elif view == '증시 자금':
-        st.info('투자자예탁금, 신용잔고, 신용잔고/예탁금, 신용 오실레이터는 공급처 원자료 확인 후 연결합니다.')
-        st.caption('현재 유효한 시계열이 없어 임의의 숫자나 점수를 표시하지 않습니다.')
+        from market_liquidity_ui import render_market_liquidity
+        render_market_liquidity()
 
     elif view == '외국인·기관 수급':
         st.success('외국인·기관·개인의 종목별 일별 순매수 금액은 왼쪽 「자금 흐름」 메뉴에서 조회할 수 있습니다.')

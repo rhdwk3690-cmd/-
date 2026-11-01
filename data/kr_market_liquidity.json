@@ -1,0 +1,855 @@
+{
+  "status": "source_validated",
+  "source": "Npay Stock public investor deposit and credit loan JSON",
+  "source_url": "https://stock.naver.com/api/domestic/market/trendDeposit",
+  "source_chart_url": "https://stock.naver.com/api/domestic/market/trendDeposit/chart",
+  "unit_assumption": "100M_KRW_per_raw_integer",
+  "unit_independently_confirmed": false,
+  "notice": "공개 JSON에는 단위가 표기되지 않습니다. 단위당 1억원 해석은 공식 KOFIA 자료로 교차검증이 필요합니다.",
+  "latest_date": "2026-10-28",
+  "observations": 120,
+  "chart_overlap_verified_days": 40,
+  "collected_at_kst": "2026-11-01T14:54:15.739339+09:00",
+  "history": [
+    {
+      "date": "2026-04-30",
+      "deposit_raw_100m": 1247591,
+      "credit_raw_100m": 352383,
+      "deposit_diff_raw_100m": -49730,
+      "credit_diff_raw_100m": -3560
+    },
+    {
+      "date": "2026-05-04",
+      "deposit_raw_100m": 1248406,
+      "credit_raw_100m": 353578,
+      "deposit_diff_raw_100m": 815,
+      "credit_diff_raw_100m": 1195
+    },
+    {
+      "date": "2026-05-06",
+      "deposit_raw_100m": 1307434,
+      "credit_raw_100m": 349635,
+      "deposit_diff_raw_100m": 59028,
+      "credit_diff_raw_100m": -3943
+    },
+    {
+      "date": "2026-05-07",
+      "deposit_raw_100m": 1369890,
+      "credit_raw_100m": 350271,
+      "deposit_diff_raw_100m": 62457,
+      "credit_diff_raw_100m": 636
+    },
+    {
+      "date": "2026-05-08",
+      "deposit_raw_100m": 1352992,
+      "credit_raw_100m": 354341,
+      "deposit_diff_raw_100m": -16899,
+      "credit_diff_raw_100m": 4069
+    },
+    {
+      "date": "2026-05-11",
+      "deposit_raw_100m": 1340987,
+      "credit_raw_100m": 354644,
+      "deposit_diff_raw_100m": -12004,
+      "credit_diff_raw_100m": 304
+    },
+    {
+      "date": "2026-05-12",
+      "deposit_raw_100m": 1374174,
+      "credit_raw_100m": 357127,
+      "deposit_diff_raw_100m": 33187,
+      "credit_diff_raw_100m": 2483
+    },
+    {
+      "date": "2026-05-13",
+      "deposit_raw_100m": 1371201,
+      "credit_raw_100m": 355024,
+      "deposit_diff_raw_100m": -2974,
+      "credit_diff_raw_100m": -2103
+    },
+    {
+      "date": "2026-05-14",
+      "deposit_raw_100m": 1335088,
+      "credit_raw_100m": 358970,
+      "deposit_diff_raw_100m": -36113,
+      "credit_diff_raw_100m": 3946
+    },
+    {
+      "date": "2026-05-15",
+      "deposit_raw_100m": 1328597,
+      "credit_raw_100m": 359886,
+      "deposit_diff_raw_100m": -6491,
+      "credit_diff_raw_100m": 915
+    },
+    {
+      "date": "2026-05-18",
+      "deposit_raw_100m": 1329853,
+      "credit_raw_100m": 358122,
+      "deposit_diff_raw_100m": 1256,
+      "credit_diff_raw_100m": -1764
+    },
+    {
+      "date": "2026-05-19",
+      "deposit_raw_100m": 1269599,
+      "credit_raw_100m": 352868,
+      "deposit_diff_raw_100m": -60253,
+      "credit_diff_raw_100m": -5254
+    },
+    {
+      "date": "2026-05-20",
+      "deposit_raw_100m": 1256440,
+      "credit_raw_100m": 356542,
+      "deposit_diff_raw_100m": -13160,
+      "credit_diff_raw_100m": 3674
+    },
+    {
+      "date": "2026-05-21",
+      "deposit_raw_100m": 1223819,
+      "credit_raw_100m": 358960,
+      "deposit_diff_raw_100m": -32620,
+      "credit_diff_raw_100m": 2418
+    },
+    {
+      "date": "2026-05-22",
+      "deposit_raw_100m": 1212452,
+      "credit_raw_100m": 357919,
+      "deposit_diff_raw_100m": -11367,
+      "credit_diff_raw_100m": -1042
+    },
+    {
+      "date": "2026-05-26",
+      "deposit_raw_100m": 1245769,
+      "credit_raw_100m": 356870,
+      "deposit_diff_raw_100m": 33317,
+      "credit_diff_raw_100m": -1048
+    },
+    {
+      "date": "2026-05-27",
+      "deposit_raw_100m": 1285750,
+      "credit_raw_100m": 361111,
+      "deposit_diff_raw_100m": 39981,
+      "credit_diff_raw_100m": 4241
+    },
+    {
+      "date": "2026-05-28",
+      "deposit_raw_100m": 1311318,
+      "credit_raw_100m": 364593,
+      "deposit_diff_raw_100m": 25569,
+      "credit_diff_raw_100m": 3482
+    },
+    {
+      "date": "2026-05-29",
+      "deposit_raw_100m": 1315856,
+      "credit_raw_100m": 374189,
+      "deposit_diff_raw_100m": 4538,
+      "credit_diff_raw_100m": 9595
+    },
+    {
+      "date": "2026-06-01",
+      "deposit_raw_100m": 1325993,
+      "credit_raw_100m": 370937,
+      "deposit_diff_raw_100m": 10137,
+      "credit_diff_raw_100m": -3252
+    },
+    {
+      "date": "2026-06-02",
+      "deposit_raw_100m": 1368111,
+      "credit_raw_100m": 371092,
+      "deposit_diff_raw_100m": 42119,
+      "credit_diff_raw_100m": 155
+    },
+    {
+      "date": "2026-06-04",
+      "deposit_raw_100m": 1396948,
+      "credit_raw_100m": 371166,
+      "deposit_diff_raw_100m": 28836,
+      "credit_diff_raw_100m": 74
+    },
+    {
+      "date": "2026-06-05",
+      "deposit_raw_100m": 1342344,
+      "credit_raw_100m": 372282,
+      "deposit_diff_raw_100m": -54603,
+      "credit_diff_raw_100m": 1117
+    },
+    {
+      "date": "2026-06-08",
+      "deposit_raw_100m": 1363847,
+      "credit_raw_100m": 371752,
+      "deposit_diff_raw_100m": 21503,
+      "credit_diff_raw_100m": -531
+    },
+    {
+      "date": "2026-06-09",
+      "deposit_raw_100m": 1301189,
+      "credit_raw_100m": 373296,
+      "deposit_diff_raw_100m": -62658,
+      "credit_diff_raw_100m": 1544
+    },
+    {
+      "date": "2026-06-10",
+      "deposit_raw_100m": 1276066,
+      "credit_raw_100m": 361901,
+      "deposit_diff_raw_100m": -25124,
+      "credit_diff_raw_100m": -11396
+    },
+    {
+      "date": "2026-06-11",
+      "deposit_raw_100m": 1273718,
+      "credit_raw_100m": 360752,
+      "deposit_diff_raw_100m": -2347,
+      "credit_diff_raw_100m": -1148
+    },
+    {
+      "date": "2026-06-12",
+      "deposit_raw_100m": 1210566,
+      "credit_raw_100m": 363029,
+      "deposit_diff_raw_100m": -63152,
+      "credit_diff_raw_100m": 2277
+    },
+    {
+      "date": "2026-06-15",
+      "deposit_raw_100m": 1205817,
+      "credit_raw_100m": 364871,
+      "deposit_diff_raw_100m": -4749,
+      "credit_diff_raw_100m": 1842
+    },
+    {
+      "date": "2026-06-16",
+      "deposit_raw_100m": 1245517,
+      "credit_raw_100m": 367993,
+      "deposit_diff_raw_100m": 39699,
+      "credit_diff_raw_100m": 3122
+    },
+    {
+      "date": "2026-06-17",
+      "deposit_raw_100m": 1246320,
+      "credit_raw_100m": 371989,
+      "deposit_diff_raw_100m": 804,
+      "credit_diff_raw_100m": 3997
+    },
+    {
+      "date": "2026-06-18",
+      "deposit_raw_100m": 1284086,
+      "credit_raw_100m": 373776,
+      "deposit_diff_raw_100m": 37766,
+      "credit_diff_raw_100m": 1787
+    },
+    {
+      "date": "2026-06-19",
+      "deposit_raw_100m": 1293535,
+      "credit_raw_100m": 378694,
+      "deposit_diff_raw_100m": 9448,
+      "credit_diff_raw_100m": 4919
+    },
+    {
+      "date": "2026-06-22",
+      "deposit_raw_100m": 1321857,
+      "credit_raw_100m": 379189,
+      "deposit_diff_raw_100m": 28323,
+      "credit_diff_raw_100m": 495
+    },
+    {
+      "date": "2026-06-23",
+      "deposit_raw_100m": 1368314,
+      "credit_raw_100m": 374860,
+      "deposit_diff_raw_100m": 46457,
+      "credit_diff_raw_100m": -4329
+    },
+    {
+      "date": "2026-06-24",
+      "deposit_raw_100m": 1365527,
+      "credit_raw_100m": 380158,
+      "deposit_diff_raw_100m": -2787,
+      "credit_diff_raw_100m": 5298
+    },
+    {
+      "date": "2026-06-25",
+      "deposit_raw_100m": 1269924,
+      "credit_raw_100m": 374533,
+      "deposit_diff_raw_100m": -95604,
+      "credit_diff_raw_100m": -5625
+    },
+    {
+      "date": "2026-06-26",
+      "deposit_raw_100m": 1266049,
+      "credit_raw_100m": 371754,
+      "deposit_diff_raw_100m": -3875,
+      "credit_diff_raw_100m": -2780
+    },
+    {
+      "date": "2026-06-29",
+      "deposit_raw_100m": 1324697,
+      "credit_raw_100m": 372105,
+      "deposit_diff_raw_100m": 58648,
+      "credit_diff_raw_100m": 351
+    },
+    {
+      "date": "2026-06-30",
+      "deposit_raw_100m": 1216340,
+      "credit_raw_100m": 367352,
+      "deposit_diff_raw_100m": -108357,
+      "credit_diff_raw_100m": -4754
+    },
+    {
+      "date": "2026-07-01",
+      "deposit_raw_100m": 1200837,
+      "credit_raw_100m": 367436,
+      "deposit_diff_raw_100m": -15503,
+      "credit_diff_raw_100m": 85
+    },
+    {
+      "date": "2026-07-02",
+      "deposit_raw_100m": 1199264,
+      "credit_raw_100m": 371073,
+      "deposit_diff_raw_100m": -1572,
+      "credit_diff_raw_100m": 3636
+    },
+    {
+      "date": "2026-07-03",
+      "deposit_raw_100m": 1182594,
+      "credit_raw_100m": 371770,
+      "deposit_diff_raw_100m": -16671,
+      "credit_diff_raw_100m": 697
+    },
+    {
+      "date": "2026-07-06",
+      "deposit_raw_100m": 1122082,
+      "credit_raw_100m": 370582,
+      "deposit_diff_raw_100m": -60511,
+      "credit_diff_raw_100m": -1188
+    },
+    {
+      "date": "2026-07-07",
+      "deposit_raw_100m": 1123260,
+      "credit_raw_100m": 364704,
+      "deposit_diff_raw_100m": 1177,
+      "credit_diff_raw_100m": -5878
+    },
+    {
+      "date": "2026-07-08",
+      "deposit_raw_100m": 1108744,
+      "credit_raw_100m": 366113,
+      "deposit_diff_raw_100m": -14516,
+      "credit_diff_raw_100m": 1409
+    },
+    {
+      "date": "2026-07-09",
+      "deposit_raw_100m": 1071279,
+      "credit_raw_100m": 360668,
+      "deposit_diff_raw_100m": -37465,
+      "credit_diff_raw_100m": -5446
+    },
+    {
+      "date": "2026-07-10",
+      "deposit_raw_100m": 1055758,
+      "credit_raw_100m": 350341,
+      "deposit_diff_raw_100m": -15521,
+      "credit_diff_raw_100m": -10326
+    },
+    {
+      "date": "2026-07-13",
+      "deposit_raw_100m": 1090116,
+      "credit_raw_100m": 342670,
+      "deposit_diff_raw_100m": 34358,
+      "credit_diff_raw_100m": -7672
+    },
+    {
+      "date": "2026-07-14",
+      "deposit_raw_100m": 1112825,
+      "credit_raw_100m": 341910,
+      "deposit_diff_raw_100m": 22709,
+      "credit_diff_raw_100m": -759
+    },
+    {
+      "date": "2026-07-15",
+      "deposit_raw_100m": 1098670,
+      "credit_raw_100m": 338502,
+      "deposit_diff_raw_100m": -14155,
+      "credit_diff_raw_100m": -3408
+    },
+    {
+      "date": "2026-07-16",
+      "deposit_raw_100m": 1080819,
+      "credit_raw_100m": 328598,
+      "deposit_diff_raw_100m": -17851,
+      "credit_diff_raw_100m": -9904
+    },
+    {
+      "date": "2026-07-20",
+      "deposit_raw_100m": 1125190,
+      "credit_raw_100m": 328456,
+      "deposit_diff_raw_100m": 44371,
+      "credit_diff_raw_100m": -141
+    },
+    {
+      "date": "2026-07-21",
+      "deposit_raw_100m": 1066930,
+      "credit_raw_100m": 330690,
+      "deposit_diff_raw_100m": -58260,
+      "credit_diff_raw_100m": 2234
+    },
+    {
+      "date": "2026-07-22",
+      "deposit_raw_100m": 1038766,
+      "credit_raw_100m": 325660,
+      "deposit_diff_raw_100m": -28164,
+      "credit_diff_raw_100m": -5030
+    },
+    {
+      "date": "2026-07-23",
+      "deposit_raw_100m": 1042975,
+      "credit_raw_100m": 322815,
+      "deposit_diff_raw_100m": 4209,
+      "credit_diff_raw_100m": -2845
+    },
+    {
+      "date": "2026-07-24",
+      "deposit_raw_100m": 1056371,
+      "credit_raw_100m": 322031,
+      "deposit_diff_raw_100m": 13396,
+      "credit_diff_raw_100m": -783
+    },
+    {
+      "date": "2026-07-27",
+      "deposit_raw_100m": 1091675,
+      "credit_raw_100m": 322700,
+      "deposit_diff_raw_100m": 35304,
+      "credit_diff_raw_100m": 669
+    },
+    {
+      "date": "2026-07-28",
+      "deposit_raw_100m": 1071995,
+      "credit_raw_100m": 327153,
+      "deposit_diff_raw_100m": -19680,
+      "credit_diff_raw_100m": 4453
+    },
+    {
+      "date": "2026-07-29",
+      "deposit_raw_100m": 1095926,
+      "credit_raw_100m": 325230,
+      "deposit_diff_raw_100m": 23932,
+      "credit_diff_raw_100m": -1923
+    },
+    {
+      "date": "2026-07-30",
+      "deposit_raw_100m": 1046584,
+      "credit_raw_100m": 316853,
+      "deposit_diff_raw_100m": -49342,
+      "credit_diff_raw_100m": -8377
+    },
+    {
+      "date": "2026-07-31",
+      "deposit_raw_100m": 1041354,
+      "credit_raw_100m": 285221,
+      "deposit_diff_raw_100m": -5230,
+      "credit_diff_raw_100m": -31632
+    },
+    {
+      "date": "2026-08-03",
+      "deposit_raw_100m": 1028256,
+      "credit_raw_100m": 270507,
+      "deposit_diff_raw_100m": -13099,
+      "credit_diff_raw_100m": -14714
+    },
+    {
+      "date": "2026-08-04",
+      "deposit_raw_100m": 1104071,
+      "credit_raw_100m": 270204,
+      "deposit_diff_raw_100m": 75815,
+      "credit_diff_raw_100m": -303
+    },
+    {
+      "date": "2026-08-05",
+      "deposit_raw_100m": 1032125,
+      "credit_raw_100m": 280277,
+      "deposit_diff_raw_100m": -71946,
+      "credit_diff_raw_100m": 10073
+    },
+    {
+      "date": "2026-08-06",
+      "deposit_raw_100m": 1040712,
+      "credit_raw_100m": 283873,
+      "deposit_diff_raw_100m": 8587,
+      "credit_diff_raw_100m": 3597
+    },
+    {
+      "date": "2026-08-07",
+      "deposit_raw_100m": 1042064,
+      "credit_raw_100m": 288159,
+      "deposit_diff_raw_100m": 1352,
+      "credit_diff_raw_100m": 4286
+    },
+    {
+      "date": "2026-08-10",
+      "deposit_raw_100m": 1007180,
+      "credit_raw_100m": 295916,
+      "deposit_diff_raw_100m": -34884,
+      "credit_diff_raw_100m": 7757
+    },
+    {
+      "date": "2026-08-11",
+      "deposit_raw_100m": 979289,
+      "credit_raw_100m": 296106,
+      "deposit_diff_raw_100m": -27891,
+      "credit_diff_raw_100m": 190
+    },
+    {
+      "date": "2026-08-12",
+      "deposit_raw_100m": 999765,
+      "credit_raw_100m": 299776,
+      "deposit_diff_raw_100m": 20475,
+      "credit_diff_raw_100m": 3669
+    },
+    {
+      "date": "2026-08-13",
+      "deposit_raw_100m": 1000684,
+      "credit_raw_100m": 304878,
+      "deposit_diff_raw_100m": 919,
+      "credit_diff_raw_100m": 5102
+    },
+    {
+      "date": "2026-08-14",
+      "deposit_raw_100m": 1007103,
+      "credit_raw_100m": 304344,
+      "deposit_diff_raw_100m": 6420,
+      "credit_diff_raw_100m": -534
+    },
+    {
+      "date": "2026-08-18",
+      "deposit_raw_100m": 1047551,
+      "credit_raw_100m": 306686,
+      "deposit_diff_raw_100m": 40447,
+      "credit_diff_raw_100m": 2342
+    },
+    {
+      "date": "2026-08-19",
+      "deposit_raw_100m": 1065750,
+      "credit_raw_100m": 308723,
+      "deposit_diff_raw_100m": 18200,
+      "credit_diff_raw_100m": 2037
+    },
+    {
+      "date": "2026-08-20",
+      "deposit_raw_100m": 1053543,
+      "credit_raw_100m": 314480,
+      "deposit_diff_raw_100m": -12207,
+      "credit_diff_raw_100m": 5757
+    },
+    {
+      "date": "2026-08-21",
+      "deposit_raw_100m": 1007457,
+      "credit_raw_100m": 319785,
+      "deposit_diff_raw_100m": -46086,
+      "credit_diff_raw_100m": 5304
+    },
+    {
+      "date": "2026-08-24",
+      "deposit_raw_100m": 1030137,
+      "credit_raw_100m": 321881,
+      "deposit_diff_raw_100m": 22680,
+      "credit_diff_raw_100m": 2096
+    },
+    {
+      "date": "2026-08-25",
+      "deposit_raw_100m": 1025342,
+      "credit_raw_100m": 324022,
+      "deposit_diff_raw_100m": -4795,
+      "credit_diff_raw_100m": 2141
+    },
+    {
+      "date": "2026-08-26",
+      "deposit_raw_100m": 989177,
+      "credit_raw_100m": 326661,
+      "deposit_diff_raw_100m": -36165,
+      "credit_diff_raw_100m": 2639
+    },
+    {
+      "date": "2026-08-27",
+      "deposit_raw_100m": 967091,
+      "credit_raw_100m": 328996,
+      "deposit_diff_raw_100m": -22086,
+      "credit_diff_raw_100m": 2336
+    },
+    {
+      "date": "2026-08-28",
+      "deposit_raw_100m": 998138,
+      "credit_raw_100m": 329038,
+      "deposit_diff_raw_100m": 31048,
+      "credit_diff_raw_100m": 41
+    },
+    {
+      "date": "2026-08-31",
+      "deposit_raw_100m": 997044,
+      "credit_raw_100m": 328139,
+      "deposit_diff_raw_100m": -1094,
+      "credit_diff_raw_100m": -899
+    },
+    {
+      "date": "2026-09-01",
+      "deposit_raw_100m": 981691,
+      "credit_raw_100m": 329897,
+      "deposit_diff_raw_100m": -15353,
+      "credit_diff_raw_100m": 1758
+    },
+    {
+      "date": "2026-09-02",
+      "deposit_raw_100m": 1022672,
+      "credit_raw_100m": 330074,
+      "deposit_diff_raw_100m": 40982,
+      "credit_diff_raw_100m": 176
+    },
+    {
+      "date": "2026-09-03",
+      "deposit_raw_100m": 977615,
+      "credit_raw_100m": 331086,
+      "deposit_diff_raw_100m": -45057,
+      "credit_diff_raw_100m": 1012
+    },
+    {
+      "date": "2026-09-04",
+      "deposit_raw_100m": 935500,
+      "credit_raw_100m": 331660,
+      "deposit_diff_raw_100m": -42115,
+      "credit_diff_raw_100m": 574
+    },
+    {
+      "date": "2026-09-07",
+      "deposit_raw_100m": 939258,
+      "credit_raw_100m": 327639,
+      "deposit_diff_raw_100m": 3758,
+      "credit_diff_raw_100m": -4021
+    },
+    {
+      "date": "2026-09-08",
+      "deposit_raw_100m": 969863,
+      "credit_raw_100m": 323185,
+      "deposit_diff_raw_100m": 30605,
+      "credit_diff_raw_100m": -4453
+    },
+    {
+      "date": "2026-09-09",
+      "deposit_raw_100m": 1028462,
+      "credit_raw_100m": 319898,
+      "deposit_diff_raw_100m": 58598,
+      "credit_diff_raw_100m": -3287
+    },
+    {
+      "date": "2026-09-10",
+      "deposit_raw_100m": 1076573,
+      "credit_raw_100m": 319317,
+      "deposit_diff_raw_100m": 48111,
+      "credit_diff_raw_100m": -582
+    },
+    {
+      "date": "2026-09-11",
+      "deposit_raw_100m": 1070560,
+      "credit_raw_100m": 318449,
+      "deposit_diff_raw_100m": -6013,
+      "credit_diff_raw_100m": -868
+    },
+    {
+      "date": "2026-09-14",
+      "deposit_raw_100m": 1068179,
+      "credit_raw_100m": 321949,
+      "deposit_diff_raw_100m": -2381,
+      "credit_diff_raw_100m": 3500
+    },
+    {
+      "date": "2026-09-15",
+      "deposit_raw_100m": 1053275,
+      "credit_raw_100m": 324146,
+      "deposit_diff_raw_100m": -14904,
+      "credit_diff_raw_100m": 2197
+    },
+    {
+      "date": "2026-09-16",
+      "deposit_raw_100m": 995749,
+      "credit_raw_100m": 326598,
+      "deposit_diff_raw_100m": -57527,
+      "credit_diff_raw_100m": 2452
+    },
+    {
+      "date": "2026-09-17",
+      "deposit_raw_100m": 974938,
+      "credit_raw_100m": 326569,
+      "deposit_diff_raw_100m": -20810,
+      "credit_diff_raw_100m": -28
+    },
+    {
+      "date": "2026-09-18",
+      "deposit_raw_100m": 983347,
+      "credit_raw_100m": 325002,
+      "deposit_diff_raw_100m": 8408,
+      "credit_diff_raw_100m": -1567
+    },
+    {
+      "date": "2026-09-21",
+      "deposit_raw_100m": 981386,
+      "credit_raw_100m": 326421,
+      "deposit_diff_raw_100m": -1960,
+      "credit_diff_raw_100m": 1419
+    },
+    {
+      "date": "2026-09-22",
+      "deposit_raw_100m": 1009826,
+      "credit_raw_100m": 324092,
+      "deposit_diff_raw_100m": 28439,
+      "credit_diff_raw_100m": -2329
+    },
+    {
+      "date": "2026-09-23",
+      "deposit_raw_100m": 1016349,
+      "credit_raw_100m": 323671,
+      "deposit_diff_raw_100m": 6523,
+      "credit_diff_raw_100m": -421
+    },
+    {
+      "date": "2026-09-28",
+      "deposit_raw_100m": 1044892,
+      "credit_raw_100m": 324428,
+      "deposit_diff_raw_100m": 28544,
+      "credit_diff_raw_100m": 757
+    },
+    {
+      "date": "2026-09-29",
+      "deposit_raw_100m": 1077257,
+      "credit_raw_100m": 325091,
+      "deposit_diff_raw_100m": 32364,
+      "credit_diff_raw_100m": 663
+    },
+    {
+      "date": "2026-09-30",
+      "deposit_raw_100m": 1046644,
+      "credit_raw_100m": 329658,
+      "deposit_diff_raw_100m": -30613,
+      "credit_diff_raw_100m": 4567
+    },
+    {
+      "date": "2026-10-01",
+      "deposit_raw_100m": 1046377,
+      "credit_raw_100m": 330563,
+      "deposit_diff_raw_100m": -267,
+      "credit_diff_raw_100m": 905
+    },
+    {
+      "date": "2026-10-02",
+      "deposit_raw_100m": 1008422,
+      "credit_raw_100m": 332067,
+      "deposit_diff_raw_100m": -37955,
+      "credit_diff_raw_100m": 1504
+    },
+    {
+      "date": "2026-10-06",
+      "deposit_raw_100m": 1010486,
+      "credit_raw_100m": 331299,
+      "deposit_diff_raw_100m": 2064,
+      "credit_diff_raw_100m": -767
+    },
+    {
+      "date": "2026-10-07",
+      "deposit_raw_100m": 1003796,
+      "credit_raw_100m": 330888,
+      "deposit_diff_raw_100m": -6690,
+      "credit_diff_raw_100m": -411
+    },
+    {
+      "date": "2026-10-08",
+      "deposit_raw_100m": 1001099,
+      "credit_raw_100m": 333787,
+      "deposit_diff_raw_100m": -2697,
+      "credit_diff_raw_100m": 2899
+    },
+    {
+      "date": "2026-10-12",
+      "deposit_raw_100m": 1004389,
+      "credit_raw_100m": 338487,
+      "deposit_diff_raw_100m": 3289,
+      "credit_diff_raw_100m": 4699
+    },
+    {
+      "date": "2026-10-13",
+      "deposit_raw_100m": 1000983,
+      "credit_raw_100m": 338113,
+      "deposit_diff_raw_100m": -3406,
+      "credit_diff_raw_100m": -374
+    },
+    {
+      "date": "2026-10-14",
+      "deposit_raw_100m": 974280,
+      "credit_raw_100m": 332672,
+      "deposit_diff_raw_100m": -26703,
+      "credit_diff_raw_100m": -5440
+    },
+    {
+      "date": "2026-10-15",
+      "deposit_raw_100m": 969121,
+      "credit_raw_100m": 323167,
+      "deposit_diff_raw_100m": -5159,
+      "credit_diff_raw_100m": -9506
+    },
+    {
+      "date": "2026-10-16",
+      "deposit_raw_100m": 944030,
+      "credit_raw_100m": 318244,
+      "deposit_diff_raw_100m": -25092,
+      "credit_diff_raw_100m": -4922
+    },
+    {
+      "date": "2026-10-19",
+      "deposit_raw_100m": 920966,
+      "credit_raw_100m": 306745,
+      "deposit_diff_raw_100m": -23064,
+      "credit_diff_raw_100m": -11499
+    },
+    {
+      "date": "2026-10-20",
+      "deposit_raw_100m": 902976,
+      "credit_raw_100m": 300938,
+      "deposit_diff_raw_100m": -17990,
+      "credit_diff_raw_100m": -5808
+    },
+    {
+      "date": "2026-10-21",
+      "deposit_raw_100m": 896344,
+      "credit_raw_100m": 298476,
+      "deposit_diff_raw_100m": -6632,
+      "credit_diff_raw_100m": -2462
+    },
+    {
+      "date": "2026-10-22",
+      "deposit_raw_100m": 886842,
+      "credit_raw_100m": 299350,
+      "deposit_diff_raw_100m": -9502,
+      "credit_diff_raw_100m": 874
+    },
+    {
+      "date": "2026-10-23",
+      "deposit_raw_100m": 898626,
+      "credit_raw_100m": 297267,
+      "deposit_diff_raw_100m": 11784,
+      "credit_diff_raw_100m": -2083
+    },
+    {
+      "date": "2026-10-26",
+      "deposit_raw_100m": 886826,
+      "credit_raw_100m": 296397,
+      "deposit_diff_raw_100m": -11800,
+      "credit_diff_raw_100m": -870
+    },
+    {
+      "date": "2026-10-27",
+      "deposit_raw_100m": 901030,
+      "credit_raw_100m": 292153,
+      "deposit_diff_raw_100m": 14204,
+      "credit_diff_raw_100m": -4243
+    },
+    {
+      "date": "2026-10-28",
+      "deposit_raw_100m": 882975,
+      "credit_raw_100m": 289137,
+      "deposit_diff_raw_100m": -18055,
+      "credit_diff_raw_100m": -3017
+    }
+  ]
+}
