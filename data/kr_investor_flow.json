@@ -1412,5 +1412,127 @@
     }
   },
   "errors": [],
-  "note": "Published EOD investor flows only. Missing records are null, not zero. Coverage differs from TOP200; no inference."
+  "note": "Published EOD investor flows only. Missing records are null, not zero. Coverage differs from TOP200; no inference.",
+  "summary": {
+    "date": "2026-10-29",
+    "scope": "Daily changing KOSPI+KOSDAQ traded-value TOP200 only",
+    "metrics": {
+      "ALL": {
+        "target_count": 200,
+        "paired_count": 200,
+        "target_traded_krw": 29545565969599,
+        "paired_traded_krw": 29545565969599,
+        "coverage_pct": 100.0,
+        "turnover_coverage_pct": 100.0,
+        "foreign_net_krw": 526094000000,
+        "institution_net_krw": -12074000000,
+        "joint_net_krw": 514020000000,
+        "foreign_strength_pct": 1.780619130942782,
+        "institution_strength_pct": -0.040865692037930765,
+        "joint_strength_pct": 1.739753438904851,
+        "both_buy_count": 17,
+        "both_sell_count": 36,
+        "combined_buy_count": 85,
+        "diffusion_pct": -9.5
+      },
+      "KOSPI": {
+        "target_count": 118,
+        "paired_count": 118,
+        "target_traded_krw": 25912613087683,
+        "paired_traded_krw": 25912613087683,
+        "coverage_pct": 100.0,
+        "turnover_coverage_pct": 100.0,
+        "foreign_net_krw": 632363000000,
+        "institution_net_krw": 10702000000,
+        "joint_net_krw": 643065000000,
+        "foreign_strength_pct": 2.4403675455663714,
+        "institution_strength_pct": 0.041300350388386586,
+        "joint_strength_pct": 2.4816678959547582,
+        "both_buy_count": 10,
+        "both_sell_count": 15,
+        "combined_buy_count": 59,
+        "diffusion_pct": -4.237288135593221
+      },
+      "KOSDAQ": {
+        "target_count": 82,
+        "paired_count": 82,
+        "target_traded_krw": 3632952881916,
+        "paired_traded_krw": 3632952881916,
+        "coverage_pct": 100.0,
+        "turnover_coverage_pct": 100.0,
+        "foreign_net_krw": -106269000000,
+        "institution_net_krw": -22776000000,
+        "joint_net_krw": -129045000000,
+        "foreign_strength_pct": -2.9251411580090267,
+        "institution_strength_pct": -0.6269280318325532,
+        "joint_strength_pct": -3.55206918984158,
+        "both_buy_count": 7,
+        "both_sell_count": 21,
+        "combined_buy_count": 26,
+        "diffusion_pct": -17.073170731707318
+      }
+    }
+  },
+  "history": [
+    {
+      "date": "2026-10-29",
+      "scope": "Daily changing KOSPI+KOSDAQ traded-value TOP200 only",
+      "metrics": {
+        "ALL": {
+          "target_count": 200,
+          "paired_count": 200,
+          "target_traded_krw": 29545565969599,
+          "paired_traded_krw": 29545565969599,
+          "coverage_pct": 100.0,
+          "turnover_coverage_pct": 100.0,
+          "foreign_net_krw": 526094000000,
+          "institution_net_krw": -12074000000,
+          "joint_net_krw": 514020000000,
+          "foreign_strength_pct": 1.780619130942782,
+          "institution_strength_pct": -0.040865692037930765,
+          "joint_strength_pct": 1.739753438904851,
+          "both_buy_count": 17,
+          "both_sell_count": 36,
+          "combined_buy_count": 85,
+          "diffusion_pct": -9.5
+        },
+        "KOSPI": {
+          "target_count": 118,
+          "paired_count": 118,
+          "target_traded_krw": 25912613087683,
+          "paired_traded_krw": 25912613087683,
+          "coverage_pct": 100.0,
+          "turnover_coverage_pct": 100.0,
+          "foreign_net_krw": 632363000000,
+          "institution_net_krw": 10702000000,
+          "joint_net_krw": 643065000000,
+          "foreign_strength_pct": 2.4403675455663714,
+          "institution_strength_pct": 0.041300350388386586,
+          "joint_strength_pct": 2.4816678959547582,
+          "both_buy_count": 10,
+          "both_sell_count": 15,
+          "combined_buy_count": 59,
+          "diffusion_pct": -4.237288135593221
+        },
+        "KOSDAQ": {
+          "target_count": 82,
+          "paired_count": 82,
+          "target_traded_krw": 3632952881916,
+          "paired_traded_krw": 3632952881916,
+          "coverage_pct": 100.0,
+          "turnover_coverage_pct": 100.0,
+          "foreign_net_krw": -106269000000,
+          "institution_net_krw": -22776000000,
+          "joint_net_krw": -129045000000,
+          "foreign_strength_pct": -2.9251411580090267,
+          "institution_strength_pct": -0.6269280318325532,
+          "joint_strength_pct": -3.55206918984158,
+          "both_buy_count": 7,
+          "both_sell_count": 21,
+          "combined_buy_count": 26,
+          "diffusion_pct": -17.073170731707318
+        }
+      }
+    }
+  ]
 }
