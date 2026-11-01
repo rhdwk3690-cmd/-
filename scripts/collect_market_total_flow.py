@@ -1,11 +1,9 @@
-"""광부 투자터미널: KRX 코스피/코스닥 *전체 주식시장* 투자자별 순매수(금액).
+"""KOSPI/KOSDAQ market-level investor trading trend collector from Naver Finance.
 
-공식 KRX 투자자별 거래실적을 pykrx의 KRX 스크래퍼로 조회한다.
-- ETFs/ETNs/ELWs 제외 (주식시장 범위)
-- 원 단위 순매수; 명확한 날짜가 있는 일별 응답만 인정
-- 코스피/코스닥 둘 다 있는 날짜만 기록
-- 실데이터가 없으면 기존 검증된 파일을 훼손하지 않음
-- 데이터 제공처가 접근 차단/변경되면 실패: 절대 가짜 값으로 대체하지 않음
+Fallback for pykrx's authenticated KRX website. NAVER is a *secondary provider*,
+not a KRX official API. Its public market-level daily table is in 100M KRW.
+If a table changes, is blocked, or has no parsable dated entries, fail closed.
+Never infer an absent value, a date, or the ETF composition of the provider.
 """
 from __future__ import annotations
 
@@ -15,168 +13,189 @@ import os
 import re
 import sys
 from datetime import date, datetime, timedelta, timezone
-from numbers import Integral
+from decimal import Decimal, InvalidOperation
+from io import StringIO
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pandas as pd
+import requests
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DEST = ROOT / "data" / "kr_market_total_flow.json"
-KST = ZoneInfo("Asia/Seoul")
-MARKETS = ("KOSPI", "KOSDAQ")
-COLUMNS = {
-    "foreign_net_krw": "외국인합계",
-    "institution_net_krw": "기관합계",
-    "individual_net_krw": "개인",
-}
-MAX_HISTORY = 260
+DEST = ROOT / 'data' / 'kr_market_total_flow.json'
+KST = ZoneInfo('Asia/Seoul')
+MARKETS = {'KOSPI': '01', 'KOSDAQ': '02'}
+FIELDS = {'개인': 'individual_net_krw', '외국인': 'foreign_net_krw', '기관계': 'institution_net_krw'}
+HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; MinerFinanceResearch/1.0)',
+           'Referer': 'https://finance.naver.com/sise/',
+           'Accept': 'text/html,application/xhtml+xml'}
+URL = 'https://finance.naver.com/sise/investorDealTrendDay.naver'
 
 
-def _int_krw(value):
-    """Missing values are not zero. Avoid lossy floating-point money."""
+def numeric_100m_to_krw(value):
+    """Convert disclosed 100M KRW amounts to exact integer won, never assume missing is zero."""
     if value is None or isinstance(value, bool) or pd.isna(value):
-        raise ValueError("missing investor net value")
-    if isinstance(value, Integral):
-        return int(value)
-    if isinstance(value, str) and re.fullmatch(r"[+-]?\d{1,3}(?:,\d{3})+|[+-]?\d+", value.strip()):
-        return int(value.strip().replace(",", ""))
-    raise ValueError(f"non-integer KRW value: {type(value).__name__}")
-
-
-def parse_dated_market_frame(frame: pd.DataFrame, market: str, through: date):
-    """Requires explicitly returned day in the index; refuses aggregated undated frames."""
-    if market not in MARKETS:
-        raise ValueError("unknown market")
-    if not isinstance(frame, pd.DataFrame) or frame.empty:
-        raise ValueError(f"{market}: no dated KRX rows")
-    if not all(k in frame.columns for k in COLUMNS.values()):
-        raise ValueError(f"{market}: missing KRX investor columns ({list(frame.columns)})")
-    if frame.index.name not in ("날짜", "TRD_DD", None):
-        raise ValueError(f"{market}: unexpected date index name")
-
-    results = {}
-    for idx, row in frame.iterrows():
-        # Parse an actual returned date, never stamp the request date onto an undated table.
-        if isinstance(idx, pd.Timestamp):
-            if idx.tzinfo is not None:
-                raise ValueError(f"{market}: timezone-bearing index")
-            day = idx.date()
-        elif isinstance(idx, (datetime, date)):
-            day = idx.date() if isinstance(idx, datetime) else idx
-        elif isinstance(idx, str) and re.fullmatch(r"\d{4}[-/]\d{2}[-/]\d{2}", idx):
-            day = date.fromisoformat(idx.replace("/", "-"))
-        else:
-            raise ValueError(f"{market}: no explicit, parseable KRX trading date")
-        if day > through:
-            raise ValueError(f"{market}: future returned day {day}")
-        if day.weekday() >= 5:
-            raise ValueError(f"{market}: weekend returned day {day}")
-        key = day.isoformat()
-        if key in results:
-            raise ValueError(f"{market}: duplicate day {key}")
-        v = {k: _int_krw(row[col]) for k, col in COLUMNS.items()}
-        # 0 for a specific investor is permitted; all groups zero suggests no market data.
-        if all(vv == 0 for vv in v.values()):
-            continue
-        results[key] = v
-    if not results:
-        raise ValueError(f"{market}: no usable trading days")
-    return results
-
-
-def fetch_from_krx(start: date, through: date, fetcher=None):
-    """Use KRX daily index via pykrx website wrapper (not an undated period aggregate)."""
-    if fetcher is None:
-        from pykrx.website.krx.market.wrap import get_market_trading_value_and_volume_on_market_by_date
-        fetcher = get_market_trading_value_and_volume_on_market_by_date
-    market_rows = {}
-    for market in MARKETS:
-        df = fetcher(start.strftime("%Y%m%d"), through.strftime("%Y%m%d"), market,
-                     False, False, False, "거래대금", "순매수", False)
-        market_rows[market] = parse_dated_market_frame(df, market, through)
-    return market_rows
-
-
-def combine(market_rows, previous=None, *, max_age=8, today=None):
-    today = today or datetime.now(timezone.utc).astimezone(KST).date()
-    if not isinstance(market_rows, dict) or set(market_rows) != set(MARKETS):
-        raise ValueError("both KOSPI and KOSDAQ are required")
-    # Only dates explicitly provided by BOTH full markets may be merged.
-    shared = sorted(set(market_rows["KOSPI"]) & set(market_rows["KOSDAQ"]))
-    if not shared:
-        raise ValueError("KRX trading dates do not overlap between markets")
-    latest = date.fromisoformat(shared[-1])
-    if (today - latest).days > max_age:
-        raise ValueError(f"stale KRX latest day {latest}, today {today}")
-    if latest > today:
-        raise ValueError("future latest date")
-
-    by_date = {}
-    old_history = previous.get("history", []) if isinstance(previous, dict) else []
-    for v in old_history if isinstance(old_history, list) else []:
-        if (isinstance(v, dict) and isinstance(v.get("date"), str) and
-                isinstance(v.get("KOSPI"), dict) and isinstance(v.get("KOSDAQ"), dict)):
-            try:
-                date.fromisoformat(v["date"])
-                for m in MARKETS:
-                    for key in COLUMNS:
-                        if not isinstance(v[m][key], int) or isinstance(v[m][key], bool):
-                            raise ValueError("not integer")
-            except (ValueError, KeyError, TypeError):
-                continue
-            by_date[v["date"]] = v
-    for d in shared:
-        if date.fromisoformat(d) > today:
-            raise ValueError("future history")
-        by_date[d] = {"date": d, **{m: market_rows[m][d] for m in MARKETS}}
-    history = [by_date[d] for d in sorted(by_date)[-MAX_HISTORY:]]
-    now = datetime.now(timezone.utc).astimezone(KST).isoformat()
-    return {
-        "status": "verified",
-        "source": "KRX investor daily trading value via pykrx (KRX data website)",
-        "source_page": "https://data.krx.co.kr/",
-        "scope": "KOSPI/KOSDAQ all stocks; ETF/ETN/ELW excluded; amount in KRW",
-        "includes_etf_etn_elw": False,
-        "collected_at_kst": now,
-        "latest_date": shared[-1],
-        "observations": len(history),
-        "history": history,
-        "futures_status": "not_connected",
-        "note": "Dated KRX market-level daily investor net trading value. Market totals, NOT TOP200."
-    }
-
-
-def atomic_save(payload, dest):
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    tmp = dest.with_suffix(".tmp")
-    tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    os.replace(tmp, dest)
-
-
-def run(dest=DEFAULT_DEST, *, fetcher=None, today=None):
-    today = today or datetime.now(timezone.utc).astimezone(KST).date()
-    start = today - timedelta(days=56)
+        raise ValueError('missing net amount')
+    s = str(value).strip().replace(',', '').replace('−', '-')
+    if not re.fullmatch(r'[+-]?\d+(?:\.\d+)?', s):
+        raise ValueError(f'invalid numerical amount {s[:60]!r}')
     try:
-        old = json.loads(dest.read_text(encoding="utf-8"))
-    except (FileNotFoundError, json.JSONDecodeError, OSError):
-        old = None
-    # Refuse weekend future date and long-stale data. Do not silently substitute previous day.
-    data = fetch_from_krx(start, today, fetcher=fetcher)
-    current = combine(data, old, today=today)
-    atomic_save(current, dest)
-    print(f"Market total flows: VERIFIED latest={current['latest_date']}, ")
-    print(f"history={current['observations']} (KOSPI and KOSDAQ, ETFs excluded)")
-    return current
+        val = Decimal(s) * Decimal(100_000_000)
+    except InvalidOperation as exc:
+        raise ValueError('invalid decimal') from exc
+    if not val.is_finite() or val != val.to_integral_value():
+        raise ValueError('net amount is not exact whole KRW')
+    return int(val)
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--output", default=str(DEFAULT_DEST))
-    args = parser.parse_args()
+def parse_day(value):
+    s = str(value).strip()
+    for fmt in ('%y.%m.%d', '%Y.%m.%d', '%Y-%m-%d', '%Y/%m/%d'):
+        try:
+            return datetime.strptime(s, fmt).date()
+        except ValueError:
+            pass
+    return None
+
+
+def matching_columns(df):
+    """Identify column roles by actual header labels, including multi-row Naver headers."""
+    roles = {}
+    for col in df.columns:
+        parts = col if isinstance(col, tuple) else (col,)
+        names = [str(x).strip().replace(' ', '') for x in parts]
+        compact = '|'.join(x for x in names if not x.lower().startswith('unnamed'))
+        for label in ('날짜', *FIELDS):
+            if label in names or (label == '기관계' and '기관계' in compact):
+                if label in roles and roles[label] != col:
+                    raise ValueError(f'ambiguous column {label}')
+                roles[label] = col
+    if set(roles) != {'날짜', *FIELDS}:
+        raise ValueError(f'invalid Naver table columns; found {sorted(roles)}')
+    return roles
+
+
+def parse_naver_html(html, *, asof, market):
+    if not isinstance(html, str) or len(html) < 100:
+        raise ValueError(f'{market}: empty or invalid HTML')
+    if '단위' not in html or ('억원' not in html and '억 원' not in html):
+        raise ValueError(f'{market}: 100M KRW unit not confirmed in source HTML')
+    if '날짜' not in html or '기관계' not in html or '외국인' not in html:
+        raise ValueError(f'{market}: expected investor trading table not present')
+    try:
+        tables = pd.read_html(StringIO(html), displayed_only=False)
+    except (ValueError, ImportError) as exc:
+        raise ValueError(f'{market}: Naver HTML has no valid tables') from exc
+    found = []
+    for frame in tables:
+        try:
+            roles = matching_columns(frame)
+        except ValueError:
+            continue
+        results = {}
+        for _, row in frame.iterrows():
+            day = parse_day(row[roles['날짜']])
+            if day is None:
+                continue
+            if day > asof or day.weekday() >= 5:
+                continue
+            key = day.isoformat()
+            if key in results:
+                raise ValueError(f'{market}: duplicate trading date {key}')
+            amounts = {output: numeric_100m_to_krw(row[roles[label]])
+                       for label, output in FIELDS.items()}
+            if all(v == 0 for v in amounts.values()):
+                continue
+            results[key] = amounts
+        if results:
+            found.append(results)
+    if len(found) != 1:
+        raise ValueError(f'{market}: expected one dated investor table, got {len(found)}')
+    return found[0]
+
+
+def fetch_naver(asof, session=None):
+    owns = session is None
+    session = session or requests.Session()
+    data = {}
+    try:
+        for market, sosok in MARKETS.items():
+            response = session.get(URL, params={'bizdate': asof.strftime('%Y%m%d'),
+                                               'sosok': sosok, 'page': 1},
+                                   headers=HEADERS, timeout=15)
+            response.raise_for_status()
+            # Old Naver Finance uses EUC-KR; requests may get it from Content-Type.
+            response.encoding = response.encoding or response.apparent_encoding or 'euc-kr'
+            data[market] = parse_naver_html(response.text, asof=asof, market=market)
+    finally:
+        if owns:
+            session.close()
+    return data
+
+
+def assemble(rows, previous, asof, max_age=8):
+    if set(rows) != set(MARKETS):
+        raise ValueError('both KOSPI and KOSDAQ required')
+    days = sorted(set(rows['KOSPI']) & set(rows['KOSDAQ']))
+    if not days:
+        raise ValueError('no common dated market records')
+    latest = date.fromisoformat(days[-1])
+    if (asof-latest).days > max_age or latest > asof:
+        raise ValueError(f'stale/future source data: {latest}')
+    all_days = {}
+    if isinstance(previous, dict):
+        for e in previous.get('history', []):
+            try:
+                d = date.fromisoformat(e['date'])
+                if d > asof: continue
+                for market in MARKETS:
+                    for field in FIELDS.values():
+                        v = e[market][field]
+                        if not isinstance(v, int) or isinstance(v, bool):
+                            raise ValueError('noninteger history')
+                all_days[e['date']] = e
+            except (KeyError, ValueError, TypeError):
+                continue
+    for day in days:
+        all_days[day] = {'date': day, **{m: rows[m][day] for m in MARKETS}}
+    history = [all_days[d] for d in sorted(all_days)[-260:]]
+    # Existing KRX-validated histories may have a later date than this Naver snapshot.
+    # Require source returned day to be the actual latest after merge, not just latest fetched.
+    return {'status': 'verified',
+            'source': 'Naver Finance - market investor daily net trading',
+            'source_page': URL,
+            'scope': 'KOSPI / KOSDAQ market-level daily investor net trading; provider composition not independently audited',
+            'includes_etf_etn_elw': None,
+            'unit': 'KRW',
+            'collected_at_kst': datetime.now(timezone.utc).astimezone(KST).isoformat(),
+            'latest_date': history[-1]['date'],
+            'observations': len(history), 'history': history,
+            'futures_status': 'not_connected',
+            'note': 'NAVER public table (not KRX official API); source values disclosed in 100M KRW, converted into KRW. ETF composition not independently confirmed.'}
+
+
+def run(dest=DEST, today=None, session=None):
+    today = today or datetime.now(timezone.utc).astimezone(KST).date()
+    try:
+        previous = json.loads(dest.read_text(encoding='utf-8'))
+    except (OSError, json.JSONDecodeError):
+        previous = None
+    rows = fetch_naver(today, session=session)
+    out = assemble(rows, previous, today)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    tmp = dest.with_name(dest.name + '.tmp')
+    tmp.write_text(json.dumps(out, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    os.replace(tmp, dest)
+    print(f"NAVER market totals: latest {out['latest_date']} history={len(out['history'])}, source=Naver, scope not independently audited")
+    return out
+
+
+if __name__ == '__main__':
+    p = argparse.ArgumentParser()
+    p.add_argument('--output', default=str(DEST))
+    args = p.parse_args()
     try:
         run(dest=Path(args.output))
     except Exception as exc:
-        # Existing verified snapshot is retained. GitHub Actions logs show the exact failure.
-        print(f"Market total collection FAILED (old snapshot preserved): {exc}", file=sys.stderr)
+        print(f'NAVER market-total data collection FAILED: {exc}', file=sys.stderr)
         sys.exit(1)
