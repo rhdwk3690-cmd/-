@@ -20,6 +20,9 @@ jobs:
           python-version: '3.11'
       - name: Install existing collector dependencies
         run: python -m pip install --disable-pip-version-check requests pandas numpy
+      - name: Install optional journal dependencies (do not block core EOD)
+        continue-on-error: true
+        run: python -m pip install --disable-pip-version-check yfinance streamlit
       - name: Collect existing market sources and bounded dated ADR20 in sequence
         env:
           KRX_API_KEY: ${{ secrets.KRX_API_KEY }}
@@ -29,7 +32,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          for f in data/kr_flow.json data/kr_investor_flow.json data/kr_market_total_flow.json data/kr_futures_flow.json data/kr_market_liquidity.json data/kr_kofia_liquidity.json data/kr_market_adr20.json miner_breadth.py; do
+          for f in data/kr_flow.json data/kr_investor_flow.json data/kr_market_total_flow.json data/kr_futures_flow.json data/kr_market_liquidity.json data/kr_kofia_liquidity.json data/kr_market_adr20.json data/kr_market_regime_journal.json miner_breadth.py; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then
