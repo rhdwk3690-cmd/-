@@ -1,0 +1,30 @@
+name: Activate market-signal evidence and official credit discrepancy warning
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-market-signal-integrity
+  cancel-in-progress: false
+jobs:
+  audit-and-activate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile integrity calculations and UI
+        run: python -m py_compile market_signal_integrity.py market_signal_summary.py scripts/activate_market_signal_summary.py
+      - name: Patch existing market signal safely, without changing collection jobs
+        run: python scripts/activate_market_signal_summary.py
+      - name: Commit only verified app and liquidity UI changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.py market_liquidity_ui.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'ui: add market-signal integrity panel and credit source discrepancy'
+            git push
+          fi
