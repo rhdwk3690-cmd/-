@@ -1,0 +1,154 @@
+name: Show compact market environment and tap for evidence
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Patch only market signal UI, preserving all calculation modules
+        run: |
+          python - <<'PYCODE'
+          from pathlib import Path
+          import ast
+
+          root = Path('.')
+          app = root / 'app.py'
+          ui = root / 'market_regime_ui.py'
+          old_app = app.read_text(encoding='utf-8')
+          old_ui = ui.read_text(encoding='utf-8')
+
+          marker = '        # 1) 스탁이지 참고: 지수 상태 2개 → 게이지 → 6개 클릭 가능한 요약 카드\n'
+          insert = (
+              '        # Clean market regime status: tap once to inspect verified evidence.\n'
+              '        from market_regime_ui import render_market_environment_compact\n'
+              '        render_market_environment_compact(states, datasets, oneil_market_state, quality_reports)\n'
+              '\n'
+          )
+
+          if insert not in old_app:
+              if old_app.count(marker) != 1:
+                  raise SystemExit('ABORT: market signal home insertion point changed')
+              new_app = old_app.replace(marker, insert + marker, 1)
+          else:
+              if old_app.count(insert)!=1:
+                  raise SystemExit('ABORT: duplicate compact market status code')
+              new_app = old_app
+
+          new_functions = '''def render_market_environment_compact(states, datasets, oneil_market_state, quality_reports=None):
+              """Compact, clickable environment headline. Detail opens only on request.
+
+              Reuses the independent audits calculated by the market signal home;
+              no new market score, no changed rule, no data interpolation.
+              """
+              from market_signal_qa import assess_market_signal
+              if quality_reports is None:
+                  quality_reports = {}
+                  for name in ('KOSPI', 'KOSDAQ'):
+                      if name in datasets:
+                          try:
+                              quality_reports[name] = assess_market_signal(datasets[name], oneil_market_state)
+                          except Exception as exc:
+                              quality_reports[name] = {'status':'withheld', 'reason':type(exc).__name__}
+              result = classify_environment(
+                  states, quality_reports, _json('data/kr_market_adr20.json'),
+                  today=datetime.now(KST).date())
+              icon = {
+                  'defensive':'🛡️', 'watch':'👀', 'conditional':'🧪',
+                  'expansion':'📈', 'withheld':'⏸️'
+              }.get(result['code'], '⏸️')
+              label = result['status']
+              st.markdown('### 🧭 현재 시장 관찰 환경')
+              with st.expander(f'{icon} **{label}**  ·  눌러서 판정 근거 보기', expanded=False):
+                  if result['code'] == 'withheld':
+                      st.warning('독립 검증이 통과되지 않아 시장 환경 판정을 보류합니다.')
+                      for why in result.get('reasons', []):
+                          st.write('• ' + str(why))
+                      st.caption('검증되지 않은 거래량이나 다른 날짜의 ADR을 임의 보정하지 않습니다.')
+                  else:
+                      a, b, c = st.columns(3)
+                      a.metric('가격 추세', f'{result["price_flags"]}/8')
+                      b.metric('전체 시장 ADR20', f'{result["adr20"]["value"]:.2f}%')
+                      c.metric('유효 DD', f'코스피 {result["dd_counts"]["KOSPI"]} / 코스닥 {result["dd_counts"]["KOSDAQ"]}')
+                      st.caption(f'지수 종가 {result["date"]} · ADR {result["adr20"]["date"]} · 독립 검증 FTD {result["ftd_count"]}개 지수')
+                      st.markdown('**판정 근거**')
+                      for why in result.get('reasons', []):
+                          st.write('• ' + str(why))
+                      if result['code'] == 'defensive':
+                          st.warning('포지션 확대보다 위험 노출과 보유 종목의 추세 이탈을 우선 점검할 환경입니다. 전량 매도 신호는 아닙니다.')
+                      elif result['code'] in ('conditional', 'expansion'):
+                          st.info('시장의 진입 환경만 관찰한 결과입니다. 실제 매수에는 분기 이익 증가·상대강도·DI/ADX·ATR 등 종목별 검증이 필요합니다.')
+                  if st.toggle('판정 기준·출처 더 보기', value=False, key='miner_compact_env_rules'):
+                      st.markdown("""- **방어 우선:** 한 지수의 유효 DD가 4회 이상, 또는 추세≤3/8 & ADR20<80%, 또는 추세≤2/8 & ADR20<100%.
+          - **매수 확대 조건 검토:** 양 지수 검증된 FTD, 추세≥6/8, 지수별 DD≤2회, ADR20≥110%, 양 지수 시장 상태 상승 확인.
+          - **조건부 시험 진입:** 최소 한 지수의 유효 FTD, 추세≥4/8, DD≤2회, ADR20≥90%.
+          - **반등 관찰:** 위 세 환경에 들지 않는 검증 완료 구간.
+          - **판정 보류:** 데이터 누락, 독립검증 실패, 기준일 불일치 또는 지연.
+
+          기준값은 백테스트로 입증된 것이 아닌 **초기 가설**이며, 이 분류는 개별 종목 매수·매도 신호가 아닙니다.""")
+                      _sources_info()
+                      st.caption(f'판정 버전: {RULE_VERSION} · DD·FTD는 독립검증을 통과한 경우만 사용')
+              stamp = result.get('date') or '확인 대기'
+              st.caption(f'가격 기준일 {stamp} · 검증된 원자료만 사용 · 연구용 시장 환경 관찰, 매매 지시 아님')
+
+
+          def render_market_environment(states, datasets, oneil_market_state):
+              """Keep research history below the market evidence panel, initially folded.
+
+              The compact primary status now appears at the very top of market signal home.
+              """
+              from market_regime_journal_ui import render_journal_history
+              with st.expander('📚 시장 환경 판정 이력 · 5·20·60거래일 사후성과', expanded=False):
+                  render_journal_history()
+          '''
+
+          head = 'def render_market_environment(states,datasets,oneil_market_state):'
+          new_head = 'def render_market_environment_compact(states, datasets, oneil_market_state, quality_reports=None):'
+          if old_ui.count(head)==1:
+              if new_head in old_ui:
+                  raise SystemExit('ABORT: unexpected existing compact implementation')
+              new_ui = old_ui[:old_ui.index(head)] + new_functions
+          elif old_ui.count(new_head)==1 and 'with st.expander(\'📚 시장 환경 판정 이력' in old_ui:
+              new_ui = old_ui
+          else:
+              raise SystemExit('ABORT: market regime UI changed, source preserved')
+
+          ast.parse(new_app,filename=str(app))
+          ast.parse(new_ui,filename=str(ui))
+          assert 'render_market_signal_integrity(states, datasets, oneil_market_state)' in new_app
+          assert 'render_journal_history()' in new_ui
+          assert 'classify_environment(' in new_ui
+          assert old_app.count('st.Page(')==new_app.count('st.Page(')
+
+          for p,old,new in [(app,old_app,new_app),(ui,old_ui,new_ui)]:
+              if old != new:
+                  p.write_text(new,encoding='utf-8')
+                  print('UPDATED:',p)
+              else:
+                  print('UNCHANGED:',p)
+          print('COMPACT STATUS UI PATCH VERIFIED (no backend changes)')
+          PYCODE
+      - name: Check syntax and pure market rule tests
+        run: |
+          python -m py_compile app.py market_regime_ui.py market_signal_summary.py
+          python -m unittest discover -s tests -p 'test_market_regime.py' -v
+      - name: Commit only the two Python UI files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add app.py market_regime_ui.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'ui: compact market environment at top with expandable evidence'
+            git push
+          else
+            echo 'Compact market environment UI already installed.'
+          fi
