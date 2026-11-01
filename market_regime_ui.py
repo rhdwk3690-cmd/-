@@ -68,6 +68,8 @@ def render_market_environment(states,datasets,oneil_market_state):
             st.warning('새로운 포지션 확대보다 위험 노출과 기존 보유종목의 추세 이탈 여부를 우선 확인할 환경입니다. 기계적 전량 매도 신호는 아닙니다.')
         elif result['code'] in {'conditional','expansion'}:
             st.info('시장의 진입 환경만 충족한 상태입니다. 실적 증가·시장 대비 RS·DI/ADX·ATR·손절/포지션 크기 조건을 종목별로 추가 검증해야 합니다.')
+    from market_regime_journal_ui import render_journal_history
+    render_journal_history()
     with st.expander('실험적 판정 규칙 · 기준값과 독립 보조근거',expanded=False):
         st.markdown('''- **방어 우선:** 어느 한 지수 DD≥4회, 또는 추세≤3/8 & ADR20<80%, 또는 추세≤2/8 & ADR20<100%.
 - **매수 확대 조건 검토:** 양 지수 유효 FTD, 추세≥6/8, 각 DD≤2회, ADR20≥110%, 양 지수 시장 상태 `상승 확인`.

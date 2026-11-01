@@ -83,9 +83,10 @@ def current_engine():
     if not needed.issubset(referenced):
         raise ValueError('deployed engine API no longer compatible')
     def original_volume_ok(df):
-        if not {'Close','Low','Volume'}.issubset(df.columns) or len(df)<205:
+        # Match miner_volume.install: 80 validated consecutive bars.
+        if not {'Close','Low','Volume'}.issubset(df.columns) or len(df)<80:
             return False
-        t=df[['Close','Low','Volume']].tail(260).apply(pd.to_numeric,errors='coerce')
+        t=df[['Close','Low','Volume']].tail(80).apply(pd.to_numeric,errors='coerce')
         return bool(t.notna().all().all() and (t>0).all().all())
     node=ast.Module(body=[dd[0],chosen],type_ignores=[])
     ast.fix_missing_locations(node)

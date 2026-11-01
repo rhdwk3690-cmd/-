@@ -20,6 +20,7 @@ SOURCES=[
 ]
 KOFIA=('금투협 공식 예탁금·신용융자','collect_kofia_liquidity.py','kr_kofia_liquidity.json',True)
 ADR=('시장 폭 ADR20 (매동 비공식)','collect_adr_breadth.py','kr_market_adr20.json',False)
+REGIME_JOURNAL=('시장 환경 매일 판정·5/20/60일 성과','collect_market_regime_journal.py','kr_market_regime_journal.json',False)
 
 def has_official_seed():
     try:
@@ -37,7 +38,7 @@ def has_adr_seed():
         return False
 
 def main():
-    active=SOURCES+([KOFIA] if has_official_seed() else [])+[ADR]
+    active=SOURCES+([KOFIA] if has_official_seed() else [])+[ADR,REGIME_JOURNAL]
     outcomes=[]
     errors=0
     print('EOD BATCH: serial verified collectors; independent intraday snapshot left unchanged.',flush=True)
