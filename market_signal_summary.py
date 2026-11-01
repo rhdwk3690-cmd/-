@@ -76,21 +76,6 @@ def show_official_liquidity():
     ao=osc('deposit_million_krw');co=osc('credit_million_krw')
     if ao is not None and co is not None:
         st.caption(f'5/20일 평균 괴리: 예탁금 {ao:+.2f}% · 신용융자 {co:+.2f}%')
-    n=read_dated('data/kr_market_liquidity.json','source_validated',minimum=20)
-    if n:
-        nh={r['date']:r for r in n['history']}
-        overlap=[r for r in h if r['date'] in nh]
-        if overlap:
-            v=overlap[-1];nv=nh[v['date']]
-            try:
-                credit_diff=(v['credit_million_krw']-nv['credit_raw_100m']*100)/100
-                deposit_diff=(v['deposit_million_krw']-nv['deposit_raw_100m']*100)/100
-                st.caption(f'출처 비교 {v["date"]} 동일 날짜 · 예탁금 차이 {deposit_diff:+,.1f}억원 · 신용 차이 {credit_diff:+,.1f}억원')
-                if abs(credit_diff)>1:
-                    st.warning('네이버와 금투협 신용융자 집계가 일치하지 않습니다. 시장신호에는 금투협 공표값만 표시하고 비공식 수치로 보정하지 않습니다.')
-            except (KeyError,TypeError,ValueError):
-                st.caption('비공식 출처 대조 형식 불충분')
-
 def show_flows():
     st.markdown('**🏦 전체 현물·선물 외국인 수급**')
     spot=read_dated('data/kr_market_total_flow.json','verified')

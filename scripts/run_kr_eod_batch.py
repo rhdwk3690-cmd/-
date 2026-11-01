@@ -17,7 +17,6 @@ SOURCES=[
     ('TOP200 투자자별 수급 (최대 200회 공개조회)','collect_investor_flow.py','kr_investor_flow.json',True),
     ('코스피·코스닥 시장 전체 현물','collect_market_total_flow.py','kr_market_total_flow.json',True),
     ('외국인 선물 계약·명목금액','collect_futures_flow.py','kr_futures_flow.json',True),
-    ('네이버 예탁금·신용융자 (비공식 비교용)','collect_market_liquidity.py','kr_market_liquidity.json',True),
 ]
 KOFIA=('금투협 공식 예탁금·신용융자','collect_kofia_liquidity.py','kr_kofia_liquidity.json',True)
 ADR=('시장 폭 ADR20 (매동 비공식)','collect_adr_breadth.py','kr_market_adr20.json',False)

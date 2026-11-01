@@ -1,7 +1,6 @@
 """Market signal liquidity panel: official KOFIA FreeSIS date-aligned balances.
 
-The previous Npay source is used strictly for same-date comparison, never for
-filling missing official credit observations. No unverified signal weights.
+Only official KOFIA data is used for displayed cash and credit balances.
 """
 from __future__ import annotations
 
@@ -16,7 +15,6 @@ import streamlit as st
 
 ROOT=Path(__file__).resolve().parent
 KOFIA=ROOT/'data'/'kr_kofia_liquidity.json'
-NAVER=ROOT/'data'/'kr_market_liquidity.json'
 SOURCE='KOFIA FreeSIS official statistics website (public read-only JSON)'
 
 
@@ -45,22 +43,6 @@ def read_official(path=KOFIA):
         return (obj,h),None
     except (ValueError,TypeError,KeyError,OSError,json.JSONDecodeError) as exc:
         return None,f'금융투자협회 데이터 검증 실패: {exc}'
-
-
-def naver_same_day(day,path=NAVER):
-    try:
-        obj=json.loads(path.read_text(encoding='utf-8'))
-        if obj.get('status')!='source_validated' or obj.get('unit_assumption')!='100M_KRW_per_raw_integer':
-            return None
-        for r in obj.get('history',[]):
-            if r.get('date')==day:
-                dep=r['deposit_raw_100m'];cred=r['credit_raw_100m']
-                if type(dep) is int and type(cred) is int and min(dep,cred)>0:
-                    return {'deposit_million_krw_assumed':dep*100,
-                            'credit_million_krw_assumed':cred*100}
-    except (ValueError,KeyError,TypeError,OSError,json.JSONDecodeError):
-        pass
-    return None
 
 
 def make_frame(h):
@@ -119,27 +101,6 @@ def render_kofia_liquidity():
     y.metric('신용융자 5일/20일 평균 괴리','자료 부족' if pd.isna(cred_osc) else f'{cred_osc:+.2f}%')
     z.metric('신용/예탁 비율 60일 위치','자료 부족' if pos is None else f'{pos:.1f}/100')
     st.caption('오실레이터=(최근 5거래일 평균/최근 20거래일 평균-1)×100. 60일 위치는 기간 내 최저 0, 최고 100. 매매 신호 또는 권장 주식비중이 아닙니다.')
-
-    naver=naver_same_day(day)
-    if naver:
-        dep_diff=latest['deposit_million_krw']-naver['deposit_million_krw_assumed']
-        cred_diff=latest['credit_million_krw']-naver['credit_million_krw_assumed']
-        st.markdown('#### 같은 날짜 네이버 자료와 교차 비교')
-        st.dataframe(pd.DataFrame([{'기준일':day,'지표':'투자자예탁금',
-                         '금투협 공식(조원)':latest['예탁금(조원)'],
-                         '네이버 단위가정(조원)':naver['deposit_million_krw_assumed']/1_000_000,
-                         '차이(억원)':dep_diff/100},
-                        {'기준일':day,'지표':'신용융자잔고',
-                         '금투협 공식(조원)':latest['신용융자(조원)'],
-                         '네이버 단위가정(조원)':naver['credit_million_krw_assumed']/1_000_000,
-                         '차이(억원)':cred_diff/100}]).round(4),
-                     hide_index=True,use_container_width=True)
-        if abs(cred_diff)>100:
-            st.warning('같은 날짜의 신용융자 금액에 출처 간 차이가 확인됩니다. 범위·집계 방법 확인 전 공식 FreeSIS 신용융자를 기준으로 표시하며 네이버 신용융자는 점수에 사용하지 않습니다.')
-        else:
-            st.success('같은 날짜의 신용융자 원자료가 금투협과 네이버에서 실질적으로 일치합니다.')
-    else:
-        st.caption('네이버 동일 날짜 자료가 없어 출처 간 직접 비교는 보류합니다. 다른 날짜를 동일 날짜처럼 대조하지 않습니다.')
 
     view=df.tail(120)
     fig=go.Figure()
