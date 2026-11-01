@@ -1,0 +1,96 @@
+name: Probe KOSPI200 futures investor flows (read-only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Npay futures investor API without changing data
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, sys, urllib.error, urllib.parse, urllib.request
+          from datetime import datetime, timedelta
+          from zoneinfo import ZoneInfo
+
+          BASE = 'https://stock.naver.com'
+          now = datetime.now(ZoneInfo('Asia/Seoul')).date()
+          hint = now
+          while hint.weekday() >= 5:
+              hint -= timedelta(days=1)
+          print('FUTURES SOURCE DIAGNOSTIC, NO FILE WRITES')
+          print('Local date:',now.isoformat(), 'query date hint:',hint.isoformat())
+          print('An HTTP 200 is not itself validation of KOSPI200-specific data.')
+          HEADERS = {
+              'User-Agent':'Mozilla/5.0 (compatible; MinerDashboardDiagnostic/1.0)',
+              'Referer':BASE+'/market/stock/kr/trend/trader',
+              'Accept':'application/json',
+          }
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          opener = urllib.request.build_opener(NoRedirect)
+
+          def shape(x, depth=0):
+              if depth>4:
+                  return type(x).__name__
+              if isinstance(x, dict):
+                  return {k:shape(v,depth+1) for k,v in list(x.items())[:16]}
+              if isinstance(x,list):
+                  return {'type':'list','length':len(x),'first':shape(x[0],depth+1) if x else None}
+              if isinstance(x,str):
+                  return 'str('+str(len(x))+')'
+              return type(x).__name__
+
+          def check(label,path, method='GET', data=None):
+              payload=None if data is None else json.dumps(data,separators=(',',':')).encode('utf-8')
+              hdr=dict(HEADERS)
+              if payload is not None: hdr['Content-Type']='application/json'
+              req=urllib.request.Request(BASE+path,data=payload,headers=hdr,method=method)
+              print('\n===',label,'===')
+              try:
+                  with opener.open(req,timeout=15) as resp:
+                      body=resp.read(100_000)
+                      status=resp.status
+                      ct=resp.headers.get('content-type','')
+              except urllib.error.HTTPError as e:
+                  print('HTTP',e.code,'(no retry or bypass)');return False
+              except (urllib.error.URLError,TimeoutError,OSError) as e:
+                  print('NETWORK_ERROR',type(e).__name__,str(e)[:250]);return False
+              print('HTTP',status,'content-type',ct,'bytes',len(body))
+              if status!=200 or 'json' not in ct.lower():
+                  print('Non-JSON/unexpected status. Not accepted.');return False
+              try:
+                  obj=json.loads(body)
+              except (ValueError,UnicodeError) as e:
+                  print('INVALID_JSON',type(e).__name__);return False
+              print('Schema:',json.dumps(shape(obj),ensure_ascii=False)[:4700])
+              if isinstance(obj,dict) and isinstance(obj.get('content'),list):
+                  for row in obj['content'][:2]:
+                      if isinstance(row,dict):
+                          print('Row:',json.dumps(row,ensure_ascii=False)[:4700])
+              else:
+                  print('Root preview:',json.dumps(obj,ensure_ascii=False)[:4700])
+              print('JSON reachable; product scope, dated contract unit, and investor mapping remain to be verified.')
+              return True
+
+          params=urllib.parse.urlencode({
+              'tradeType':'KRX','marketType':'FUT','bizdate':hint.strftime('%Y%m%d'),
+              'startIdx':0,'pageSize':3,
+          })
+          daily=check('GET daily marketType=FUT', '/api/domestic/market/trend/daily?'+params)
+          aggregate=check('POST marketaggregate marketType=FUT',
+              '/api/domestic/home/marketaggregate/aggregateInvestor', method='POST',
+              data={'sections':{'investorTrend':{'tradeType':'KRX',
+                                                'marketType':'FUT','periodType':'TIME'}}})
+          if not (daily or aggregate):
+              print('PROBE_RESULT: no JSON futures endpoint succeeded. Do not connect this API.')
+              sys.exit(2)
+          print('PROBE_RESULT: at least one JSON response received. Manual schema/unit/product verification required before integration.')
+          PY
