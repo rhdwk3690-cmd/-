@@ -1,0 +1,32 @@
+name: Activate market-regime daily journal and forward evaluation
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  activate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate source syntax and no-lookahead journal unit tests
+        run: |
+          python -m py_compile market_regime_journal.py market_regime_journal_ui.py scripts/collect_market_regime_journal.py scripts/activate_market_regime_journal.py
+          python -m unittest discover -s tests -p 'test_market_regime_journal.py' -v
+          python scripts/activate_market_regime_journal.py
+          python scripts/activate_market_regime_journal.py
+      - name: Commit only optional EOD journal integration
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/run_kr_eod_batch.py .github/workflows/collect_kr_eod_batch.yml market_regime_ui.py
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat: archive point-in-time market regime and evaluate mature 5 20 60 session outcomes'
+            git push
+          fi
