@@ -25,8 +25,8 @@ def read_verified_market_total():
         return None, "시장 전체 수급 수집 파일이 아직 없습니다. GitHub Actions의 'Collect KR full-market investor net flows'를 실행하세요."
     try:
         obj = json.loads(DATA.read_text(encoding="utf-8"))
-        if obj.get("status") != "verified" or obj.get("includes_etf_etn_elw") is not False:
-            raise ValueError("시장 전체 현물 수급 검증 상태 또는 ETF 범위가 맞지 않음")
+        if obj.get("status") != "verified" or obj.get("source") not in ("KRX investor daily trading value via pykrx (KRX data website)", "Naver Finance - market investor daily net trading"):
+            raise ValueError("시장 전체 수급 출처 또는 검증 상태가 맞지 않음")
         hist = obj.get("history")
         if not isinstance(hist, list) or not hist:
             raise ValueError("수급 일별 이력이 없음")
@@ -71,13 +71,16 @@ def _recent_window(history, n):
 
 def render_market_totals():
     st.subheader("코스피 · 코스닥 전체 현물 수급")
-    st.caption("KRX 주식시장 투자자별 **순매수 거래대금(원)** · ETF·ETN·ELW 제외 · TOP 200 표본 집계와 구별 · 선물 미포함")
+    st.caption("시장별 투자자 순매수 **금액(원)** · TOP 200 표본 집계와 구별 · 선물 미포함")
     value, issue = read_verified_market_total()
     if issue:
         st.warning(issue)
         st.info("전체 시장 원자료가 검증되기 전까지 수치를 임의로 채우지 않습니다. 아래에서 기존 TOP 200 표본 분석은 계속 볼 수 있습니다.")
         return False
     obj, history = value
+    st.caption(f"자료 제공처: {obj.get('source', '미확인')} · {obj.get('source_page', '')}")
+    if obj.get('includes_etf_etn_elw') is not False:
+        st.warning('네이버 시장 통계는 KRX 공식 API가 아닙니다. ETF·ETN·ELW 포함 여부는 독립 검증되지 않았으므로 동일 범위의 공식 KRX 집계와 혼동하지 마세요.')
     day = history[-1]["date"]
     now = datetime.now(ZoneInfo("Asia/Seoul")).date()
     age = (now - date.fromisoformat(day)).days
@@ -137,5 +140,5 @@ def render_market_totals():
         st.dataframe(detail, hide_index=True, use_container_width=True)
         st.download_button("📥 시장 전체 수급 CSV", detail.to_csv(index=False).encode("utf-8-sig"),
                            file_name="miner_full_market_flow.csv", mime="text/csv", key="miner_full_market_csv")
-    st.caption("주의: 시장 간 합산은 KOSPI+KOSDAQ 두 주식시장만 해당합니다. KONEX·ETF·ETN·ELW와 파생상품 수급은 제외됩니다.")
+    st.caption("주의: 시장 간 합산은 KOSPI+KOSDAQ 두 시장만 해당합니다. KONEX·파생상품은 미포함. 네이버 공급 데이터의 ETF·ETN·ELW 포함 여부는 미검증입니다.")
     return True
