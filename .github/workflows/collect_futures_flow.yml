@@ -1,0 +1,34 @@
+name: Collect KOSPI200 futures investor flow (Npay FUT)
+on:
+  workflow_dispatch:
+  schedule:
+    # 19:00 KST (10:00 UTC), after 18:50 full-market spot collection.
+    - cron: '0 10 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: miner-kospi200-futures
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch verified FUT contracts and estimate KRW notional
+        run: python scripts/collect_futures_flow.py
+      - name: Commit validated futures snapshot
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [ -f data/kr_futures_flow.json ]; then
+            git add data/kr_futures_flow.json
+            if ! git diff --cached --quiet; then
+              git commit -m 'data: collect daily investor FUT net contracts and estimated notional'
+              git push
+            fi
+          fi
