@@ -1,0 +1,170 @@
+name: "Research lab: replace legacy Fear and Greed with H1 H2 study"
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  install-research-lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Use Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install read-only H1 H2 research screen
+        shell: bash
+        run: |
+          cat > strategy_research_ui.py <<'PY_STUDY'
+          """Read-only, source-linked snapshots of Miner H1/H2 experimental event studies.
+
+          No live trading instructions. No DART keys, no external requests, no implicit backtest.
+          Results are from the publicly auditable GitHub Actions run logs on 2026-11-02.
+          """
+          from __future__ import annotations
+
+          import pandas as pd
+          import streamlit as st
+
+          H1_URL = 'https://github.com/rhdwk3690-cmd/-/actions/runs/41295046516'
+          H2_URL = 'https://github.com/rhdwk3690-cmd/-/actions/runs/41411600077'
+
+          # Only 60- and 20-exchange-session mature event samples, not trading portfolio returns.
+          # H1 verified-financial-data group is the fair descriptive baseline for H2.
+          # (period, session, group, signals, mature, mean_net_pct, median_net_pct,
+          #  win_pct, mean_mae_pct, return_p10_pct)
+          RESULTS = [
+           ('2022~2024',20,'H1 전체',57,56,-0.879,-3.592,46.43,-15.111,-24.787),
+           ('2022~2024',20,'H1 재무확인',57,56,-0.879,-3.592,46.43,-15.111,-24.787),
+           ('2022~2024',20,'H2-A 매출성장',31,30,-2.763,-7.370,43.33,-14.403,-20.320),
+           ('2022~2024',20,'H2-B 이익률개선',24,24,-1.219,-6.002,41.67,-15.186,-21.137),
+           ('2022~2024',20,'H2-C 동시충족',18,18,-3.434,-10.189,38.89,-14.867,-20.776),
+           ('2022~2024',60,'H1 전체',57,55,-2.816,-9.854,40.00,-22.372,-35.966),
+           ('2022~2024',60,'H1 재무확인',57,55,-2.816,-9.854,40.00,-22.372,-35.966),
+           ('2022~2024',60,'H2-A 매출성장',31,30,-4.940,-6.661,43.33,-21.794,-34.042),
+           ('2022~2024',60,'H2-B 이익률개선',24,24,-1.780,0.202,50.00,-20.310,-34.835),
+           ('2022~2024',60,'H2-C 동시충족',18,18,0.819,1.522,55.56,-19.323,-34.306),
+           ('2025~2026',20,'H1 전체',86,81,6.296,4.342,56.79,-11.062,-18.777),
+           ('2025~2026',20,'H1 재무확인',78,73,6.096,4.342,54.79,-11.407,-18.629),
+           ('2025~2026',20,'H2-A 매출성장',50,45,6.384,6.273,60.00,-12.626,-17.688),
+           ('2025~2026',20,'H2-B 이익률개선',41,38,11.339,9.213,65.79,-10.934,-16.425),
+           ('2025~2026',20,'H2-C 동시충족',34,31,9.630,7.048,64.52,-12.037,-16.107),
+           ('2025~2026',60,'H1 전체',86,78,16.751,6.923,64.10,-16.951,-29.261),
+           ('2025~2026',60,'H1 재무확인',78,70,17.781,7.560,61.43,-17.623,-28.349),
+           ('2025~2026',60,'H2-A 매출성장',50,44,21.460,4.850,61.36,-19.712,-27.829),
+           ('2025~2026',60,'H2-B 이익률개선',41,37,23.088,13.055,70.27,-15.722,-27.766),
+           ('2025~2026',60,'H2-C 동시충족',34,30,25.412,14.710,66.67,-17.080,-27.702),
+          ]
+          COLUMNS = ['기간','거래일','실험군','발생 신호','평가 완료','평균 순수익률(%)','중앙값(%)',
+                     '승률(%)','평균 최대역행(MAE,%)','하위 10% 수익률(%)']
+
+
+          def render():
+              st.title('🧪 전략 연구실 | 가치 × 추세')
+              st.caption('기존 Fear & Greed 대신 H1/H2 과거 실험 스냅샷 · 실전 매수 신호 아님 · 2026-11-02 확인 결과')
+              st.info('H1: 건전한 조정 후 돌파 / H2-A: 분기 매출 YoY 10% 이상 / H2-B: 영업이익률 YoY +2%p 이상 / H2-C: 두 조건 동시 충족')
+
+              data = pd.DataFrame(RESULTS, columns=COLUMNS)
+              period = st.selectbox('실험 기간', ['2025~2026','2022~2024'], key='miner_research_period')
+              horizon = st.radio('진입 후 평가 기간', [20,60], horizontal=True, format_func=lambda x:f'{x}거래일', key='miner_research_horizon')
+              view = data.loc[(data['기간']==period)&(data['거래일']==horizon)].copy()
+              baseline = view.loc[view['실험군']=='H1 재무확인'].iloc[0]
+              st.caption(f'비교 기준: 재무자료가 확인된 H1 이벤트 {int(baseline["평가 완료"])}건 · 그룹 사이에 종목/날짜 중복 가능')
+              a,b,c = st.columns(3)
+              a.metric('기준 H1 평균 순수익률', f'{baseline["평균 순수익률(%)"]:+.2f}%')
+              b.metric('기준 H1 승률', f'{baseline["승률(%)"]:.1f}%')
+              c.metric('재무자료 확인', '135 / 143', help='2022~2026년 전체 H1 신호의 94.41%에 OpenDART 재무정보 매칭')
+              chart = view.loc[view['실험군'].isin(['H1 재무확인','H2-A 매출성장','H2-B 이익률개선','H2-C 동시충족']),
+                               ['실험군','평균 순수익률(%)']].set_index('실험군')
+              st.markdown('#### 진입 후 평균 수익률 비교')
+              st.bar_chart(chart, horizontal=True, height=250)
+              st.dataframe(view.drop(columns=['기간','거래일']), hide_index=True, width='stretch')
+              st.download_button('📥 전체 H1/H2 연구 요약 CSV', data.to_csv(index=False).encode('utf-8-sig'),
+                                 file_name='miner_h1_h2_study_snapshot_20261102.csv', mime='text/csv',key='miner_study_snapshot_csv')
+              st.markdown(f'[H1 과거 전종목 실험 원본]({H1_URL}) · [H2 OpenDART 실험 원본]({H2_URL})')
+
+              with st.expander('실험 규칙·해석 시 주의할 점', expanded=False):
+                  st.markdown('''- **H1**은 당시 20거래일 평균 거래대금 기준 매일 다시 선정한 유동성 상위 200종목의 55일 돌파 중, 선행 상승과 조정 폭·변동성 수축을 만족한 사건입니다.
+          - **H2-A**: 가장 최근 확인된 분기 매출 전년 동기 대비 10% 이상 성장.
+          - **H2-B**: 가장 최근 확인된 분기 영업이익률 전년 동기 대비 2%p 이상 개선.
+          - **H2-C**: 위 두 조건 모두 만족.
+          - 진입은 신호일 **다음 거래일 시가**, 평가 수익은 20·60거래일 후 종가, 비용은 편도 0.15% 가정.
+          - 원천 가격은 완전 수정주가가 아닙니다. 기업행사·거래중단으로 평가 불가한 이벤트를 제외한 평균에는 선택편향이 남을 수 있습니다.
+          - OpenDART는 **공시 접수일을 필터링**하지만, 현재 조회된 과거 재무 수치에는 이후의 정정이 반영됐을 수 있습니다.
+          - 2025~2026년 구간은 H1 연구 때 이미 살펴본 데이터로 **완전히 독립된 미사용 검증 구간이 아닙니다**.
+          - 사건별 평균과 최대 역행(MAE)은 **포트폴리오 CAGR·MDD·실전 손익비가 아닙니다**.
+          - 컨센서스 서프라이즈·전망 상향·거래비중 조절·실제 손절 전략은 아직 검증하지 않았습니다.''')
+              st.warning('실험 가설을 비교하기 위한 연구 화면입니다. 과거 수익률만으로 매수 후보 또는 실제 매매 신호를 제공하지 않습니다.')
+
+          PY_STUDY
+      - name: Change only the legacy research function in app.py
+        shell: bash
+        run: |
+          python - <<'PY_PATCH'
+          from pathlib import Path
+          import ast
+          p=Path('app.py')
+          s=p.read_text(encoding='utf-8')
+          marker="@st.cache_data(ttl=3600, show_spinner='미국 시장 데이터를 불러오는 중입니다...')"
+          end_marker='# ── MARKET SIGNAL:'
+          if marker in s:
+              start=s.index(marker)
+              end=s.index(end_marker,start)
+              assert s.count('def research():')==1, 'Unexpected number of research pages'
+              assert s.count('from fear_greed_engine import load_us, load_kr, metrics')==1
+              new_research='def research():\n    """Read-only value x trend experimental results; legacy Fear & Greed disabled."""\n    try:\n        from strategy_research_ui import render\n        render()\n    except Exception as exc:\n        st.error(f\'전략 연구실 결과 화면 표시 오류: {type(exc).__name__}\')\n        st.caption(\'연구실 부가 모듈에 오류가 발생했습니다. 시장 신호·종합상황판은 계속 사용할 수 있습니다.\')\n\n\n'
+              s=s[:start]+new_research+s[end:]
+              s=s.replace('from fear_greed_engine import load_us, load_kr, metrics\n','')
+              s=s.replace('Replace repository root app.py; keep pages/ and fear_greed_engine.py intact.',
+                          'Market dashboard; research home is value x trend; legacy Fear & Greed not loaded.')
+              p.write_text(s,encoding='utf-8')
+          else:
+              assert 'from strategy_research_ui import render' in s and 'from fear_greed_engine import' not in s, 'Unexpected research state'
+          assert 'st.Page(research,' in s, 'Research navigation missing'
+          assert "st.Page('pages/1_광부_종합상황판.py'" in s, 'Market overview navigation missing'
+          assert 'from fear_greed_engine import' not in s, 'Legacy engine imported'
+          assert 'def get_kr(' not in s and 'def get_us(' not in s, 'Legacy loaders persist'
+          ast.parse(s)
+          print('PATCH VALID: isolated research function replaced, market overview intact')
+
+          PY_PATCH
+      - name: Syntax and data-integrity tests
+        shell: bash
+        run: |
+          python -m py_compile app.py strategy_research_ui.py pages/1_광부_종합상황판.py
+          python - <<'PY_TEST'
+          import ast
+          from pathlib import Path
+          tree=ast.parse(Path('strategy_research_ui.py').read_text(encoding='utf-8'))
+          rows=ast.literal_eval(next(n.value for n in tree.body if isinstance(n,ast.Assign) and any(isinstance(x,ast.Name) and x.id=='RESULTS' for x in n.targets)))
+          assert len(rows)==20
+          assert len(set((r[0],r[1],r[2]) for r in rows))==20
+          assert len([r for r in rows if r[0]=='2025~2026' and r[1]==60 and r[2]=='H2-C 동시충족' and r[5]==25.412])==1
+          s=Path('app.py').read_text(encoding='utf-8')
+          assert 'from fear_greed_engine import' not in s
+          assert "st.Page('pages/1_광부_종합상황판.py'" in s
+          assert 'st.Page(research,' in s
+          print('PASS: 20 verified snapshot rows, legacy Fear and Greed disconnected')
+          PY_TEST
+          git diff --check
+      - name: Commit only study screen and app.py
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.py strategy_research_ui.py
+          if git diff --cached --quiet; then
+            echo 'No changes needed; research page already installed'
+          else
+            git commit -m 'ui: replace legacy Fear and Greed research with H1 H2 study results'
+            git push origin HEAD:main
+          fi
+          echo '### Applied: Study lab H1 H2, legacy Fear and Greed no longer imported' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Main market overview and its ETF/stock oscillators unchanged.' >> "$GITHUB_STEP_SUMMARY"
