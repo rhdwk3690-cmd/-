@@ -113,3 +113,7 @@ def render():
         st.warning(f'외부 가격 데이터 수집 오류: {type(exc).__name__}')
     with st.expander('📄 실적·증권사 리포트 연결 계획'):
         st.info('OpenDART 분기 성장률·영업이익률, 리포트 목표주가 변화를 검증된 출처와 발표일 기준으로 연결할 예정입니다. 아직 자동 수집·리포트 평가 기능은 활성화되지 않았습니다.')
+
+    # MINER_TREND_COMPARISON_RS_DMI_ATR_V1
+    from trend_candidates_ui import render_candidates
+    render_candidates()
