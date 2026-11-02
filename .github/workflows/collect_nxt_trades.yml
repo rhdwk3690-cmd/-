@@ -1,0 +1,36 @@
+name: Collect NXT EOD trades (isolated staging)
+on:
+  workflow_dispatch:
+  schedule:
+    # 20:20 Asia/Seoul (11:20 UTC), Monday-Friday
+    - cron: '20 11 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: miner-nxt-eod
+  cancel-in-progress: false
+jobs:
+  nxt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Test independent collector
+        run: python scripts/collect_nxt_trades.py --self-test
+      - name: Collect NXT regular and closing trades
+        run: python scripts/collect_nxt_trades.py
+      - name: Commit verified staging data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/nxt_trades_eod.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: refresh NXT regular+closing trades'
+            git pull --rebase
+            git push
+          fi
