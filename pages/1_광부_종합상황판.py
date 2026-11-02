@@ -464,48 +464,39 @@ if page == 'home':
                         f'market:{i}'
                     )
 
-    # NIGHT_FUTURES_PANEL_K2I_CARD_V2
-    # A quote-displaying public widget is used, not scraped market data.
-    # The KRX instrument may not be licensed for embedded quotes; never invent a price.
+    # NIGHT_FUTURES_PANEL_LICENSE_SAFE_CARD_V3
+    # TradingView explicitly forbids external embedding of KRX:K2I1!;
+    # never show a fake quote, an unrelated daytime quote, or a fabricated close.
     st.markdown('#### 🌙 코스피200 야간선물')
     night_cols = st.columns(4, gap='small')
     with night_cols[0]:
-        components.html(
-            """
-            <!doctype html><html lang="ko"><head><meta charset="utf-8">
-            <style>
-              * {box-sizing:border-box}
-              html,body{margin:0;padding:0;background:transparent;color:#eef5ff;
-                font-family:system-ui,-apple-system,'Malgun Gothic',sans-serif}
-              .night-card{height:145px;border-radius:14px;border:1px solid #35536a;
-                background:linear-gradient(145deg,#152a3c,#101c2b);
-                padding:11px 12px;overflow:hidden}
-              .title{color:#eaf3ff;font-weight:800;font-size:12px;text-align:center}
-              .widget{height:81px;overflow:hidden;margin:2px 0}
-              .footer{text-align:center;font-size:11px;white-space:nowrap}
-              .footer a{color:#9edbee;text-decoration:none}
-              .footer a:hover{text-decoration:underline}
-            </style></head><body>
-              <div class="night-card">
-                <div class="title">🌙 코스피200 야간선물</div>
-                <div class="widget tradingview-widget-container">
-                  <div class="tradingview-widget-container__widget"></div>
-                  <script type="text/javascript"
-                    src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
-                    {"symbol":"KRX:K2I1!","width":"100%","colorTheme":"dark",
-                     "isTransparent":true,"locale":"kr"}
-                  </script>
-                </div>
-                <div class="footer"><a target="_blank" rel="noopener noreferrer"
-                  href="https://kr.tradingview.com/symbols/KRX-K2I1%21/">시세 미표시 시 원본 확인 ↗</a></div>
-              </div>
-            </body></html>
-            """,
-            height=151,
-            scrolling=False,
-        )
-    st.caption('야간거래 18:00~익일 06:00(KST) · TradingView 외부 시세(지연 가능). '
-               '임베드 가격이 제한되면 숫자를 만들지 않으며 원본 링크에서 확인합니다.')
+        st.markdown("""
+        <style>
+        a.miner-night-card {
+            display:flex; flex-direction:column; align-items:center;
+            justify-content:center; gap:7px;
+            height:127px; width:100%; padding:12px;
+            background:linear-gradient(145deg,#152a3c,#101c2b);
+            border:1px solid #35536a; border-radius:14px;
+            color:#eff6ff !important; text-decoration:none !important;
+            text-align:center;
+        }
+        a.miner-night-card:hover {background:#223e51;border-color:#7bd3eb}
+        .miner-night-card .name {font-size:13px;font-weight:800;color:#eff6ff}
+        .miner-night-card .quote {font-size:19px;font-weight:800;color:#eef5ff}
+        .miner-night-card .status {font-size:11px;color:#9cb7cf}
+        </style>
+        <a class="miner-night-card" href="https://kr.tradingview.com/symbols/KRX-K2I1%21/"
+           target="_blank" rel="noopener noreferrer" title="TradingView의 원본 종목 화면에서 확인">
+           <span class="name">🌙 코스피200 야간선물</span>
+           <span class="quote">시세 연동 대기</span>
+           <span class="status">18:00~06:00 · 원본 시세 보기 ↗</span>
+        </a>
+        """, unsafe_allow_html=True)
+    st.caption(
+        'KRX 야간선물 체결가의 외부 표시 권한이 아직 없어 수치를 표시하지 않습니다. '
+        '카드를 누르면 원본 시세 화면이 열립니다. 실시간 수신은 정식 API 연결 후 별도 구현합니다.'
+    )
 
     st.caption(
         '미국 10년물(^TNX)은 Yahoo 원표기값입니다. '
