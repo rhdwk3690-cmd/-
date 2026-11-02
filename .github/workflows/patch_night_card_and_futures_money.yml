@@ -1,0 +1,170 @@
+name: "PATCH: compact night futures card + futures money and contracts"
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-ui-patch
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Upgrade UI with guarded idempotent patch
+        shell: bash
+        run: |
+          python - <<'PY_PATCH'
+          from pathlib import Path
+          import ast
+          
+          
+          def update_night():
+              path = Path('pages/1_광부_종합상황판.py')
+              source = path.read_text(encoding='utf-8')
+              if '# NIGHT_FUTURES_PANEL_K2I_CARD_V2' in source:
+                  print('Night futures compact card already installed')
+                  return
+              marker = '    # NIGHT_FUTURES_PANEL_K2I_V1'
+              tail = "    st.caption(\n        '미국 10년물(^TNX)은 Yahoo 원표기값입니다. '"
+              if source.count(marker) != 1 or source.count(tail) != 1:
+                  raise RuntimeError('Night futures patch anchor mismatch; refuse changing live page')
+              begin, end = source.index(marker), source.index(tail, source.index(marker))
+              replacement = r'''    # NIGHT_FUTURES_PANEL_K2I_CARD_V2
+              # A quote-displaying public widget is used, not scraped market data.
+              # The KRX instrument may not be licensed for embedded quotes; never invent a price.
+              st.markdown('#### 🌙 코스피200 야간선물')
+              night_cols = st.columns(4, gap='small')
+              with night_cols[0]:
+                  components.html(
+                      """
+                      <!doctype html><html lang="ko"><head><meta charset="utf-8">
+                      <style>
+                        * {box-sizing:border-box}
+                        html,body{margin:0;padding:0;background:transparent;color:#eef5ff;
+                          font-family:system-ui,-apple-system,'Malgun Gothic',sans-serif}
+                        .night-card{height:145px;border-radius:14px;border:1px solid #35536a;
+                          background:linear-gradient(145deg,#152a3c,#101c2b);
+                          padding:11px 12px;overflow:hidden}
+                        .title{color:#eaf3ff;font-weight:800;font-size:12px;text-align:center}
+                        .widget{height:81px;overflow:hidden;margin:2px 0}
+                        .footer{text-align:center;font-size:11px;white-space:nowrap}
+                        .footer a{color:#9edbee;text-decoration:none}
+                        .footer a:hover{text-decoration:underline}
+                      </style></head><body>
+                        <div class="night-card">
+                          <div class="title">🌙 코스피200 야간선물</div>
+                          <div class="widget tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <script type="text/javascript"
+                              src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                              {"symbol":"KRX:K2I1!","width":"100%","colorTheme":"dark",
+                               "isTransparent":true,"locale":"kr"}
+                            </script>
+                          </div>
+                          <div class="footer"><a target="_blank" rel="noopener noreferrer"
+                            href="https://kr.tradingview.com/symbols/KRX-K2I1%21/">시세 미표시 시 원본 확인 ↗</a></div>
+                        </div>
+                      </body></html>
+                      """,
+                      height=151,
+                      scrolling=False,
+                  )
+              st.caption('야간거래 18:00~익일 06:00(KST) · TradingView 외부 시세(지연 가능). '
+                         '임베드 가격이 제한되면 숫자를 만들지 않으며 원본 링크에서 확인합니다.')
+          
+          '''
+              result = source[:begin] + replacement + source[end:]
+              if "key='overview_reload'" not in result or 'for start in (0, 4, 8)' not in result:
+                  raise AssertionError('12 market cards or Yahoo refresh may have been changed')
+              ast.parse(result)
+              path.write_text(result, encoding='utf-8')
+              print('Patched compact night-futures single-quote card')
+          
+          
+          def update_signal():
+              path = Path('market_signal_summary.py')
+              source = path.read_text(encoding='utf-8')
+              marker = "    st.metric('선물 외국인 · 추정 명목금액',"
+              if marker in source:
+                  print('Market signal amount-first UI already installed')
+                  return
+              original = "    st.caption(f'선물 외국인 {qty:+,}계약 · 추정 순매수 명목금액 {notional/1e8:+,.0f}억원')"
+              replacement = """    st.metric('선물 외국인 · 추정 명목금액',
+                        f'{notional/1e8:+,.0f}억 원',
+                        delta=f'{qty:+,}계약', delta_color='off')
+              st.caption('선물 명목금액은 매수·매도 계약의 추정 거래 규모 차이입니다. 현금 순유입액·증거금·보유 잔고가 아닙니다.')"""
+              if source.count(original) != 1:
+                  raise RuntimeError('Market signal patch anchor mismatch')
+              result = source.replace(original, replacement)
+              ast.parse(result)
+              path.write_text(result, encoding='utf-8')
+              print('Patched market signal amount-first metric + contracts below')
+          
+          
+          def update_flow():
+              path = Path('futures_flow_ui.py')
+              source = path.read_text(encoding='utf-8')
+              marker = "    for col,who,label in ((m1,'foreign','외국인'),"
+              if marker in source:
+                  print('Futures flow amount-first UI already installed')
+                  return
+              original = '''    m1,m2,m3 = st.columns(3)
+              m1.metric('외국인 순매수 계약', f'{latest["foreign_net_contracts"]:+,}계약')
+              m2.metric('외국인 추정 순매수 명목금액', money(latest['foreign_net_notional_krw']))
+              m3.metric('기관 추정 순매수 명목금액', money(latest['institution_net_notional_krw']))'''
+              replacement = '''    m1,m2,m3 = st.columns(3)
+              for col,who,label in ((m1,'foreign','외국인'),
+                                     (m2,'institution','기관'),
+                                     (m3,'individual','개인')):
+                  col.metric(f'{label} 추정 순매수 명목금액',
+                             f'{latest[f"{who}_net_notional_krw"]/1e8:+,.0f}억 원',
+                             delta=f'{latest[f"{who}_net_contracts"]:+,}계약',
+                             delta_color='off')'''
+              if source.count(original) != 1:
+                  raise RuntimeError('Futures detail patch anchor mismatch')
+              result = source.replace(original, replacement)
+              ast.parse(result)
+              path.write_text(result, encoding='utf-8')
+              print('Patched futures detail foreign/institution/individual amount-first metrics')
+          
+          
+          update_night()
+          update_signal()
+          update_flow()
+          PY_PATCH
+          python -m py_compile pages/1_광부_종합상황판.py futures_flow_ui.py market_signal_summary.py
+          python - <<'PY_CHECK'
+          from pathlib import Path
+          page = Path('pages/1_광부_종합상황판.py').read_text(encoding='utf-8')
+          signal = Path('market_signal_summary.py').read_text(encoding='utf-8')
+          detail = Path('futures_flow_ui.py').read_text(encoding='utf-8')
+          assert 'NIGHT_FUTURES_PANEL_K2I_CARD_V2' in page
+          assert 'embed-widget-single-quote.js' in page
+          assert 'KRX:K2I1!' in page
+          assert "key='overview_reload'" in page
+          assert 'for start in (0, 4, 8)' in page
+          assert '선물 외국인 · 추정 명목금액' in signal
+          assert '추정 순매수 명목금액' in detail and "delta_color='off'" in detail
+          amount,qty = 340810000000,1535
+          assert f'{amount/1e8:+,.0f}억 원' == '+3,408억 원'
+          assert f'{qty:+,}계약' == '+1,535계약'
+          print('All UI and value-format checks passed')
+          PY_CHECK
+      - name: Commit only validated UI files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'pages/1_광부_종합상황판.py' futures_flow_ui.py market_signal_summary.py
+          if git diff --cached --quiet; then
+            echo 'No changes (already installed)'
+            exit 0
+          fi
+          git commit -m 'ui: compact KOSPI200 night quote and amount-first futures flow'
+          git push
