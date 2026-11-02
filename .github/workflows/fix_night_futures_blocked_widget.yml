@@ -1,0 +1,102 @@
+name: "FIX: replace blocked KOSPI200 night embed with honest card"
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-ui-patch
+  cancel-in-progress: false
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Replace licensed-blocked embedded quote with compact linked card
+        shell: bash
+        run: |
+          python - <<'PY_FIX'
+          import ast
+          from pathlib import Path
+
+          target = Path('pages/1_광부_종합상황판.py')
+          original = target.read_text(encoding='utf-8')
+          new_marker = '    # NIGHT_FUTURES_PANEL_LICENSE_SAFE_CARD_V3'
+          old_marker = '    # NIGHT_FUTURES_PANEL_K2I_CARD_V2'
+          end_marker = "    st.caption(\n        '미국 10년물(^TNX)은 Yahoo 원표기값입니다. '"
+          if new_marker in original:
+              print('Already installed: licensed-safe card (idempotent)')
+          else:
+              if original.count(old_marker) != 1 or original.count(end_marker) != 1:
+                  raise RuntimeError('UI source changed: expected exact night-card anchors not found; refusing change')
+              begin = original.index(old_marker)
+              end = original.index(end_marker, begin)
+              replacement = '''    # NIGHT_FUTURES_PANEL_LICENSE_SAFE_CARD_V3
+              # TradingView explicitly forbids external embedding of KRX:K2I1!;
+              # never show a fake quote, an unrelated daytime quote, or a fabricated close.
+              st.markdown('#### 🌙 코스피200 야간선물')
+              night_cols = st.columns(4, gap='small')
+              with night_cols[0]:
+                  st.markdown("""
+                  <style>
+                  a.miner-night-card {
+                      display:flex; flex-direction:column; align-items:center;
+                      justify-content:center; gap:7px;
+                      height:127px; width:100%; padding:12px;
+                      background:linear-gradient(145deg,#152a3c,#101c2b);
+                      border:1px solid #35536a; border-radius:14px;
+                      color:#eff6ff !important; text-decoration:none !important;
+                      text-align:center;
+                  }
+                  a.miner-night-card:hover {background:#223e51;border-color:#7bd3eb}
+                  .miner-night-card .name {font-size:13px;font-weight:800;color:#eff6ff}
+                  .miner-night-card .quote {font-size:19px;font-weight:800;color:#eef5ff}
+                  .miner-night-card .status {font-size:11px;color:#9cb7cf}
+                  </style>
+                  <a class="miner-night-card" href="https://kr.tradingview.com/symbols/KRX-K2I1%21/"
+                     target="_blank" rel="noopener noreferrer" title="TradingView의 원본 종목 화면에서 확인">
+                     <span class="name">🌙 코스피200 야간선물</span>
+                     <span class="quote">시세 연동 대기</span>
+                     <span class="status">18:00~06:00 · 원본 시세 보기 ↗</span>
+                  </a>
+                  """, unsafe_allow_html=True)
+              st.caption(
+                  'KRX 야간선물 체결가의 외부 표시 권한이 아직 없어 수치를 표시하지 않습니다. '
+                  '카드를 누르면 원본 시세 화면이 열립니다. 실시간 수신은 정식 API 연결 후 별도 구현합니다.'
+              )
+
+              '''
+              updated = original[:begin] + replacement.rstrip() + '\n\n' + original[end:]
+              if updated.count("('코스피', '^KS11')") != 1 or "key='overview_reload'" not in updated:
+                  raise AssertionError('Global 12 indicators or manual refresh button changed')
+              if 'embed-widget-single-quote.js' in updated or 'embed-widget-symbol-info.js' in updated:
+                  raise AssertionError('Blocked TradingView night embed still exists')
+              if updated.count(new_marker) != 1:
+                  raise AssertionError('Night card marker count wrong')
+              ast.parse(updated, filename=str(target))
+              target.write_text(updated, encoding='utf-8')
+              print('Replaced blocked TradingView iframe with compact, clickable, honest night card')
+
+          # The previous successful PATCH run already applied amount-first futures metrics.
+          # Do not modify the flow code or show fake data: assert it exists on main.
+          flow = Path('market_signal_summary.py').read_text(encoding='utf-8')
+          if "st.metric('선물 외국인 · 추정 명목금액'" not in flow or "delta=f'{qty:+,}계약'" not in flow:
+              raise RuntimeError('Amount-first futures display missing; inspect previous deployment before proceeding')
+          print('Verified amount-first futures amount and contract metrics are present')
+          PY_FIX
+      - name: Commit only when actual source changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'pages/1_광부_종합상황판.py'
+          if git diff --cached --quiet; then
+            echo 'No change; UI already corrected'
+          else
+            git commit -m 'ui: remove KRX night futures embed blocked by licensing'
+            git push
+          fi
