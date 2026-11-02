@@ -1,0 +1,85 @@
+name: "Install split KR close-time and TOP200 EOD schedules"
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Split the existing 18:35 batch without modifying market displays
+        shell: bash
+        run: |
+              python - <<'PY_INSTALL'
+              from pathlib import Path
+              import ast
+              import hashlib
+              import json
+              import subprocess
+              import sys
+
+              files = {'scripts/run_kr_close_fast.py': '"""KR EOD fast collector after close. Independent sources; no synthetic dates.\n\nNever overwrite an old good file on a failed collector. Report actual source dates.\n"""\nfrom __future__ import annotations\nimport json\nimport subprocess\nimport sys\nfrom datetime import datetime\nfrom pathlib import Path\nfrom zoneinfo import ZoneInfo\n\nROOT = Path(__file__).resolve().parents[1]\nKST = ZoneInfo(\'Asia/Seoul\')\nSOURCES = [\n    (\'시장 현물 외국인/기관\', \'collect_market_total_flow.py\', \'kr_market_total_flow.json\'),\n    (\'선물 외국인/기관\', \'collect_futures_flow.py\', \'kr_futures_flow.json\'),\n    (\'금투협 예탁금/신용\', \'collect_kofia_liquidity.py\', \'kr_kofia_liquidity.json\'),\n    (\'시장 폭 ADR20\', \'collect_adr_breadth.py\', \'kr_market_adr20.json\'),\n    (\'시장환경 관찰일지\', \'collect_market_regime_journal.py\', \'kr_market_regime_journal.json\'),\n]\n\ndef source_day(path: Path) -> str:\n    try:\n        obj = json.loads(path.read_text(encoding=\'utf-8\'))\n        day = obj.get(\'latest_date\') or obj.get(\'date\')\n        if day is None and isinstance(obj.get(\'records\'), list) and obj[\'records\']:\n            day = obj[\'records\'][-1].get(\'date\')\n        return day if isinstance(day, str) and len(day) == 10 else \'NOT_REPORTED\'\n    except (OSError, ValueError, AttributeError, TypeError):\n        return \'NOT_REPORTED\'\n\ndef main() -> int:\n    now = datetime.now(KST)\n    today = now.date().isoformat()\n    print(f\'KR early EOD collection (KST {now:%Y-%m-%d %H:%M}); never infer source date\', flush=True)\n    rows = []\n    failed = 0\n    for label, script, filename in SOURCES:\n        print(f\'\\n=== START: {label} ===\', flush=True)\n        path = ROOT / \'data\' / filename\n        try:\n            proc = subprocess.run([sys.executable, str(ROOT / \'scripts\' / script)], cwd=ROOT,\n                                  timeout=210, check=False)\n            success = proc.returncode == 0 and path.is_file()\n        except subprocess.TimeoutExpired:\n            success = False\n            print(f\'::warning::{label} exceeded 210 s timeout; old file preserved when source is safe\', flush=True)\n        srcday = source_day(path)\n        if not success:\n            failed += 1\n            status = \'FAILED (prior file retained if available)\'\n            print(f\'::warning::{label} failed. Existing data is not declared current.\', flush=True)\n        else:\n            status = \'CURRENT_DATE\' if srcday == today else \'PRIOR_OR_UNDATED_SOURCE\'\n        print(f\'=== END: {label} / {status} / source_date={srcday} ===\', flush=True)\n        rows.append((label, status, srcday, filename))\n    lines = [\'## KR 정규장 이후 빠른 수집\', \'\',\n             f\'실행 기준: {now:%Y-%m-%d %H:%M} KST (GitHub 예약은 지연될 수 있음)\',\n             \'| 데이터 | 실행 결과 | 원천 기준일 | 파일 |\', \'|---|---|---|---|\']\n    for label, status, srcday, filename in rows:\n        lines.append(f\'| {label} | {status} | {srcday} | `{filename}` |\')\n    lines += [\'\', \'CURRENT_DATE는 원본에 오늘 날짜가 있는 경우만. PRIOR_OR_UNDATED_SOURCE는 수집을 실행해도 당일 공개되지 않았다는 뜻입니다.\',\n              \'금투협/ADR은 원천 발표 지연 또는 수집기 정책에 따라 전 거래일 자료일 수 있습니다.\',\n              \'한 종목의 값을 다른 지표로 대신하거나 미래 날짜를 만들어 채우지 않았습니다.\']\n    from os import environ\n    if environ.get(\'GITHUB_STEP_SUMMARY\'):\n        with open(environ[\'GITHUB_STEP_SUMMARY\'], \'a\', encoding=\'utf-8\') as f:\n            f.write(\'\\n\'.join(lines) + \'\\n\')\n    print(\'\\n\'.join(lines), flush=True)\n    return 1 if failed == len(SOURCES) else 0  # Partial failures always visible in Summary.\n\nif __name__ == \'__main__\':\n    raise SystemExit(main())\n', 'scripts/run_kr_eod_late.py': '"""Collect only historic verified TOP200 and its market-maker/investor-flow lookups.\n\nAt most one investor pass per unique TOP200 date/fingerprint (the existing flow\ncollector enforces this). Respect public provider rate limits, no parallel bypass.\n"""\nfrom __future__ import annotations\nimport json\nimport subprocess\nimport sys\nfrom datetime import datetime\nfrom pathlib import Path\nfrom zoneinfo import ZoneInfo\n\nROOT = Path(__file__).resolve().parents[1]\ndef source_date(path: Path) -> str:\n    try:\n        obj = json.loads(path.read_text(encoding=\'utf-8\'))\n        return str(obj.get(\'date\') or \'NOT_REPORTED\')\n    except (OSError, ValueError, AttributeError):\n        return \'NOT_REPORTED\'\n\ndef main() -> int:\n    day = datetime.now(ZoneInfo(\'Asia/Seoul\')).date().isoformat()\n    rank = subprocess.run([sys.executable, str(ROOT/\'scripts\'/\'collect_kr_flow.py\')], cwd=ROOT,check=False)\n    rank_date = source_date(ROOT/\'data\'/\'kr_flow.json\')\n    if rank.returncode:\n        print(f\'::error::TOP200 ranking failed; do not query investors with unverified ranking. Prior file preserved if possible.\', flush=True)\n        outcome = (\'FAILED\', \'NOT_RUN\', rank_date)\n    else:\n        flow = subprocess.run([sys.executable,str(ROOT/\'scripts\'/\'collect_investor_flow.py\')],cwd=ROOT,check=False)\n        outcome = (\'OK\', \'OK\' if flow.returncode==0 else \'FAILED\', rank_date)\n        if flow.returncode:\n            print(\'::warning::Investor flow collection failed or quota reached. Earlier data may remain.\',flush=True)\n    status, flow_status, rank_date = outcome\n    lines = [\'## KR TOP 200 후속 수집\', \'\', f\'실행일: {day} KST\',\n             f\'- TOP200: {status} / 검증된 원천 거래일: **{rank_date}**\',\n             f\'- TOP200 투자자 수급: {flow_status}\',\n             \'- TOP200 원천은 T+1일 수 있으며, 오늘 실행했다고 오늘 날짜로 바꾸지 않습니다.\',\n             \'- 200회 개별 조회는 기존 공개 API 속도 제한을 준수하며 병렬 호출하지 않습니다.\']\n    import os\n    if os.environ.get(\'GITHUB_STEP_SUMMARY\'):\n        with open(os.environ[\'GITHUB_STEP_SUMMARY\'],\'a\',encoding=\'utf-8\') as f: f.write(\'\\n\'.join(lines)+\'\\n\')\n    print(\'\\n\'.join(lines),flush=True)\n    return 0 if status == \'OK\' and flow_status == \'OK\' else 1\n\nif __name__==\'__main__\': raise SystemExit(main())\n', '.github/workflows/collect_kr_close_fast.yml': 'name: "KR close: spot futures liquidity ADR (15:45 / 16:20 KST)"\non:\n  workflow_dispatch:\n  schedule:\n    # KST close 15:30. UTC 06:45=15:45, 07:20=16:20.\n    - cron: \'45 6 * * 1-5\'\n    - cron: \'20 7 * * 1-5\'\npermissions:\n  contents: write\nconcurrency:\n  group: miner-kr-eod-all\n  cancel-in-progress: false\njobs:\n  collect:\n    runs-on: ubuntu-latest\n    timeout-minutes: 22\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-python@v5\n        with:\n          python-version: \'3.11\'\n      - name: Install existing collector requirements\n        run: python -m pip install --disable-pip-version-check requests pandas numpy yfinance streamlit\n      - name: Fetch market flows, futures, official KOFIA, ADR and regime independently\n        run: python scripts/run_kr_close_fast.py\n      - name: Commit individually verified public data (no TOP200 change)\n        if: always()\n        shell: bash\n        run: |\n          set -euo pipefail\n          git config user.name \'github-actions[bot]\'\n          git config user.email \'41898282+github-actions[bot]@users.noreply.github.com\'\n          for f in data/kr_market_total_flow.json data/kr_futures_flow.json data/kr_kofia_liquidity.json data/kr_market_adr20.json data/kr_market_regime_journal.json; do\n            if [ -f "$f" ]; then git add "$f"; fi\n          done\n          if git diff --cached --quiet; then\n            echo \'No new source data to commit\'\n          else\n            git commit -m \'data: close-time KR spot/futures/liquidity/ADR snapshots\'\n            # Other independent snapshot workflow may push concurrently.\n            git pull --rebase origin main\n            git push origin HEAD:main\n          fi\n', '.github/workflows/collect_kr_eod_batch.yml': 'name: "KR EOD: TOP200 and stock investor flows (18:35 KST)"\non:\n  workflow_dispatch:\n  schedule:\n    # Weekdays 18:35 Korea = 09:35 UTC; no early TOP200 requests.\n    - cron: \'35 9 * * 1-5\'\npermissions:\n  contents: write\nconcurrency:\n  group: miner-kr-eod-all\n  cancel-in-progress: false\njobs:\n  collect:\n    runs-on: ubuntu-latest\n    timeout-minutes: 20\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-python@v5\n        with:\n          python-version: \'3.11\'\n      - name: Install TOP200 source requirements only\n        run: python -m pip install --disable-pip-version-check requests\n      - name: Collect verified TOP200 and investor flow within provider rate limits\n        env:\n          KRX_API_KEY: ${{ secrets.KRX_API_KEY }}\n        run: python scripts/run_kr_eod_late.py\n      - name: Commit TOP200 dated snapshots only\n        if: always()\n        shell: bash\n        run: |\n          set -euo pipefail\n          git config user.name \'github-actions[bot]\'\n          git config user.email \'41898282+github-actions[bot]@users.noreply.github.com\'\n          for f in data/kr_flow.json data/kr_investor_flow.json; do\n            if [ -f "$f" ]; then git add "$f"; fi\n          done\n          if git diff --cached --quiet; then\n            echo \'No TOP200 changes to commit\'\n          else\n            git commit -m \'data: late verified KR TOP200 and per-stock flows\'\n            git pull --rebase origin main\n            git push origin HEAD:main\n          fi\n'}
+              old_path = Path('.github/workflows/collect_kr_eod_batch.yml')
+              if not old_path.exists(): raise SystemExit('Old EOD workflow missing: patch aborted')
+              previous = old_path.read_text(encoding='utf-8')
+              # Fail closed on altered or already split workflow rather than erase a later revision.
+              assert "run: python scripts/run_kr_eod_batch.py" in previous, 'Unexpected existing workflow command; no overwrite'
+              assert "'35 9 * * 1-5'" in previous, '18:35 previous schedule missing'
+              assert 'miner-kr-eod-all' in previous, 'Original rate-limit serial group changed'
+              for path, body in files.items():
+                  dest=Path(path)
+                  if dest.exists() and dest != old_path:
+                      raise SystemExit(f'{path} already exists; refusing to overwrite')
+              for path, body in files.items():
+                  dest=Path(path)
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  if path.endswith('.py'):ast.parse(body)
+                  else:
+                      assert body.count('cron:') >= 1 and 'contents: write' in body
+                  dest.write_text(body,encoding='utf-8')
+                  print(f'Prepared {dest}: bytes={len(body.encode())} sha256={hashlib.sha256(body.encode()).hexdigest()[:16]}')
+              assert 'collect_kr_flow.py' not in files['.github/workflows/collect_kr_close_fast.yml']
+              assert 'collect_investor_flow.py' not in files['.github/workflows/collect_kr_close_fast.yml']
+              assert 'run_kr_eod_late.py' in files['.github/workflows/collect_kr_eod_batch.yml']
+              print('INSTALL TEST PASS: early vs late isolation and 18:35 schedule retained')
+
+              PY_INSTALL
+      - name: Compile both runners and audit schedules
+        shell: bash
+        run: |
+          python -m py_compile scripts/run_kr_close_fast.py scripts/run_kr_eod_late.py
+          python - <<'PY_AUDIT'
+          from pathlib import Path
+          early=Path('.github/workflows/collect_kr_close_fast.yml').read_text()
+          late=Path('.github/workflows/collect_kr_eod_batch.yml').read_text()
+          assert "'45 6 * * 1-5'" in early and "'20 7 * * 1-5'" in early
+          assert "'35 9 * * 1-5'" in late
+          assert 'run_kr_close_fast.py' in early
+          assert 'run_kr_eod_late.py' in late
+          print('PASS: 15:45 + 16:20 early; 18:35 TOP200 late; scripts syntactically valid')
+          PY_AUDIT
+      - name: Commit only scheduler and two isolated runner files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/workflows/collect_kr_close_fast.yml .github/workflows/collect_kr_eod_batch.yml scripts/run_kr_close_fast.py scripts/run_kr_eod_late.py
+          git diff --cached --check
+          git commit -m 'ops: split KR close-time sources from late TOP200 EOD'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo '### KR data source schedule split installed' >> "$GITHUB_STEP_SUMMARY"
+          echo '15:45 and 16:20 KST: spot/futures/KOFIA/ADR/regime, actual source dates preserved.' >> "$GITHUB_STEP_SUMMARY"
+          echo '18:35 KST: TOP200 and the serial per-stock investor flow collector.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Market overview and individual oscillators are unchanged.' >> "$GITHUB_STEP_SUMMARY"
