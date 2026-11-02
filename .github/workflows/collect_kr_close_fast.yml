@@ -1,0 +1,105 @@
+name: "KR close: spot futures liquidity ADR (15:45 / 16:20 KST)"
+on:
+  workflow_dispatch:
+  schedule:
+    # Korea 15:45 and 16:20; GitHub schedules are best-effort.
+    - cron: '45 6 * * 1-5'
+    - cron: '20 7 * * 1-5'
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install only current collectors' dependencies
+        run: python -m pip install --disable-pip-version-check requests pandas numpy yfinance streamlit
+      - name: Collect spot, futures, official liquidity, breadth and market regime
+        shell: bash
+        run: |
+          python - <<'PY_COLLECT'
+          import json
+          import os
+          import subprocess
+          import sys
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          root = Path.cwd()
+          now = datetime.now(ZoneInfo('Asia/Seoul'))
+          today = now.strftime('%Y-%m-%d')
+          sources = [
+              ('시장 전체 현물 투자자 수급', 'collect_market_total_flow.py', 'kr_market_total_flow.json'),
+              ('시장 전체 선물 투자자 수급', 'collect_futures_flow.py', 'kr_futures_flow.json'),
+              ('금투협 예탁금·신용융자', 'collect_kofia_liquidity.py', 'kr_kofia_liquidity.json'),
+              ('시장 폭 ADR20', 'collect_adr_breadth.py', 'kr_market_adr20.json'),
+              ('시장 환경 관찰일지', 'collect_market_regime_journal.py', 'kr_market_regime_journal.json'),
+          ]
+          records = []
+          for label, script, filename in sources:
+              print(f'=== START {label} ===', flush=True)
+              try:
+                  run = subprocess.run([sys.executable, str(root/'scripts'/script)],
+                                       cwd=root, timeout=240, check=False)
+                  status = 'OK' if run.returncode == 0 else 'FAILED'
+              except subprocess.TimeoutExpired:
+                  status = 'TIMEOUT'
+                  print(f'::warning::{label}: timeout after 240 seconds', flush=True)
+              source_date = 'NOT_REPORTED'
+              try:
+                  obj = json.loads((root/'data'/filename).read_text(encoding='utf-8'))
+                  source_date = obj.get('latest_date') or obj.get('date') or 'NOT_REPORTED'
+                  if source_date == 'NOT_REPORTED' and isinstance(obj.get('records'), list) and obj['records']:
+                      source_date = obj['records'][-1].get('date', source_date)
+              except (OSError, ValueError, TypeError, AttributeError):
+                  pass
+              freshness = 'TODAY' if source_date == today else 'PRIOR/UNCONFIRMED'
+              print(f'=== END {label}: {status}; source_date={source_date}; freshness={freshness} ===', flush=True)
+              if status != 'OK':
+                  print(f'::warning::{label} not updated; preexisting data may be displayed.', flush=True)
+              records.append((label, status, source_date, freshness, filename))
+          summary = ['## 한국시장 장마감 후 1차 수집', '',
+                     f'실제 실행: {now:%Y-%m-%d %H:%M} KST',
+                     '| 항목 | 상태 | 자료 기준일 | 최신성 | JSON |',
+                     '|---|---|---|---|---|']
+          for label, status, day, freshness, file in records:
+              summary.append(f'| {label} | {status} | {day} | {freshness} | `{file}` |')
+          summary += ['', 'OK는 수집기 종료를 의미할 뿐 당일 자료 확보를 뜻하지 않습니다.',
+                      'ADR20의 기존 수집기는 당일 잠정 자료를 제외할 수 있고, 금투협 통계에는 공표 지연이 있을 수 있습니다.',
+                      'GitHub 예약은 정시 실행을 보장하지 않습니다. TOP200 종목별 수급은 여기서 수집하지 않습니다.']
+          text = '\n'.join(summary) + '\n'
+          print(text, flush=True)
+          if os.environ.get('GITHUB_STEP_SUMMARY'):
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+                  f.write(text)
+          if all(status != 'OK' for _, status, _, _, _ in records):
+              raise SystemExit('All five sources failed; existing files retained where possible.')
+          PY_COLLECT
+      - name: Commit dated market sources without touching TOP200
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for f in data/kr_market_total_flow.json data/kr_futures_flow.json data/kr_kofia_liquidity.json data/kr_market_adr20.json data/kr_market_regime_journal.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
+          if ! git diff --cached --quiet; then
+            git diff --cached --check
+            git commit -m 'data: KR close-time spot futures liquidity breadth'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo 'No changed early EOD data'
+          fi

@@ -1,8 +1,8 @@
-name: Collect KR EOD data (single 18:35 batch)
+name: "KR EOD: TOP200 and stock investor flows (18:35 KST)"
 on:
   workflow_dispatch:
   schedule:
-    # Weekdays 18:35 Korea (09:35 UTC), published source dates preserved.
+    # Only TOP200 and per-stock investor flow, KST 18:35 = UTC 09:35.
     - cron: '35 9 * * 1-5'
 permissions:
   contents: write
@@ -12,30 +12,64 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install existing collector dependencies
-        run: python -m pip install --disable-pip-version-check requests pandas numpy
-      - name: Install optional journal dependencies (do not block core EOD)
-        continue-on-error: true
-        run: python -m pip install --disable-pip-version-check yfinance streamlit
-      - name: Collect existing market sources and bounded dated ADR20 in sequence
+      - name: Install existing TOP200 dependencies
+        run: python -m pip install --disable-pip-version-check requests
+      - name: Collect verified TOP200 then per-stock investor flows within public API limits
+        shell: bash
         env:
           KRX_API_KEY: ${{ secrets.KRX_API_KEY }}
-        run: python scripts/run_kr_eod_batch.py
-      - name: Commit successfully validated snapshots and ADR detail patch
-        if: always()
         run: |
+          set -euo pipefail
+          python scripts/collect_kr_flow.py
+          python scripts/collect_investor_flow.py
+      - name: Report actual source dates
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY_REPORT'
+          import json
+          import os
+          from pathlib import Path
+          out = ['## TOP200 후속 수집 (18:35 KST)', '', '| 항목 | 실제 기준일 | 결과 |', '|---|---|---|']
+          for label, filename in [('TOP200 거래대금', 'kr_flow.json'), ('TOP200 종목별 외국인·기관 수급', 'kr_investor_flow.json')]:
+              try:
+                  data = json.loads((Path('data')/filename).read_text(encoding='utf-8'))
+                  date = data.get('date') or 'NOT_REPORTED'
+                  status = data.get('status') or 'NOT_REPORTED'
+              except (OSError, ValueError, AttributeError):
+                  date, status = 'NOT_REPORTED', 'MISSING/INVALID'
+              out.append(f'| {label} | {date} | {status} |')
+          out += ['', '수집 시각은 자료 기준일이 아닙니다. 공급처 자료는 T+1일 수 있습니다.',
+                  '종목별 공개 API 호출 제한을 우회하거나 병렬 요청하지 않습니다.']
+          s = '\n'.join(out) + '\n'
+          print(s)
+          if os.environ.get('GITHUB_STEP_SUMMARY'):
+              with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+                  f.write(s)
+          PY_REPORT
+      - name: Commit verified TOP200 files only
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          for f in data/kr_flow.json data/kr_investor_flow.json data/kr_market_total_flow.json data/kr_futures_flow.json data/kr_market_liquidity.json data/kr_kofia_liquidity.json data/kr_market_adr20.json data/kr_market_regime_journal.json miner_breadth.py; do
+          for f in data/kr_flow.json data/kr_investor_flow.json; do
             if [ -f "$f" ]; then git add "$f"; fi
           done
           if ! git diff --cached --quiet; then
-            git commit -m 'data: update verified KR EOD market sources and stored ADR20'
-            git push
+            git diff --cached --check
+            git commit -m 'data: late verified KR TOP200 and investor flows'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          else
+            echo 'No changed TOP200 data'
           fi
