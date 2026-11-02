@@ -1,0 +1,170 @@
+name: "INSTALL: RS DMI ADX ATR multi-stock comparison"
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-dev-batch
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: "Install trend comparison without changing current data collectors"
+        shell: bash
+        run: |
+          python - <<'PY_INSTALL'
+          from pathlib import Path
+          import base64
+          import ast
+
+          MARKER = '    # MINER_TREND_COMPARISON_RS_DMI_ATR_V1'
+          NEW_SOURCE = base64.b64decode("""
+                      IiIiTWFudWFsIG11bHRpLXN0b2NrIFJTL0RNSS9BVFIgb2JzZXJ2YXRpb24gcGFuZWwgZm9yIE1pbmVyIFRlcm1pbmFsLgoK
+                      Tm90IGEgbWFya2V0LXdpZGUgc2Nhbm5lciBhbmQgbm90IGEgdmFsaWRhdGVkIHRyYWRpbmcgc3RyYXRlZ3kuIFlhaG9vIEZp
+                      bmFuY2UKYWRqdXN0ZWQgZGFpbHkgcHJpY2VzIGNhbiBiZSBkZWxheWVkOyBwZXItaW5zdHJ1bWVudCBpbmRleCBkYXRlcyBh
+                      cmUgYWxpZ25lZC4KIiIiCmZyb20gX19mdXR1cmVfXyBpbXBvcnQgYW5ub3RhdGlvbnMKCmltcG9ydCByZQoKaW1wb3J0IHBh
+                      bmRhcyBhcyBwZAppbXBvcnQgc3RyZWFtbGl0IGFzIHN0Cgpmcm9tIHN0b2NrX2FuYWx5c2lzX3VpIGltcG9ydCBkbWlfc25h
+                      cHNob3QsIGhpc3RvcnkKCk1BWF9NQU5VQUxfU1lNQk9MUyA9IDE1ICAjIFBlci1jbGljayBzYWZldHkgbGltaXQsIG5vdCBh
+                      IGxpbWl0IG9uIHRoZSBUT1AyMDAgdW5pdmVyc2UuCgoKZGVmIHN5bWJvbHNfZnJvbV90ZXh0KHJhdzogc3RyKSAtPiBsaXN0
+                      W3N0cl06CiAgICB0b2tlbnMgPSBbeC5zdHJpcCgpLnVwcGVyKCkgZm9yIHggaW4gcmUuc3BsaXQociJbLDtcc10rIiwgcmF3
+                      KSBpZiB4LnN0cmlwKCldCiAgICB1bmlxdWUgPSBsaXN0KGRpY3QuZnJvbWtleXModG9rZW5zKSkKICAgIGlmIGxlbih1bmlx
+                      dWUpID4gTUFYX01BTlVBTF9TWU1CT0xTOgogICAgICAgIHJhaXNlIFZhbHVlRXJyb3IoCiAgICAgICAgICAgIGYi7ZWcIOuy
+                      iOyXkCB7TUFYX01BTlVBTF9TWU1CT0xTfeyiheuqqeq5jOyngCDruYTqtZDtlaAg7IiYIOyeiOyKteuLiOuLpC4gIgogICAg
+                      ICAgICAgICAi7J20IO2ZlOuptOydgCDsiJjrj5kg67mE6rWQ7J2066mwIFRPUDIwMCDsoITssrQg67aE7ISd7J2YIOyiheuq
+                      qSDsiJjrpbwg7KCc7ZWc7ZWY7KeAIOyViuyKteuLiOuLpC4iCiAgICAgICAgKQogICAgZm9yIHN5bWJvbCBpbiB1bmlxdWU6
+                      CiAgICAgICAgaWYgbm90IHJlLmZ1bGxtYXRjaChyIlxkezZ9XC4oPzpLU3xLUSkiLCBzeW1ib2wpOgogICAgICAgICAgICBy
+                      YWlzZSBWYWx1ZUVycm9yKGYi7KKF66qpIO2RnOq4sCDsmKTrpZg6IHtzeW1ib2x9ICjsmIg6IDAwNTkzMC5LUywgMDAwNjYw
+                      LktTLCAwMzU0MjAuS1MpIikKICAgIGlmIG5vdCB1bmlxdWU6CiAgICAgICAgcmFpc2UgVmFsdWVFcnJvcigi67aE7ISd7ZWg
+                      IOyiheuqqey9lOuTnOulvCDtlZjrgpgg7J207IOBIOyeheugpe2VmOyEuOyalC4iKQogICAgcmV0dXJuIHVuaXF1ZQoKCmRl
+                      ZiBhbmFseXplX3BhaXIoc3ltYm9sOiBzdHIsIHN0b2NrOiBwZC5EYXRhRnJhbWUsIGJlbmNobWFyazogcGQuRGF0YUZyYW1l
+                      LCBhZHhfY3V0b2ZmOiBmbG9hdCkgLT4gZGljdDoKICAgICIiIkNhbGN1bGF0ZSBvbiB0aGUgKmxhc3Qgc2hhcmVkIGRhaWx5
+                      IGNsb3NlKiB0byBwcmV2ZW50IG1peGVkLWRheSBSUy4iIiIKICAgIGNvbW1vbiA9IHN0b2NrWydDbG9zZSddLnRvX2ZyYW1l
+                      KCdzdG9jaycpLmpvaW4oCiAgICAgICAgYmVuY2htYXJrWydDbG9zZSddLnRvX2ZyYW1lKCdtYXJrZXQnKSwgaG93PSdpbm5l
+                      cicKICAgICkuZHJvcG5hKCkuc29ydF9pbmRleCgpCiAgICBpZiBsZW4oY29tbW9uKSA8IDYxOgogICAgICAgIHJhaXNlIFZh
+                      bHVlRXJyb3IoZiJ7c3ltYm9sfTog7KeA7IiY7JmAIOqzte2GtSDqsbDrnpjsnbwgNjHqsJwg66+466eMIikKICAgIGFzb2Yg
+                      PSBjb21tb24uaW5kZXhbLTFdCiAgICBsYXN0ID0gc3RvY2subG9jWzphc29mXS5jb3B5KCkKICAgIGlmIGxlbihsYXN0KSA8
+                      IDkwOgogICAgICAgIHJhaXNlIFZhbHVlRXJyb3IoZiJ7c3ltYm9sfTogREnCt0FEWCDqs4TsgrDsl5Ag7ZWE7JqU7ZWcIDkw
+                      6rGw656Y7J28IOuvuOunjCIpCiAgICBkbWkgPSBkbWlfc25hcHNob3QobGFzdCkKICAgIHN0b2NrX3JldCA9IGNvbW1vblsn
+                      c3RvY2snXS5pbG9jWy0xXSAvIGNvbW1vblsnc3RvY2snXS5pbG9jWy02MV0gLSAxCiAgICBiZW5jaF9yZXQgPSBjb21tb25b
+                      J21hcmtldCddLmlsb2NbLTFdIC8gY29tbW9uWydtYXJrZXQnXS5pbG9jWy02MV0gLSAxCiAgICByc19wcCA9IChzdG9ja19y
+                      ZXQgLSBiZW5jaF9yZXQpICogMTAwCiAgICBmbGFncyA9IHsKICAgICAgICAnREknOiBkbWlbJ3BsdXNfZGknXSA+IGRtaVsn
+                      bWludXNfZGknXSwKICAgICAgICAnQURYJzogZG1pWydhZHgnXSA+PSBhZHhfY3V0b2ZmLAogICAgICAgICdSUyc6IHJzX3Bw
+                      ID4gMCwKICAgIH0KICAgIHNjb3JlID0gc3VtKGZsYWdzLnZhbHVlcygpKQogICAgIyBEaXN0YW5jZSBvbmx5OiBub3QgYSB0
+                      cmFkZSBpbnN0cnVjdGlvbiBvciBhIHZhbGlkYXRlZCBzdG9wIHRlY2huaXF1ZS4KICAgIGF0cl9wY3QgPSBkbWlbJ2F0cl9w
+                      Y3QnXQogICAgc3RvcF9kaXN0YW5jZV9wY3QgPSAyICogYXRyX3BjdAogICAgZXhhbXBsZV93ZWlnaHRfcGN0ID0gbWluKDEw
+                      MC4wLCAxMDAuMCAvIHN0b3BfZGlzdGFuY2VfcGN0KSBpZiBzdG9wX2Rpc3RhbmNlX3BjdCA+IDAgZWxzZSBOb25lCiAgICBy
+                      ZXR1cm4gewogICAgICAgICfsooXrqqnsvZTrk5wnOiBzeW1ib2wsCiAgICAgICAgJ+u5hOq1kOyngOyImCc6ICdLT1NQSScg
+                      aWYgc3ltYm9sLmVuZHN3aXRoKCcuS1MnKSBlbHNlICdLT1NEQVEnLAogICAgICAgICfquLDspIDsnbwnOiBhc29mLnN0cmZ0
+                      aW1lKCclWS0lbS0lZCcpLAogICAgICAgICfsooXqsIAnOiByb3VuZChmbG9hdChjb21tb25bJ3N0b2NrJ10uaWxvY1stMV0p
+                      LCAyKSwKICAgICAgICAnK0RJJzogcm91bmQoZG1pWydwbHVzX2RpJ10sIDEpLAogICAgICAgICctREknOiByb3VuZChkbWlb
+                      J21pbnVzX2RpJ10sIDEpLAogICAgICAgICdBRFgnOiByb3VuZChkbWlbJ2FkeCddLCAxKSwKICAgICAgICAnNjDsnbwgUlMo
+                      JXApJzogcm91bmQoZmxvYXQocnNfcHApLCAyKSwKICAgICAgICAnQVRSKCUpJzogcm91bmQoYXRyX3BjdCwgMiksCiAgICAg
+                      ICAgJzJBVFIg6rGw66asKCUpJzogcm91bmQoc3RvcF9kaXN0YW5jZV9wY3QsIDIpLAogICAgICAgICfsmIjsi5wg67mE7KSR
+                      KCUpJzogcm91bmQoZXhhbXBsZV93ZWlnaHRfcGN0LCAxKSBpZiBleGFtcGxlX3dlaWdodF9wY3QgaXMgbm90IE5vbmUgZWxz
+                      ZSBOb25lLAogICAgICAgICfsobDqsbQnOiBmJ3tzY29yZX0vMycsCiAgICAgICAgJ+q0gOywsCDsg4Htg5wnOiAn7LaU7IS4
+                      wrdSUyDqtIDssLAnIGlmIHNjb3JlID09IDMgZWxzZSAoJ+u2gOu2hCDstqnsobEnIGlmIHNjb3JlID4gMCBlbHNlICfqtIDr
+                      p50nKSwKICAgICAgICAnX3Njb3JlJzogc2NvcmUsCiAgICAgICAgJ19yYXdfcnMnOiByc19wcCwKICAgIH0KCgpkZWYgcmVu
+                      ZGVyX2NhbmRpZGF0ZXMoKSAtPiBOb25lOgogICAgc3QuZGl2aWRlcigpCiAgICBzdC5tYXJrZG93bignIyMjIPCfp60g7Jes
+                      65+sIOyiheuqqSDruYTqtZAgfCBSUyDCtyBESS9BRFggwrcgQVRSJykKICAgIHN0LmNhcHRpb24oCiAgICAgICAgJ+qwnOuz
+                      hCDsooXrqqnsnYQgNjDqsbDrnpjsnbwg64+Z7JWIIOy9lOyKpO2UvMK37L2U7Iqk64ulIOuMgOu5hCDruYTqtZDtlanri4jr
+                      i6QuICcKICAgICAgICAn6riw7KG0IFRPUDIwMCDsiJzsnITsmYAg67OE6rCc7J2YIOyImOuPmSDqtIDssLDtkZzsnbTrqbAs
+                      IOqzteyLnCDsi6TsoIEg7Ius7IKs64qUIOyVhOyngSDrr7jsl7DqsrDsnoXri4jri6QuJwogICAgKQogICAgd2l0aCBzdC5m
+                      b3JtKCdtaW5lcl90cmVuZF9jb21wYXJlX2Zvcm0nKToKICAgICAgICByYXcgPSBzdC50ZXh0X2lucHV0KAogICAgICAgICAg
+                      ICAn7KKF66qp7L2U65OcICjsibztkZzroZwg6rWs67aELCDsvZTsiqTtlLwgLktTIC8g7L2U7Iqk64ulIC5LUSknLAogICAg
+                      ICAgICAgICB2YWx1ZT0nMDA1OTMwLktTLCAwMDA2NjAuS1MsIDAzNTQyMC5LUywgMDM1NzIwLktTJywKICAgICAgICAgICAg
+                      a2V5PSdtaW5lcl90cmVuZF9jb21wYXJlX2NvZGVzJywKICAgICAgICApCiAgICAgICAgY3V0b2ZmID0gc3Quc2xpZGVyKCdB
+                      RFgg7LWc7IaMIOq4sOykgCcsIG1pbl92YWx1ZT0xNSwgbWF4X3ZhbHVlPTM1LAogICAgICAgICAgICAgICAgICAgICAgICAg
+                      ICB2YWx1ZT0yMCwgc3RlcD0xLCBrZXk9J21pbmVyX3RyZW5kX2NvbXBhcmVfYWR4JykKICAgICAgICBzdWJtaXR0ZWQgPSBz
+                      dC5mb3JtX3N1Ym1pdF9idXR0b24oJ/CflI4g67mE6rWQ7ZGcIOqzhOyCsCcpCiAgICBpZiBzdWJtaXR0ZWQ6CiAgICAgICAg
+                      dHJ5OgogICAgICAgICAgICBjb2RlcyA9IHN5bWJvbHNfZnJvbV90ZXh0KHJhdykKICAgICAgICBleGNlcHQgVmFsdWVFcnJv
+                      ciBhcyBleGM6CiAgICAgICAgICAgIHN0LmVycm9yKHN0cihleGMpKQogICAgICAgICAgICByZXR1cm4KICAgICAgICBzdC5z
+                      ZXNzaW9uX3N0YXRlWydtaW5lcl90cmVuZF9jb21wYXJlX3JlcXVlc3QnXSA9IChjb2RlcywgY3V0b2ZmKQogICAgcmVxdWVz
+                      dCA9IHN0LnNlc3Npb25fc3RhdGUuZ2V0KCdtaW5lcl90cmVuZF9jb21wYXJlX3JlcXVlc3QnKQogICAgaWYgcmVxdWVzdCBp
+                      cyBOb25lOgogICAgICAgIHN0LmluZm8oJ+y9lOuTnOulvCDshKDtg53tlZwg65KkIOu5hOq1kO2RnCDqs4TsgrDsnYQg64iE
+                      66W066m0IOyhsO2ajO2VqeuLiOuLpC4g7Y6Y7J207KeA66W8IOyXtOyekOuniOyekCDrjIDrn4kg7JqU7LKt7ZWY7KeAIOyV
+                      iuyKteuLiOuLpC4nKQogICAgICAgIHJldHVybgogICAgY29kZXMsIGN1dG9mZiA9IHJlcXVlc3QKICAgIG91dHB1dCwgZmFp
+                      bHVyZXMgPSBbXSwgW10KICAgIHdpdGggc3Quc3Bpbm5lcignWWFob28g7J2867OEIOqwgOqyqeqzvCDsi5zsnqUg7KeA7IiY
+                      66W8IOu5hOq1kO2VmOuKlCDspJEuLi4nKToKICAgICAgICBmb3Igc3ltYm9sIGluIGNvZGVzOgogICAgICAgICAgICBiZW5j
+                      aG1hcmsgPSAnXktTMTEnIGlmIHN5bWJvbC5lbmRzd2l0aCgnLktTJykgZWxzZSAnXktRMTEnCiAgICAgICAgICAgIHRyeToK
+                      ICAgICAgICAgICAgICAgIG91dHB1dC5hcHBlbmQoYW5hbHl6ZV9wYWlyKHN5bWJvbCwgaGlzdG9yeShzeW1ib2wpLCBoaXN0
+                      b3J5KGJlbmNobWFyayksIGN1dG9mZikpCiAgICAgICAgICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZXhjOgogICAgICAgICAg
+                      ICAgICAgIyBObyBmYWtlIHNjb3JlczsgaXNvbGF0ZSBvbmUgdGlja2VyIGZhaWx1cmUgZnJvbSB0aGUgcmVtYWluaW5nIHdh
+                      dGNobGlzdC4KICAgICAgICAgICAgICAgIGZhaWx1cmVzLmFwcGVuZChmJ3tzeW1ib2x9OiB7dHlwZShleGMpLl9fbmFtZV9f
+                      fSAvIHtzdHIoZXhjKVs6MTEwXX0nKQogICAgaWYgb3V0cHV0OgogICAgICAgIGZyYW1lID0gcGQuRGF0YUZyYW1lKG91dHB1
+                      dCkuc29ydF92YWx1ZXMoCiAgICAgICAgICAgIFsnX3Njb3JlJywgJ19yYXdfcnMnXSwgYXNjZW5kaW5nPVtGYWxzZSwgRmFs
+                      c2VdCiAgICAgICAgKS5kcm9wKGNvbHVtbnM9Wydfc2NvcmUnLCAnX3Jhd19ycyddKS5yZXNldF9pbmRleChkcm9wPVRydWUp
+                      CiAgICAgICAgZnJhbWUuaW5zZXJ0KDAsICfsiJzsnIQnLCByYW5nZSgxLCBsZW4oZnJhbWUpICsgMSkpCiAgICAgICAgc3Qu
+                      ZGF0YWZyYW1lKGZyYW1lLCBoaWRlX2luZGV4PVRydWUsIHVzZV9jb250YWluZXJfd2lkdGg9VHJ1ZSkKICAgICAgICBzdC5k
+                      b3dubG9hZF9idXR0b24oJ/Cfk6Ug67mE6rWQIOqysOqzvCBDU1YnLAogICAgICAgICAgICAgICAgICAgICAgICAgICBmcmFt
+                      ZS50b19jc3YoaW5kZXg9RmFsc2UpLmVuY29kZSgndXRmLTgtc2lnJyksCiAgICAgICAgICAgICAgICAgICAgICAgICAgIGZp
+                      bGVfbmFtZT0nbWluZXJfcnNfZG1pX2F0cl9jb21wYXJpc29uLmNzdicsIG1pbWU9J3RleHQvY3N2JywKICAgICAgICAgICAg
+                      ICAgICAgICAgICAgICAga2V5PSdtaW5lcl90cmVuZF9jb21wYXJlX2NzdicpCiAgICAgICAgYWxsX2RhdGVzID0gc29ydGVk
+                      KHNldChmcmFtZVsn6riw7KSA7J28J10udG9saXN0KCkpKQogICAgICAgIGlmIGxlbihhbGxfZGF0ZXMpID4gMToKICAgICAg
+                      ICAgICAgc3Qud2FybmluZygn7KKF66qp67OEIOy1nOyihSDqs7XthrUg6rGw656Y7J287J20IOuLpOumheuLiOuLpC4g6riw
+                      7KSA7J28IOyXtOydhCDruYTqtZDtlbQg7KO87IS47JqULicpCiAgICAgICAgc3QuY2FwdGlvbigKICAgICAgICAgICAgJzMv
+                      MyA9ICtEST4tREksIEFEWOqwgCDshKTsoJUg6riw7KSAIOydtOyDgSwgNjDsnbwgUlPqsIAg7JaR7IiYLiAnCiAgICAgICAg
+                      ICAgICfsi6DtmLjsnZgg7IiY7J217ISx7J2AIOqygOymneuQmOyngCDslYrslZjsnLzrqbAg7Iuk7KCBwrfrsLjrpZjsl5Ds
+                      nbTshZgg7Ius7IKs64qUIO2PrO2VqO2VmOyngCDslYrsirXri4jri6QuJwogICAgICAgICkKICAgICAgICBzdC5jYXB0aW9u
+                      KAogICAgICAgICAgICAnMkFUUiDqsbDrpqzripQg7ZiE7J6sIOydvOu0iSBBVFLsnZgg65GQIOuwsOulvCDso7zqsIAg64yA
+                      67mEIO2RnOyLnO2VnCDssLjqs6DsuZguICcKICAgICAgICAgICAgJ+yYiOyLnCDruYTspJHsnYAg6rOE7KKMIOyGkOyLpCDt
+                      l4jsmqkgMSUsIDJBVFIg7IaQ7KCI7J2EIOqwgOygle2VnCDri6jsiJwg7IKw7IudKOy1nOuMgCAxMDAlKS4gJwogICAgICAg
+                      ICAgICAn6rCt7ZWY6529wrfruYTsmqnCt+2PrOyngOyFmCDsg4HqtIDqtIDqs4TripQg67CY7JiB7ZWY7KeAIOyViuyKteuL
+                      iOuLpC4nCiAgICAgICAgKQogICAgaWYgZmFpbHVyZXM6CiAgICAgICAgd2l0aCBzdC5leHBhbmRlcihmJ+yImOynkSDsi6Tt
+                      jKggLyDrjbDsnbTthLAg67aA7KGxIHtsZW4oZmFpbHVyZXMpfeqxtCcpOgogICAgICAgICAgICBmb3IgbXNnIGluIGZhaWx1
+                      cmVzOgogICAgICAgICAgICAgICAgc3Qud2FybmluZyhtc2cpCiAgICBzdC5jYXB0aW9uKCdZYWhvbyBGaW5hbmNlIOyImOyg
+                      lSDsnbzrtIkgwrcgMTXrtoQg7LqQ7IucIMK3IOyngOyXsCDqsIDriqUuIOq4sOykgOydvOydtCDri6Trpbgg7Iuc7IS466W8
+                      IO2VqeyzkCDtmITsnqwg7Iug7Zi466GcIO2RnOyLnO2VmOyngCDslYrsirXri4jri6QuJykK
+          """).decode('utf-8')
+          ast.parse(NEW_SOURCE, filename='trend_candidates_ui.py')
+          mod = Path('trend_candidates_ui.py')
+          if mod.exists():
+              if mod.read_text(encoding='utf-8') != NEW_SOURCE:
+                  raise RuntimeError('trend_candidates_ui.py already exists with different code; stop to avoid overwriting edits')
+              print('Trend comparison module already installed')
+          else:
+              mod.write_text(NEW_SOURCE, encoding='utf-8')
+              print('Installed trend_candidates_ui.py')
+          app = Path('stock_analysis_ui.py')
+          original = app.read_text(encoding='utf-8')
+          expected = "    with st.expander('📄 실적·증권사 리포트 연결 계획'):\n        st.info('OpenDART 분기 성장률·영업이익률, 리포트 목표주가 변화를 검증된 출처와 발표일 기준으로 연결할 예정입니다. 아직 자동 수집·리포트 평가 기능은 활성화되지 않았습니다.')"
+          if MARKER in original:
+              if original.count(MARKER) != 1:
+                  raise RuntimeError('Duplicate trend-comparison marker')
+              print('Stock analysis navigation already installed')
+          else:
+              if not original.rstrip().endswith(expected):
+                  raise RuntimeError('Stock-analysis anchor changed; refuse unintended modifications')
+              addition = ('\n' + MARKER + '\n'
+                          '    from trend_candidates_ui import render_candidates\n'
+                          '    render_candidates()\n')
+              updated = original.rstrip() + '\n' + addition
+              ast.parse(updated, filename='stock_analysis_ui.py')
+              if "st.title('🔎 종목분석 | 가치 × 수급 × 추세')" not in updated:
+                  raise RuntimeError('Expected stock analysis module did not match')
+              app.write_text(updated, encoding='utf-8')
+              print('Added manual comparison panel to stock analysis bottom')
+          print('Guards passed: source syntax, existing modules untouched, manual query only')
+          PY_INSTALL
+      - name: "Verify source syntax"
+        run: python -m py_compile trend_candidates_ui.py stock_analysis_ui.py
+      - name: "Commit only the two changed modules"
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add trend_candidates_ui.py stock_analysis_ui.py
+          if git diff --cached --quiet; then
+            echo "No changes (already installed)"
+          else
+            git commit -m "feat: add multi-stock RS DMI ADX ATR watchlist"
+            git pull --rebase
+            git push
+          fi
