@@ -44,10 +44,12 @@ def top200():
         '수급 확산도, 동시순매수, 다이버전스 탐지'])
 
 def individual():
-    placeholder('🔎 개별 종목','기존 종합 상황판의 개별 종목 가격·거래활동 분석은 그대로 이용할 수 있습니다.',[
-        '종목명 검색과 관심종목',
-        '수급·상대강도·실적 및 밸류에이션 분리',
-        '수급 전환 신호와 위험관리 백테스트'])
+    try:
+        from stock_analysis_ui import render
+        render()
+    except Exception as exc:
+        st.error(f'종목분석 화면 오류: {type(exc).__name__}: {str(exc)[:150]}')
+        st.caption('종합 상황판 및 수급 메뉴는 영향을 받지 않습니다.')
 
 def research():
     """Read-only value x trend experimental results; legacy Fear & Greed disabled."""
@@ -1087,7 +1089,7 @@ pages=[
     st.Page(cashflow,title='자금 흐름',icon='💸'),
     st.Page(etfs,title='ETF 분석',icon='📦'),
     st.Page(top200,title='TOP 200',icon='📊'),
-    st.Page(individual,title='개별 종목',icon='🔎'),
+    st.Page(individual,title='종목분석',icon='🔎'),
     st.Page('pages/2_계좌방어_리스크레이더.py' if os.path.exists('pages/2_계좌방어_리스크레이더.py') else lambda: placeholder('🛡️ 계좌 방어','계좌 방어 파일을 pages 폴더에 넣으면 활성화됩니다.',['포트폴리오 MDD·집중도·상관관계 분석']),title='계좌 방어',icon='🛡️'),
     st.Page(research,title='전략 연구실',icon='🧪'),
 ]

@@ -108,7 +108,7 @@ def official(day: str, key: str, session: requests.Session) -> list[dict]:
             rows.append({"ticker": code, "name": str(item.get("ISU_NM") or "").strip(),
                          "market": market, "close": close, "traded_krw": volume,
                          "foreign_net_krw": None, "institution_net_krw": None})
-    return validate_universe(rows, "KRX")
+    return validate_universe(rows, "KRX"), rows
 
 
 def parse_aik_stock_csv(csv_bytes: bytes, index: dict, today: dict, now_day: date) -> tuple[list[dict], str, dict]:
@@ -175,7 +175,7 @@ def parse_aik_stock_csv(csv_bytes: bytes, index: dict, today: dict, now_day: dat
     metadata = {"snapshot_id": id1 or id2, "quotes_rows": all_count,
                 "eligible_markets": market_count, "excluded_nontrading": excluded_nontrade,
                 "universe_rule": "금융위 주식시세 KOSPI/KOSDAQ만; ETF 비포함(공급처 카탈로그 명시)"}
-    return top, date_index, metadata
+    return top, date_index, metadata, rows
 
 
 def aik_public(session: requests.Session, now_day: date) -> tuple[list[dict], str, dict]:
@@ -185,6 +185,72 @@ def aik_public(session: requests.Session, now_day: date) -> tuple[list[dict], st
         response.raise_for_status()
         payload.append(response.content if name.endswith(".csv") else response.json())
     return parse_aik_stock_csv(payload[2], payload[0], payload[1], now_day)
+
+
+
+
+def build_unified_top200(krx_universe: list[dict], day: str) -> dict:
+    """Daily all-market turnover ranking. Never combine mismatched dates or NXT investor flows.
+
+    NXT coverage: regular + closing auction, excluding block/basket. KRX is
+    sourced from the full KOSPI/KOSDAQ stock universe, not just its top 200.
+    """
+    source = ROOT / 'data' / 'nxt_trades_eod.json'
+    result = {'status': 'awaiting_same_date_nxt', 'date': day, 'top200': [],
+              'coverage': 'KRX + NXT regular/closing; NXT block/basket excluded',
+              'investor_flow_scope': 'KRX ONLY; no NXT investor net flows'}
+    try:
+        nxt = json.loads(source.read_text(encoding='utf-8'))
+        if nxt.get('status') != 'verified':
+            return result
+        daily = nxt.get('history') or {}
+        if nxt.get('date') == day:
+            nxt_rows = nxt.get('rows')
+        else:
+            nxt_rows = daily.get(day) if isinstance(daily, dict) else None
+        if not isinstance(nxt_rows, dict) or not nxt_rows:
+            result['latest_nxt_date'] = nxt.get('date')
+            return result
+        krx_codes = {x['ticker']: x for x in krx_universe}
+        if len(krx_codes) < MIN_ROWS or len(krx_codes) != len(krx_universe):
+            raise DataValidationError('KRX full universe missing or duplicate')
+        eligible, unmatched = {}, 0
+        for code, item in nxt_rows.items():
+            if not isinstance(item, dict):
+                raise DataValidationError('NXT row malformed')
+            if code not in krx_codes:
+                unmatched += 1  # e.g. NXT alphanumeric securities absent from stock-price universe
+                continue
+            if item.get('market') != krx_codes[code]['market']:
+                raise DataValidationError(f'{code}: NXT/KRX market mismatch')
+            val = item.get('traded_krw')
+            if type(val) is not int or val < 0:
+                raise DataValidationError(f'{code}: NXT traded value invalid')
+            eligible[code] = val
+        if len(eligible) < 200:
+            raise DataValidationError(f'NXT common-stock code coverage too low: {len(eligible)}')
+        items = []
+        for stock in krx_universe:
+            krx_krw = stock['traded_krw']
+            nxt_krw = eligible.get(stock['ticker'], 0)
+            total = krx_krw + nxt_krw
+            if total <= 0:
+                continue
+            items.append({'ticker': stock['ticker'], 'name': stock['name'],
+                          'market': stock['market'], 'close': stock['close'],
+                          'krx_traded_krw': krx_krw, 'nxt_traded_krw': nxt_krw,
+                          'traded_krw': total})
+        items.sort(key=lambda x: (-x['traded_krw'], x['ticker']))
+        if len(items) < 200:
+            raise DataValidationError('full-market combined sample under 200 issues')
+        result.update({'status': 'verified_partial_nxt_sessions', 'top200': items[:200],
+                       'matched_nxt_codes': len(eligible), 'unmatched_nxt_codes': unmatched,
+                       'krx_universe_count': len(krx_codes),
+                       'source_nxt_day': day})
+    except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as exc:
+        result['status'] = 'validation_blocked'
+        result['reason'] = f'{type(exc).__name__}: {str(exc)[:150]}'
+    return result
 
 
 def previous_verified() -> dict | None:
@@ -215,7 +281,7 @@ def main() -> None:
                     continue
                 try:
                     asof = requested.isoformat()
-                    rows = official(asof, key, session)
+                    rows, universe = official(asof, key, session)
                     result = {"top200": rows, "date": asof,
                               "date_quality": "official_requested_date",
                               "source": "KRX Open API (authenticated daily stock trades)",
@@ -226,7 +292,7 @@ def main() -> None:
                     errors.append(f"KRX {requested}: {type(exc).__name__}: {str(exc)[:160]}")
         if result is None:
             try:
-                rows, asof, check = aik_public(session, today_day)
+                rows, asof, check, universe = aik_public(session, today_day)
                 result = {"top200": rows, "date": asof,
                           "date_quality": "csv_basDt_index_today_match",
                           "source": "aikstockdata.com (Financial Services Commission public EOD stock prices)",
@@ -234,6 +300,9 @@ def main() -> None:
                           "verification": check}
             except (requests.RequestException, ValueError, UnicodeError, csv.Error) as exc:
                 errors.append(f"aikstockdata: {type(exc).__name__}: {str(exc)[:250]}")
+
+    if result is not None:
+        result['unified'] = build_unified_top200(universe, result['date'])
 
     if result is None:
         prior = previous_verified()

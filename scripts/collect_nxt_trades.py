@@ -120,6 +120,23 @@ def run(day=None, dest=DEST, session=None):
     regular = fetch_segment(session, 'regular', day)
     closing = fetch_segment(session, 'closing', day)
     data = assemble(day, regular, closing)
+    # Keep historical NXT sessions so delayed T+1 KRX snapshots can match by day.
+    # Preserve the existing top-level `rows` for backward-compatible consumers.
+    sessions = {}
+    try:
+        old = json.loads(dest.read_text(encoding='utf-8'))
+        if old.get('status') == 'verified':
+            prior = old.get('history') or {}
+            if isinstance(prior, dict):
+                for historical_day, historical_rows in prior.items():
+                    if isinstance(historical_rows, dict) and isinstance(historical_day, str):
+                        sessions[historical_day] = historical_rows
+            if isinstance(old.get('rows'), dict) and isinstance(old.get('date'), str):
+                sessions[old['date']] = old['rows']
+    except (OSError, ValueError, TypeError, AttributeError):
+        pass
+    sessions[data['date']] = data['rows']
+    data['history'] = {k: sessions[k] for k in sorted(sessions)[-20:]}
     dest.parent.mkdir(parents=True, exist_ok=True)
     temp = dest.with_suffix('.tmp')
     temp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

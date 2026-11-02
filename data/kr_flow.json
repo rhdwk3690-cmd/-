@@ -1,5 +1,5 @@
 {
-  "collected_at_kst": "2026-11-02T19:29:10.483937+09:00",
+  "collected_at_kst": "2026-11-02T22:26:46.376369+09:00",
   "status": "verified",
   "top200": [
     {
@@ -1816,6 +1816,14 @@
     },
     "excluded_nontrading": 116,
     "universe_rule": "금융위 주식시세 KOSPI/KOSDAQ만; ETF 비포함(공급처 카탈로그 명시)"
+  },
+  "unified": {
+    "status": "awaiting_same_date_nxt",
+    "date": "2026-10-30",
+    "top200": [],
+    "coverage": "KRX + NXT regular/closing; NXT block/basket excluded",
+    "investor_flow_scope": "KRX ONLY; no NXT investor net flows",
+    "latest_nxt_date": "2026-11-02"
   },
   "market_flows": {},
   "errors": [],

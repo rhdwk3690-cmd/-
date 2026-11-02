@@ -4228,5 +4228,4230 @@
       "traded_krw": 139094050,
       "traded_shares": 4066
     }
+  },
+  "history": {
+    "2026-11-02": {
+      "000070": {
+        "market": "KOSPI",
+        "regular_traded_krw": 54736600,
+        "closing_traded_krw": 0,
+        "traded_krw": 54736600,
+        "traded_shares": 1037
+      },
+      "000080": {
+        "market": "KOSPI",
+        "regular_traded_krw": 662558445,
+        "closing_traded_krw": 0,
+        "traded_krw": 662558445,
+        "traded_shares": 41268
+      },
+      "000100": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3901544500,
+        "closing_traded_krw": 2209800,
+        "traded_krw": 3903754300,
+        "traded_shares": 51138
+      },
+      "000120": {
+        "market": "KOSPI",
+        "regular_traded_krw": 433226550,
+        "closing_traded_krw": 0,
+        "traded_krw": 433226550,
+        "traded_shares": 6489
+      },
+      "000150": {
+        "market": "KOSPI",
+        "regular_traded_krw": 20538226000,
+        "closing_traded_krw": 0,
+        "traded_krw": 20538226000,
+        "traded_shares": 23094
+      },
+      "000210": {
+        "market": "KOSPI",
+        "regular_traded_krw": 251465250,
+        "closing_traded_krw": 0,
+        "traded_krw": 251465250,
+        "traded_shares": 6165
+      },
+      "000240": {
+        "market": "KOSPI",
+        "regular_traded_krw": 88601350,
+        "closing_traded_krw": 0,
+        "traded_krw": 88601350,
+        "traded_shares": 3810
+      },
+      "000250": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 16413106000,
+        "closing_traded_krw": 0,
+        "traded_krw": 16413106000,
+        "traded_shares": 89240
+      },
+      "000270": {
+        "market": "KOSPI",
+        "regular_traded_krw": 48595250750,
+        "closing_traded_krw": 765600,
+        "traded_krw": 48596016350,
+        "traded_shares": 517405
+      },
+      "000320": {
+        "market": "KOSPI",
+        "regular_traded_krw": 18250060,
+        "closing_traded_krw": 0,
+        "traded_krw": 18250060,
+        "traded_shares": 1309
+      },
+      "000500": {
+        "market": "KOSPI",
+        "regular_traded_krw": 25731083750,
+        "closing_traded_krw": 242000,
+        "traded_krw": 25731325750,
+        "traded_shares": 109978
+      },
+      "000640": {
+        "market": "KOSPI",
+        "regular_traded_krw": 98106400,
+        "closing_traded_krw": 0,
+        "traded_krw": 98106400,
+        "traded_shares": 1127
+      },
+      "000660": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2346255859000,
+        "closing_traded_krw": 381248000,
+        "traded_krw": 2346637107000,
+        "traded_shares": 1637004
+      },
+      "000670": {
+        "market": "KOSPI",
+        "regular_traded_krw": 157028700,
+        "closing_traded_krw": 0,
+        "traded_krw": 157028700,
+        "traded_shares": 5059
+      },
+      "000720": {
+        "market": "KOSPI",
+        "regular_traded_krw": 19800666400,
+        "closing_traded_krw": 538200,
+        "traded_krw": 19801204600,
+        "traded_shares": 228319
+      },
+      "000810": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2457176000,
+        "closing_traded_krw": 0,
+        "traded_krw": 2457176000,
+        "traded_shares": 3770
+      },
+      "000880": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1301145700,
+        "closing_traded_krw": 0,
+        "traded_krw": 1301145700,
+        "traded_shares": 14293
+      },
+      "0008Z0": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 187448340,
+        "closing_traded_krw": 0,
+        "traded_krw": 187448340,
+        "traded_shares": 9692
+      },
+      "000990": {
+        "market": "KOSPI",
+        "regular_traded_krw": 16224944750,
+        "closing_traded_krw": 0,
+        "traded_krw": 16224944750,
+        "traded_shares": 173858
+      },
+      "0009K0": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 970589930,
+        "closing_traded_krw": 0,
+        "traded_krw": 970589930,
+        "traded_shares": 51333
+      },
+      "001040": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1188887200,
+        "closing_traded_krw": 0,
+        "traded_krw": 1188887200,
+        "traded_shares": 10583
+      },
+      "001060": {
+        "market": "KOSPI",
+        "regular_traded_krw": 349884500,
+        "closing_traded_krw": 0,
+        "traded_krw": 349884500,
+        "traded_shares": 15319
+      },
+      "001120": {
+        "market": "KOSPI",
+        "regular_traded_krw": 446303050,
+        "closing_traded_krw": 0,
+        "traded_krw": 446303050,
+        "traded_shares": 10973
+      },
+      "001130": {
+        "market": "KOSPI",
+        "regular_traded_krw": 13789690,
+        "closing_traded_krw": 0,
+        "traded_krw": 13789690,
+        "traded_shares": 1289
+      },
+      "001270": {
+        "market": "KOSPI",
+        "regular_traded_krw": 21394900,
+        "closing_traded_krw": 0,
+        "traded_krw": 21394900,
+        "traded_shares": 526
+      },
+      "001430": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1254893500,
+        "closing_traded_krw": 0,
+        "traded_krw": 1254893500,
+        "traded_shares": 42473
+      },
+      "001450": {
+        "market": "KOSPI",
+        "regular_traded_krw": 955974750,
+        "closing_traded_krw": 0,
+        "traded_krw": 955974750,
+        "traded_shares": 22241
+      },
+      "001460": {
+        "market": "KOSPI",
+        "regular_traded_krw": 14416050,
+        "closing_traded_krw": 0,
+        "traded_krw": 14416050,
+        "traded_shares": 419
+      },
+      "001500": {
+        "market": "KOSPI",
+        "regular_traded_krw": 180040265,
+        "closing_traded_krw": 0,
+        "traded_krw": 180040265,
+        "traded_shares": 25261
+      },
+      "001530": {
+        "market": "KOSPI",
+        "regular_traded_krw": 98206650,
+        "closing_traded_krw": 0,
+        "traded_krw": 98206650,
+        "traded_shares": 4139
+      },
+      "001630": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9119550,
+        "closing_traded_krw": 0,
+        "traded_krw": 9119550,
+        "traded_shares": 255
+      },
+      "001680": {
+        "market": "KOSPI",
+        "regular_traded_krw": 441017970,
+        "closing_traded_krw": 0,
+        "traded_krw": 441017970,
+        "traded_shares": 25996
+      },
+      "001720": {
+        "market": "KOSPI",
+        "regular_traded_krw": 86858800,
+        "closing_traded_krw": 0,
+        "traded_krw": 86858800,
+        "traded_shares": 726
+      },
+      "001750": {
+        "market": "KOSPI",
+        "regular_traded_krw": 49292910,
+        "closing_traded_krw": 0,
+        "traded_krw": 49292910,
+        "traded_shares": 2637
+      },
+      "001800": {
+        "market": "KOSPI",
+        "regular_traded_krw": 303424250,
+        "closing_traded_krw": 0,
+        "traded_krw": 303424250,
+        "traded_shares": 12968
+      },
+      "001940": {
+        "market": "KOSPI",
+        "regular_traded_krw": 559594225,
+        "closing_traded_krw": 113200,
+        "traded_krw": 559707425,
+        "traded_shares": 19819
+      },
+      "002020": {
+        "market": "KOSPI",
+        "regular_traded_krw": 231975250,
+        "closing_traded_krw": 0,
+        "traded_krw": 231975250,
+        "traded_shares": 11588
+      },
+      "002030": {
+        "market": "KOSPI",
+        "regular_traded_krw": 23575300,
+        "closing_traded_krw": 0,
+        "traded_krw": 23575300,
+        "traded_shares": 125
+      },
+      "002240": {
+        "market": "KOSPI",
+        "regular_traded_krw": 231093230,
+        "closing_traded_krw": 0,
+        "traded_krw": 231093230,
+        "traded_shares": 15672
+      },
+      "002320": {
+        "market": "KOSPI",
+        "regular_traded_krw": 101069490,
+        "closing_traded_krw": 0,
+        "traded_krw": 101069490,
+        "traded_shares": 5991
+      },
+      "002380": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1134207000,
+        "closing_traded_krw": 0,
+        "traded_krw": 1134207000,
+        "traded_shares": 2860
+      },
+      "002710": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1071795475,
+        "closing_traded_krw": 207600,
+        "traded_krw": 1072003075,
+        "traded_shares": 104641
+      },
+      "002790": {
+        "market": "KOSPI",
+        "regular_traded_krw": 727091600,
+        "closing_traded_krw": 0,
+        "traded_krw": 727091600,
+        "traded_shares": 27889
+      },
+      "002810": {
+        "market": "KOSPI",
+        "regular_traded_krw": 66742900,
+        "closing_traded_krw": 0,
+        "traded_krw": 66742900,
+        "traded_shares": 3321
+      },
+      "002840": {
+        "market": "KOSPI",
+        "regular_traded_krw": 47750200,
+        "closing_traded_krw": 0,
+        "traded_krw": 47750200,
+        "traded_shares": 350
+      },
+      "002960": {
+        "market": "KOSPI",
+        "regular_traded_krw": 211748000,
+        "closing_traded_krw": 0,
+        "traded_krw": 211748000,
+        "traded_shares": 404
+      },
+      "003030": {
+        "market": "KOSPI",
+        "regular_traded_krw": 316511900,
+        "closing_traded_krw": 0,
+        "traded_krw": 316511900,
+        "traded_shares": 3199
+      },
+      "003090": {
+        "market": "KOSPI",
+        "regular_traded_krw": 425966620,
+        "closing_traded_krw": 0,
+        "traded_krw": 425966620,
+        "traded_shares": 27647
+      },
+      "003120": {
+        "market": "KOSPI",
+        "regular_traded_krw": 89833900,
+        "closing_traded_krw": 0,
+        "traded_krw": 89833900,
+        "traded_shares": 4376
+      },
+      "003160": {
+        "market": "KOSPI",
+        "regular_traded_krw": 39178876300,
+        "closing_traded_krw": 0,
+        "traded_krw": 39178876300,
+        "traded_shares": 970755
+      },
+      "003200": {
+        "market": "KOSPI",
+        "regular_traded_krw": 129815360,
+        "closing_traded_krw": 0,
+        "traded_krw": 129815360,
+        "traded_shares": 12280
+      },
+      "003220": {
+        "market": "KOSPI",
+        "regular_traded_krw": 10513276555,
+        "closing_traded_krw": 0,
+        "traded_krw": 10513276555,
+        "traded_shares": 1179355
+      },
+      "003230": {
+        "market": "KOSPI",
+        "regular_traded_krw": 13173275000,
+        "closing_traded_krw": 0,
+        "traded_krw": 13173275000,
+        "traded_shares": 11210
+      },
+      "003240": {
+        "market": "KOSPI",
+        "regular_traded_krw": 250214000,
+        "closing_traded_krw": 0,
+        "traded_krw": 250214000,
+        "traded_shares": 296
+      },
+      "003300": {
+        "market": "KOSPI",
+        "regular_traded_krw": 20350900,
+        "closing_traded_krw": 0,
+        "traded_krw": 20350900,
+        "traded_shares": 1196
+      },
+      "003540": {
+        "market": "KOSPI",
+        "regular_traded_krw": 152752050,
+        "closing_traded_krw": 0,
+        "traded_krw": 152752050,
+        "traded_shares": 6789
+      },
+      "003550": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1858516750,
+        "closing_traded_krw": 0,
+        "traded_krw": 1858516750,
+        "traded_shares": 19253
+      },
+      "003570": {
+        "market": "KOSPI",
+        "regular_traded_krw": 471218425,
+        "closing_traded_krw": 0,
+        "traded_krw": 471218425,
+        "traded_shares": 19080
+      },
+      "003670": {
+        "market": "KOSPI",
+        "regular_traded_krw": 31228120850,
+        "closing_traded_krw": 506700,
+        "traded_krw": 31228627550,
+        "traded_shares": 189144
+      },
+      "003690": {
+        "market": "KOSPI",
+        "regular_traded_krw": 235864970,
+        "closing_traded_krw": 0,
+        "traded_krw": 235864970,
+        "traded_shares": 17152
+      },
+      "003850": {
+        "market": "KOSPI",
+        "regular_traded_krw": 203329520,
+        "closing_traded_krw": 0,
+        "traded_krw": 203329520,
+        "traded_shares": 24473
+      },
+      "003920": {
+        "market": "KOSPI",
+        "regular_traded_krw": 11111300,
+        "closing_traded_krw": 0,
+        "traded_krw": 11111300,
+        "traded_shares": 269
+      },
+      "003960": {
+        "market": "KOSPI",
+        "regular_traded_krw": 17180050,
+        "closing_traded_krw": 0,
+        "traded_krw": 17180050,
+        "traded_shares": 701
+      },
+      "004000": {
+        "market": "KOSPI",
+        "regular_traded_krw": 332513200,
+        "closing_traded_krw": 0,
+        "traded_krw": 332513200,
+        "traded_shares": 9482
+      },
+      "004020": {
+        "market": "KOSPI",
+        "regular_traded_krw": 13357725200,
+        "closing_traded_krw": 144250,
+        "traded_krw": 13357869450,
+        "traded_shares": 468996
+      },
+      "004170": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1979992000,
+        "closing_traded_krw": 0,
+        "traded_krw": 1979992000,
+        "traded_shares": 7833
+      },
+      "004360": {
+        "market": "KOSPI",
+        "regular_traded_krw": 141131805,
+        "closing_traded_krw": 0,
+        "traded_krw": 141131805,
+        "traded_shares": 11126
+      },
+      "004370": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1216302000,
+        "closing_traded_krw": 0,
+        "traded_krw": 1216302000,
+        "traded_shares": 3046
+      },
+      "004490": {
+        "market": "KOSPI",
+        "regular_traded_krw": 802412100,
+        "closing_traded_krw": 0,
+        "traded_krw": 802412100,
+        "traded_shares": 14796
+      },
+      "004690": {
+        "market": "KOSPI",
+        "regular_traded_krw": 224332100,
+        "closing_traded_krw": 0,
+        "traded_krw": 224332100,
+        "traded_shares": 1897
+      },
+      "004700": {
+        "market": "KOSPI",
+        "regular_traded_krw": 451900,
+        "closing_traded_krw": 0,
+        "traded_krw": 451900,
+        "traded_shares": 7
+      },
+      "004800": {
+        "market": "KOSPI",
+        "regular_traded_krw": 542531200,
+        "closing_traded_krw": 0,
+        "traded_krw": 542531200,
+        "traded_shares": 4429
+      },
+      "004980": {
+        "market": "KOSPI",
+        "regular_traded_krw": 86080690,
+        "closing_traded_krw": 0,
+        "traded_krw": 86080690,
+        "traded_shares": 11800
+      },
+      "004990": {
+        "market": "KOSPI",
+        "regular_traded_krw": 700848700,
+        "closing_traded_krw": 0,
+        "traded_krw": 700848700,
+        "traded_shares": 31892
+      },
+      "005070": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1694263475,
+        "closing_traded_krw": 0,
+        "traded_krw": 1694263475,
+        "traded_shares": 45280
+      },
+      "005090": {
+        "market": "KOSPI",
+        "regular_traded_krw": 409154150,
+        "closing_traded_krw": 0,
+        "traded_krw": 409154150,
+        "traded_shares": 13208
+      },
+      "005180": {
+        "market": "KOSPI",
+        "regular_traded_krw": 839840900,
+        "closing_traded_krw": 0,
+        "traded_krw": 839840900,
+        "traded_shares": 10576
+      },
+      "005250": {
+        "market": "KOSPI",
+        "regular_traded_krw": 147151480,
+        "closing_traded_krw": 0,
+        "traded_krw": 147151480,
+        "traded_shares": 15923
+      },
+      "005290": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4869220475,
+        "closing_traded_krw": 0,
+        "traded_krw": 4869220475,
+        "traded_shares": 126011
+      },
+      "005300": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1098156450,
+        "closing_traded_krw": 0,
+        "traded_krw": 1098156450,
+        "traded_shares": 10648
+      },
+      "005380": {
+        "market": "KOSPI",
+        "regular_traded_krw": 67417969000,
+        "closing_traded_krw": 0,
+        "traded_krw": 67417969000,
+        "traded_shares": 238927
+      },
+      "005420": {
+        "market": "KOSPI",
+        "regular_traded_krw": 339332950,
+        "closing_traded_krw": 0,
+        "traded_krw": 339332950,
+        "traded_shares": 35735
+      },
+      "005440": {
+        "market": "KOSPI",
+        "regular_traded_krw": 270975580,
+        "closing_traded_krw": 0,
+        "traded_krw": 270975580,
+        "traded_shares": 23842
+      },
+      "005490": {
+        "market": "KOSPI",
+        "regular_traded_krw": 26377199000,
+        "closing_traded_krw": 0,
+        "traded_krw": 26377199000,
+        "traded_shares": 94177
+      },
+      "005500": {
+        "market": "KOSPI",
+        "regular_traded_krw": 164289130,
+        "closing_traded_krw": 0,
+        "traded_krw": 164289130,
+        "traded_shares": 8512
+      },
+      "005610": {
+        "market": "KOSPI",
+        "regular_traded_krw": 10927900,
+        "closing_traded_krw": 0,
+        "traded_krw": 10927900,
+        "traded_shares": 282
+      },
+      "005710": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 19504800,
+        "closing_traded_krw": 0,
+        "traded_krw": 19504800,
+        "traded_shares": 1926
+      },
+      "005810": {
+        "market": "KOSPI",
+        "regular_traded_krw": 128422400,
+        "closing_traded_krw": 0,
+        "traded_krw": 128422400,
+        "traded_shares": 3804
+      },
+      "005830": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3067529850,
+        "closing_traded_krw": 0,
+        "traded_krw": 3067529850,
+        "traded_shares": 17236
+      },
+      "005850": {
+        "market": "KOSPI",
+        "regular_traded_krw": 340386700,
+        "closing_traded_krw": 0,
+        "traded_krw": 340386700,
+        "traded_shares": 7089
+      },
+      "005930": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2166187637000,
+        "closing_traded_krw": 133507000,
+        "traded_krw": 2166321144000,
+        "traded_shares": 9669990
+      },
+      "005940": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1787037550,
+        "closing_traded_krw": 0,
+        "traded_krw": 1787037550,
+        "traded_shares": 74477
+      },
+      "006040": {
+        "market": "KOSPI",
+        "regular_traded_krw": 98577900,
+        "closing_traded_krw": 0,
+        "traded_krw": 98577900,
+        "traded_shares": 2854
+      },
+      "006110": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9066067750,
+        "closing_traded_krw": 0,
+        "traded_krw": 9066067750,
+        "traded_shares": 161261
+      },
+      "006120": {
+        "market": "KOSPI",
+        "regular_traded_krw": 663292050,
+        "closing_traded_krw": 0,
+        "traded_krw": 663292050,
+        "traded_shares": 10791
+      },
+      "006260": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9302687100,
+        "closing_traded_krw": 0,
+        "traded_krw": 9302687100,
+        "traded_shares": 44348
+      },
+      "006280": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1696651200,
+        "closing_traded_krw": 0,
+        "traded_krw": 1696651200,
+        "traded_shares": 12743
+      },
+      "006400": {
+        "market": "KOSPI",
+        "regular_traded_krw": 213235561000,
+        "closing_traded_krw": 1076000,
+        "traded_krw": 213236637000,
+        "traded_shares": 396984
+      },
+      "006650": {
+        "market": "KOSPI",
+        "regular_traded_krw": 600379400,
+        "closing_traded_krw": 0,
+        "traded_krw": 600379400,
+        "traded_shares": 7546
+      },
+      "006800": {
+        "market": "KOSPI",
+        "regular_traded_krw": 10507217200,
+        "closing_traded_krw": 25200,
+        "traded_krw": 10507242400,
+        "traded_shares": 420851
+      },
+      "007070": {
+        "market": "KOSPI",
+        "regular_traded_krw": 551255950,
+        "closing_traded_krw": 0,
+        "traded_krw": 551255950,
+        "traded_shares": 24311
+      },
+      "007160": {
+        "market": "KOSPI",
+        "regular_traded_krw": 23466400,
+        "closing_traded_krw": 0,
+        "traded_krw": 23466400,
+        "traded_shares": 576
+      },
+      "007310": {
+        "market": "KOSPI",
+        "regular_traded_krw": 236402000,
+        "closing_traded_krw": 0,
+        "traded_krw": 236402000,
+        "traded_shares": 744
+      },
+      "007340": {
+        "market": "KOSPI",
+        "regular_traded_krw": 613513725,
+        "closing_traded_krw": 0,
+        "traded_krw": 613513725,
+        "traded_shares": 15369
+      },
+      "007390": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2274221050,
+        "closing_traded_krw": 0,
+        "traded_krw": 2274221050,
+        "traded_shares": 103775
+      },
+      "007660": {
+        "market": "KOSPI",
+        "regular_traded_krw": 21603432300,
+        "closing_traded_krw": 0,
+        "traded_krw": 21603432300,
+        "traded_shares": 254557
+      },
+      "007690": {
+        "market": "KOSPI",
+        "regular_traded_krw": 98632800,
+        "closing_traded_krw": 0,
+        "traded_krw": 98632800,
+        "traded_shares": 3195
+      },
+      "007700": {
+        "market": "KOSPI",
+        "regular_traded_krw": 8982370,
+        "closing_traded_krw": 0,
+        "traded_krw": 8982370,
+        "traded_shares": 684
+      },
+      "007810": {
+        "market": "KOSPI",
+        "regular_traded_krw": 39385104400,
+        "closing_traded_krw": 508200,
+        "traded_krw": 39385612600,
+        "traded_shares": 564393
+      },
+      "008060": {
+        "market": "KOSPI",
+        "regular_traded_krw": 104444455,
+        "closing_traded_krw": 0,
+        "traded_krw": 104444455,
+        "traded_shares": 7460
+      },
+      "008490": {
+        "market": "KOSPI",
+        "regular_traded_krw": 36436945,
+        "closing_traded_krw": 0,
+        "traded_krw": 36436945,
+        "traded_shares": 2048
+      },
+      "008730": {
+        "market": "KOSPI",
+        "regular_traded_krw": 132732330,
+        "closing_traded_krw": 0,
+        "traded_krw": 132732330,
+        "traded_shares": 10911
+      },
+      "008770": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1494584175,
+        "closing_traded_krw": 0,
+        "traded_krw": 1494584175,
+        "traded_shares": 42432
+      },
+      "008930": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3546543350,
+        "closing_traded_krw": 0,
+        "traded_krw": 3546543350,
+        "traded_shares": 81708
+      },
+      "009150": {
+        "market": "KOSPI",
+        "regular_traded_krw": 535757670500,
+        "closing_traded_krw": 3579000,
+        "traded_krw": 535761249500,
+        "traded_shares": 452972
+      },
+      "009240": {
+        "market": "KOSPI",
+        "regular_traded_krw": 271860350,
+        "closing_traded_krw": 0,
+        "traded_krw": 271860350,
+        "traded_shares": 6759
+      },
+      "009420": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1481134900,
+        "closing_traded_krw": 0,
+        "traded_krw": 1481134900,
+        "traded_shares": 39563
+      },
+      "009450": {
+        "market": "KOSPI",
+        "regular_traded_krw": 243835100,
+        "closing_traded_krw": 0,
+        "traded_krw": 243835100,
+        "traded_shares": 4172
+      },
+      "009520": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 495213500,
+        "closing_traded_krw": 0,
+        "traded_krw": 495213500,
+        "traded_shares": 46162
+      },
+      "009540": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9510768000,
+        "closing_traded_krw": 0,
+        "traded_krw": 9510768000,
+        "traded_shares": 38886
+      },
+      "009680": {
+        "market": "KOSPI",
+        "regular_traded_krw": 71976820,
+        "closing_traded_krw": 0,
+        "traded_krw": 71976820,
+        "traded_shares": 7175
+      },
+      "009900": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3077445940,
+        "closing_traded_krw": 0,
+        "traded_krw": 3077445940,
+        "traded_shares": 404650
+      },
+      "009970": {
+        "market": "KOSPI",
+        "regular_traded_krw": 79565300,
+        "closing_traded_krw": 0,
+        "traded_krw": 79565300,
+        "traded_shares": 465
+      },
+      "010060": {
+        "market": "KOSPI",
+        "regular_traded_krw": 39990705300,
+        "closing_traded_krw": 0,
+        "traded_krw": 39990705300,
+        "traded_shares": 225869
+      },
+      "010120": {
+        "market": "KOSPI",
+        "regular_traded_krw": 43606826950,
+        "closing_traded_krw": 3212000,
+        "traded_krw": 43610038950,
+        "traded_shares": 282563
+      },
+      "010130": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3111549500,
+        "closing_traded_krw": 0,
+        "traded_krw": 3111549500,
+        "traded_shares": 3570
+      },
+      "010140": {
+        "market": "KOSPI",
+        "regular_traded_krw": 63170293655,
+        "closing_traded_krw": 0,
+        "traded_krw": 63170293655,
+        "traded_shares": 3763006
+      },
+      "010780": {
+        "market": "KOSPI",
+        "regular_traded_krw": 154266620,
+        "closing_traded_krw": 0,
+        "traded_krw": 154266620,
+        "traded_shares": 11087
+      },
+      "010950": {
+        "market": "KOSPI",
+        "regular_traded_krw": 21176442800,
+        "closing_traded_krw": 0,
+        "traded_krw": 21176442800,
+        "traded_shares": 168420
+      },
+      "011070": {
+        "market": "KOSPI",
+        "regular_traded_krw": 24356966500,
+        "closing_traded_krw": 0,
+        "traded_krw": 24356966500,
+        "traded_shares": 75194
+      },
+      "011170": {
+        "market": "KOSPI",
+        "regular_traded_krw": 990956175,
+        "closing_traded_krw": 0,
+        "traded_krw": 990956175,
+        "traded_shares": 21096
+      },
+      "011200": {
+        "market": "KOSPI",
+        "regular_traded_krw": 15528392725,
+        "closing_traded_krw": 118500,
+        "traded_krw": 15528511225,
+        "traded_shares": 660832
+      },
+      "011210": {
+        "market": "KOSPI",
+        "regular_traded_krw": 645912350,
+        "closing_traded_krw": 0,
+        "traded_krw": 645912350,
+        "traded_shares": 12880
+      },
+      "011760": {
+        "market": "KOSPI",
+        "regular_traded_krw": 91731950,
+        "closing_traded_krw": 0,
+        "traded_krw": 91731950,
+        "traded_shares": 4063
+      },
+      "011780": {
+        "market": "KOSPI",
+        "regular_traded_krw": 419590200,
+        "closing_traded_krw": 0,
+        "traded_krw": 419590200,
+        "traded_shares": 3955
+      },
+      "011790": {
+        "market": "KOSPI",
+        "regular_traded_krw": 6364739750,
+        "closing_traded_krw": 0,
+        "traded_krw": 6364739750,
+        "traded_shares": 88119
+      },
+      "0120G0": {
+        "market": "KOSPI",
+        "regular_traded_krw": 262938700,
+        "closing_traded_krw": 0,
+        "traded_krw": 262938700,
+        "traded_shares": 6768
+      },
+      "012330": {
+        "market": "KOSPI",
+        "regular_traded_krw": 21543701750,
+        "closing_traded_krw": 0,
+        "traded_krw": 21543701750,
+        "traded_shares": 62639
+      },
+      "012450": {
+        "market": "KOSPI",
+        "regular_traded_krw": 38127349500,
+        "closing_traded_krw": 0,
+        "traded_krw": 38127349500,
+        "traded_shares": 52701
+      },
+      "012630": {
+        "market": "KOSPI",
+        "regular_traded_krw": 128717950,
+        "closing_traded_krw": 0,
+        "traded_krw": 128717950,
+        "traded_shares": 5978
+      },
+      "0126Z0": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3010836000,
+        "closing_traded_krw": 0,
+        "traded_krw": 3010836000,
+        "traded_shares": 9713
+      },
+      "012750": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3984353000,
+        "closing_traded_krw": 0,
+        "traded_krw": 3984353000,
+        "traded_shares": 41470
+      },
+      "013030": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 380359400,
+        "closing_traded_krw": 0,
+        "traded_krw": 380359400,
+        "traded_shares": 12048
+      },
+      "013890": {
+        "market": "KOSPI",
+        "regular_traded_krw": 85623690,
+        "closing_traded_krw": 0,
+        "traded_krw": 85623690,
+        "traded_shares": 14512
+      },
+      "014620": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4102792600,
+        "closing_traded_krw": 0,
+        "traded_krw": 4102792600,
+        "traded_shares": 140160
+      },
+      "014680": {
+        "market": "KOSPI",
+        "regular_traded_krw": 500435000,
+        "closing_traded_krw": 0,
+        "traded_krw": 500435000,
+        "traded_shares": 2370
+      },
+      "014820": {
+        "market": "KOSPI",
+        "regular_traded_krw": 242953900,
+        "closing_traded_krw": 0,
+        "traded_krw": 242953900,
+        "traded_shares": 11822
+      },
+      "014830": {
+        "market": "KOSPI",
+        "regular_traded_krw": 89859800,
+        "closing_traded_krw": 0,
+        "traded_krw": 89859800,
+        "traded_shares": 1766
+      },
+      "015360": {
+        "market": "KOSPI",
+        "regular_traded_krw": 15126165,
+        "closing_traded_krw": 0,
+        "traded_krw": 15126165,
+        "traded_shares": 1094
+      },
+      "015750": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 364602335,
+        "closing_traded_krw": 0,
+        "traded_krw": 364602335,
+        "traded_shares": 70123
+      },
+      "015760": {
+        "market": "KOSPI",
+        "regular_traded_krw": 10154677350,
+        "closing_traded_krw": 497250,
+        "traded_krw": 10155174600,
+        "traded_shares": 351763
+      },
+      "016360": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4777899500,
+        "closing_traded_krw": 0,
+        "traded_krw": 4777899500,
+        "traded_shares": 59701
+      },
+      "016590": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4482580,
+        "closing_traded_krw": 0,
+        "traded_krw": 4482580,
+        "traded_shares": 552
+      },
+      "016610": {
+        "market": "KOSPI",
+        "regular_traded_krw": 115395830,
+        "closing_traded_krw": 0,
+        "traded_krw": 115395830,
+        "traded_shares": 11732
+      },
+      "016800": {
+        "market": "KOSPI",
+        "regular_traded_krw": 644350,
+        "closing_traded_krw": 0,
+        "traded_krw": 644350,
+        "traded_shares": 27
+      },
+      "017390": {
+        "market": "KOSPI",
+        "regular_traded_krw": 41711700,
+        "closing_traded_krw": 0,
+        "traded_krw": 41711700,
+        "traded_shares": 803
+      },
+      "017670": {
+        "market": "KOSPI",
+        "regular_traded_krw": 15618232600,
+        "closing_traded_krw": 0,
+        "traded_krw": 15618232600,
+        "traded_shares": 206742
+      },
+      "017800": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1310804550,
+        "closing_traded_krw": 0,
+        "traded_krw": 1310804550,
+        "traded_shares": 19346
+      },
+      "017810": {
+        "market": "KOSPI",
+        "regular_traded_krw": 6052813655,
+        "closing_traded_krw": 2579570,
+        "traded_krw": 6055393225,
+        "traded_shares": 652354
+      },
+      "017940": {
+        "market": "KOSPI",
+        "regular_traded_krw": 75448300,
+        "closing_traded_krw": 0,
+        "traded_krw": 75448300,
+        "traded_shares": 905
+      },
+      "017960": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2346841180,
+        "closing_traded_krw": 0,
+        "traded_krw": 2346841180,
+        "traded_shares": 149803
+      },
+      "018260": {
+        "market": "KOSPI",
+        "regular_traded_krw": 12014743700,
+        "closing_traded_krw": 0,
+        "traded_krw": 12014743700,
+        "traded_shares": 58813
+      },
+      "018290": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 354300675,
+        "closing_traded_krw": 0,
+        "traded_krw": 354300675,
+        "traded_shares": 35057
+      },
+      "018310": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 23790710,
+        "closing_traded_krw": 0,
+        "traded_krw": 23790710,
+        "traded_shares": 1614
+      },
+      "018670": {
+        "market": "KOSPI",
+        "regular_traded_krw": 550846500,
+        "closing_traded_krw": 0,
+        "traded_krw": 550846500,
+        "traded_shares": 2139
+      },
+      "019170": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1223985215,
+        "closing_traded_krw": 0,
+        "traded_krw": 1223985215,
+        "traded_shares": 148178
+      },
+      "020000": {
+        "market": "KOSPI",
+        "regular_traded_krw": 441114665,
+        "closing_traded_krw": 0,
+        "traded_krw": 441114665,
+        "traded_shares": 22899
+      },
+      "020150": {
+        "market": "KOSPI",
+        "regular_traded_krw": 6157837550,
+        "closing_traded_krw": 0,
+        "traded_krw": 6157837550,
+        "traded_shares": 149561
+      },
+      "020560": {
+        "market": "KOSPI",
+        "regular_traded_krw": 288437410,
+        "closing_traded_krw": 0,
+        "traded_krw": 288437410,
+        "traded_shares": 38745
+      },
+      "021240": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1372321350,
+        "closing_traded_krw": 0,
+        "traded_krw": 1372321350,
+        "traded_shares": 13081
+      },
+      "022100": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1298290320,
+        "closing_traded_krw": 0,
+        "traded_krw": 1298290320,
+        "traded_shares": 68424
+      },
+      "023160": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 7649277475,
+        "closing_traded_krw": 0,
+        "traded_krw": 7649277475,
+        "traded_shares": 264715
+      },
+      "023530": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2056327050,
+        "closing_traded_krw": 3580000,
+        "traded_krw": 2059907050,
+        "traded_shares": 23813
+      },
+      "023590": {
+        "market": "KOSPI",
+        "regular_traded_krw": 453175375,
+        "closing_traded_krw": 0,
+        "traded_krw": 453175375,
+        "traded_shares": 14329
+      },
+      "024110": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2329418070,
+        "closing_traded_krw": 0,
+        "traded_krw": 2329418070,
+        "traded_shares": 122071
+      },
+      "024720": {
+        "market": "KOSPI",
+        "regular_traded_krw": 127801260,
+        "closing_traded_krw": 0,
+        "traded_krw": 127801260,
+        "traded_shares": 14981
+      },
+      "025320": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 588541500,
+        "closing_traded_krw": 0,
+        "traded_krw": 588541500,
+        "traded_shares": 179880
+      },
+      "025540": {
+        "market": "KOSPI",
+        "regular_traded_krw": 111402150,
+        "closing_traded_krw": 0,
+        "traded_krw": 111402150,
+        "traded_shares": 2201
+      },
+      "025900": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 100970420,
+        "closing_traded_krw": 0,
+        "traded_krw": 100970420,
+        "traded_shares": 18418
+      },
+      "026890": {
+        "market": "KOSPI",
+        "regular_traded_krw": 146771290,
+        "closing_traded_krw": 0,
+        "traded_krw": 146771290,
+        "traded_shares": 19130
+      },
+      "026960": {
+        "market": "KOSPI",
+        "regular_traded_krw": 468165700,
+        "closing_traded_krw": 0,
+        "traded_krw": 468165700,
+        "traded_shares": 16767
+      },
+      "028260": {
+        "market": "KOSPI",
+        "regular_traded_krw": 10870939750,
+        "closing_traded_krw": 0,
+        "traded_krw": 10870939750,
+        "traded_shares": 34934
+      },
+      "028300": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 42784459900,
+        "closing_traded_krw": 0,
+        "traded_krw": 42784459900,
+        "traded_shares": 1026404
+      },
+      "029460": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1012861975,
+        "closing_traded_krw": 0,
+        "traded_krw": 1012861975,
+        "traded_shares": 26663
+      },
+      "029530": {
+        "market": "KOSPI",
+        "regular_traded_krw": 18318400,
+        "closing_traded_krw": 0,
+        "traded_krw": 18318400,
+        "traded_shares": 509
+      },
+      "029780": {
+        "market": "KOSPI",
+        "regular_traded_krw": 936592950,
+        "closing_traded_krw": 0,
+        "traded_krw": 936592950,
+        "traded_shares": 22292
+      },
+      "030000": {
+        "market": "KOSPI",
+        "regular_traded_krw": 565887390,
+        "closing_traded_krw": 0,
+        "traded_krw": 565887390,
+        "traded_shares": 30332
+      },
+      "030190": {
+        "market": "KOSPI",
+        "regular_traded_krw": 76586320,
+        "closing_traded_krw": 0,
+        "traded_krw": 76586320,
+        "traded_shares": 4448
+      },
+      "030200": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2237636200,
+        "closing_traded_krw": 0,
+        "traded_krw": 2237636200,
+        "traded_shares": 47766
+      },
+      "030520": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 345513790,
+        "closing_traded_krw": 0,
+        "traded_krw": 345513790,
+        "traded_shares": 22476
+      },
+      "030610": {
+        "market": "KOSPI",
+        "regular_traded_krw": 80838300,
+        "closing_traded_krw": 0,
+        "traded_krw": 80838300,
+        "traded_shares": 10075
+      },
+      "031210": {
+        "market": "KOSPI",
+        "regular_traded_krw": 118249800,
+        "closing_traded_krw": 0,
+        "traded_krw": 118249800,
+        "traded_shares": 2762
+      },
+      "031430": {
+        "market": "KOSPI",
+        "regular_traded_krw": 217510490,
+        "closing_traded_krw": 0,
+        "traded_krw": 217510490,
+        "traded_shares": 21419
+      },
+      "031980": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 12678841050,
+        "closing_traded_krw": 0,
+        "traded_krw": 12678841050,
+        "traded_shares": 70223
+      },
+      "032190": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 177269160,
+        "closing_traded_krw": 0,
+        "traded_krw": 177269160,
+        "traded_shares": 10746
+      },
+      "032350": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1474624510,
+        "closing_traded_krw": 0,
+        "traded_krw": 1474624510,
+        "traded_shares": 139843
+      },
+      "032500": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 954229815,
+        "closing_traded_krw": 0,
+        "traded_krw": 954229815,
+        "traded_shares": 54767
+      },
+      "032640": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1373654805,
+        "closing_traded_krw": 0,
+        "traded_krw": 1373654805,
+        "traded_shares": 94403
+      },
+      "032830": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4115049250,
+        "closing_traded_krw": 0,
+        "traded_krw": 4115049250,
+        "traded_shares": 15310
+      },
+      "033100": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1435633200,
+        "closing_traded_krw": 0,
+        "traded_krw": 1435633200,
+        "traded_shares": 38402
+      },
+      "033240": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1147542130,
+        "closing_traded_krw": 0,
+        "traded_krw": 1147542130,
+        "traded_shares": 62361
+      },
+      "033270": {
+        "market": "KOSPI",
+        "regular_traded_krw": 433276440,
+        "closing_traded_krw": 0,
+        "traded_krw": 433276440,
+        "traded_shares": 26772
+      },
+      "033500": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 666319790,
+        "closing_traded_krw": 0,
+        "traded_krw": 666319790,
+        "traded_shares": 52968
+      },
+      "033640": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2117637950,
+        "closing_traded_krw": 0,
+        "traded_krw": 2117637950,
+        "traded_shares": 92217
+      },
+      "033780": {
+        "market": "KOSPI",
+        "regular_traded_krw": 5024506400,
+        "closing_traded_krw": 0,
+        "traded_krw": 5024506400,
+        "traded_shares": 25649
+      },
+      "034020": {
+        "market": "KOSPI",
+        "regular_traded_krw": 129201815950,
+        "closing_traded_krw": 2785000,
+        "traded_krw": 129204600950,
+        "traded_shares": 2367437
+      },
+      "034120": {
+        "market": "KOSPI",
+        "regular_traded_krw": 39189920,
+        "closing_traded_krw": 0,
+        "traded_krw": 39189920,
+        "traded_shares": 3505
+      },
+      "034230": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1896341935,
+        "closing_traded_krw": 0,
+        "traded_krw": 1896341935,
+        "traded_shares": 194596
+      },
+      "034310": {
+        "market": "KOSPI",
+        "regular_traded_krw": 8113150,
+        "closing_traded_krw": 0,
+        "traded_krw": 8113150,
+        "traded_shares": 716
+      },
+      "034730": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9787742000,
+        "closing_traded_krw": 0,
+        "traded_krw": 9787742000,
+        "traded_shares": 19377
+      },
+      "034950": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 29085650,
+        "closing_traded_krw": 0,
+        "traded_krw": 29085650,
+        "traded_shares": 290
+      },
+      "035150": {
+        "market": "KOSPI",
+        "regular_traded_krw": 20201860,
+        "closing_traded_krw": 0,
+        "traded_krw": 20201860,
+        "traded_shares": 2027
+      },
+      "035250": {
+        "market": "KOSPI",
+        "regular_traded_krw": 874283330,
+        "closing_traded_krw": 0,
+        "traded_krw": 874283330,
+        "traded_shares": 62702
+      },
+      "035420": {
+        "market": "KOSPI",
+        "regular_traded_krw": 42702882200,
+        "closing_traded_krw": 526200,
+        "traded_krw": 42703408400,
+        "traded_shares": 245709
+      },
+      "035600": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 85898970,
+        "closing_traded_krw": 0,
+        "traded_krw": 85898970,
+        "traded_shares": 9082
+      },
+      "035760": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 829191400,
+        "closing_traded_krw": 0,
+        "traded_krw": 829191400,
+        "traded_shares": 19470
+      },
+      "035900": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 8376863500,
+        "closing_traded_krw": 0,
+        "traded_krw": 8376863500,
+        "traded_shares": 223343
+      },
+      "036200": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 725721355,
+        "closing_traded_krw": 0,
+        "traded_krw": 725721355,
+        "traded_shares": 84859
+      },
+      "036460": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1233103550,
+        "closing_traded_krw": 0,
+        "traded_krw": 1233103550,
+        "traded_shares": 33183
+      },
+      "036530": {
+        "market": "KOSPI",
+        "regular_traded_krw": 254120400,
+        "closing_traded_krw": 0,
+        "traded_krw": 254120400,
+        "traded_shares": 5673
+      },
+      "036570": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1819857350,
+        "closing_traded_krw": 0,
+        "traded_krw": 1819857350,
+        "traded_shares": 9141
+      },
+      "036620": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 125479380,
+        "closing_traded_krw": 0,
+        "traded_krw": 125479380,
+        "traded_shares": 35811
+      },
+      "036800": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 85102440,
+        "closing_traded_krw": 0,
+        "traded_krw": 85102440,
+        "traded_shares": 12094
+      },
+      "036810": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1027141100,
+        "closing_traded_krw": 0,
+        "traded_krw": 1027141100,
+        "traded_shares": 40615
+      },
+      "036830": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 323366050,
+        "closing_traded_krw": 0,
+        "traded_krw": 323366050,
+        "traded_shares": 8641
+      },
+      "036890": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 238018910,
+        "closing_traded_krw": 0,
+        "traded_krw": 238018910,
+        "traded_shares": 26522
+      },
+      "037710": {
+        "market": "KOSPI",
+        "regular_traded_krw": 281403900,
+        "closing_traded_krw": 0,
+        "traded_krw": 281403900,
+        "traded_shares": 8067
+      },
+      "039030": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2661528000,
+        "closing_traded_krw": 0,
+        "traded_krw": 2661528000,
+        "traded_shares": 6864
+      },
+      "039130": {
+        "market": "KOSPI",
+        "regular_traded_krw": 241246050,
+        "closing_traded_krw": 0,
+        "traded_krw": 241246050,
+        "traded_shares": 8749
+      },
+      "039200": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1326694675,
+        "closing_traded_krw": 0,
+        "traded_krw": 1326694675,
+        "traded_shares": 37265
+      },
+      "039440": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1940809525,
+        "closing_traded_krw": 0,
+        "traded_krw": 1940809525,
+        "traded_shares": 77627
+      },
+      "039490": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9404155250,
+        "closing_traded_krw": 0,
+        "traded_krw": 9404155250,
+        "traded_shares": 45170
+      },
+      "039840": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 81684850,
+        "closing_traded_krw": 0,
+        "traded_krw": 81684850,
+        "traded_shares": 8356
+      },
+      "041510": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 752021000,
+        "closing_traded_krw": 0,
+        "traded_krw": 752021000,
+        "traded_shares": 9907
+      },
+      "041830": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 460475600,
+        "closing_traded_krw": 0,
+        "traded_krw": 460475600,
+        "traded_shares": 10046
+      },
+      "042000": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 640201400,
+        "closing_traded_krw": 0,
+        "traded_krw": 640201400,
+        "traded_shares": 39290
+      },
+      "042520": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 247546850,
+        "closing_traded_krw": 0,
+        "traded_krw": 247546850,
+        "traded_shares": 14496
+      },
+      "042660": {
+        "market": "KOSPI",
+        "regular_traded_krw": 148323849750,
+        "closing_traded_krw": 8289900,
+        "traded_krw": 148332139650,
+        "traded_shares": 2774755
+      },
+      "042700": {
+        "market": "KOSPI",
+        "regular_traded_krw": 51584732600,
+        "closing_traded_krw": 0,
+        "traded_krw": 51584732600,
+        "traded_shares": 278464
+      },
+      "043150": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 57387650,
+        "closing_traded_krw": 0,
+        "traded_krw": 57387650,
+        "traded_shares": 3407
+      },
+      "043370": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 30725680,
+        "closing_traded_krw": 0,
+        "traded_krw": 30725680,
+        "traded_shares": 2603
+      },
+      "044490": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1515225050,
+        "closing_traded_krw": 0,
+        "traded_krw": 1515225050,
+        "traded_shares": 66165
+      },
+      "045100": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 656282200,
+        "closing_traded_krw": 0,
+        "traded_krw": 656282200,
+        "traded_shares": 24826
+      },
+      "046890": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 25576343100,
+        "closing_traded_krw": 0,
+        "traded_krw": 25576343100,
+        "traded_shares": 2318045
+      },
+      "047050": {
+        "market": "KOSPI",
+        "regular_traded_krw": 8108531150,
+        "closing_traded_krw": 0,
+        "traded_krw": 8108531150,
+        "traded_shares": 160853
+      },
+      "047810": {
+        "market": "KOSPI",
+        "regular_traded_krw": 6223192050,
+        "closing_traded_krw": 0,
+        "traded_krw": 6223192050,
+        "traded_shares": 63580
+      },
+      "047920": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 33030762715,
+        "closing_traded_krw": 109600,
+        "traded_krw": 33030872315,
+        "traded_shares": 3075236
+      },
+      "049070": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 216394360,
+        "closing_traded_krw": 0,
+        "traded_krw": 216394360,
+        "traded_shares": 13811
+      },
+      "051360": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 48404290,
+        "closing_traded_krw": 0,
+        "traded_krw": 48404290,
+        "traded_shares": 4420
+      },
+      "051500": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 10739075,
+        "closing_traded_krw": 0,
+        "traded_krw": 10739075,
+        "traded_shares": 524
+      },
+      "051600": {
+        "market": "KOSPI",
+        "regular_traded_krw": 770763050,
+        "closing_traded_krw": 0,
+        "traded_krw": 770763050,
+        "traded_shares": 18776
+      },
+      "051900": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1503533750,
+        "closing_traded_krw": 0,
+        "traded_krw": 1503533750,
+        "traded_shares": 5739
+      },
+      "051910": {
+        "market": "KOSPI",
+        "regular_traded_krw": 7979180000,
+        "closing_traded_krw": 0,
+        "traded_krw": 7979180000,
+        "traded_shares": 33451
+      },
+      "052400": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 479975340,
+        "closing_traded_krw": 0,
+        "traded_krw": 479975340,
+        "traded_shares": 23963
+      },
+      "052690": {
+        "market": "KOSPI",
+        "regular_traded_krw": 5550535750,
+        "closing_traded_krw": 0,
+        "traded_krw": 5550535750,
+        "traded_shares": 63451
+      },
+      "053030": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 157854830,
+        "closing_traded_krw": 0,
+        "traded_krw": 157854830,
+        "traded_shares": 26380
+      },
+      "053610": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 404948000,
+        "closing_traded_krw": 0,
+        "traded_krw": 404948000,
+        "traded_shares": 6675
+      },
+      "053800": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 134005338150,
+        "closing_traded_krw": 0,
+        "traded_krw": 134005338150,
+        "traded_shares": 1107314
+      },
+      "054950": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 202404925,
+        "closing_traded_krw": 0,
+        "traded_krw": 202404925,
+        "traded_shares": 8622
+      },
+      "055550": {
+        "market": "KOSPI",
+        "regular_traded_krw": 8414441650,
+        "closing_traded_krw": 0,
+        "traded_krw": 8414441650,
+        "traded_shares": 96172
+      },
+      "056190": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 548203675,
+        "closing_traded_krw": 0,
+        "traded_krw": 548203675,
+        "traded_shares": 21678
+      },
+      "058470": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 10115317350,
+        "closing_traded_krw": 0,
+        "traded_krw": 10115317350,
+        "traded_shares": 180398
+      },
+      "058610": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 8413635550,
+        "closing_traded_krw": 0,
+        "traded_krw": 8413635550,
+        "traded_shares": 101056
+      },
+      "058970": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 55295220,
+        "closing_traded_krw": 0,
+        "traded_krw": 55295220,
+        "traded_shares": 4159
+      },
+      "059090": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 5281616025,
+        "closing_traded_krw": 0,
+        "traded_krw": 5281616025,
+        "traded_shares": 230525
+      },
+      "060370": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 764528225,
+        "closing_traded_krw": 0,
+        "traded_krw": 764528225,
+        "traded_shares": 29643
+      },
+      "060980": {
+        "market": "KOSPI",
+        "regular_traded_krw": 51850500,
+        "closing_traded_krw": 0,
+        "traded_krw": 51850500,
+        "traded_shares": 1495
+      },
+      "061090": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 176367550,
+        "closing_traded_krw": 0,
+        "traded_krw": 176367550,
+        "traded_shares": 6248
+      },
+      "062040": {
+        "market": "KOSPI",
+        "regular_traded_krw": 18654667800,
+        "closing_traded_krw": 0,
+        "traded_krw": 18654667800,
+        "traded_shares": 123607
+      },
+      "064350": {
+        "market": "KOSPI",
+        "regular_traded_krw": 6781847100,
+        "closing_traded_krw": 709200,
+        "traded_krw": 6782556300,
+        "traded_shares": 87283
+      },
+      "064550": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 384759770,
+        "closing_traded_krw": 0,
+        "traded_krw": 384759770,
+        "traded_shares": 56643
+      },
+      "064760": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2457913500,
+        "closing_traded_krw": 0,
+        "traded_krw": 2457913500,
+        "traded_shares": 12929
+      },
+      "064820": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 535949270,
+        "closing_traded_krw": 0,
+        "traded_krw": 535949270,
+        "traded_shares": 83577
+      },
+      "064960": {
+        "market": "KOSPI",
+        "regular_traded_krw": 599588925,
+        "closing_traded_krw": 0,
+        "traded_krw": 599588925,
+        "traded_shares": 25710
+      },
+      "065350": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1773336750,
+        "closing_traded_krw": 0,
+        "traded_krw": 1773336750,
+        "traded_shares": 61823
+      },
+      "065660": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 52471360,
+        "closing_traded_krw": 67800,
+        "traded_krw": 52539160,
+        "traded_shares": 3999
+      },
+      "065680": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 26064650,
+        "closing_traded_krw": 0,
+        "traded_krw": 26064650,
+        "traded_shares": 1602
+      },
+      "066570": {
+        "market": "KOSPI",
+        "regular_traded_krw": 34657072950,
+        "closing_traded_krw": 0,
+        "traded_krw": 34657072950,
+        "traded_shares": 230045
+      },
+      "066970": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9555123850,
+        "closing_traded_krw": 0,
+        "traded_krw": 9555123850,
+        "traded_shares": 115123
+      },
+      "067080": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 175806100,
+        "closing_traded_krw": 0,
+        "traded_krw": 175806100,
+        "traded_shares": 19214
+      },
+      "067160": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1996082250,
+        "closing_traded_krw": 0,
+        "traded_krw": 1996082250,
+        "traded_shares": 61554
+      },
+      "068270": {
+        "market": "KOSPI",
+        "regular_traded_krw": 22055848400,
+        "closing_traded_krw": 0,
+        "traded_krw": 22055848400,
+        "traded_shares": 114680
+      },
+      "068760": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 475612475,
+        "closing_traded_krw": 0,
+        "traded_krw": 475612475,
+        "traded_shares": 12968
+      },
+      "069080": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 50454070,
+        "closing_traded_krw": 0,
+        "traded_krw": 50454070,
+        "traded_shares": 4270
+      },
+      "069260": {
+        "market": "KOSPI",
+        "regular_traded_krw": 71421320,
+        "closing_traded_krw": 0,
+        "traded_krw": 71421320,
+        "traded_shares": 4708
+      },
+      "069620": {
+        "market": "KOSPI",
+        "regular_traded_krw": 315056900,
+        "closing_traded_krw": 0,
+        "traded_krw": 315056900,
+        "traded_shares": 3092
+      },
+      "069960": {
+        "market": "KOSPI",
+        "regular_traded_krw": 945627750,
+        "closing_traded_krw": 0,
+        "traded_krw": 945627750,
+        "traded_shares": 12269
+      },
+      "071050": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2010380000,
+        "closing_traded_krw": 0,
+        "traded_krw": 2010380000,
+        "traded_shares": 13371
+      },
+      "071320": {
+        "market": "KOSPI",
+        "regular_traded_krw": 455569000,
+        "closing_traded_krw": 0,
+        "traded_krw": 455569000,
+        "traded_shares": 6432
+      },
+      "071970": {
+        "market": "KOSPI",
+        "regular_traded_krw": 13824362675,
+        "closing_traded_krw": 41500,
+        "traded_krw": 13824404175,
+        "traded_shares": 346400
+      },
+      "072710": {
+        "market": "KOSPI",
+        "regular_traded_krw": 96937800,
+        "closing_traded_krw": 0,
+        "traded_krw": 96937800,
+        "traded_shares": 1131
+      },
+      "073240": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2999258110,
+        "closing_traded_krw": 0,
+        "traded_krw": 2999258110,
+        "traded_shares": 579144
+      },
+      "074600": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1328118700,
+        "closing_traded_krw": 0,
+        "traded_krw": 1328118700,
+        "traded_shares": 50557
+      },
+      "075580": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2912092430,
+        "closing_traded_krw": 0,
+        "traded_krw": 2912092430,
+        "traded_shares": 395455
+      },
+      "077970": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2902021380,
+        "closing_traded_krw": 0,
+        "traded_krw": 2902021380,
+        "traded_shares": 180515
+      },
+      "078160": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 167551300,
+        "closing_traded_krw": 0,
+        "traded_krw": 167551300,
+        "traded_shares": 20219
+      },
+      "078340": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 170436500,
+        "closing_traded_krw": 0,
+        "traded_krw": 170436500,
+        "traded_shares": 5478
+      },
+      "078350": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 7496752075,
+        "closing_traded_krw": 0,
+        "traded_krw": 7496752075,
+        "traded_shares": 217571
+      },
+      "078520": {
+        "market": "KOSPI",
+        "regular_traded_krw": 168651850,
+        "closing_traded_krw": 0,
+        "traded_krw": 168651850,
+        "traded_shares": 17476
+      },
+      "078600": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 8097333250,
+        "closing_traded_krw": 0,
+        "traded_krw": 8097333250,
+        "traded_shares": 90655
+      },
+      "078930": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1836095600,
+        "closing_traded_krw": 0,
+        "traded_krw": 1836095600,
+        "traded_shares": 22487
+      },
+      "079550": {
+        "market": "KOSPI",
+        "regular_traded_krw": 17081031000,
+        "closing_traded_krw": 0,
+        "traded_krw": 17081031000,
+        "traded_shares": 40878
+      },
+      "079900": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1811927875,
+        "closing_traded_krw": 0,
+        "traded_krw": 1811927875,
+        "traded_shares": 49423
+      },
+      "079940": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 312021600,
+        "closing_traded_krw": 0,
+        "traded_krw": 312021600,
+        "traded_shares": 6293
+      },
+      "081660": {
+        "market": "KOSPI",
+        "regular_traded_krw": 187977675,
+        "closing_traded_krw": 0,
+        "traded_krw": 187977675,
+        "traded_shares": 4970
+      },
+      "082270": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 445315880,
+        "closing_traded_krw": 0,
+        "traded_krw": 445315880,
+        "traded_shares": 51925
+      },
+      "082740": {
+        "market": "KOSPI",
+        "regular_traded_krw": 24142163325,
+        "closing_traded_krw": 0,
+        "traded_krw": 24142163325,
+        "traded_shares": 771322
+      },
+      "082920": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2517833900,
+        "closing_traded_krw": 0,
+        "traded_krw": 2517833900,
+        "traded_shares": 101622
+      },
+      "083450": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2610914425,
+        "closing_traded_krw": 0,
+        "traded_krw": 2610914425,
+        "traded_shares": 61709
+      },
+      "083650": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4039736850,
+        "closing_traded_krw": 431500,
+        "traded_krw": 4040168350,
+        "traded_shares": 96846
+      },
+      "084010": {
+        "market": "KOSPI",
+        "regular_traded_krw": 5769708900,
+        "closing_traded_krw": 0,
+        "traded_krw": 5769708900,
+        "traded_shares": 643998
+      },
+      "084110": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 146173250,
+        "closing_traded_krw": 0,
+        "traded_krw": 146173250,
+        "traded_shares": 7198
+      },
+      "084370": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2984888850,
+        "closing_traded_krw": 0,
+        "traded_krw": 2984888850,
+        "traded_shares": 28798
+      },
+      "084690": {
+        "market": "KOSPI",
+        "regular_traded_krw": 111031090,
+        "closing_traded_krw": 0,
+        "traded_krw": 111031090,
+        "traded_shares": 15378
+      },
+      "084850": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 110866905,
+        "closing_traded_krw": 0,
+        "traded_krw": 110866905,
+        "traded_shares": 21529
+      },
+      "085660": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 488283890,
+        "closing_traded_krw": 0,
+        "traded_krw": 488283890,
+        "traded_shares": 72882
+      },
+      "086280": {
+        "market": "KOSPI",
+        "regular_traded_krw": 13787816900,
+        "closing_traded_krw": 0,
+        "traded_krw": 13787816900,
+        "traded_shares": 69513
+      },
+      "086390": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 605646940,
+        "closing_traded_krw": 0,
+        "traded_krw": 605646940,
+        "traded_shares": 57038
+      },
+      "086450": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 3569286100,
+        "closing_traded_krw": 0,
+        "traded_krw": 3569286100,
+        "traded_shares": 151971
+      },
+      "086520": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 22904362000,
+        "closing_traded_krw": 147600,
+        "traded_krw": 22904509600,
+        "traded_shares": 315509
+      },
+      "086790": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4455601850,
+        "closing_traded_krw": 235400,
+        "traded_krw": 4455837250,
+        "traded_shares": 37620
+      },
+      "086900": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 347937700,
+        "closing_traded_krw": 0,
+        "traded_krw": 347937700,
+        "traded_shares": 5484
+      },
+      "087010": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 6792118350,
+        "closing_traded_krw": 0,
+        "traded_krw": 6792118350,
+        "traded_shares": 72392
+      },
+      "089010": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 786922955,
+        "closing_traded_krw": 0,
+        "traded_krw": 786922955,
+        "traded_shares": 38493
+      },
+      "089860": {
+        "market": "KOSPI",
+        "regular_traded_krw": 3260510450,
+        "closing_traded_krw": 0,
+        "traded_krw": 3260510450,
+        "traded_shares": 64039
+      },
+      "089890": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4836582700,
+        "closing_traded_krw": 0,
+        "traded_krw": 4836582700,
+        "traded_shares": 146664
+      },
+      "089970": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 6676384050,
+        "closing_traded_krw": 0,
+        "traded_krw": 6676384050,
+        "traded_shares": 162051
+      },
+      "089980": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 70810300,
+        "closing_traded_krw": 0,
+        "traded_krw": 70810300,
+        "traded_shares": 5394
+      },
+      "090360": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1714070550,
+        "closing_traded_krw": 0,
+        "traded_krw": 1714070550,
+        "traded_shares": 29735
+      },
+      "090430": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4956285750,
+        "closing_traded_krw": 0,
+        "traded_krw": 4956285750,
+        "traded_shares": 37535
+      },
+      "090460": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2926491065,
+        "closing_traded_krw": 0,
+        "traded_krw": 2926491065,
+        "traded_shares": 181730
+      },
+      "092230": {
+        "market": "KOSPI",
+        "regular_traded_krw": 403113000,
+        "closing_traded_krw": 0,
+        "traded_krw": 403113000,
+        "traded_shares": 4397
+      },
+      "092460": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 97742470,
+        "closing_traded_krw": 0,
+        "traded_krw": 97742470,
+        "traded_shares": 6835
+      },
+      "092730": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 246900200,
+        "closing_traded_krw": 0,
+        "traded_krw": 246900200,
+        "traded_shares": 11069
+      },
+      "093050": {
+        "market": "KOSPI",
+        "regular_traded_krw": 71802000,
+        "closing_traded_krw": 0,
+        "traded_krw": 71802000,
+        "traded_shares": 3229
+      },
+      "093320": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1268239700,
+        "closing_traded_krw": 0,
+        "traded_krw": 1268239700,
+        "traded_shares": 7213
+      },
+      "093520": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 219948800,
+        "closing_traded_krw": 0,
+        "traded_krw": 219948800,
+        "traded_shares": 8550
+      },
+      "094170": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 737746500,
+        "closing_traded_krw": 0,
+        "traded_krw": 737746500,
+        "traded_shares": 39512
+      },
+      "094360": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 239633485,
+        "closing_traded_krw": 0,
+        "traded_krw": 239633485,
+        "traded_shares": 20767
+      },
+      "095340": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4955487900,
+        "closing_traded_krw": 0,
+        "traded_krw": 4955487900,
+        "traded_shares": 30307
+      },
+      "095500": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 448660010,
+        "closing_traded_krw": 5770,
+        "traded_krw": 448665780,
+        "traded_shares": 79317
+      },
+      "095610": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 6828181050,
+        "closing_traded_krw": 0,
+        "traded_krw": 6828181050,
+        "traded_shares": 62905
+      },
+      "095660": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 219191030,
+        "closing_traded_krw": 0,
+        "traded_krw": 219191030,
+        "traded_shares": 13187
+      },
+      "096530": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1969964800,
+        "closing_traded_krw": 0,
+        "traded_krw": 1969964800,
+        "traded_shares": 59781
+      },
+      "096770": {
+        "market": "KOSPI",
+        "regular_traded_krw": 24132567050,
+        "closing_traded_krw": 0,
+        "traded_krw": 24132567050,
+        "traded_shares": 186112
+      },
+      "097520": {
+        "market": "KOSPI",
+        "regular_traded_krw": 634059770,
+        "closing_traded_krw": 0,
+        "traded_krw": 634059770,
+        "traded_shares": 35727
+      },
+      "097950": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1641762900,
+        "closing_traded_krw": 0,
+        "traded_krw": 1641762900,
+        "traded_shares": 9280
+      },
+      "098070": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 329617995,
+        "closing_traded_krw": 0,
+        "traded_krw": 329617995,
+        "traded_shares": 19677
+      },
+      "099190": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 470820340,
+        "closing_traded_krw": 0,
+        "traded_krw": 470820340,
+        "traded_shares": 28244
+      },
+      "099320": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 942327000,
+        "closing_traded_krw": 56600,
+        "traded_krw": 942383600,
+        "traded_shares": 16818
+      },
+      "100840": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1835661250,
+        "closing_traded_krw": 0,
+        "traded_krw": 1835661250,
+        "traded_shares": 79143
+      },
+      "101160": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 246187800,
+        "closing_traded_krw": 0,
+        "traded_krw": 246187800,
+        "traded_shares": 9928
+      },
+      "101360": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 3521909475,
+        "closing_traded_krw": 0,
+        "traded_krw": 3521909475,
+        "traded_shares": 395763
+      },
+      "101490": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 3084058050,
+        "closing_traded_krw": 0,
+        "traded_krw": 3084058050,
+        "traded_shares": 82151
+      },
+      "101730": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 253194180,
+        "closing_traded_krw": 0,
+        "traded_krw": 253194180,
+        "traded_shares": 68167
+      },
+      "101930": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 169431335,
+        "closing_traded_krw": 0,
+        "traded_krw": 169431335,
+        "traded_shares": 26516
+      },
+      "102710": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 489641450,
+        "closing_traded_krw": 210500,
+        "traded_krw": 489851950,
+        "traded_shares": 11880
+      },
+      "102940": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 66939160,
+        "closing_traded_krw": 0,
+        "traded_krw": 66939160,
+        "traded_shares": 5320
+      },
+      "103140": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1299601300,
+        "closing_traded_krw": 0,
+        "traded_krw": 1299601300,
+        "traded_shares": 22391
+      },
+      "103590": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9414430250,
+        "closing_traded_krw": 0,
+        "traded_krw": 9414430250,
+        "traded_shares": 172178
+      },
+      "104700": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4718527075,
+        "closing_traded_krw": 0,
+        "traded_krw": 4718527075,
+        "traded_shares": 365741
+      },
+      "104830": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 607991750,
+        "closing_traded_krw": 0,
+        "traded_krw": 607991750,
+        "traded_shares": 17022
+      },
+      "105560": {
+        "market": "KOSPI",
+        "regular_traded_krw": 8933433300,
+        "closing_traded_krw": 0,
+        "traded_krw": 8933433300,
+        "traded_shares": 58403
+      },
+      "105630": {
+        "market": "KOSPI",
+        "regular_traded_krw": 29281080,
+        "closing_traded_krw": 0,
+        "traded_krw": 29281080,
+        "traded_shares": 3508
+      },
+      "107640": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4842313650,
+        "closing_traded_krw": 0,
+        "traded_krw": 4842313650,
+        "traded_shares": 100351
+      },
+      "108320": {
+        "market": "KOSPI",
+        "regular_traded_krw": 448435750,
+        "closing_traded_krw": 0,
+        "traded_krw": 448435750,
+        "traded_shares": 14641
+      },
+      "108380": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 85383270,
+        "closing_traded_krw": 0,
+        "traded_krw": 85383270,
+        "traded_shares": 5832
+      },
+      "108490": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 39028959750,
+        "closing_traded_krw": 0,
+        "traded_krw": 39028959750,
+        "traded_shares": 154488
+      },
+      "108670": {
+        "market": "KOSPI",
+        "regular_traded_krw": 57551100,
+        "closing_traded_krw": 0,
+        "traded_krw": 57551100,
+        "traded_shares": 2012
+      },
+      "108860": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 591582590,
+        "closing_traded_krw": 0,
+        "traded_krw": 591582590,
+        "traded_shares": 81935
+      },
+      "110990": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 409876140,
+        "closing_traded_krw": 0,
+        "traded_krw": 409876140,
+        "traded_shares": 29934
+      },
+      "111770": {
+        "market": "KOSPI",
+        "regular_traded_krw": 280646500,
+        "closing_traded_krw": 0,
+        "traded_krw": 280646500,
+        "traded_shares": 4064
+      },
+      "112040": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 300711220,
+        "closing_traded_krw": 0,
+        "traded_krw": 300711220,
+        "traded_shares": 22744
+      },
+      "114090": {
+        "market": "KOSPI",
+        "regular_traded_krw": 195661470,
+        "closing_traded_krw": 0,
+        "traded_krw": 195661470,
+        "traded_shares": 24064
+      },
+      "114190": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 14172060665,
+        "closing_traded_krw": 0,
+        "traded_krw": 14172060665,
+        "traded_shares": 1791202
+      },
+      "114810": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 525849900,
+        "closing_traded_krw": 0,
+        "traded_krw": 525849900,
+        "traded_shares": 53716
+      },
+      "114840": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 610848885,
+        "closing_traded_krw": 0,
+        "traded_krw": 610848885,
+        "traded_shares": 58786
+      },
+      "115180": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 881242250,
+        "closing_traded_krw": 0,
+        "traded_krw": 881242250,
+        "traded_shares": 52943
+      },
+      "117730": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 971726145,
+        "closing_traded_krw": 0,
+        "traded_krw": 971726145,
+        "traded_shares": 80609
+      },
+      "119850": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 5358973700,
+        "closing_traded_krw": 0,
+        "traded_krw": 5358973700,
+        "traded_shares": 164843
+      },
+      "120110": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1747711375,
+        "closing_traded_krw": 0,
+        "traded_krw": 1747711375,
+        "traded_shares": 44386
+      },
+      "121600": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 9981920500,
+        "closing_traded_krw": 0,
+        "traded_krw": 9981920500,
+        "traded_shares": 152833
+      },
+      "122870": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 772392900,
+        "closing_traded_krw": 0,
+        "traded_krw": 772392900,
+        "traded_shares": 20205
+      },
+      "124500": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2040116575,
+        "closing_traded_krw": 0,
+        "traded_krw": 2040116575,
+        "traded_shares": 102370
+      },
+      "126340": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 7917382050,
+        "closing_traded_krw": 0,
+        "traded_krw": 7917382050,
+        "traded_shares": 85079
+      },
+      "126720": {
+        "market": "KOSPI",
+        "regular_traded_krw": 202912780,
+        "closing_traded_krw": 0,
+        "traded_krw": 202912780,
+        "traded_shares": 10708
+      },
+      "127120": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 422736010,
+        "closing_traded_krw": 0,
+        "traded_krw": 422736010,
+        "traded_shares": 23329
+      },
+      "128940": {
+        "market": "KOSPI",
+        "regular_traded_krw": 45688695000,
+        "closing_traded_krw": 0,
+        "traded_krw": 45688695000,
+        "traded_shares": 108122
+      },
+      "131290": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 7162985750,
+        "closing_traded_krw": 0,
+        "traded_krw": 7162985750,
+        "traded_shares": 32361
+      },
+      "131970": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 12355142300,
+        "closing_traded_krw": 0,
+        "traded_krw": 12355142300,
+        "traded_shares": 138204
+      },
+      "137310": {
+        "market": "KOSPI",
+        "regular_traded_krw": 94123720,
+        "closing_traded_krw": 0,
+        "traded_krw": 94123720,
+        "traded_shares": 14749
+      },
+      "137400": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1339368400,
+        "closing_traded_krw": 0,
+        "traded_krw": 1339368400,
+        "traded_shares": 51962
+      },
+      "138040": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4296999800,
+        "closing_traded_krw": 0,
+        "traded_krw": 4296999800,
+        "traded_shares": 32860
+      },
+      "138610": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 209766350,
+        "closing_traded_krw": 0,
+        "traded_krw": 209766350,
+        "traded_shares": 15528
+      },
+      "138930": {
+        "market": "KOSPI",
+        "regular_traded_krw": 686157280,
+        "closing_traded_krw": 0,
+        "traded_krw": 686157280,
+        "traded_shares": 52305
+      },
+      "139130": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1017764470,
+        "closing_traded_krw": 0,
+        "traded_krw": 1017764470,
+        "traded_shares": 65473
+      },
+      "139480": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4126479600,
+        "closing_traded_krw": 0,
+        "traded_krw": 4126479600,
+        "traded_shares": 57079
+      },
+      "140860": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1408836750,
+        "closing_traded_krw": 0,
+        "traded_krw": 1408836750,
+        "traded_shares": 6153
+      },
+      "141080": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 3819970350,
+        "closing_traded_krw": 0,
+        "traded_krw": 3819970350,
+        "traded_shares": 62512
+      },
+      "144510": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 161348260,
+        "closing_traded_krw": 0,
+        "traded_krw": 161348260,
+        "traded_shares": 16258
+      },
+      "145020": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 780340050,
+        "closing_traded_krw": 0,
+        "traded_krw": 780340050,
+        "traded_shares": 4332
+      },
+      "145720": {
+        "market": "KOSPI",
+        "regular_traded_krw": 342333100,
+        "closing_traded_krw": 0,
+        "traded_krw": 342333100,
+        "traded_shares": 8720
+      },
+      "145990": {
+        "market": "KOSPI",
+        "regular_traded_krw": 50266025,
+        "closing_traded_krw": 0,
+        "traded_krw": 50266025,
+        "traded_shares": 1176
+      },
+      "161000": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1669111800,
+        "closing_traded_krw": 0,
+        "traded_krw": 1669111800,
+        "traded_shares": 169494
+      },
+      "161390": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1304284800,
+        "closing_traded_krw": 0,
+        "traded_krw": 1304284800,
+        "traded_shares": 22808
+      },
+      "161580": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2543423600,
+        "closing_traded_krw": 0,
+        "traded_krw": 2543423600,
+        "traded_shares": 93303
+      },
+      "161890": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4487060450,
+        "closing_traded_krw": 693000,
+        "traded_krw": 4487753450,
+        "traded_shares": 39269
+      },
+      "166090": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1311990700,
+        "closing_traded_krw": 0,
+        "traded_krw": 1311990700,
+        "traded_shares": 27064
+      },
+      "168360": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 496804160,
+        "closing_traded_krw": 0,
+        "traded_krw": 496804160,
+        "traded_shares": 54914
+      },
+      "170900": {
+        "market": "KOSPI",
+        "regular_traded_krw": 176525250,
+        "closing_traded_krw": 0,
+        "traded_krw": 176525250,
+        "traded_shares": 5089
+      },
+      "171090": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2478626300,
+        "closing_traded_krw": 0,
+        "traded_krw": 2478626300,
+        "traded_shares": 31878
+      },
+      "175330": {
+        "market": "KOSPI",
+        "regular_traded_krw": 454336100,
+        "closing_traded_krw": 0,
+        "traded_krw": 454336100,
+        "traded_shares": 17718
+      },
+      "178920": {
+        "market": "KOSPI",
+        "regular_traded_krw": 241996520,
+        "closing_traded_krw": 0,
+        "traded_krw": 241996520,
+        "traded_shares": 16334
+      },
+      "180640": {
+        "market": "KOSPI",
+        "regular_traded_krw": 55286396900,
+        "closing_traded_krw": 134800,
+        "traded_krw": 55286531700,
+        "traded_shares": 400757
+      },
+      "181710": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1074203625,
+        "closing_traded_krw": 0,
+        "traded_krw": 1074203625,
+        "traded_shares": 23274
+      },
+      "183190": {
+        "market": "KOSPI",
+        "regular_traded_krw": 123068680,
+        "closing_traded_krw": 0,
+        "traded_krw": 123068680,
+        "traded_shares": 13644
+      },
+      "183300": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2230929350,
+        "closing_traded_krw": 115000,
+        "traded_krw": 2231044350,
+        "traded_shares": 98023
+      },
+      "185750": {
+        "market": "KOSPI",
+        "regular_traded_krw": 934540800,
+        "closing_traded_krw": 0,
+        "traded_krw": 934540800,
+        "traded_shares": 15314
+      },
+      "189300": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 656678750,
+        "closing_traded_krw": 0,
+        "traded_krw": 656678750,
+        "traded_shares": 12524
+      },
+      "190510": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 8786139630,
+        "closing_traded_krw": 811350,
+        "traded_krw": 8786950980,
+        "traded_shares": 493282
+      },
+      "192080": {
+        "market": "KOSPI",
+        "regular_traded_krw": 91654700,
+        "closing_traded_krw": 0,
+        "traded_krw": 91654700,
+        "traded_shares": 1690
+      },
+      "192400": {
+        "market": "KOSPI",
+        "regular_traded_krw": 74430800,
+        "closing_traded_krw": 0,
+        "traded_krw": 74430800,
+        "traded_shares": 2742
+      },
+      "192820": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4295609500,
+        "closing_traded_krw": 0,
+        "traded_krw": 4295609500,
+        "traded_shares": 16990
+      },
+      "194370": {
+        "market": "KOSPI",
+        "regular_traded_krw": 86540520,
+        "closing_traded_krw": 0,
+        "traded_krw": 86540520,
+        "traded_shares": 7596
+      },
+      "194480": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 44890725,
+        "closing_traded_krw": 0,
+        "traded_krw": 44890725,
+        "traded_shares": 3932
+      },
+      "194700": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 119355620,
+        "closing_traded_krw": 0,
+        "traded_krw": 119355620,
+        "traded_shares": 13461
+      },
+      "195870": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4016886600,
+        "closing_traded_krw": 0,
+        "traded_krw": 4016886600,
+        "traded_shares": 87684
+      },
+      "195940": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 910125375,
+        "closing_traded_krw": 0,
+        "traded_krw": 910125375,
+        "traded_shares": 26688
+      },
+      "196170": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 25756162000,
+        "closing_traded_krw": 213000,
+        "traded_krw": 25756375000,
+        "traded_shares": 121642
+      },
+      "199430": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 275940380,
+        "closing_traded_krw": 0,
+        "traded_krw": 275940380,
+        "traded_shares": 22534
+      },
+      "199800": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 207222800,
+        "closing_traded_krw": 0,
+        "traded_krw": 207222800,
+        "traded_shares": 7161
+      },
+      "200130": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 292363110,
+        "closing_traded_krw": 0,
+        "traded_krw": 292363110,
+        "traded_shares": 39458
+      },
+      "200670": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 234340300,
+        "closing_traded_krw": 0,
+        "traded_krw": 234340300,
+        "traded_shares": 10556
+      },
+      "200710": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 829685045,
+        "closing_traded_krw": 0,
+        "traded_krw": 829685045,
+        "traded_shares": 47134
+      },
+      "200880": {
+        "market": "KOSPI",
+        "regular_traded_krw": 64893660,
+        "closing_traded_krw": 0,
+        "traded_krw": 64893660,
+        "traded_shares": 6437
+      },
+      "206640": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 77762005,
+        "closing_traded_krw": 0,
+        "traded_krw": 77762005,
+        "traded_shares": 9230
+      },
+      "207940": {
+        "market": "KOSPI",
+        "regular_traded_krw": 17283758000,
+        "closing_traded_krw": 0,
+        "traded_krw": 17283758000,
+        "traded_shares": 11975
+      },
+      "211050": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 64889730,
+        "closing_traded_krw": 0,
+        "traded_krw": 64889730,
+        "traded_shares": 6898
+      },
+      "213420": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 880827250,
+        "closing_traded_krw": 0,
+        "traded_krw": 880827250,
+        "traded_shares": 38273
+      },
+      "214150": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 770846200,
+        "closing_traded_krw": 0,
+        "traded_krw": 770846200,
+        "traded_shares": 29271
+      },
+      "214320": {
+        "market": "KOSPI",
+        "regular_traded_krw": 74065190,
+        "closing_traded_krw": 0,
+        "traded_krw": 74065190,
+        "traded_shares": 4264
+      },
+      "214370": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 26714542600,
+        "closing_traded_krw": 27650,
+        "traded_krw": 26714570250,
+        "traded_shares": 1064188
+      },
+      "214430": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 529076400,
+        "closing_traded_krw": 0,
+        "traded_krw": 529076400,
+        "traded_shares": 8823
+      },
+      "214450": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 7430561000,
+        "closing_traded_krw": 0,
+        "traded_krw": 7430561000,
+        "traded_shares": 34125
+      },
+      "215000": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 112505150,
+        "closing_traded_krw": 0,
+        "traded_krw": 112505150,
+        "traded_shares": 3279
+      },
+      "215200": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 117056600,
+        "closing_traded_krw": 0,
+        "traded_krw": 117056600,
+        "traded_shares": 3077
+      },
+      "218410": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 9847876775,
+        "closing_traded_krw": 520000,
+        "traded_krw": 9848396775,
+        "traded_shares": 194999
+      },
+      "220100": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2013624850,
+        "closing_traded_krw": 0,
+        "traded_krw": 2013624850,
+        "traded_shares": 281598
+      },
+      "222800": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 47774626850,
+        "closing_traded_krw": 0,
+        "traded_krw": 47774626850,
+        "traded_shares": 408491
+      },
+      "225570": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 122077880,
+        "closing_traded_krw": 0,
+        "traded_krw": 122077880,
+        "traded_shares": 12960
+      },
+      "226320": {
+        "market": "KOSPI",
+        "regular_traded_krw": 59722100,
+        "closing_traded_krw": 0,
+        "traded_krw": 59722100,
+        "traded_shares": 5780
+      },
+      "226950": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 5544693100,
+        "closing_traded_krw": 467500,
+        "traded_krw": 5545160600,
+        "traded_shares": 59707
+      },
+      "228760": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 328728340,
+        "closing_traded_krw": 0,
+        "traded_krw": 328728340,
+        "traded_shares": 33766
+      },
+      "229640": {
+        "market": "KOSPI",
+        "regular_traded_krw": 4688249425,
+        "closing_traded_krw": 0,
+        "traded_krw": 4688249425,
+        "traded_shares": 96667
+      },
+      "236200": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1339683150,
+        "closing_traded_krw": 0,
+        "traded_krw": 1339683150,
+        "traded_shares": 26969
+      },
+      "237690": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2910693600,
+        "closing_traded_krw": 0,
+        "traded_krw": 2910693600,
+        "traded_shares": 40432
+      },
+      "237880": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 136474030,
+        "closing_traded_krw": 0,
+        "traded_krw": 136474030,
+        "traded_shares": 12158
+      },
+      "241560": {
+        "market": "KOSPI",
+        "regular_traded_krw": 679931025,
+        "closing_traded_krw": 0,
+        "traded_krw": 679931025,
+        "traded_shares": 13792
+      },
+      "241710": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 898482700,
+        "closing_traded_krw": 0,
+        "traded_krw": 898482700,
+        "traded_shares": 9208
+      },
+      "241770": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 51142250,
+        "closing_traded_krw": 0,
+        "traded_krw": 51142250,
+        "traded_shares": 1587
+      },
+      "243070": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 79635400,
+        "closing_traded_krw": 0,
+        "traded_krw": 79635400,
+        "traded_shares": 4683
+      },
+      "247540": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 11541811950,
+        "closing_traded_krw": 0,
+        "traded_krw": 11541811950,
+        "traded_shares": 127202
+      },
+      "248070": {
+        "market": "KOSPI",
+        "regular_traded_krw": 506289615,
+        "closing_traded_krw": 0,
+        "traded_krw": 506289615,
+        "traded_shares": 38043
+      },
+      "249420": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1614923365,
+        "closing_traded_krw": 0,
+        "traded_krw": 1614923365,
+        "traded_shares": 129791
+      },
+      "251270": {
+        "market": "KOSPI",
+        "regular_traded_krw": 368715050,
+        "closing_traded_krw": 0,
+        "traded_krw": 368715050,
+        "traded_shares": 10983
+      },
+      "251970": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 777707850,
+        "closing_traded_krw": 0,
+        "traded_krw": 777707850,
+        "traded_shares": 12168
+      },
+      "253450": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 207620825,
+        "closing_traded_krw": 0,
+        "traded_krw": 207620825,
+        "traded_shares": 9250
+      },
+      "257720": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4781207100,
+        "closing_traded_krw": 0,
+        "traded_krw": 4781207100,
+        "traded_shares": 170324
+      },
+      "259960": {
+        "market": "KOSPI",
+        "regular_traded_krw": 753499300,
+        "closing_traded_krw": 0,
+        "traded_krw": 753499300,
+        "traded_shares": 4153
+      },
+      "263750": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 8728265825,
+        "closing_traded_krw": 0,
+        "traded_krw": 8728265825,
+        "traded_shares": 266207
+      },
+      "265520": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 163569840,
+        "closing_traded_krw": 0,
+        "traded_krw": 163569840,
+        "traded_shares": 9822
+      },
+      "267250": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2925816150,
+        "closing_traded_krw": 0,
+        "traded_krw": 2925816150,
+        "traded_shares": 20429
+      },
+      "267260": {
+        "market": "KOSPI",
+        "regular_traded_krw": 19759221750,
+        "closing_traded_krw": 0,
+        "traded_krw": 19759221750,
+        "traded_shares": 45388
+      },
+      "267270": {
+        "market": "KOSPI",
+        "regular_traded_krw": 9152161550,
+        "closing_traded_krw": 0,
+        "traded_krw": 9152161550,
+        "traded_shares": 114555
+      },
+      "267980": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 13777050,
+        "closing_traded_krw": 0,
+        "traded_krw": 13777050,
+        "traded_shares": 413
+      },
+      "268280": {
+        "market": "KOSPI",
+        "regular_traded_krw": 16777900,
+        "closing_traded_krw": 0,
+        "traded_krw": 16777900,
+        "traded_shares": 129
+      },
+      "270660": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 874453365,
+        "closing_traded_krw": 0,
+        "traded_krw": 874453365,
+        "traded_shares": 69601
+      },
+      "271560": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1561211200,
+        "closing_traded_krw": 0,
+        "traded_krw": 1561211200,
+        "traded_shares": 13430
+      },
+      "271940": {
+        "market": "KOSPI",
+        "regular_traded_krw": 72915890,
+        "closing_traded_krw": 0,
+        "traded_krw": 72915890,
+        "traded_shares": 7305
+      },
+      "272210": {
+        "market": "KOSPI",
+        "regular_traded_krw": 18140229750,
+        "closing_traded_krw": 65400,
+        "traded_krw": 18140295150,
+        "traded_shares": 286047
+      },
+      "272290": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 296836660,
+        "closing_traded_krw": 0,
+        "traded_krw": 296836660,
+        "traded_shares": 17457
+      },
+      "277810": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 12630293250,
+        "closing_traded_krw": 0,
+        "traded_krw": 12630293250,
+        "traded_shares": 35220
+      },
+      "278280": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 284555700,
+        "closing_traded_krw": 0,
+        "traded_krw": 284555700,
+        "traded_shares": 9327
+      },
+      "278470": {
+        "market": "KOSPI",
+        "regular_traded_krw": 25653914000,
+        "closing_traded_krw": 263500,
+        "traded_krw": 25654177500,
+        "traded_shares": 97717
+      },
+      "280360": {
+        "market": "KOSPI",
+        "regular_traded_krw": 161508700,
+        "closing_traded_krw": 0,
+        "traded_krw": 161508700,
+        "traded_shares": 1368
+      },
+      "281820": {
+        "market": "KOSPI",
+        "regular_traded_krw": 7387968700,
+        "closing_traded_krw": 0,
+        "traded_krw": 7387968700,
+        "traded_shares": 85598
+      },
+      "282330": {
+        "market": "KOSPI",
+        "regular_traded_krw": 382816100,
+        "closing_traded_krw": 0,
+        "traded_krw": 382816100,
+        "traded_shares": 2788
+      },
+      "284740": {
+        "market": "KOSPI",
+        "regular_traded_krw": 35128500,
+        "closing_traded_krw": 0,
+        "traded_krw": 35128500,
+        "traded_shares": 1507
+      },
+      "285130": {
+        "market": "KOSPI",
+        "regular_traded_krw": 200347550,
+        "closing_traded_krw": 0,
+        "traded_krw": 200347550,
+        "traded_shares": 4764
+      },
+      "286940": {
+        "market": "KOSPI",
+        "regular_traded_krw": 212312760,
+        "closing_traded_krw": 0,
+        "traded_krw": 212312760,
+        "traded_shares": 12296
+      },
+      "287840": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 179362320,
+        "closing_traded_krw": 0,
+        "traded_krw": 179362320,
+        "traded_shares": 12378
+      },
+      "290650": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 3579768475,
+        "closing_traded_krw": 0,
+        "traded_krw": 3579768475,
+        "traded_shares": 143588
+      },
+      "294570": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 333293250,
+        "closing_traded_krw": 0,
+        "traded_krw": 333293250,
+        "traded_shares": 14482
+      },
+      "294870": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1661054475,
+        "closing_traded_krw": 0,
+        "traded_krw": 1661054475,
+        "traded_shares": 65860
+      },
+      "295310": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2761838800,
+        "closing_traded_krw": 0,
+        "traded_krw": 2761838800,
+        "traded_shares": 46912
+      },
+      "298020": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1032948500,
+        "closing_traded_krw": 0,
+        "traded_krw": 1032948500,
+        "traded_shares": 3810
+      },
+      "298040": {
+        "market": "KOSPI",
+        "regular_traded_krw": 76466783500,
+        "closing_traded_krw": 20500000,
+        "traded_krw": 76487283500,
+        "traded_shares": 38907
+      },
+      "298050": {
+        "market": "KOSPI",
+        "regular_traded_krw": 298090300,
+        "closing_traded_krw": 0,
+        "traded_krw": 298090300,
+        "traded_shares": 2085
+      },
+      "298380": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4155376525,
+        "closing_traded_krw": 0,
+        "traded_krw": 4155376525,
+        "traded_shares": 105846
+      },
+      "299030": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 159451345,
+        "closing_traded_krw": 0,
+        "traded_krw": 159451345,
+        "traded_shares": 14485
+      },
+      "300080": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 651735945,
+        "closing_traded_krw": 907000,
+        "traded_krw": 652642945,
+        "traded_shares": 73995
+      },
+      "300720": {
+        "market": "KOSPI",
+        "regular_traded_krw": 235150280,
+        "closing_traded_krw": 0,
+        "traded_krw": 235150280,
+        "traded_shares": 14591
+      },
+      "302440": {
+        "market": "KOSPI",
+        "regular_traded_krw": 766515000,
+        "closing_traded_krw": 0,
+        "traded_krw": 766515000,
+        "traded_shares": 23087
+      },
+      "304100": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 263723385,
+        "closing_traded_krw": 0,
+        "traded_krw": 263723385,
+        "traded_shares": 22070
+      },
+      "304360": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 205301240,
+        "closing_traded_krw": 0,
+        "traded_krw": 205301240,
+        "traded_shares": 10597
+      },
+      "306200": {
+        "market": "KOSPI",
+        "regular_traded_krw": 364976850,
+        "closing_traded_krw": 0,
+        "traded_krw": 364976850,
+        "traded_shares": 2969
+      },
+      "307950": {
+        "market": "KOSPI",
+        "regular_traded_krw": 12931958500,
+        "closing_traded_krw": 6210000,
+        "traded_krw": 12938168500,
+        "traded_shares": 43689
+      },
+      "308430": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 125620790,
+        "closing_traded_krw": 0,
+        "traded_krw": 125620790,
+        "traded_shares": 10733
+      },
+      "310210": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2398337800,
+        "closing_traded_krw": 0,
+        "traded_krw": 2398337800,
+        "traded_shares": 22927
+      },
+      "314930": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 308374010,
+        "closing_traded_krw": 0,
+        "traded_krw": 308374010,
+        "traded_shares": 51821
+      },
+      "316140": {
+        "market": "KOSPI",
+        "regular_traded_krw": 5808495700,
+        "closing_traded_krw": 0,
+        "traded_krw": 5808495700,
+        "traded_shares": 191448
+      },
+      "317330": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 112200830,
+        "closing_traded_krw": 0,
+        "traded_krw": 112200830,
+        "traded_shares": 11736
+      },
+      "317450": {
+        "market": "KOSPI",
+        "regular_traded_krw": 150103875,
+        "closing_traded_krw": 0,
+        "traded_krw": 150103875,
+        "traded_shares": 3776
+      },
+      "319660": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 5874130150,
+        "closing_traded_krw": 0,
+        "traded_krw": 5874130150,
+        "traded_shares": 52416
+      },
+      "323280": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 9732865625,
+        "closing_traded_krw": 0,
+        "traded_krw": 9732865625,
+        "traded_shares": 196361
+      },
+      "323410": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1805504480,
+        "closing_traded_krw": 0,
+        "traded_krw": 1805504480,
+        "traded_shares": 91533
+      },
+      "326030": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2037574900,
+        "closing_traded_krw": 0,
+        "traded_krw": 2037574900,
+        "traded_shares": 26286
+      },
+      "328130": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 36214551575,
+        "closing_traded_krw": 388250,
+        "traded_krw": 36214939825,
+        "traded_shares": 2341756
+      },
+      "329180": {
+        "market": "KOSPI",
+        "regular_traded_krw": 58805841250,
+        "closing_traded_krw": 0,
+        "traded_krw": 58805841250,
+        "traded_shares": 207076
+      },
+      "336260": {
+        "market": "KOSPI",
+        "regular_traded_krw": 5023245950,
+        "closing_traded_krw": 0,
+        "traded_krw": 5023245950,
+        "traded_shares": 170400
+      },
+      "336370": {
+        "market": "KOSPI",
+        "regular_traded_krw": 278736320,
+        "closing_traded_krw": 0,
+        "traded_krw": 278736320,
+        "traded_shares": 37385
+      },
+      "338220": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1236162305,
+        "closing_traded_krw": 0,
+        "traded_krw": 1236162305,
+        "traded_shares": 184072
+      },
+      "338840": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 313643590,
+        "closing_traded_krw": 0,
+        "traded_krw": 313643590,
+        "traded_shares": 35857
+      },
+      "340570": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 140823600,
+        "closing_traded_krw": 0,
+        "traded_krw": 140823600,
+        "traded_shares": 5912
+      },
+      "344820": {
+        "market": "KOSPI",
+        "regular_traded_krw": 46009900,
+        "closing_traded_krw": 0,
+        "traded_krw": 46009900,
+        "traded_shares": 2093
+      },
+      "348210": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 447006400,
+        "closing_traded_krw": 0,
+        "traded_krw": 447006400,
+        "traded_shares": 17443
+      },
+      "348370": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 989703555,
+        "closing_traded_krw": 0,
+        "traded_krw": 989703555,
+        "traded_shares": 59667
+      },
+      "352480": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 99608950,
+        "closing_traded_krw": 0,
+        "traded_krw": 99608950,
+        "traded_shares": 5259
+      },
+      "352820": {
+        "market": "KOSPI",
+        "regular_traded_krw": 20725598400,
+        "closing_traded_krw": 0,
+        "traded_krw": 20725598400,
+        "traded_shares": 137481
+      },
+      "356860": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 11102781175,
+        "closing_traded_krw": 0,
+        "traded_krw": 11102781175,
+        "traded_shares": 292381
+      },
+      "357550": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 21579950,
+        "closing_traded_krw": 0,
+        "traded_krw": 21579950,
+        "traded_shares": 779
+      },
+      "357780": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1236571000,
+        "closing_traded_krw": 0,
+        "traded_krw": 1236571000,
+        "traded_shares": 4152
+      },
+      "358570": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 818777565,
+        "closing_traded_krw": 0,
+        "traded_krw": 818777565,
+        "traded_shares": 122390
+      },
+      "361610": {
+        "market": "KOSPI",
+        "regular_traded_krw": 609017795,
+        "closing_traded_krw": 0,
+        "traded_krw": 609017795,
+        "traded_shares": 40850
+      },
+      "365340": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 193356500,
+        "closing_traded_krw": 0,
+        "traded_krw": 193356500,
+        "traded_shares": 7013
+      },
+      "372170": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 98708130,
+        "closing_traded_krw": 0,
+        "traded_krw": 98708130,
+        "traded_shares": 4993
+      },
+      "372320": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 223916900,
+        "closing_traded_krw": 0,
+        "traded_krw": 223916900,
+        "traded_shares": 9648
+      },
+      "373220": {
+        "market": "KOSPI",
+        "regular_traded_krw": 35090515500,
+        "closing_traded_krw": 0,
+        "traded_krw": 35090515500,
+        "traded_shares": 98536
+      },
+      "376270": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 45865600,
+        "closing_traded_krw": 0,
+        "traded_krw": 45865600,
+        "traded_shares": 1758
+      },
+      "376300": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 411250580,
+        "closing_traded_krw": 0,
+        "traded_krw": 411250580,
+        "traded_shares": 22459
+      },
+      "376900": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 3568319110,
+        "closing_traded_krw": 0,
+        "traded_krw": 3568319110,
+        "traded_shares": 213269
+      },
+      "377300": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1553599600,
+        "closing_traded_krw": 0,
+        "traded_krw": 1553599600,
+        "traded_shares": 46183
+      },
+      "378340": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 381684260,
+        "closing_traded_krw": 0,
+        "traded_krw": 381684260,
+        "traded_shares": 38007
+      },
+      "381970": {
+        "market": "KOSPI",
+        "regular_traded_krw": 65581750,
+        "closing_traded_krw": 0,
+        "traded_krw": 65581750,
+        "traded_shares": 11999
+      },
+      "383220": {
+        "market": "KOSPI",
+        "regular_traded_krw": 630994700,
+        "closing_traded_krw": 0,
+        "traded_krw": 630994700,
+        "traded_shares": 9979
+      },
+      "383800": {
+        "market": "KOSPI",
+        "regular_traded_krw": 174632160,
+        "closing_traded_krw": 0,
+        "traded_krw": 174632160,
+        "traded_shares": 22404
+      },
+      "388210": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 5044570500,
+        "closing_traded_krw": 0,
+        "traded_krw": 5044570500,
+        "traded_shares": 94209
+      },
+      "388720": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 453296200,
+        "closing_traded_krw": 0,
+        "traded_krw": 453296200,
+        "traded_shares": 7847
+      },
+      "389470": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1097600650,
+        "closing_traded_krw": 0,
+        "traded_krw": 1097600650,
+        "traded_shares": 48535
+      },
+      "389650": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 143609300,
+        "closing_traded_krw": 0,
+        "traded_krw": 143609300,
+        "traded_shares": 5060
+      },
+      "394280": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 213789000,
+        "closing_traded_krw": 0,
+        "traded_krw": 213789000,
+        "traded_shares": 30772
+      },
+      "394800": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1136014055,
+        "closing_traded_krw": 0,
+        "traded_krw": 1136014055,
+        "traded_shares": 210260
+      },
+      "397030": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 552220020,
+        "closing_traded_krw": 0,
+        "traded_krw": 552220020,
+        "traded_shares": 47141
+      },
+      "399720": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1016187650,
+        "closing_traded_krw": 0,
+        "traded_krw": 1016187650,
+        "traded_shares": 30939
+      },
+      "402030": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 45657020,
+        "closing_traded_krw": 0,
+        "traded_krw": 45657020,
+        "traded_shares": 4377
+      },
+      "402340": {
+        "market": "KOSPI",
+        "regular_traded_krw": 244242924500,
+        "closing_traded_krw": 950000,
+        "traded_krw": 244243874500,
+        "traded_shares": 267362
+      },
+      "403550": {
+        "market": "KOSPI",
+        "regular_traded_krw": 33182230,
+        "closing_traded_krw": 0,
+        "traded_krw": 33182230,
+        "traded_shares": 3405
+      },
+      "403850": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 376380810,
+        "closing_traded_krw": 0,
+        "traded_krw": 376380810,
+        "traded_shares": 30629
+      },
+      "416180": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 222303675,
+        "closing_traded_krw": 0,
+        "traded_krw": 222303675,
+        "traded_shares": 8874
+      },
+      "419530": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 557225760,
+        "closing_traded_krw": 802950,
+        "traded_krw": 558028710,
+        "traded_shares": 37818
+      },
+      "420770": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4137769350,
+        "closing_traded_krw": 0,
+        "traded_krw": 4137769350,
+        "traded_shares": 46021
+      },
+      "424870": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 548342170,
+        "closing_traded_krw": 0,
+        "traded_krw": 548342170,
+        "traded_shares": 216573
+      },
+      "425420": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 9771306800,
+        "closing_traded_krw": 4130000,
+        "traded_krw": 9775436800,
+        "traded_shares": 116543
+      },
+      "437730": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 7096956225,
+        "closing_traded_krw": 0,
+        "traded_krw": 7096956225,
+        "traded_shares": 169909
+      },
+      "439090": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2597081520,
+        "closing_traded_krw": 0,
+        "traded_krw": 2597081520,
+        "traded_shares": 183487
+      },
+      "439260": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1117553275,
+        "closing_traded_krw": 0,
+        "traded_krw": 1117553275,
+        "traded_shares": 31076
+      },
+      "441270": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 3554495370,
+        "closing_traded_krw": 0,
+        "traded_krw": 3554495370,
+        "traded_shares": 450809
+      },
+      "443060": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2496031400,
+        "closing_traded_krw": 0,
+        "traded_krw": 2496031400,
+        "traded_shares": 14868
+      },
+      "445090": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 199127500,
+        "closing_traded_krw": 0,
+        "traded_krw": 199127500,
+        "traded_shares": 11921
+      },
+      "445680": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 5649539700,
+        "closing_traded_krw": 0,
+        "traded_krw": 5649539700,
+        "traded_shares": 106705
+      },
+      "448280": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 49185120,
+        "closing_traded_krw": 0,
+        "traded_krw": 49185120,
+        "traded_shares": 5638
+      },
+      "448900": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1768352200,
+        "closing_traded_krw": 0,
+        "traded_krw": 1768352200,
+        "traded_shares": 39027
+      },
+      "450950": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 25703305,
+        "closing_traded_krw": 0,
+        "traded_krw": 25703305,
+        "traded_shares": 5269
+      },
+      "452430": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 272884400,
+        "closing_traded_krw": 0,
+        "traded_krw": 272884400,
+        "traded_shares": 11210
+      },
+      "453340": {
+        "market": "KOSPI",
+        "regular_traded_krw": 62388730,
+        "closing_traded_krw": 0,
+        "traded_krw": 62388730,
+        "traded_shares": 3211
+      },
+      "455900": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 219644945,
+        "closing_traded_krw": 0,
+        "traded_krw": 219644945,
+        "traded_shares": 12629
+      },
+      "456040": {
+        "market": "KOSPI",
+        "regular_traded_krw": 707432650,
+        "closing_traded_krw": 0,
+        "traded_krw": 707432650,
+        "traded_shares": 12448
+      },
+      "456160": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 14824675900,
+        "closing_traded_krw": 0,
+        "traded_krw": 14824675900,
+        "traded_shares": 404135
+      },
+      "457190": {
+        "market": "KOSPI",
+        "regular_traded_krw": 7882743500,
+        "closing_traded_krw": 0,
+        "traded_krw": 7882743500,
+        "traded_shares": 108519
+      },
+      "458870": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 4247631150,
+        "closing_traded_krw": 0,
+        "traded_krw": 4247631150,
+        "traded_shares": 191407
+      },
+      "459510": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 181839915,
+        "closing_traded_krw": 0,
+        "traded_krw": 181839915,
+        "traded_shares": 15079
+      },
+      "460860": {
+        "market": "KOSPI",
+        "regular_traded_krw": 1113989270,
+        "closing_traded_krw": 0,
+        "traded_krw": 1113989270,
+        "traded_shares": 123573
+      },
+      "460930": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 25984704865,
+        "closing_traded_krw": 0,
+        "traded_krw": 25984704865,
+        "traded_shares": 2377882
+      },
+      "462870": {
+        "market": "KOSPI",
+        "regular_traded_krw": 299663850,
+        "closing_traded_krw": 0,
+        "traded_krw": 299663850,
+        "traded_shares": 10233
+      },
+      "466100": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1619310965,
+        "closing_traded_krw": 0,
+        "traded_krw": 1619310965,
+        "traded_shares": 89619
+      },
+      "468530": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 8393103725,
+        "closing_traded_krw": 0,
+        "traded_krw": 8393103725,
+        "traded_shares": 169353
+      },
+      "469610": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 171210480,
+        "closing_traded_krw": 0,
+        "traded_krw": 171210480,
+        "traded_shares": 14060
+      },
+      "472850": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 63798980,
+        "closing_traded_krw": 0,
+        "traded_krw": 63798980,
+        "traded_shares": 14872
+      },
+      "473980": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 240085140,
+        "closing_traded_krw": 0,
+        "traded_krw": 240085140,
+        "traded_shares": 22772
+      },
+      "475400": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 133193220,
+        "closing_traded_krw": 0,
+        "traded_krw": 133193220,
+        "traded_shares": 9612
+      },
+      "475830": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 729948755,
+        "closing_traded_krw": 0,
+        "traded_krw": 729948755,
+        "traded_shares": 47871
+      },
+      "475960": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 344044900,
+        "closing_traded_krw": 0,
+        "traded_krw": 344044900,
+        "traded_shares": 11585
+      },
+      "476060": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1022779090,
+        "closing_traded_krw": 0,
+        "traded_krw": 1022779090,
+        "traded_shares": 84225
+      },
+      "476830": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 2220815075,
+        "closing_traded_krw": 0,
+        "traded_krw": 2220815075,
+        "traded_shares": 104000
+      },
+      "481070": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 52202730,
+        "closing_traded_krw": 0,
+        "traded_krw": 52202730,
+        "traded_shares": 4489
+      },
+      "483650": {
+        "market": "KOSPI",
+        "regular_traded_krw": 2515242250,
+        "closing_traded_krw": 0,
+        "traded_krw": 2515242250,
+        "traded_shares": 17103
+      },
+      "484120": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 907042875,
+        "closing_traded_krw": 0,
+        "traded_krw": 907042875,
+        "traded_shares": 39784
+      },
+      "484870": {
+        "market": "KOSPI",
+        "regular_traded_krw": 579255375,
+        "closing_traded_krw": 0,
+        "traded_krw": 579255375,
+        "traded_shares": 41687
+      },
+      "486990": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 990492615,
+        "closing_traded_krw": 0,
+        "traded_krw": 990492615,
+        "traded_shares": 75971
+      },
+      "488900": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 172808480,
+        "closing_traded_krw": 0,
+        "traded_krw": 172808480,
+        "traded_shares": 23080
+      },
+      "489790": {
+        "market": "KOSPI",
+        "regular_traded_krw": 31612444300,
+        "closing_traded_krw": 0,
+        "traded_krw": 31612444300,
+        "traded_shares": 615718
+      },
+      "494120": {
+        "market": "KOSDAQ",
+        "regular_traded_krw": 1188839440,
+        "closing_traded_krw": 0,
+        "traded_krw": 1188839440,
+        "traded_shares": 118623
+      },
+      "499790": {
+        "market": "KOSPI",
+        "regular_traded_krw": 139094050,
+        "closing_traded_krw": 0,
+        "traded_krw": 139094050,
+        "traded_shares": 4066
+      }
+    }
   }
 }

@@ -247,10 +247,64 @@ def cashflow():
     st.caption('KOSPI200 선물 투자자별 매매동향은 아직 미연결. 현물 수급을 선물로 오인하지 않습니다.')
 
 
+
+
+def show_unified_top200():
+    """Combined traded-value ranking, independent of legacy maedong investor flow panel."""
+    with st.expander('📈 KRX + NXT 통합 거래대금 TOP 200 (별도 순위)', expanded=True):
+        try:
+            meta = json.loads(RANK_FILE.read_text(encoding='utf-8'))
+            info = meta.get('unified') or {}
+            nxt_path = ROOT / 'data' / 'nxt_trades_eod.json'
+            nxt = json.loads(nxt_path.read_text(encoding='utf-8')) if nxt_path.is_file() else {}
+        except (OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
+            st.warning(f'통합 원자료를 확인할 수 없습니다: {exc}')
+            return
+        source_day = meta.get('date') or '미확인'
+        nxt_day = nxt.get('date') or '미확인'
+        st.caption(f'KRX 자료일 {source_day} · NXT 최신 수집일 {nxt_day} · 통합은 동일 거래일 자료만 사용')
+        if info.get('status') != 'verified_partial_nxt_sessions' or info.get('date') != source_day:
+            st.info('통합 거래대금 순위 대기 중: 같은 거래일의 KRX 전 종목 시세와 NXT 기록이 모두 확보되면 자동 계산합니다. 현재 KRX 수급 순위는 아래에서 별도 조회할 수 있습니다.')
+            if info.get('reason'):
+                st.warning('통합 자료 검증 보류: ' + str(info['reason']))
+            return
+        rows = info.get('top200') or []
+        df = pd.DataFrame(rows)
+        required = {'ticker','name','market','close','krx_traded_krw','nxt_traded_krw','traded_krw'}
+        if len(df) != 200 or not required.issubset(df.columns):
+            st.warning('통합 TOP 200 원자료가 불완전합니다.')
+            return
+        df.insert(0, '통합 순위', range(1, len(df)+1))
+        for col in ('krx_traded_krw','nxt_traded_krw','traded_krw'):
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+        if df[['krx_traded_krw','nxt_traded_krw','traded_krw']].isna().any().any():
+            st.warning('통합 TOP 200 숫자 변환 실패')
+            return
+        df['KRX 거래대금(억)'] = (df['krx_traded_krw']/1e8).round(1)
+        df['NXT 거래대금(억)'] = (df['nxt_traded_krw']/1e8).round(1)
+        df['통합 거래대금(억)'] = (df['traded_krw']/1e8).round(1)
+        selected_market = st.selectbox('통합 순위 시장', ['전체','KOSPI','KOSDAQ'], key='miner_unified_market')
+        if selected_market != '전체':
+            df = df.loc[df['market'].eq(selected_market)]
+        term = st.text_input('통합 순위 종목명·코드 검색', key='miner_unified_search').strip()
+        if term:
+            df = df.loc[df['name'].str.contains(term, case=False, regex=False, na=False) |
+                        df['ticker'].str.contains(term, case=False, regex=False, na=False)]
+        cols = ['통합 순위','name','ticker','market','close','KRX 거래대금(억)',
+                'NXT 거래대금(억)','통합 거래대금(억)']
+        st.dataframe(df[cols], hide_index=True, use_container_width=True)
+        st.download_button('📥 통합 TOP 200 CSV', df[cols].to_csv(index=False).encode('utf-8-sig'),
+                           file_name='miner_combined_top200.csv', mime='text/csv',
+                           key='miner_combined_top200_csv')
+        st.caption('순위는 KRX 전체 주식 + NXT 정규·종가매매 거래대금 기준. NXT 대량·바스켓은 아직 제외됩니다. '
+                   '외국인·기관 종목별 순매수는 KRX 자료여서 통합 거래대금으로 나누어 수급강도를 계산하지 않습니다.')
+
+
 def top200():
     """종목 발굴용 스크리너: 시장 오실레이터 반복 출력 없이 검색·필터·랭킹만."""
     st.title('📊 TOP 200 | 종목별 매수세 탐색')
-    st.caption('거래대금 상위 200종목에서 매수세가 집중되는 기업을 찾습니다. 자금 흐름 메뉴의 시장 요약과 기능을 분리했습니다.')
+    st.caption('기존 수급은 KRX 중심 TOP200 표본입니다. 통합 거래대금 순위는 별도로 검증해 제공합니다.')
+    show_unified_top200()
     frame = prepare()
     if frame is None:
         return
