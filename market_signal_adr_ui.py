@@ -66,9 +66,29 @@ def show_adr_history(*,compact=False):
         label='상승 종목 우세 (관행적 과열 구간)'
     else:
         label='상승/하락 종목 수의 균형 부근'
-    st.metric('전체시장 ADR20',f'{value:.1f}%',help='20거래일 상승 종목 수 합계 / 하락 종목 수 합계 × 100')
+    # Provisional snapshot is distinct from the strictly validated historical ADR20.
+    provisional=d.get('provisional_adr20')
+    if isinstance(provisional,dict) and provisional.get('provisional') is True:
+        try:
+            from zoneinfo import ZoneInfo as _ZoneInfo
+            from datetime import datetime as _datetime
+            fresh=provisional.get('date')==_datetime.now(_ZoneInfo('Asia/Seoul')).date().isoformat()
+            last19=d['history'][-19:]
+            up=sum(x['up'] for x in last19)+provisional['up']
+            down=sum(x['down'] for x in last19)+provisional['down']
+            valid=(fresh and len(last19)==19 and down>0
+                   and provisional.get('confirmed_through')==d['latest_date']
+                   and provisional.get('up_sum')==up and provisional.get('down_sum')==down
+                   and provisional.get('universe_total')==provisional['up']+provisional['down']+provisional['flat']
+                   and provisional.get('value_pct')==round(100*up/down,2))
+            if valid:
+                st.metric('전체시장 ADR20 · 당일 잠정',f'{provisional["value_pct"]:.1f}%')
+                st.caption(f'자료일 {provisional["date"]} · 매동 당일 속보 기반 · 직전 확정 19거래일 + 잠정 1일 · 다음 영업일 수치 수정 가능')
+        except (KeyError,TypeError,ValueError,ZeroDivisionError):
+            pass
+    st.metric('전체시장 ADR20 · 확정 이력',f'{value:.1f}%',help='확정 기록 20거래일 상승 종목 수 합계 / 하락 종목 수 합계 × 100')
     st.caption(f"자료일 {d['latest_date']} · 저장일 {latest['start_date']}~{latest['end_date']} · 상승 누계 {latest['up_sum']:,} / 하락 누계 {latest['down_sum']:,} · {label}")
-    st.caption('공개 매동 시장 폭 자료 기반 자체 계산. 비공식 KRX ADR이며 현재 거래일 속보는 제외. ADR 단독으로 매수·매도하지 않습니다.')
+    st.caption('공개 매동 시장 폭 자료 기반 자체 계산. 비공식 KRX ADR이며 확정 이력에는 당일 속보를 포함하지 않음. ADR 단독으로 매수·매도하지 않습니다.')
     if compact:return
     rows=d['history']
     dates=[];values=[]

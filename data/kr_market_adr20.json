@@ -192,7 +192,22 @@
       "universe_total": 2648
     }
   ],
-  "collected_at_kst": "2026-11-02T19:33:38.515864+09:00",
+  "provisional_adr20": {
+    "date": "2026-11-02",
+    "provisional": true,
+    "up": 1765,
+    "down": 785,
+    "flat": 100,
+    "universe_total": 2650,
+    "start_date": "2026-10-02",
+    "confirmed_through": "2026-10-30",
+    "up_sum": 20778,
+    "down_sum": 30062,
+    "days": 20,
+    "value_pct": 69.12,
+    "note": "19 previously confirmed days + same-day provisional market breadth; may be revised"
+  },
+  "collected_at_kst": "2026-11-02T22:03:56.194051+09:00",
   "notice": "Free public non-KRX source; the earliest/backfilled dates were not independently reconciled against KRX. Holidays absent, not zero-filled. No intraday provisional.",
   "skipped_or_invalid_dates": []
 }

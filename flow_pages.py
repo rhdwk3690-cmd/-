@@ -6,6 +6,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 import pandas as pd
@@ -71,6 +73,13 @@ def prepare():
         st.error(f'원자료 오류: {exc}')
         return None
     st.caption(f'거래대금 기준일 **{meta["date"]}** · {meta.get("source", "출처 미확인")} · 확정 종가')
+    # A successful pipeline is not proof of same-day data freshness.
+    try:
+        days_behind=(datetime.now(ZoneInfo('Asia/Seoul')).date()-date.fromisoformat(meta['date'])).days
+        if days_behind>0:
+            st.warning(f'TOP200 거래대금/종목별 수급은 {meta["date"]} 원자료 기준 ({days_behind}일 전). 당일 수급으로 오인하지 마세요. KRX 최신 공시 데이터와 혼합하지 않습니다.')
+    except (KeyError,TypeError,ValueError):
+        st.warning('TOP200 자료 기준일 확인 실패')
     if issue:
         st.warning(issue)
     elif flow:

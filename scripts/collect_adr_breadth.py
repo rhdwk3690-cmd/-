@@ -125,6 +125,44 @@ def validate_recent(rows,today):
             'days':20,'up_sum':numerator,'down_sum':denominator,
             'value_pct':round(100*numerator/denominator,2)}
 
+
+
+def preview_today_adr(rows, today, request, now=None):
+    # Same-day Maedong breadth is provisional; never added to confirmed history.
+    now=now or datetime.now(KST)
+    if (now.date()!=today or today.weekday()>=5
+        or (now.hour, now.minute)<(16, 15)):
+        return None
+    try:
+        current=request(today)
+    except (SourceError, urllib.error.URLError, TimeoutError, OSError) as exc:
+        # Do not make a failed provisional fetch invalidate confirmed 20-day history.
+        print('ADR20 provisional unavailable: '+str(exc)[:160],file=sys.stderr)
+        return None
+    if current is None:
+        return None
+    if current['date']!=today.isoformat():
+        raise SourceError('Provisional trade date mismatch')
+    if len(rows)<19 or rows[-1]['date']>=current['date']:
+        return None
+    recent=rows[-19:]+[current]
+    for before,after in zip(recent[:-1],recent[1:]):
+        if (date.fromisoformat(after['date'])-date.fromisoformat(before['date'])).days>8:
+            return None
+    up=sum(row['up'] for row in recent)
+    down=sum(row['down'] for row in recent)
+    if down<=0:
+        return None
+    return {
+        'date':current['date'],'provisional':True,
+        'up':current['up'],'down':current['down'],
+        'flat':current['flat'],'universe_total':current['universe_total'],
+        'start_date':recent[0]['date'], 'confirmed_through':rows[-1]['date'],
+        'up_sum':up,'down_sum':down,'days':20,
+        'value_pct':round(100*up/down,2),
+        'note':'19 previously confirmed days + same-day provisional market breadth; may be revised'
+    }
+
 def run(dest=OUT,today=None,request=fetch_day,sleep=time.sleep):
     today=today or datetime.now(KST).date()
     previous=load_previous(dest,today)
@@ -157,18 +195,20 @@ def run(dest=OUT,today=None,request=fetch_day,sleep=time.sleep):
                 break
     rows=[previous[d] for d in sorted(previous)[-MAX_ARCHIVE:]]
     adr=validate_recent(rows,today)
+    preview=preview_today_adr(rows,today,request)
     obj={'status':'verified','source':SOURCE,'source_url':URL,
          'market_scope':'KOSPI+KOSDAQ aggregate market breadth; as classified by provider',
          'source_data_quality':'prior-weekday dated observations; provisional current date excluded',
          'unit':'stocks','latest_date':rows[-1]['date'],'observations':len(rows),
-         'adr20':adr,'history':rows,'collected_at_kst':datetime.now(KST).isoformat(),
+         'adr20':adr,'history':rows,'provisional_adr20':preview,
+         'collected_at_kst':datetime.now(KST).isoformat(),
          'notice':'Free public non-KRX source; the earliest/backfilled dates were not independently reconciled against KRX. Holidays absent, not zero-filled. No intraday provisional.',
          'skipped_or_invalid_dates':errors[-20:]}
     dest.parent.mkdir(parents=True,exist_ok=True)
     tmp=dest.with_suffix('.json.tmp')
     tmp.write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     os.replace(tmp,dest)
-    print(f'ADR20 VERIFIED source={SOURCE}, latest={obj["latest_date"]}, obs={len(rows)}, adr={adr["value_pct"]:.2f}, invalid={len(errors)}')
+    print(f'ADR20 VERIFIED source={SOURCE}, latest={obj["latest_date"]}, obs={len(rows)}, adr={adr["value_pct"]:.2f}, invalid={len(errors)}, provisional={preview["date"] if preview else "not_available"}')
     return obj
 
 if __name__=='__main__':
