@@ -73,7 +73,7 @@ def fetch_segment(session, segment, day):
             raise ValueError(f'{segment}: missing/mismatched trading date')
         code = str(row.get('isuSrdCd') or '')
         market = MARKETS.get(str(row.get('mktId')))
-       if re.fullmatch(r'A[0-9A-Z]{6}', code) is None or market is None:
+        if re.fullmatch(r'A[0-9A-Z]{6}', code) is None or market is None:
             raise ValueError(f'{segment}: invalid ticker or market {code!r}')
         code = code[1:]
         if code in result:
