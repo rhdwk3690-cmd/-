@@ -1,0 +1,182 @@
+name: "FIX: Korean names in RS ADX stock comparison"
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-dev-batch
+  cancel-in-progress: false
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply guarded Korean-name UI patch
+        shell: bash
+        run: |
+          python - <<'PY_PATCH'
+          import base64
+          patch = base64.b64decode(''.join([
+          'IiIiR3VhcmRlZCBwYXRjaDogZW5hYmxlIHN0b2NrLW5hbWUgaW5wdXQgYW5kIGxhYmVscyBpbiB0cmVuZF9jYW5kaWRhdGVzX3VpLnB5LiIiIgpp',
+          'bXBvcnQgYXN0CmZyb20gcGF0aGxpYiBpbXBvcnQgUGF0aAoKUk9PVCA9IFBhdGguY3dkKCkKcGF0aCA9IFJPT1QgLyAidHJlbmRfY2FuZGlkYXRl',
+          'c191aS5weSIKcyA9IHBhdGgucmVhZF90ZXh0KGVuY29kaW5nPSJ1dGYtOCIpCk1BUksgPSAiIyBNSU5FUl9TVE9DS19OQU1FU19WMiIKaWYgTUFS',
+          'SyBpbiBzOgogICAgcHJpbnQoIlN0b2NrLW5hbWUgVUkgYWxyZWFkeSBpbnN0YWxsZWQ7IG5vdGhpbmcgdG8gZG8iKQogICAgYXN0LnBhcnNlKHMs',
+          'IGZpbGVuYW1lPXN0cihwYXRoKSkKICAgIHJhaXNlIFN5c3RlbUV4aXQoMCkKCmJlZm9yZV9pbXBvcnQgPSAiaW1wb3J0IHJlXG5cbmltcG9ydCBw',
+          'YW5kYXMgYXMgcGQiCmFmdGVyX2ltcG9ydCA9ICJpbXBvcnQganNvblxuaW1wb3J0IHJlXG5mcm9tIHBhdGhsaWIgaW1wb3J0IFBhdGhcblxuaW1w',
+          'b3J0IHBhbmRhcyBhcyBwZCIKYXNzZXJ0IHMuY291bnQoYmVmb3JlX2ltcG9ydCkgPT0gMSwgImltcG9ydCBhbmNob3IgbWlzbWF0Y2giCnMgPSBz',
+          'LnJlcGxhY2UoYmVmb3JlX2ltcG9ydCwgYWZ0ZXJfaW1wb3J0LCAxKQoKZmlyc3QgPSBzLmluZGV4KCJkZWYgc3ltYm9sc19mcm9tX3RleHQocmF3',
+          'OiBzdHIpIC0+IGxpc3Rbc3RyXToiKQpsYXN0ID0gcy5pbmRleCgiXG5kZWYgYW5hbHl6ZV9wYWlyKCIsIGZpcnN0KQoKbmV3X2xvb2t1cCA9ICcn',
+          'JyMgTUlORVJfU1RPQ0tfTkFNRVNfVjIKUk9PVCA9IFBhdGgoX19maWxlX18pLnJlc29sdmUoKS5wYXJlbnQKCgpkZWYgbm9ybWFsaXplX25hbWUo',
+          'dmFsdWU6IHN0cikgLT4gc3RyOgogICAgIiIiTm9ybWFsaXplIHdoaXRlc3BhY2UvY2FzZSwgYnV0IG5ldmVyIGd1ZXNzIGEgdGlja2VyIGZyb20g',
+          'YSBwYXJ0aWFsIG5hbWUuIiIiCiAgICByZXR1cm4gcmUuc3ViKHIiXFxzKyIsICIiLCBzdHIodmFsdWUpKS5jYXNlZm9sZCgpCgoKZGVmIGxvYWRf',
+          'c3RvY2tfbmFtZXMoKToKICAgICIiIkdldCB2YWxpZGF0ZWQgdGlja2VyL25hbWUvbWFya2V0IHBhaXJzIGZyb20gZXhpc3RpbmcgVE9QMjAwIHNu',
+          'YXBzaG90LiIiIgogICAgYnlfc3ltYm9sLCBieV9jb2RlLCBieV9uYW1lID0ge30sIHt9LCB7fQogICAgc291cmNlX2RhdGUgPSAi66+47ZmV7J24',
+          'IgogICAgdHJ5OgogICAgICAgIG9iaiA9IGpzb24ubG9hZHMoKFJPT1QgLyAiZGF0YSIgLyAia3JfZmxvdy5qc29uIikucmVhZF90ZXh0KGVuY29k',
+          'aW5nPSJ1dGYtOCIpKQogICAgICAgIGlmIG9iai5nZXQoInN0YXR1cyIpICE9ICJ2ZXJpZmllZCIgb3Igbm90IGlzaW5zdGFuY2Uob2JqLmdldCgi',
+          'dG9wMjAwIiksIGxpc3QpOgogICAgICAgICAgICByYWlzZSBWYWx1ZUVycm9yKCLsooXrqqnrqoUg66qp66GdIOyDge2DnCDrr7jqsoDspp0iKQog',
+          'ICAgICAgIHNvdXJjZV9kYXRlID0gc3RyKG9iai5nZXQoImRhdGUiKSBvciAi66+47ZmV7J24IikKICAgICAgICBmb3Igcm93IGluIG9ialsidG9w',
+          'MjAwIl06CiAgICAgICAgICAgIGNvZGUsIG1hcmtldCwgbmFtZSA9IHN0cihyb3cuZ2V0KCJ0aWNrZXIiKSBvciAiIiksIHJvdy5nZXQoIm1hcmtl',
+          'dCIpLCBzdHIocm93LmdldCgibmFtZSIpIG9yICIiKS5zdHJpcCgpCiAgICAgICAgICAgIGlmIG5vdCByZS5mdWxsbWF0Y2gociJcXGR7Nn0iLCBj',
+          'b2RlKSBvciBtYXJrZXQgbm90IGluICgiS09TUEkiLCAiS09TREFRIikgb3Igbm90IG5hbWU6CiAgICAgICAgICAgICAgICBjb250aW51ZQogICAg',
+          'ICAgICAgICBzeW1ib2wgPSBjb2RlICsgKCIuS1MiIGlmIG1hcmtldCA9PSAiS09TUEkiIGVsc2UgIi5LUSIpCiAgICAgICAgICAgIGlmIHN5bWJv',
+          'bCBpbiBieV9zeW1ib2w6CiAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICBieV9zeW1ib2xbc3ltYm9sXSA9IG5hbWUKICAgICAg',
+          'ICAgICAgYnlfY29kZS5zZXRkZWZhdWx0KGNvZGUsIFtdKS5hcHBlbmQoc3ltYm9sKQogICAgICAgICAgICBieV9uYW1lLnNldGRlZmF1bHQobm9y',
+          'bWFsaXplX25hbWUobmFtZSksIFtdKS5hcHBlbmQoc3ltYm9sKQogICAgICAgICMgU3RvY2sgZXhjaGFuZ2UgdXNlcyBOQVZFUjsgS29yZWFuLWxh',
+          'bmd1YWdlIGFsaWFzIGlzIGFuIGV4YWN0IHN5bm9ueW0uCiAgICAgICAgaWYgIjAzNTQyMC5LUyIgaW4gYnlfc3ltYm9sIGFuZCBub3JtYWxpemVf',
+          'bmFtZShieV9zeW1ib2xbIjAzNTQyMC5LUyJdKSA9PSAibmF2ZXIiOgogICAgICAgICAgICBieV9uYW1lLnNldGRlZmF1bHQobm9ybWFsaXplX25h',
+          'bWUoIuuEpOydtOuyhCIpLCBbXSkuYXBwZW5kKCIwMzU0MjAuS1MiKQogICAgZXhjZXB0IChPU0Vycm9yLCBWYWx1ZUVycm9yLCBUeXBlRXJyb3Is',
+          'IGpzb24uSlNPTkRlY29kZUVycm9yKToKICAgICAgICByZXR1cm4ge30sIHt9LCB7fSwgIuuvuO2ZleyduCIKICAgIHJldHVybiBieV9zeW1ib2ws',
+          'IGJ5X2NvZGUsIGJ5X25hbWUsIHNvdXJjZV9kYXRlCgoKZGVmIHJlc29sdmVfc3ltYm9scyhyYXc6IHN0ciwgYnlfc3ltYm9sOiBkaWN0LCBieV9j',
+          'b2RlOiBkaWN0LCBieV9uYW1lOiBkaWN0KToKICAgICIiIkFjY2VwdCBhbiBleGFjdCBzdG9jayBuYW1lLCBzaXgtZGlnaXQgY29kZSwgb3IgZnVs',
+          'bCBZYWhvbyBzeW1ib2wuIiIiCiAgICB0b2tlbnMgPSBbeC5zdHJpcCgpIGZvciB4IGluIHJlLnNwbGl0KHIiWyw7XFxuXSsiLCByYXcpIGlmIHgu',
+          'c3RyaXAoKV0KICAgIGlmIG5vdCB0b2tlbnM6CiAgICAgICAgcmFpc2UgVmFsdWVFcnJvcigi7KKF66qp66qFIOuYkOuKlCDsooXrqqnsvZTrk5zr',
+          'pbwg7ZWY64KYIOydtOyDgSDsnoXroKXtlZjshLjsmpQuIikKICAgIGZvdW5kID0ge30KICAgIGZvciB0b2tlbiBpbiB0b2tlbnM6CiAgICAgICAg',
+          'dXAgPSB0b2tlbi51cHBlcigpCiAgICAgICAgaWYgcmUuZnVsbG1hdGNoKHIiXFxkezZ9XFwuKEtTfEtRKSIsIHVwKToKICAgICAgICAgICAgc3lt',
+          'Ym9sID0gdXAKICAgICAgICAgICAgaWYgc3ltYm9sWzo2XSBpbiBieV9jb2RlIGFuZCBzeW1ib2wgbm90IGluIGJ5X2NvZGVbc3ltYm9sWzo2XV06',
+          'CiAgICAgICAgICAgICAgICByYWlzZSBWYWx1ZUVycm9yKGYie3Rva2VufTog7Iuc7J6lIOq1rOu2hCguS1MvLktRKeydtCDsooXrqqnrqoUg66qp',
+          '66Gd6rO8IOydvOy5mO2VmOyngCDslYrsirXri4jri6QuIikKICAgICAgICBlbGlmIHJlLmZ1bGxtYXRjaChyIlxcZHs2fSIsIHRva2VuKToKICAg',
+          'ICAgICAgICAgbWF0Y2hlcyA9IGJ5X2NvZGUuZ2V0KHRva2VuLCBbXSkKICAgICAgICAgICAgaWYgbGVuKG1hdGNoZXMpICE9IDE6CiAgICAgICAg',
+          'ICAgICAgICByYWlzZSBWYWx1ZUVycm9yKGYie3Rva2VufTog7Iuc7J6lIOq1rOu2hOydhCDtmZXsnbjtlaAg7IiYIOyXhuyKteuLiOuLpC4gMDAw',
+          'MDAwLktTIOuYkOuKlCAuS1Hrpbwg7J6F66Cl7ZWY7IS47JqULiIpCiAgICAgICAgICAgIHN5bWJvbCA9IG1hdGNoZXNbMF0KICAgICAgICBlbHNl',
+          'OgogICAgICAgICAgICBtYXRjaGVzID0gbGlzdChkaWN0LmZyb21rZXlzKGJ5X25hbWUuZ2V0KG5vcm1hbGl6ZV9uYW1lKHRva2VuKSwgW10pKSkK',
+          'ICAgICAgICAgICAgaWYgbGVuKG1hdGNoZXMpICE9IDE6CiAgICAgICAgICAgICAgICByYWlzZSBWYWx1ZUVycm9yKGYiJ3t0b2tlbn0nIOyiheuq',
+          'qeuqheydhCDtmITsnqwgVE9QMjAw7JeQ7IScIOygle2Zle2eiCDssL7snYQg7IiYIOyXhuyKteuLiOuLpC4g7KKF66qp7L2U65OcKOyYiDogMDA1',
+          'OTMwLktTKeuhnCDsnoXroKXtlZjshLjsmpQuIikKICAgICAgICAgICAgc3ltYm9sID0gbWF0Y2hlc1swXQogICAgICAgIGZvdW5kW3N5bWJvbF0g',
+          'PSBieV9zeW1ib2wuZ2V0KHN5bWJvbCwgIuyiheuqqeuqhSDrr7jtmZXsnbgiKQogICAgICAgIGlmIGxlbihmb3VuZCkgPiBNQVhfTUFOVUFMX1NZ',
+          'TUJPTFM6CiAgICAgICAgICAgIHJhaXNlIFZhbHVlRXJyb3IoZiLtlZwg67KI7JeQIHtNQVhfTUFOVUFMX1NZTUJPTFN96rCcIOyiheuqqeq5jOyn',
+          'gCDsiJjrj5kg67mE6rWQ7ZWgIOyImCDsnojsirXri4jri6QuIFRPUDIwMCDsoITssrQg7KKF66qpIOyImCDsoJztlZzsnYAg7JWE64uZ64uI64uk',
+          'LiIpCiAgICByZXR1cm4gZm91bmQKCgpkZWYgc3ltYm9sc19mcm9tX3RleHQocmF3OiBzdHIpIC0+IGxpc3Rbc3RyXToKICAgICIiIkJhY2t3YXJk',
+          'LWNvbXBhdGlibGUgcHVibGljIGhlbHBlciwgbm93IHN1cHBvcnRzIGV4YWN0IHN0b2NrIG5hbWVzLiIiIgogICAgbmFtZXMsIGNvZGVzLCBsb29r',
+          'dXAsIF8gPSBsb2FkX3N0b2NrX25hbWVzKCkKICAgIHJldHVybiBsaXN0KHJlc29sdmVfc3ltYm9scyhyYXcsIG5hbWVzLCBjb2RlcywgbG9va3Vw',
+          'KSkKCicnJwpzID0gc1s6Zmlyc3RdICsgbmV3X2xvb2t1cCArIHNbbGFzdDpdCgpwID0gcy5pbmRleCgiZGVmIHJlbmRlcl9jYW5kaWRhdGVzKCkg',
+          'LT4gTm9uZToiKQpuZXdfcmVuZGVyID0gJycnZGVmIHJlbmRlcl9jYW5kaWRhdGVzKCkgLT4gTm9uZToKICAgIHN0LmRpdmlkZXIoKQogICAgc3Qu',
+          'bWFya2Rvd24oJyMjIyDwn6etIOyXrOufrCDsooXrqqkg67mE6rWQIHwgUlMgwrcgREkvQURYIMK3IEFUUicpCiAgICBzdC5jYXB0aW9uKAogICAg',
+          'ICAgICfsooXrqqnrqoXsnLzroZwg6rKA7IOJ7ZWY6rOgIFJTwrdESS9BRFjCt0FUUuydhCDruYTqtZDtlanri4jri6QuICcKICAgICAgICAn7KKF',
+          '66qp66qFIOqygOyDieydgCDsoIDsnqXrkJwgVE9QMjAwIOuqqeuhnSDquLDspIDsnbTrqbAsIOuqqeuhnSDsmbgg7KKF66qp64+EIC5LUy8uS1Eg',
+          '7KKF66qp7L2U65Oc66GcIOyhsO2ajO2VoCDsiJgg7J6I7Iq164uI64ukLicKICAgICkKICAgIGJ5X3N5bWJvbCwgYnlfY29kZSwgYnlfbmFtZSwg',
+          'bmFtZV9kYXRlID0gbG9hZF9zdG9ja19uYW1lcygpCiAgICB3aXRoIHN0LmZvcm0oJ21pbmVyX3RyZW5kX2NvbXBhcmVfZm9ybScpOgogICAgICAg',
+          'IHJhdyA9IHN0LnRleHRfaW5wdXQoCiAgICAgICAgICAgICfsooXrqqnrqoUg65iQ64qUIOyiheuqqey9lOuTnCAo7Im87ZGc66GcIOq1rOu2hCkn',
+          'LAogICAgICAgICAgICB2YWx1ZT0n7IK87ISx7KCE7J6QLCBTS+2VmOydtOuLieyKpCwg64Sk7J2067KELCDsubTsubTsmKQnLAogICAgICAgICAg',
+          'ICBrZXk9J21pbmVyX3RyZW5kX2NvbXBhcmVfbmFtZXNfdjInLAogICAgICAgICAgICBoZWxwPSfsmIg6IOyCvOyEseyghOyekCwgU0vtlZjsnbTr',
+          'i4nsiqQsIOuEpOydtOuyhCAvIDAwNTkzMC5LUywgMDAwNjYwLktTJywKICAgICAgICApCiAgICAgICAgY3V0b2ZmID0gc3Quc2xpZGVyKCdBRFgg',
+          '7LWc7IaMIOq4sOykgCcsIG1pbl92YWx1ZT0xNSwgbWF4X3ZhbHVlPTM1LAogICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT0yMCwgc3Rl',
+          'cD0xLCBrZXk9J21pbmVyX3RyZW5kX2NvbXBhcmVfYWR4JykKICAgICAgICBzdWJtaXR0ZWQgPSBzdC5mb3JtX3N1Ym1pdF9idXR0b24oJ/CflI4g',
+          '67mE6rWQ7ZGcIOqzhOyCsCcpCiAgICBzdC5jYXB0aW9uKGYn7KKF66qp66qFIOyhsO2ajCDrqqnroZ06IFRPUDIwMCDCtyDquLDspIDsnbwge25h',
+          'bWVfZGF0ZX0uIOyjvOqwgMK37KeA7ZGc64qUIFlhaG9vIOy1nOyLoCDqs7XthrUg6rGw656Y7J28IOq4sOykgOyeheuLiOuLpC4nKQogICAgaWYg',
+          'c3VibWl0dGVkOgogICAgICAgIHRyeToKICAgICAgICAgICAgc2VsZWN0ZWQgPSByZXNvbHZlX3N5bWJvbHMocmF3LCBieV9zeW1ib2wsIGJ5X2Nv',
+          'ZGUsIGJ5X25hbWUpCiAgICAgICAgZXhjZXB0IFZhbHVlRXJyb3IgYXMgZXhjOgogICAgICAgICAgICBzdC5lcnJvcihzdHIoZXhjKSkKICAgICAg',
+          'ICAgICAgcmV0dXJuCiAgICAgICAgc3Quc2Vzc2lvbl9zdGF0ZVsnbWluZXJfdHJlbmRfY29tcGFyZV9yZXF1ZXN0X3YyJ10gPSAoc2VsZWN0ZWQs',
+          'IGN1dG9mZikKICAgIHJlcXVlc3QgPSBzdC5zZXNzaW9uX3N0YXRlLmdldCgnbWluZXJfdHJlbmRfY29tcGFyZV9yZXF1ZXN0X3YyJykKICAgIGlm',
+          'IHJlcXVlc3QgaXMgTm9uZToKICAgICAgICBzdC5pbmZvKCfsooXrqqnrqoXsnYQg7J6F66Cl7ZWY6rOgIOu5hOq1kO2RnCDqs4TsgrDsnYQg64iE',
+          '66W066m0IOyhsO2ajO2VqeuLiOuLpC4g7Y6Y7J207KeAIOynhOyehSDsi5wg64yA65+JIOyalOyyre2VmOyngCDslYrsirXri4jri6QuJykKICAg',
+          'ICAgICByZXR1cm4KICAgIGNob3NlbiwgY3V0b2ZmID0gcmVxdWVzdAogICAgb3V0cHV0LCBmYWlsdXJlcyA9IFtdLCBbXQogICAgd2l0aCBzdC5z',
+          'cGlubmVyKCdZYWhvbyDsnbzrs4Qg6rCA6rKp6rO8IOyLnOyepSDsp4DsiJjrpbwg67mE6rWQ7ZWY64qUIOykkS4uLicpOgogICAgICAgIGZvciBz',
+          'eW1ib2wsIG9yaWdpbmFsX25hbWUgaW4gY2hvc2VuLml0ZW1zKCk6CiAgICAgICAgICAgIGJlbmNobWFyayA9ICdeS1MxMScgaWYgc3ltYm9sLmVu',
+          'ZHN3aXRoKCcuS1MnKSBlbHNlICdeS1ExMScKICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgaXRlbSA9IGFuYWx5emVfcGFpcihzeW1i',
+          'b2wsIGhpc3Rvcnkoc3ltYm9sKSwgaGlzdG9yeShiZW5jaG1hcmspLCBjdXRvZmYpCiAgICAgICAgICAgICAgICAjIFJlZnJlc2ggbmFtZXMgaWYg',
+          'dGhlIHZlcmlmaWVkIHN0b2NrLW5hbWUgc25hcHNob3Qgd2FzIHVwZGF0ZWQuCiAgICAgICAgICAgICAgICBpdGVtWyfsooXrqqnrqoUnXSA9IGJ5',
+          'X3N5bWJvbC5nZXQoc3ltYm9sLCBvcmlnaW5hbF9uYW1lKQogICAgICAgICAgICAgICAgaXRlbVsn7KKF66qp7L2U65OcJ10gPSBzeW1ib2xbOjZd',
+          'CiAgICAgICAgICAgICAgICBvdXRwdXQuYXBwZW5kKGl0ZW0pCiAgICAgICAgICAgIGV4Y2VwdCBFeGNlcHRpb24gYXMgZXhjOgogICAgICAgICAg',
+          'ICAgICAgZmFpbHVyZXMuYXBwZW5kKGYne29yaWdpbmFsX25hbWV9ICh7c3ltYm9sfSk6IHt0eXBlKGV4YykuX19uYW1lX199IC8ge3N0cihleGMp',
+          'WzoxMTBdfScpCiAgICBpZiBvdXRwdXQ6CiAgICAgICAgZnJhbWUgPSBwZC5EYXRhRnJhbWUob3V0cHV0KS5zb3J0X3ZhbHVlcygKICAgICAgICAg',
+          'ICAgWydfc2NvcmUnLCAnX3Jhd19ycyddLCBhc2NlbmRpbmc9W0ZhbHNlLCBGYWxzZV0KICAgICAgICApLmRyb3AoY29sdW1ucz1bJ19zY29yZScs',
+          'ICdfcmF3X3JzJ10pLnJlc2V0X2luZGV4KGRyb3A9VHJ1ZSkKICAgICAgICBmcmFtZS5pbnNlcnQoMCwgJ+yInOychCcsIHJhbmdlKDEsIGxlbihm',
+          'cmFtZSkgKyAxKSkKICAgICAgICBmcm9udCA9IFsn7Iic7JyEJywgJ+yiheuqqeuqhScsICfsooXrqqnsvZTrk5wnXQogICAgICAgIGZyYW1lID0g',
+          'ZnJhbWVbZnJvbnQgKyBbYyBmb3IgYyBpbiBmcmFtZS5jb2x1bW5zIGlmIGMgbm90IGluIGZyb250XV0KICAgICAgICBzdC5kYXRhZnJhbWUoZnJh',
+          'bWUsIGhpZGVfaW5kZXg9VHJ1ZSwgdXNlX2NvbnRhaW5lcl93aWR0aD1UcnVlKQogICAgICAgIHN0LmRvd25sb2FkX2J1dHRvbign8J+TpSDruYTq',
+          'tZAg6rKw6rO8IENTVicsCiAgICAgICAgICAgICAgICAgICAgICAgICAgIGZyYW1lLnRvX2NzdihpbmRleD1GYWxzZSkuZW5jb2RlKCd1dGYtOC1z',
+          'aWcnKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgZmlsZV9uYW1lPSdtaW5lcl9yc19kbWlfYXRyX2NvbXBhcmlzb24uY3N2JywgbWltZT0n',
+          'dGV4dC9jc3YnLAogICAgICAgICAgICAgICAgICAgICAgICAgICBrZXk9J21pbmVyX3RyZW5kX2NvbXBhcmVfY3N2JykKICAgICAgICBhbGxfZGF0',
+          'ZXMgPSBzb3J0ZWQoc2V0KGZyYW1lWyfquLDspIDsnbwnXS50b2xpc3QoKSkpCiAgICAgICAgaWYgbGVuKGFsbF9kYXRlcykgPiAxOgogICAgICAg',
+          'ICAgICBzdC53YXJuaW5nKCfsooXrqqnrs4Qg7LWc7KKFIOqzte2GtSDqsbDrnpjsnbzsnbQg64uk66aF64uI64ukLiDquLDspIDsnbwg7Je07J2E',
+          'IOu5hOq1kO2VtCDso7zshLjsmpQuJykKICAgICAgICBzdC5jYXB0aW9uKAogICAgICAgICAgICAnMy8zID0gK0RJPi1ESSwgQURY6rCAIOyEpOyg',
+          'lSDquLDspIAg7J207IOBLCA2MOydvCBSU+qwgCDslpHsiJguICcKICAgICAgICAgICAgJ+yImOydteyEseydgCDqsoDspp3rkJjsp4Ag7JWK7JWY',
+          '7Jy866mwIOyLpOyggcK367C466WY7JeQ7J207IWYIOyLrOyCrOuKlCDtj6ztlajtlZjsp4Ag7JWK7Iq164uI64ukLicKICAgICAgICApCiAgICAg',
+          'ICAgc3QuY2FwdGlvbigKICAgICAgICAgICAgJzJBVFIg6rGw66asID0g7ZiE7J6sIOydvOu0iSBBVFLsnZgg65GQIOuwsOulvCDso7zqsIAg64yA',
+          '67mEIO2RnOyLnO2VnCDssLjqs6DsuZguICcKICAgICAgICAgICAgJ+yYiOyLnCDruYTspJHsnYAg6rOE7KKMIOyGkOyLpCDtl4jsmqkgMSUsIDJB',
+          'VFIg7IaQ7KCI7J2EIOqwgOygle2VnCDri6jsiJwg7IKw7IudKOy1nOuMgCAxMDAlKS4gJwogICAgICAgICAgICAn6rCt7ZWY6529wrfruYTsmqnC',
+          't+2PrOyngOyFmCDsg4HqtIDqtIDqs4TripQg67CY7JiB7ZWY7KeAIOyViuyKteuLiOuLpC4nCiAgICAgICAgKQogICAgaWYgZmFpbHVyZXM6CiAg',
+          'ICAgICAgd2l0aCBzdC5leHBhbmRlcihmJ+yImOynkSDsi6TtjKggLyDrjbDsnbTthLAg67aA7KGxIHtsZW4oZmFpbHVyZXMpfeqxtCcpOgogICAg',
+          'ICAgICAgICBmb3IgbXNnIGluIGZhaWx1cmVzOgogICAgICAgICAgICAgICAgc3Qud2FybmluZyhtc2cpCiAgICBzdC5jYXB0aW9uKCdZYWhvbyBG',
+          'aW5hbmNlIOyImOyglSDsnbzrtIkgwrcgMTXrtoQg7LqQ7IucIMK3IOyngOyXsCDqsIDriqUuIOq4sOykgOydvOydtCDri6Trpbgg7Iuc7IS466W8',
+          'IO2VqeyzkCDtmITsnqwg7Iug7Zi466GcIO2RnOyLnO2VmOyngCDslYrsirXri4jri6QuJykKJycnCnMgPSBzWzpwXSArIG5ld19yZW5kZXIKYXN0',
+          'LnBhcnNlKHMsIGZpbGVuYW1lPXN0cihwYXRoKSkKcGF0aC53cml0ZV90ZXh0KHMsIGVuY29kaW5nPSJ1dGYtOCIpCnByaW50KCJQYXRjaGVkIHRy',
+          'ZW5kX2NhbmRpZGF0ZXNfdWkucHk6IEtvcmVhbiBzdG9jayBuYW1lcyBmaXJzdCIpCg==',
+          ]))
+          exec(compile(patch, 'patch_stock_names.py', 'exec'))
+          PY_PATCH
+      - name: Offline stock-name resolution checks (no Yahoo calls)
+        shell: bash
+        run: |
+          python - <<'PY_TEST'
+          import ast, json, re
+          from pathlib import Path
+          src=Path('trend_candidates_ui.py').read_text(encoding='utf-8')
+          tree=ast.parse(src, filename='trend_candidates_ui.py')
+          assert '# MINER_STOCK_NAMES_V2' in src
+          assert "front = ['순위', '종목명', '종목코드']" in src
+          assert "key='miner_trend_compare_names_v2'" in src
+          funcs={'normalize_name','load_stock_names','resolve_symbols','symbols_from_text'}
+          isolated=ast.Module(body=[n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in funcs],type_ignores=[])
+          assert len(isolated.body)==len(funcs)
+          env={'json':json,'re':re,'Path':Path,'ROOT':Path.cwd(),'MAX_MANUAL_SYMBOLS':15}
+          exec(compile(isolated,'trend_name_functions','exec'),env)
+          names,codes,lookup,day=env['load_stock_names']()
+          expected={'005930.KS':'삼성전자','000660.KS':'SK하이닉스','035420.KS':'NAVER','035720.KS':'카카오'}
+          for code,name in expected.items():
+              assert names.get(code)==name,(code,names.get(code))
+          q=env['resolve_symbols']('삼성전자, SK하이닉스, 네이버, 카카오', names,codes,lookup)
+          assert list(q)==list(expected),q
+          assert q==expected,q
+          alias=env['resolve_symbols']('NAVER, 005930, 000660.KS, 035720.KS',names,codes,lookup)
+          assert list(alias)==['035420.KS','005930.KS','000660.KS','035720.KS'],alias
+          assert len(env['resolve_symbols']('삼성전자, 005930.KS',names,codes,lookup))==1
+          for invalid in ('실존하지않는종목','005930.KQ'):
+              try: env['resolve_symbols'](invalid,names,codes,lookup)
+              except ValueError: pass
+              else: raise AssertionError(f'Invalid token accepted: {invalid}')
+          assert env['symbols_from_text']('삼성전자, SK하이닉스')==['005930.KS','000660.KS']
+          print('PASS: Korean-name inputs, alias, ticker lookup, duplicate handling, unknown name, mismatched market')
+          print('PASS: result table displays name before code; directory date',day)
+          PY_TEST
+      - name: Verify source compiles
+        run: python -m py_compile trend_candidates_ui.py stock_analysis_ui.py app.py
+      - name: Commit only the UI name fix
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add trend_candidates_ui.py
+          if git diff --cached --quiet; then
+            echo 'No changes (already installed)'
+            exit 0
+          fi
+          git commit -m 'ui: use Korean stock names in RS comparison'
+          git push
