@@ -1,0 +1,114 @@
+name: "INSTALL: KOSPI200 night futures widget ONLY"
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: miner-install-night-futures-only
+  cancel-in-progress: false
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Add night futures panel without changing existing market cards
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('pages/1_광부_종합상황판.py')
+          source = path.read_text(encoding='utf-8')
+          marker = '# NIGHT_FUTURES_PANEL_K2I_V1'
+          anchor = "    st.caption(\n        '미국 10년물(^TNX)은 Yahoo 원표기값입니다. '"
+          original_card_count = source.count('for start in (0, 4, 8):')
+          original_reload = source.count("key='overview_reload'")
+          if original_card_count != 1 or original_reload != 1:
+              raise SystemExit('Dashboard structure changed: refusing to patch')
+
+          if marker not in source:
+              if source.count(anchor) != 1:
+                  raise SystemExit('Expected insertion location not found exactly once')
+              import_anchor = 'import streamlit as st\n'
+              if 'import streamlit.components.v1 as components\n' not in source:
+                  if source.count(import_anchor) != 1:
+                      raise SystemExit('Streamlit import anchor not found')
+                  source = source.replace(
+                      import_anchor,
+                      import_anchor + 'import streamlit.components.v1 as components\n',
+                      1,
+                  )
+
+              panel = r'''    # NIGHT_FUTURES_PANEL_K2I_V1
+              # KOSPI200's day and night sessions share the underlying futures contract.
+              # Free TradingView KRX quotes may be delayed. This is NOT an API feed.
+              st.markdown('#### 🌙 코스피200 야간선물')
+              st.caption(
+                  'KRX 야간거래 18:00~익일 06:00 (한국시간) · '
+                  'TradingView 무료 시세는 지연될 수 있습니다. 실시간 체결가 보장 아님.'
+              )
+              components.html(
+                  """
+                  <div class="tradingview-widget-container" style="width:100%;min-height:195px">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript"
+                      src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
+                      async>
+                      {
+                        "symbol": "KRX:K2I1!",
+                        "width": "100%",
+                        "locale": "kr",
+                        "colorTheme": "dark",
+                        "isTransparent": true
+                      }
+                    </script>
+                  </div>
+                  """,
+                  height=215,
+                  scrolling=False,
+              )
+              st.link_button(
+                  '🔎 코스피200 선물 시세·차트 보기',
+                  'https://kr.tradingview.com/symbols/KRX-K2I1%21/',
+                  use_container_width=False,
+              )
+
+          '''
+              source = source.replace(anchor, panel + anchor, 1)
+              path.write_text(source, encoding='utf-8')
+              print('ADDED: night futures widget in market overview')
+          else:
+              print('ALREADY INSTALLED: no changes required')
+
+          final = path.read_text(encoding='utf-8')
+          compile(final, str(path), 'exec')
+          assert final.count(marker) == 1
+          assert final.count('for start in (0, 4, 8):') == 1
+          assert final.count("key='overview_reload'") == 1
+          assert 'KRX:K2I1!' in final
+          print('PASS: Python syntax, original 12 cards and refresh button retained')
+          PY
+      - name: Commit only dashboard change
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 'pages/1_광부_종합상황판.py'
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat: add only KOSPI200 night futures widget to overview'
+            git push
+          else
+            echo 'No changes (already installed).'
+          fi
