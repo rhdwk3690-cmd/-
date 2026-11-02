@@ -1,0 +1,407 @@
+name: "Experiment: H2 accounting change added to H1 (filing-date audited)"
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  h2-fundamental-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - name: Checkout repository READ ONLY
+        uses: actions/checkout@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install isolated research dependencies
+        run: python -m pip install "pandas==2.2.3" "requests>=2.31,<3" "tabulate>=0.9,<1"
+      - name: Create H2 study module, no repository changes
+        shell: bash
+        run: |
+          mkdir -p /tmp/miner_h2
+          cat > /tmp/miner_h2/h2_study.py <<'PY_H2_SOURCE'
+          """Miner H2: add publicly-filed sales growth / operating-margin improvement to fixed H1 events.
+          
+          IMPORTANT: DART's current financial endpoints may include restatements. Filing dates
+          are enforced, but this is not a fully historical point-in-time financial database.
+          """
+          from __future__ import annotations
+          
+          import argparse
+          import io
+          import json
+          import os
+          import re
+          import sys
+          import zipfile
+          from collections import Counter
+          from datetime import date, datetime
+          from pathlib import Path
+          from time import sleep
+          import xml.etree.ElementTree as ET
+          
+          import pandas as pd
+          import requests
+          
+          H1_ARTIFACT_ID = 13079077354
+          H1_RUN_ID = 41295046516
+          REPOSITORY = 'rhdwk3690-cmd/-'
+          DART = 'https://opendart.fss.or.kr/api'
+          REPRT = {'분기보고서': None, '반기보고서': '11012', '사업보고서': '11011'}
+          REVENUE_IDS = {'ifrs-full_Revenue','ifrs_Revenue','ifrs-full_RevenueFromContractsWithCustomers','ifrs_RevenueFromContractsWithCustomers'}
+          OPERATING_IDS = {'dart_OperatingIncomeLoss','ifrs-full_ProfitLossFromOperatingActivities','ifrs_ProfitLossFromOperatingActivities'}
+          REVENUE_NAMES = {'매출액','매출','수익(매출액)','영업수익','수익'}
+          OPERATING_NAMES = {'영업이익','영업이익(손실)','영업손익'}
+          STATUSES_FATAL = {'010','011','012','020','021','800','900','901'}
+          
+          
+          def require(condition, message):
+              if not condition: raise ValueError(message)
+          
+          
+          def parse_amount(s):
+              if s is None: return None
+              s = str(s).strip().replace(',', '')
+              if not s or s in ('-', '—'): return None
+              if re.fullmatch(r'\([0-9]+\)',s): return -int(s[1:-1])
+              if re.fullmatch(r'-?[0-9]+',s): return int(s)
+              return None
+          
+          
+          def identify_report(item):
+              """Only ORIGINAL statutory filings with explicit fiscal year/month."""
+              title = str(item.get('report_nm','')).strip()
+              m = re.match(r'^(분기보고서|반기보고서|사업보고서)\s*\(\s*(20\d\d)\s*[.\-/]\s*(0?[0-9]|1[0-2])\s*\)',title)
+              if not m:return None
+              kind,year,month = m.group(1),int(m.group(2)),int(m.group(3))
+              code = ('11013' if month==3 else '11014' if month==9 else None) if kind=='분기보고서' else REPRT[kind]
+              if (kind=='반기보고서' and month!=6) or (kind=='사업보고서' and month!=12) or code is None:
+                  return None
+              rcept = str(item.get('rcept_dt',''))
+              n = str(item.get('rcept_no',''))
+              if not re.fullmatch(r'20\d{6}',rcept) or not re.fullmatch(r'\d{14}',n):return None
+              return {'year':year,'month':month,'reprt_code':code,'date':date.fromisoformat(rcept[:4]+'-'+rcept[4:6]+'-'+rcept[6:]),
+                      'rcept_no':n, 'report_nm':title}
+          
+          
+          def financial_pair(rows, is_annual=False):
+              """Prefer standardized XBRL IDs, single FS and income-statement category.
+          
+              For Q1,Q2,Q3 OpenDART thstrm_amount and frmtrm_q_amount are 3-month values.
+              Q4 needs FY minus Q3 YTD and is deferred (never treat annual as one quarter).
+              """
+              if is_annual:return None
+              def pick(accounts, ids, names):
+                  for sj in ('IS','CIS'):
+                      choices=[r for r in accounts if r.get('sj_div')==sj]
+                      for mode in ('id','name'):
+                          possible=[r for r in choices if (r.get('account_id') in ids if mode=='id' else
+                                    (r.get('account_nm') or '').strip() in names)]
+                          good=[]
+                          for r in possible:
+                              now=parse_amount(r.get('thstrm_amount'))
+                              prev=parse_amount(r.get('frmtrm_q_amount'))
+                              if now is not None and prev is not None:good.append((now,prev,r.get('account_id')))
+                          if len(good)==1:return good[0]
+                          if len(good)>1:
+                              uniq={(x[0],x[1]) for x in good}
+                              if len(uniq)==1:return good[0]
+                              return None
+                  return None
+              revenue=pick(rows,REVENUE_IDS,REVENUE_NAMES)
+              operating=pick(rows,OPERATING_IDS,OPERATING_NAMES)
+              if not revenue or not operating:return None
+              r,py_r,_ = revenue
+              o,py_o,_ = operating
+              if r<=0 or py_r<=0:return None
+              return {'revenue_yoy_pct':100*(r/py_r-1),
+                      'margin_change_pp':100*(o/r - py_o/py_r),
+                      'revenue_now':r,'revenue_yoy_base':py_r,'operating_now':o,'operating_yoy_base':py_o,
+                      'revenue_account_id':revenue[2],'operating_account_id':operating[2]}
+          
+          
+          def select_latest_asof(reports, signal_day):
+              """Conservative filing-date rule: only filings BEFORE signal day (not same day)."""
+              asof=date.fromisoformat(str(signal_day)[:10])
+              # For each report period, retain earliest statutory filing, never a later correction.
+              earliest={}
+              for item in reports:
+                  k=(item['year'],item['reprt_code'])
+                  if k not in earliest or (item['date'],item['rcept_no'])<(earliest[k]['date'],earliest[k]['rcept_no']):
+                      earliest[k]=item
+              valid=[x for x in earliest.values() if x['date']<asof]
+              # only quarterly reports in pilot; annual Q4 requires separate Q3 audit
+              valid=[x for x in valid if x['reprt_code'] in ('11013','11012','11014')]
+              return max(valid,key=lambda x:(x['year'],x['month'],x['date'])) if valid else None
+          
+          
+          def flags(x):
+              if x is None:return None
+              sales=x['revenue_yoy_pct']>=10
+              margin=x['margin_change_pp']>=2.0
+              return {'H2_sales':sales,'H2_margin':margin,'H2_both':sales and margin}
+          
+          
+          class DartClient:
+              def __init__(self,key):
+                  require(bool(re.fullmatch(r'[A-Za-z0-9]{40}',key or '')),'DART_API_KEY 형식 오류 또는 누락 (40자리 인증키 필요)')
+                  self.key=key
+                  self.s=requests.Session()
+                  self.s.headers.update({'User-Agent':'MinerH2Research/1.0 (public noncommercial)','Accept':'application/json,*/*'})
+                  self.calls=0
+                  self.cache={}
+              def get(self,endpoint,**params):
+                  k=(endpoint,tuple(sorted(params.items())))
+                  if k in self.cache:return self.cache[k]
+                  for retry in range(3):
+                      try:
+                          resp=self.s.get(f'{DART}/{endpoint}',params={'crtfc_key':self.key,**params},timeout=(12,40))
+                          resp.raise_for_status()
+                          result=resp.json()
+                          self.calls+=1
+                          status=str(result.get('status',''))
+                          if status in STATUSES_FATAL:raise RuntimeError(f'OpenDART API 오류: {status} {result.get("message","")[:100]}')
+                          require(status in ('000','013','014'),f'알 수 없는 DART 응답: {status}')
+                          self.cache[k]=result
+                          sleep(0.12)
+                          return result
+                      except (requests.exceptions.RequestException,ValueError) as exc:
+                          if retry==2:raise RuntimeError(f'DART 조회 실패 {endpoint}: {type(exc).__name__}') from exc
+                          sleep(0.6*(retry+1))
+                  raise RuntimeError('unreachable')
+              def corps(self):
+                  response=self.s.get(f'{DART}/corpCode.xml',params={'crtfc_key':self.key},timeout=(15,90))
+                  response.raise_for_status()
+                  require(zipfile.is_zipfile(io.BytesIO(response.content)),'DART 기업코드 ZIP 응답 아님')
+                  with zipfile.ZipFile(io.BytesIO(response.content)) as z:
+                      require(len(z.namelist())==1,'DART 기업코드 ZIP 내부 파일 이상')
+                      root=ET.fromstring(z.read(z.namelist()[0]))
+                  code_map={};amb=set()
+                  for child in root.findall('.//list'):
+                      s=(child.findtext('stock_code') or '').strip()
+                      c=(child.findtext('corp_code') or '').strip()
+                      if re.fullmatch(r'\d{6}',s) and re.fullmatch(r'\d{8}',c):
+                          if s in code_map and code_map[s]!=c:amb.add(s)
+                          code_map[s]=c
+                  for x in amb:code_map.pop(x,None)
+                  return code_map,amb
+              def reports(self,corp):
+                  out=[]
+                  for page in range(1,11):
+                      j=self.get('list.json',corp_code=corp,bgn_de='20190101',end_de='20261030',
+                                 pblntf_ty='A',page_no=str(page),page_count='100',last_reprt_at='N')
+                      if j['status'] in ('013','014'):break
+                      items=j.get('list') or []
+                      for item in items:
+                          r=identify_report(item)
+                          if r:out.append(r)
+                      if page*100>=int(j.get('total_count') or len(items)):break
+                  else:raise RuntimeError('DART 공시목록 10페이지 초과: 불완전한 데이터 방지')
+                  return out
+              def statement(self,corp,year,reprt_code):
+                  for fs in ('CFS','OFS'):
+                      j=self.get('fnlttSinglAcntAll.json',corp_code=corp,bsns_year=str(year),reprt_code=reprt_code,fs_div=fs)
+                      if j['status'] in ('013','014'):continue
+                      p=financial_pair(j.get('list') or [])
+                      if p:return {**p,'fs_div':fs}
+                  return None
+          
+          
+          def download_h1(gh_token, dest):
+              require(bool(gh_token),'GITHUB_TOKEN 누락')
+              url=f'https://api.github.com/repos/{REPOSITORY}/actions/artifacts/{H1_ARTIFACT_ID}/zip'
+              resp=requests.get(url,headers={'Authorization':f'Bearer {gh_token}', 'Accept':'application/vnd.github+json'},timeout=(20,100))
+              resp.raise_for_status()
+              with zipfile.ZipFile(io.BytesIO(resp.content)) as archive:
+                  names=[n for n in archive.namelist() if n.endswith('signals_and_forward.csv')]
+                  require(len(names)==1,'고정 H1 원본 artifact에서 CSV 확인 실패')
+                  blob=archive.read(names[0]);dest.write_bytes(blob)
+              data=pd.read_csv(dest,encoding='utf-8-sig',dtype={'Code':'string','signal_date':'string','Name':'string'})
+              required={'signal_date','Code','Name','Market','H1','h','status','return_net_pct','mae_pct'}
+              require(required.issubset(data.columns),'H1 결과 열 형식 불일치')
+              require(data['signal_date'].between('2022-01-01','2026-10-30').all(),'H1 원본 관측 구간 불일치')
+              require(len(data[(data.H1==True)&(data.h==20)])==143,'고정 H1 기준 신호 143개 불일치: 비교 실험 중단')
+              return data
+          
+          
+          def enrich(h1,client):
+              all_events=h1.loc[h1.H1==True].copy()
+              identifiers=all_events[['Code','Name','signal_date']].drop_duplicates()
+              mapping,amb=client.corps()
+              records=[]
+              bycorp={}
+              reasons=Counter()
+              for e in identifiers.itertuples(index=False):
+                  stock=str(e.Code).zfill(6)
+                  record={'Code':stock,'Name':e.Name,'signal_date':e.signal_date,
+                          'filing_rcept_dt':None,'filing_rcept_no':None,'fiscal_period':None,
+                          'fs_div':None,'revenue_yoy_pct':None,'margin_change_pp':None,
+                          'H2_sales':None,'H2_margin':None,'H2_both':None,'status':'pending'}
+                  corp=mapping.get(stock)
+                  if not corp:
+                      record['status']='ambiguous_corp_code' if stock in amb else 'no_corp_code'
+                  else:
+                      try:
+                          if corp not in bycorp:bycorp[corp]=client.reports(corp)
+                          selected=select_latest_asof(bycorp[corp],e.signal_date)
+                          if not selected:record['status']='no_prior_quarterly_filing'
+                          else:
+                              f=client.statement(corp,selected['year'],selected['reprt_code'])
+                              record.update(filing_rcept_dt=selected['date'].isoformat(),filing_rcept_no=selected['rcept_no'],
+                                            fiscal_period=f"{selected['year']}-{selected['month']:02d}")
+                              if not f:record['status']='missing_or_ambiguous_financials'
+                              else:
+                                  record.update(fs_div=f['fs_div'],revenue_yoy_pct=round(f['revenue_yoy_pct'],4),
+                                                margin_change_pp=round(f['margin_change_pp'],4),
+                                                **flags(f),status='observed_api')
+                      except Exception as exc:
+                          # Invalid credentials/quota must abort, not hide missing data.
+                          if isinstance(exc,RuntimeError) and 'OpenDART API 오류' in str(exc):raise
+                          record['status']='api_or_parse_error'
+                          print(f'[warning] {stock} {type(exc).__name__}',flush=True)
+                  reasons[record['status']]+=1
+                  records.append(record)
+              out=pd.DataFrame(records)
+              require(not out.duplicated(['Code','signal_date']).any(),'원천 이벤트 중복')
+              require((out.loc[out.filing_rcept_dt.notna(),'filing_rcept_dt'] < out.loc[out.filing_rcept_dt.notna(),'signal_date']).all(),
+                      '미래 공시 유입 감지')
+              return out,reasons
+          
+          
+          def compare(h1,event_metrics):
+              merged=h1[h1.H1==True].merge(event_metrics,on=['Code','Name','signal_date'],how='left',validate='many_to_one')
+              # Missing financial statement classification is NEVER False.
+              for k in ['H2_sales','H2_margin','H2_both']:
+                  merged[k]=merged[k].astype('boolean')
+              merged['split']=merged.signal_date.map(lambda s:'train_2022_2024' if s<='2024-12-31' else 'known_2025_2026')
+              groups={
+                  'H1_all':lambda d:d.index==d.index,
+                  'H1_financial_observed':lambda d:d['status_y'].eq('observed_api'),
+                  'H2_A_sales10':lambda d:d.H2_sales.fillna(False),
+                  'H2_B_margin2pp':lambda d:d.H2_margin.fillna(False),
+                  'H2_C_both':lambda d:d.H2_both.fillna(False),
+                  'H1_observed_but_not_both':lambda d:d.H2_both.eq(False).fillna(False),
+              }
+              rows=[]
+              for (split,h),z in merged.groupby(['split','h'],dropna=False):
+                  for name,pick in groups.items():
+                      sub=z.loc[pick(z)]
+                      mature=sub.loc[sub.status_x.eq('mature')] if 'status_x' in sub.columns else sub.loc[sub.status.eq('mature')]
+                      vals=mature.return_net_pct.dropna()
+                      mae=mature.mae_pct.dropna()
+                      rows.append({'split':split,'horizon':int(h),'group':name,
+                                   'events':len(sub),'mature':len(mature),
+                                   'mean_net_pct':round(float(vals.mean()),3) if len(vals) else None,
+                                   'median_net_pct':round(float(vals.median()),3) if len(vals) else None,
+                                   'win_pct':round(float((vals>0).mean()*100),2) if len(vals) else None,
+                                   'mean_mae_pct':round(float(mae.mean()),3) if len(mae) else None,
+                                   'p10_pct':round(float(vals.quantile(.1)),3) if len(vals) else None,
+                                   'status':'INSUFFICIENT_SAMPLE' if len(mature)<30 else 'EXPLORATORY_ONLY'})
+              return merged,pd.DataFrame(rows)
+          
+          
+          def selftest():
+              assert parse_amount('(123)')==-123 and parse_amount('1,000')==1000
+              assert identify_report({'report_nm':'분기보고서 (2025.03)','rcept_dt':'20250515','rcept_no':'20250515001234'})['reprt_code']=='11013'
+              assert identify_report({'report_nm':'반기보고서 (2025.06)','rcept_dt':'20250815','rcept_no':'20250815001234'})['reprt_code']=='11012'
+              a=identify_report({'report_nm':'분기보고서 (2025.03)','rcept_dt':'20250515','rcept_no':'20250515001234'})
+              b=identify_report({'report_nm':'반기보고서 (2025.06)','rcept_dt':'20250815','rcept_no':'20250815001234'})
+              assert select_latest_asof([a,b],'2025-08-15')==a  # same-day filing excluded
+              assert select_latest_asof([a,b],'2025-08-16')==b
+              assert select_latest_asof([a],'2025-05-15') is None
+              rows=[{'sj_div':'IS','account_id':'ifrs-full_Revenue','account_nm':'매출액','thstrm_amount':'1100','frmtrm_q_amount':'1000'},
+                    {'sj_div':'IS','account_id':'dart_OperatingIncomeLoss','account_nm':'영업이익','thstrm_amount':'165','frmtrm_q_amount':'100'}]
+              q=financial_pair(rows)
+              assert abs(q['revenue_yoy_pct']-10)<1e-9 and abs(q['margin_change_pp']-5)<1e-9
+              assert flags(q)=={'H2_sales':True,'H2_margin':True,'H2_both':True}
+              assert financial_pair(rows,is_annual=True) is None
+              assert financial_pair(rows[:-1]) is None
+              assert financial_pair([rows[0],{**rows[1],'frmtrm_q_amount':''}]) is None
+              print('SELFTEST PASS: DART filing-date gate, report quarter, 3-month revenue/margin, no silent imputation, Q4 deferred')
+          
+          
+          def main():
+              p=argparse.ArgumentParser()
+              p.add_argument('--selftest',action='store_true')
+              p.add_argument('--out',default='out_h2')
+              a=p.parse_args()
+              if a.selftest:selftest();return
+              key=os.environ.get('DART_API_KEY','')
+              require(bool(key),'DART_API_KEY GitHub Actions Secret 미등록. H2 재무정보 결과를 산출하지 않습니다.')
+              output=Path(a.out);output.mkdir(exist_ok=True,parents=True)
+              h1=download_h1(os.environ.get('GH_TOKEN'),output/'h1_reference.csv')
+              dart=DartClient(key)
+              event_metrics,reasons=enrich(h1,dart)
+              merged,comparison=compare(h1,event_metrics)
+              event_metrics.to_csv(output/'h1_filing_fundamental_coverage.csv',index=False,encoding='utf-8-sig')
+              merged.to_csv(output/'h2_event_returns.csv',index=False,encoding='utf-8-sig')
+              comparison.to_csv(output/'h2_comparison.csv',index=False,encoding='utf-8-sig')
+              coverage=float((event_metrics.status=='observed_api').mean()*100)
+              grouped_coverage={g: {'total':int(len(f)),'observed':int(f['status'].eq('observed_api').sum())}
+                                for g,f in event_metrics.assign(split=event_metrics['signal_date'].apply(
+                                    lambda x:'2022_2024' if x<='2024-12-31' else '2025_2026')).groupby('split')}
+              meta={'h1_run':H1_RUN_ID,'h1_artifact':H1_ARTIFACT_ID,'observations':len(event_metrics),
+                    'financial_coverage_pct':round(coverage,2),'coverage_by_split':grouped_coverage,'coverage_statuses':dict(reasons),'dart_calls':dart.calls,
+                    'finance_mode':'current OpenDART periodic financial API, filing-date gated, but NOT verified original-version PIT',
+                    'q4_status':'annual Q4 excluded to avoid cumulative vs 3-month mismatch',
+                    'scope':'H1 event-level descriptive; not portfolio CAGR/MDD, overlapping correlated events',
+                    'holdout_disclosure':'2025-2026 already analyzed in prior H1 work, NOT pristine unseen holdout'}
+              (output/'h2_provenance.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
+              print('\nH1+H2 disclosure coverage: '+json.dumps(meta,ensure_ascii=False,indent=2))
+              print('\n'+comparison.to_string(index=False))
+              if coverage < 70:print('\nWARNING: financial coverage below 70%; no superiority inference allowed')
+              text=['# 광부 H2 · 실적 개선 + H1 (탐색적 실험)','',
+                    f'- H1 고정 원본 Actions 실행: {H1_RUN_ID}; 공시 기준 유효 비율: {coverage:.1f}% ({len(event_metrics)} 이벤트)',
+                    '- **중요:** OpenDART 현재 재무 API 값에는 미래 정정이 반영될 수 있어 완전한 당시 공개 수치 재현이 아님.',
+                    '- 분기 1·2·3Q 3개월 금액만 비교하며 연간 4Q는 보수적으로 제외함.',
+                    '- H1_financial_observed는 재무 결측이 없는 같은 모집단의 기준군. H2 그룹과 반드시 같이 비교할 것.',
+                    '- 결과는 개별 이벤트 수익률이며 CAGR/MDD가 아님. 2025~2026 데이터는 이전에 분석해 완전한 새 검증셋이 아님.',
+                    '',comparison.to_markdown(index=False),'',
+                    '재무자료 확인이 없는 사건은 False로 대체하지 않고 별도 결측으로 유지함.']
+              (output/'h2_summary.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
+              if os.environ.get('GITHUB_STEP_SUMMARY'):
+                  with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as fw:fw.write('\n'.join(text)+'\n')
+          
+          if __name__=='__main__':main()
+          PY_H2_SOURCE
+          python - <<'PY_VALIDATE'
+          from pathlib import Path
+          import hashlib
+          source=Path('/tmp/miner_h2/h2_study.py').read_bytes()
+          expected='bc8ff02708c50b01855a2d389d5f3a1cb375004b47211268fa2562f6b650f59b'
+          assert hashlib.sha256(source).hexdigest()==expected, 'H2 study integrity check failed'
+          print('H2 study source integrity PASS:',expected)
+          PY_VALIDATE
+      - name: Run offline DART date-gate and accounting tests
+        run: python /tmp/miner_h2/h2_study.py --selftest
+      - name: Verify DART key is privately configured
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+        shell: bash
+        run: |
+          if [ -z "$DART_API_KEY" ]; then
+            echo "::error::GitHub Actions Secret DART_API_KEY 미등록. OpenDART에서 무료 인증키를 발급한 뒤 저장소 Settings > Secrets and variables > Actions에 DART_API_KEY로 추가하세요. 이 키를 채팅/코드/로그에 노출하지 마세요."
+            echo "### H2 미실행 — DART_API_KEY가 없습니다" >> "$GITHUB_STEP_SUMMARY"
+            echo "분기실적을 임의로 만들어서 평가하지 않았습니다. 인증키 추가 후 재실행하세요." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+      - name: Run H2 financial disclosure experiment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python /tmp/miner_h2/h2_study.py --out /tmp/miner_h2/output
+      - name: Upload full H2 evidence and results
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: miner-h2-filing-date-audited-${{ github.run_id }}
+          path: /tmp/miner_h2/output/*
+          retention-days: 30
+          if-no-files-found: error
