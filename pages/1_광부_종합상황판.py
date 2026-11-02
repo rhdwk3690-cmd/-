@@ -464,39 +464,48 @@ if page == 'home':
                         f'market:{i}'
                     )
 
-    # NIGHT_FUTURES_PANEL_K2I_V1
-    # KOSPI200's day and night sessions share the underlying futures contract.
-    # Free TradingView KRX quotes may be delayed. This is NOT an API feed.
+    # NIGHT_FUTURES_PANEL_K2I_CARD_V2
+    # A quote-displaying public widget is used, not scraped market data.
+    # The KRX instrument may not be licensed for embedded quotes; never invent a price.
     st.markdown('#### 🌙 코스피200 야간선물')
-    st.caption(
-        'KRX 야간거래 18:00~익일 06:00 (한국시간) · '
-        'TradingView 무료 시세는 지연될 수 있습니다. 실시간 체결가 보장 아님.'
-    )
-    components.html(
-        """
-        <div class="tradingview-widget-container" style="width:100%;min-height:195px">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript"
-            src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js"
-            async>
-            {
-              "symbol": "KRX:K2I1!",
-              "width": "100%",
-              "locale": "kr",
-              "colorTheme": "dark",
-              "isTransparent": true
-            }
-          </script>
-        </div>
-        """,
-        height=215,
-        scrolling=False,
-    )
-    st.link_button(
-        '🔎 코스피200 선물 시세·차트 보기',
-        'https://kr.tradingview.com/symbols/KRX-K2I1%21/',
-        use_container_width=False,
-    )
+    night_cols = st.columns(4, gap='small')
+    with night_cols[0]:
+        components.html(
+            """
+            <!doctype html><html lang="ko"><head><meta charset="utf-8">
+            <style>
+              * {box-sizing:border-box}
+              html,body{margin:0;padding:0;background:transparent;color:#eef5ff;
+                font-family:system-ui,-apple-system,'Malgun Gothic',sans-serif}
+              .night-card{height:145px;border-radius:14px;border:1px solid #35536a;
+                background:linear-gradient(145deg,#152a3c,#101c2b);
+                padding:11px 12px;overflow:hidden}
+              .title{color:#eaf3ff;font-weight:800;font-size:12px;text-align:center}
+              .widget{height:81px;overflow:hidden;margin:2px 0}
+              .footer{text-align:center;font-size:11px;white-space:nowrap}
+              .footer a{color:#9edbee;text-decoration:none}
+              .footer a:hover{text-decoration:underline}
+            </style></head><body>
+              <div class="night-card">
+                <div class="title">🌙 코스피200 야간선물</div>
+                <div class="widget tradingview-widget-container">
+                  <div class="tradingview-widget-container__widget"></div>
+                  <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                    {"symbol":"KRX:K2I1!","width":"100%","colorTheme":"dark",
+                     "isTransparent":true,"locale":"kr"}
+                  </script>
+                </div>
+                <div class="footer"><a target="_blank" rel="noopener noreferrer"
+                  href="https://kr.tradingview.com/symbols/KRX-K2I1%21/">시세 미표시 시 원본 확인 ↗</a></div>
+              </div>
+            </body></html>
+            """,
+            height=151,
+            scrolling=False,
+        )
+    st.caption('야간거래 18:00~익일 06:00(KST) · TradingView 외부 시세(지연 가능). '
+               '임베드 가격이 제한되면 숫자를 만들지 않으며 원본 링크에서 확인합니다.')
 
     st.caption(
         '미국 10년물(^TNX)은 Yahoo 원표기값입니다. '

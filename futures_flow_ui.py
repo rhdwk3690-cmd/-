@@ -101,9 +101,13 @@ def render_futures_flow():
         st.warning(f'마지막 선물 자료는 {age}일 전 데이터입니다. 최신 수급으로 간주하지 마세요.')
 
     m1,m2,m3 = st.columns(3)
-    m1.metric('외국인 순매수 계약', f'{latest["foreign_net_contracts"]:+,}계약')
-    m2.metric('외국인 추정 순매수 명목금액', money(latest['foreign_net_notional_krw']))
-    m3.metric('기관 추정 순매수 명목금액', money(latest['institution_net_notional_krw']))
+    for col,who,label in ((m1,'foreign','외국인'),
+                           (m2,'institution','기관'),
+                           (m3,'individual','개인')):
+        col.metric(f'{label} 추정 순매수 명목금액',
+                   f'{latest[f"{who}_net_notional_krw"]/1e8:+,.0f}억 원',
+                   delta=f'{latest[f"{who}_net_contracts"]:+,}계약',
+                   delta_color='off')
 
     st.caption('명목금액은 Npay 매수금액 − 매도금액을 **백만원 단위로 해석해 원화 환산한 추정치**입니다. 수집기에서 계약당 암묵적 지수 포인트를 검산합니다. 실제 현금 투입액·증거금·포지션 잔고와 다릅니다.')
     details = []

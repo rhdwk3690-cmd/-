@@ -96,7 +96,10 @@ def show_flows():
     qty=v.get('foreign_net_contracts');notional=v.get('foreign_net_notional_krw')
     if type(qty) is not int or type(notional) is not int:
         st.warning('선물 계약·명목금액 형식 오류');return
-    st.caption(f'선물 외국인 {qty:+,}계약 · 추정 순매수 명목금액 {notional/1e8:+,.0f}억원')
+    st.metric('선물 외국인 · 추정 명목금액',
+              f'{notional/1e8:+,.0f}억 원',
+              delta=f'{qty:+,}계약', delta_color='off')
+    st.caption('선물 명목금액은 매수·매도 계약의 추정 거래 규모 차이입니다. 현금 순유입액·증거금·보유 잔고가 아닙니다.')
     side=lambda x:'매수' if x>0 else '매도' if x<0 else '중립'
     st.info(f'외국인 방향: 현물 {side(f)} / 선물 {side(qty)} · 선물 명목금액은 현물 금액에 합산 금지')
 
