@@ -2934,6 +2934,10 @@
       {
         "date": "2026-10-30",
         "close": 5730.740234
+      },
+      {
+        "date": "2026-11-02",
+        "close": 5859.080078
       }
     ],
     "KOSDAQ": [
@@ -5860,6 +5864,10 @@
       {
         "date": "2026-10-30",
         "close": 724.380005
+      },
+      {
+        "date": "2026-11-02",
+        "close": 734.359985
       }
     ]
   },
@@ -5911,6 +5919,72 @@
       "forward": {
         "5": {
           "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 5
+        },
+        "20": {
+          "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 20
+        },
+        "60": {
+          "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 60
+        }
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "code": "defensive",
+      "environment": "방어 우선",
+      "rule_version": "experiment-v1-2026-11",
+      "price_flags": 1,
+      "dd_counts": {
+        "KOSPI": 7,
+        "KOSDAQ": 2
+      },
+      "ftd_count": 0,
+      "adr20_date": "2026-10-30",
+      "adr20_value": 69.21,
+      "reasons": [
+        "유효 DD 과다 또는 가격 추세 약세와 시장 폭 위축이 겹칩니다",
+        "추세 1/8, 최대 유효 DD 7회, ADR20 69.21%"
+      ],
+      "index_close": {
+        "KOSPI": 5859.080078125,
+        "KOSDAQ": 734.3599853515625
+      },
+      "qa": {
+        "KOSPI": {
+          "status": "verified",
+          "reason": "검증된 최근 거래량과 두 독립 산식이 일치",
+          "date": "2026-11-02",
+          "dd_count": 7,
+          "ftd": null,
+          "market_status": "랠리 시도",
+          "source": "네이버 지수 차트",
+          "matched": 110
+        },
+        "KOSDAQ": {
+          "status": "verified",
+          "reason": "검증된 최근 거래량과 두 독립 산식이 일치",
+          "date": "2026-11-02",
+          "dd_count": 2,
+          "ftd": null,
+          "market_status": "랠리 시도",
+          "source": "네이버 지수 차트",
+          "matched": 110
+        }
+      },
+      "source_date_verified": {
+        "KOSPI": "2026-11-02",
+        "KOSDAQ": "2026-11-02"
+      },
+      "observed_at_kst": "2026-11-02T19:33:39.281857+09:00",
+      "forward": {
+        "5": {
+          "status": "pending",
           "completed_sessions": 0,
           "needed_sessions": 5
         },
@@ -5927,5 +6001,5 @@
       }
     }
   ],
-  "updated_at_kst": "2026-11-01T16:53:47.200629+09:00"
+  "updated_at_kst": "2026-11-02T19:33:39.281857+09:00"
 }
