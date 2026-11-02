@@ -1,0 +1,141 @@
+name: FIX KRX official API V2 corrected ranking test
+'on':
+  workflow_dispatch: null
+permissions:
+  contents: write
+concurrency:
+  group: miner-kr-eod-all
+  cancel-in-progress: false
+jobs:
+  fix-krx:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+    - name: Checkout main
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: true
+    - name: Use Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    - name: Install dependency
+      run: python -m pip install --disable-pip-version-check requests
+    - name: Repair source field and verify 1600 sample records offline
+      shell: bash
+      run: |
+        python - <<'PY_PATCH'
+        from pathlib import Path
+        import ast, sys
+        p = Path('scripts/collect_kr_flow.py')
+        s = p.read_text(encoding='utf-8')
+        old = '            code = str(item.get("ISU_SRT_CD") or "").strip()'
+        new = '\n'.join([
+            '            # KRX Open API daily trade schema: ISU_CD (ISU_SRT_CD is an optional alias).',
+            '            raw_code = str(item.get("ISU_SRT_CD") or item.get("ISU_CD") or "").strip()',
+            '            code = raw_code[1:] if len(raw_code) == 7 and raw_code.startswith("A") else raw_code',
+        ])
+        if s.count(old) != 1:
+            raise RuntimeError(f'official code field changed: {s.count(old)} occurrences')
+        s = s.replace(old, new, 1)
+        needle = '        for item in block:\n'
+        replacement = '\n'.join([
+            '        for item in block:',
+            '            # Verify explicit source date for every official KRX stock row.',
+            '            if str(item.get("BAS_DD") or "").strip() != day.replace("-", ""):',
+            '                raise DataValidationError(f"KRX {market}: source trading date mismatch")',
+            '',
+        ])
+        if s.count(needle) != 1:
+            raise RuntimeError(f'official stock row loop changed: {s.count(needle)} occurrences')
+        s = s.replace(needle, replacement, 1)
+        ast.parse(s)
+        p.write_text(s, encoding='utf-8')
+        from importlib.util import spec_from_file_location, module_from_spec
+        spec = spec_from_file_location('krx_collector_test', str(p))
+        m = module_from_spec(spec)
+        sys.modules[spec.name] = m
+        spec.loader.exec_module(m)
+        class Response:
+            def __init__(self, market, day, wrong_date=False):
+                offset = 0 if market == 'stk_bydd_trd' else 10000
+                self.rows = [{'BAS_DD': '20261030' if wrong_date and i == 0 else day,
+                              'ISU_CD': f'{offset+i:06d}', 'ISU_NM': f'Fixture {i}',
+                              'ACC_TRDVAL': str(10_000_000+i), 'TDD_CLSPRC': '1000'}
+                              for i in range(800)]
+            def raise_for_status(self):
+                pass
+            def json(self):
+                return {'OutBlock_1': self.rows}
+        class Session:
+            def __init__(self, wrong_date=False):
+                self.wrong_date = wrong_date
+            def get(self, url, headers, params, timeout):
+                return Response(url.rsplit('/',1)[-1], params['basDd'], self.wrong_date)
+        top, all_rows = m.official('2026-11-02', 'OFFLINE_TEST_ONLY', Session())
+        assert len(top) == 200 and len(all_rows) == 1600
+        assert [r['ticker'] for r in top[:2]] == ['000799', '010799']
+        try:
+            m.official('2026-11-02', 'OFFLINE_TEST_ONLY', Session(wrong_date=True))
+        except m.DataValidationError:
+            pass
+        else:
+            raise AssertionError('KRX wrong-date data accepted')
+        print('PASS: official ISU_CD, 1600 simulated stocks, date mismatch rejected')
+        PY_PATCH
+        python -m py_compile scripts/collect_kr_flow.py flow_pages.py stock_analysis_ui.py app.py
+        git diff --check
+    - name: Probe KRX official API and update dated data
+      shell: bash
+      env:
+        KRX_API_KEY: ${{ secrets.KRX_API_KEY }}
+      run: |
+        python - <<'PY_PROBE'
+        import os,sys
+        from datetime import datetime,timedelta
+        from zoneinfo import ZoneInfo
+        import requests
+        sys.path.insert(0,'scripts')
+        import collect_kr_flow as m
+        key=os.getenv('KRX_API_KEY','').strip()
+        if not key:
+            print('::warning::KRX_API_KEY repository secret missing. Official API not called.')
+        else:
+            print('KRX_API_KEY secret: PRESENT (secret value is not printed)')
+            day=(datetime.now(ZoneInfo('Asia/Seoul')).date()-timedelta(days=1))
+            while day.weekday()>=5:day-=timedelta(days=1)
+            try:
+                with requests.Session() as session:
+                    top, universe=m.official(day.isoformat(),key,session)
+                print(f'KRX OFFICIAL ACCESS SUCCESS: date={day}, stocks={len(universe)}, top={len(top)}')
+            except (requests.RequestException,ValueError) as exc:
+                print('::warning::KRX official access check: '+type(exc).__name__+': '+str(exc)[:180])
+                print('::warning::Check separate service approval for both STK and KSQ daily trade APIs.')
+        try:
+            m.main()
+        except (requests.RequestException, ValueError, RuntimeError) as exc:
+            print('::warning::Existing verified snapshot preserved if provider unavailable: '+str(exc)[:180])
+        PY_PROBE
+    - name: Commit code and fresh verified data only
+      shell: bash
+      run: |
+        set -euo pipefail
+        git config user.name 'github-actions[bot]'
+        git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+        git add scripts/collect_kr_flow.py data/kr_flow.json
+        if ! git diff --cached --quiet; then
+          git diff --cached --check
+          git commit -m 'fix: official KRX ISU_CD and date verification'
+          git pull --rebase origin main
+          git push origin HEAD:main
+        fi
+        python - <<'PY_REPORT'
+        import json,os
+        from pathlib import Path
+        p=Path('data/kr_flow.json')
+        o=json.loads(p.read_text(encoding='utf-8'))
+        s=f"KRX source: {o.get('source')} | date: {o.get('date')} | combined status: {(o.get('unified') or {}).get('status')}"
+        print(s)
+        with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+            f.write('### KRX official API schema and access diagnostic\n'+s+'\n')
+        PY_REPORT
