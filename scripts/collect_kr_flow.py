@@ -98,7 +98,12 @@ def official(day: str, key: str, session: requests.Session) -> list[dict]:
         if not isinstance(block, list) or not block:
             raise DataValidationError(f"KRX {market}: 빈/비정상 API 응답")
         for item in block:
-            code = str(item.get("ISU_SRT_CD") or "").strip()
+            # Verify explicit source date for every official KRX stock row.
+            if str(item.get("BAS_DD") or "").strip() != day.replace("-", ""):
+                raise DataValidationError(f"KRX {market}: source trading date mismatch")
+            # KRX Open API daily trade schema: ISU_CD (ISU_SRT_CD is an optional alias).
+            raw_code = str(item.get("ISU_SRT_CD") or item.get("ISU_CD") or "").strip()
+            code = raw_code[1:] if len(raw_code) == 7 and raw_code.startswith("A") else raw_code
             if not re.fullmatch(r"\d{6}", code):
                 continue
             volume = integer(item.get("ACC_TRDVAL"), "ACC_TRDVAL")
