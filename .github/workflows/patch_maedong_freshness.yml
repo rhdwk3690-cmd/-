@@ -1,0 +1,187 @@
+name: "PATCH Maedong ADR provisional and TOP200 data freshness"
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: miner-maedong-freshness-patch
+  cancel-in-progress: false
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Apply validated code changes
+        shell: bash
+        run: |
+          cat > /tmp/patch_maedong.py <<'PY_PATCH'
+          # One-shot Miner Maedong date/freshness patch; careful source checks and rollback via Git.
+          from __future__ import annotations
+          import ast
+          from pathlib import Path
+          import subprocess
+          import sys
+
+          ROOT=Path.cwd()
+
+          def replace_once(source, before, after, label):
+              count=source.count(before)
+              if count!=1:
+                  raise RuntimeError(f'{label}: expected one marker, got {count}; no changes saved')
+              return source.replace(before,after,1)
+
+          adr_path=ROOT/'scripts'/'collect_adr_breadth.py'
+          ui_path=ROOT/'market_signal_adr_ui.py'
+          flow_path=ROOT/'flow_pages.py'
+
+          def patch():
+              source={p:p.read_text(encoding='utf-8') for p in (adr_path,ui_path,flow_path)}
+              a=source[adr_path]
+              if 'def preview_today_adr(' in a:
+                  raise RuntimeError('Maedong preview already installed; avoid duplicate patch')
+              insert='''
+
+          def preview_today_adr(rows, today, request, now=None):
+              # Same-day Maedong breadth is provisional; never added to confirmed history.
+              now=now or datetime.now(KST)
+              if (now.date()!=today or today.weekday()>=5
+                  or (now.hour, now.minute)<(16, 15)):
+                  return None
+              try:
+                  current=request(today)
+              except (SourceError, urllib.error.URLError, TimeoutError, OSError) as exc:
+                  # Do not make a failed provisional fetch invalidate confirmed 20-day history.
+                  print('ADR20 provisional unavailable: '+str(exc)[:160],file=sys.stderr)
+                  return None
+              if current is None:
+                  return None
+              if current['date']!=today.isoformat():
+                  raise SourceError('Provisional trade date mismatch')
+              if len(rows)<19 or rows[-1]['date']>=current['date']:
+                  return None
+              recent=rows[-19:]+[current]
+              for before,after in zip(recent[:-1],recent[1:]):
+                  if (date.fromisoformat(after['date'])-date.fromisoformat(before['date'])).days>8:
+                      return None
+              up=sum(row['up'] for row in recent)
+              down=sum(row['down'] for row in recent)
+              if down<=0:
+                  return None
+              return {
+                  'date':current['date'],'provisional':True,
+                  'up':current['up'],'down':current['down'],
+                  'flat':current['flat'],'universe_total':current['universe_total'],
+                  'start_date':recent[0]['date'], 'confirmed_through':rows[-1]['date'],
+                  'up_sum':up,'down_sum':down,'days':20,
+                  'value_pct':round(100*up/down,2),
+                  'note':'19 previously confirmed days + same-day provisional market breadth; may be revised'
+              }
+
+          '''
+              a=replace_once(a,'def run(dest=OUT,today=None,request=fetch_day,sleep=time.sleep):',insert+'def run(dest=OUT,today=None,request=fetch_day,sleep=time.sleep):','ADR run entry')
+              a=replace_once(a,"    adr=validate_recent(rows,today)\n    obj={'status':'verified'", "    adr=validate_recent(rows,today)\n    preview=preview_today_adr(rows,today,request)\n    obj={'status':'verified'", 'ADR preview call')
+              a=replace_once(a,"         'adr20':adr,'history':rows,'collected_at_kst':datetime.now(KST).isoformat(),", "         'adr20':adr,'history':rows,'provisional_adr20':preview,\n         'collected_at_kst':datetime.now(KST).isoformat(),",'ADR saved preview')
+              a=replace_once(a,"    print(f'ADR20 VERIFIED source={SOURCE}, latest={obj[\"latest_date\"]}, obs={len(rows)}, adr={adr[\"value_pct\"]:.2f}, invalid={len(errors)}')", "    print(f'ADR20 VERIFIED source={SOURCE}, latest={obj[\"latest_date\"]}, obs={len(rows)}, adr={adr[\"value_pct\"]:.2f}, invalid={len(errors)}, provisional={preview[\"date\"] if preview else \"not_available\"}')",'ADR status log')
+              u=source[ui_path]
+              before="    st.metric('전체시장 ADR20',f'{value:.1f}%',help='20거래일 상승 종목 수 합계 / 하락 종목 수 합계 × 100')"
+              after='''    # Provisional snapshot is distinct from the strictly validated historical ADR20.
+              provisional=d.get('provisional_adr20')
+              if isinstance(provisional,dict) and provisional.get('provisional') is True:
+                  try:
+                      from zoneinfo import ZoneInfo as _ZoneInfo
+                      from datetime import datetime as _datetime
+                      fresh=provisional.get('date')==_datetime.now(_ZoneInfo('Asia/Seoul')).date().isoformat()
+                      last19=d['history'][-19:]
+                      up=sum(x['up'] for x in last19)+provisional['up']
+                      down=sum(x['down'] for x in last19)+provisional['down']
+                      valid=(fresh and len(last19)==19 and down>0
+                             and provisional.get('confirmed_through')==d['latest_date']
+                             and provisional.get('up_sum')==up and provisional.get('down_sum')==down
+                             and provisional.get('universe_total')==provisional['up']+provisional['down']+provisional['flat']
+                             and provisional.get('value_pct')==round(100*up/down,2))
+                      if valid:
+                          st.metric('전체시장 ADR20 · 당일 잠정',f'{provisional["value_pct"]:.1f}%')
+                          st.caption(f'자료일 {provisional["date"]} · 매동 당일 속보 기반 · 직전 확정 19거래일 + 잠정 1일 · 다음 영업일 수치 수정 가능')
+                  except (KeyError,TypeError,ValueError,ZeroDivisionError):
+                      pass
+              st.metric('전체시장 ADR20 · 확정 이력',f'{value:.1f}%',help='확정 기록 20거래일 상승 종목 수 합계 / 하락 종목 수 합계 × 100')'''
+              u=replace_once(u,before,after,'ADR UI metric')
+              # Clarify that we are no longer *wholly* excluding current-day provisional views.
+              u=replace_once(u,'비공식 KRX ADR이며 현재 거래일 속보는 제외.', '비공식 KRX ADR이며 확정 이력에는 당일 속보를 포함하지 않음.', 'ADR UI explanation')
+              f=source[flow_path]
+              f=replace_once(f,'import hashlib\nimport json\nfrom pathlib import Path','import hashlib\nimport json\nfrom datetime import date, datetime\nfrom zoneinfo import ZoneInfo\nfrom pathlib import Path','TOP200 imports')
+              marker='    st.caption(f\'거래대금 기준일 **{meta["date"]}** · {meta.get("source", "출처 미확인")} · 확정 종가\')'
+              add=marker+'''
+              # A successful pipeline is not proof of same-day data freshness.
+              try:
+                  days_behind=(datetime.now(ZoneInfo('Asia/Seoul')).date()-date.fromisoformat(meta['date'])).days
+                  if days_behind>0:
+                      st.warning(f'TOP200 거래대금/종목별 수급은 {meta["date"]} 원자료 기준 ({days_behind}일 전). 당일 수급으로 오인하지 마세요. KRX 최신 공시 데이터와 혼합하지 않습니다.')
+              except (KeyError,TypeError,ValueError):
+                  st.warning('TOP200 자료 기준일 확인 실패')'''
+              f=replace_once(f,marker,add,'TOP200 freshness warning')
+              changed={adr_path:a,ui_path:u,flow_path:f}
+              for p,s in changed.items():ast.parse(s,filename=str(p))
+              # No writes until all three files passed exact replacement and syntax checks.
+              for p,s in changed.items():p.write_text(s,encoding='utf-8')
+              print('PATCH SUCCESS: ADR20 separate provisional preview, TOP200 stale-date warning')
+
+          if __name__=='__main__':patch()
+          PY_PATCH
+          python /tmp/patch_maedong.py
+      - name: Validate syntax and provisional ADR calculation offline
+        shell: bash
+        run: |
+          python -m py_compile scripts/collect_adr_breadth.py market_signal_adr_ui.py flow_pages.py app.py
+          python - <<'PY_TEST'
+          import sys
+          import datetime
+          sys.path.insert(0, 'scripts')
+          import collect_adr_breadth as m
+          d=datetime.date(2026,11,2)
+          a=[{'date':(d-datetime.timedelta(days=k)).isoformat(),'up':1000,'down':1000,'flat':500,'universe_total':2500} for k in range(28,0,-1) if (d-datetime.timedelta(days=k)).weekday()<5]
+          assert len(a)>=19
+          a=a[-19:]
+          now=datetime.datetime(2026,11,2,20,30,tzinfo=m.KST)
+          calls=[]
+          def fake(day):
+              calls.append(day)
+              return {'date':day.isoformat(),'up':1100,'down':1000,'flat':400,'universe_total':2500}
+          result=m.preview_today_adr(a,d,fake,now=now)
+          assert result and result['date']=='2026-11-02' and result['provisional'] is True
+          assert result['up_sum']==20100 and result['down_sum']==20000
+          assert result['value_pct']==100.5
+          assert m.preview_today_adr(a,d,fake,now=datetime.datetime(2026,11,2,12,0,tzinfo=m.KST)) is None
+          assert calls==[d]
+          print('OFFLINE TEST PASS: provisional separate, date verified, 20-day sums, preclose no call')
+          PY_TEST
+          git diff --check
+      - name: Collect latest Maedong ADR now (nonfatal if source unavailable)
+        shell: bash
+        run: |
+          if python scripts/collect_adr_breadth.py; then
+            echo 'Maedong collector succeeded; inspect JSON source dates in the next step'
+          else
+            echo '::warning::Maedong endpoint unavailable or rate limited; confirmed prior JSON preserved'
+          fi
+      - name: Commit only validated source changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/collect_adr_breadth.py market_signal_adr_ui.py flow_pages.py data/kr_market_adr20.json
+          if git diff --cached --quiet; then
+            echo 'No changes necessary'
+          else
+            git commit -m 'fix: show provisional Maedong ADR separately and flag stale TOP200'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+          echo '### Maedong ADR20 preview + TOP200 date warning installed' >> "$GITHUB_STEP_SUMMARY"
