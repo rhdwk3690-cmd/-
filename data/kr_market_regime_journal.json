@@ -2938,6 +2938,10 @@
       {
         "date": "2026-11-02",
         "close": 5859.080078
+      },
+      {
+        "date": "2026-11-03",
+        "close": 5648.790039
       }
     ],
     "KOSDAQ": [
@@ -5868,6 +5872,10 @@
       {
         "date": "2026-11-02",
         "close": 734.359985
+      },
+      {
+        "date": "2026-11-03",
+        "close": 704.390015
       }
     ]
   },
@@ -5919,17 +5927,17 @@
       "forward": {
         "5": {
           "status": "pending",
-          "completed_sessions": 1,
+          "completed_sessions": 2,
           "needed_sessions": 5
         },
         "20": {
           "status": "pending",
-          "completed_sessions": 1,
+          "completed_sessions": 2,
           "needed_sessions": 20
         },
         "60": {
           "status": "pending",
-          "completed_sessions": 1,
+          "completed_sessions": 2,
           "needed_sessions": 60
         }
       }
@@ -5985,6 +5993,72 @@
       "forward": {
         "5": {
           "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 5
+        },
+        "20": {
+          "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 20
+        },
+        "60": {
+          "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 60
+        }
+      }
+    },
+    {
+      "date": "2026-11-03",
+      "code": "defensive",
+      "environment": "방어 우선",
+      "rule_version": "experiment-v1-2026-11",
+      "price_flags": 0,
+      "dd_counts": {
+        "KOSPI": 7,
+        "KOSDAQ": 3
+      },
+      "ftd_count": 0,
+      "adr20_date": "2026-11-02",
+      "adr20_value": 69.13,
+      "reasons": [
+        "유효 DD 과다 또는 가격 추세 약세와 시장 폭 위축이 겹칩니다",
+        "추세 0/8, 최대 유효 DD 7회, ADR20 69.13%"
+      ],
+      "index_close": {
+        "KOSPI": 5648.7900390625,
+        "KOSDAQ": 704.3900146484375
+      },
+      "qa": {
+        "KOSPI": {
+          "status": "verified",
+          "reason": "검증된 최근 거래량과 두 독립 산식이 일치",
+          "date": "2026-11-03",
+          "dd_count": 7,
+          "ftd": null,
+          "market_status": "조정",
+          "source": "네이버 지수 차트",
+          "matched": 110
+        },
+        "KOSDAQ": {
+          "status": "verified",
+          "reason": "검증된 최근 거래량과 두 독립 산식이 일치",
+          "date": "2026-11-03",
+          "dd_count": 3,
+          "ftd": null,
+          "market_status": "조정",
+          "source": "네이버 지수 차트",
+          "matched": 110
+        }
+      },
+      "source_date_verified": {
+        "KOSPI": "2026-11-03",
+        "KOSDAQ": "2026-11-03"
+      },
+      "observed_at_kst": "2026-11-03T16:51:01.931220+09:00",
+      "forward": {
+        "5": {
+          "status": "pending",
           "completed_sessions": 0,
           "needed_sessions": 5
         },
@@ -6001,5 +6075,5 @@
       }
     }
   ],
-  "updated_at_kst": "2026-11-02T19:33:39.281857+09:00"
+  "updated_at_kst": "2026-11-03T16:51:01.931220+09:00"
 }
