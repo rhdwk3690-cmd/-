@@ -181,6 +181,11 @@ def render_candidates() -> None:
         frame.insert(0, '순위', range(1, len(frame) + 1))
         front = ['순위', '종목명', '종목코드']
         frame = frame[front + [c for c in frame.columns if c not in front]]
+        # MINER_DART_YOY_QOQ_TABLE_V1
+        from quarter_fundamentals_ui import enrich_comparison
+        frame, dart_ready = enrich_comparison(frame)
+        if not dart_ready:
+            st.caption('OpenDART 분기 실적 미수집 · 설치 후 수집 실행 시 YoY/QoQ 열 표시')
         st.dataframe(frame, hide_index=True, use_container_width=True)
         st.download_button('📥 비교 결과 CSV',
                            frame.to_csv(index=False).encode('utf-8-sig'),
