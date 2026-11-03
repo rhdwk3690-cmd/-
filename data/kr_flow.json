@@ -1,5 +1,5 @@
 {
-  "collected_at_kst": "2026-11-02T22:36:23.174264+09:00",
+  "collected_at_kst": "2026-11-03T17:53:21.724727+09:00",
   "status": "verified",
   "top200": [
     {
@@ -1826,6 +1826,13 @@
     "latest_nxt_date": "2026-11-02"
   },
   "market_flows": {},
-  "errors": [],
+  "errors": [
+    "KRX 2026-11-03: HTTPError: 401 Client Error: Unauthorized for url: https://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd?basDd=20261103",
+    "KRX 2026-11-02: HTTPError: 401 Client Error: Unauthorized for url: https://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd?basDd=20261102",
+    "KRX 2026-10-30: HTTPError: 401 Client Error: Unauthorized for url: https://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd?basDd=20261030",
+    "KRX 2026-10-29: HTTPError: 401 Client Error: Unauthorized for url: https://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd?basDd=20261029",
+    "KRX 2026-10-28: HTTPError: 401 Client Error: Unauthorized for url: https://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd?basDd=20261028",
+    "KRX 2026-10-27: HTTPError: 401 Client Error: Unauthorized for url: https://data-dbg.krx.co.kr/svc/apis/sto/stk_bydd_trd?basDd=20261027"
+  ],
   "notice": "T+1 EOD stocks only. Trade date verified from source, not collection time. Foreign and institutional investor net purchases are NOT in this file. aikstockdata license: attribution, noncommercial use only."
 }
