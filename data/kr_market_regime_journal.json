@@ -2950,6 +2950,10 @@
       {
         "date": "2026-11-05",
         "close": 5383.799805
+      },
+      {
+        "date": "2026-11-06",
+        "close": 5059.689941
       }
     ],
     "KOSDAQ": [
@@ -5892,6 +5896,10 @@
       {
         "date": "2026-11-05",
         "close": 678.409973
+      },
+      {
+        "date": "2026-11-06",
+        "close": 644.27002
       }
     ]
   },
@@ -5942,18 +5950,30 @@
       "observed_at_kst": "2026-11-01T16:53:47.200629+09:00",
       "forward": {
         "5": {
-          "status": "pending",
-          "completed_sessions": 4,
-          "needed_sessions": 5
+          "status": "mature",
+          "exit_date": "2026-11-06",
+          "sessions": 5,
+          "KOSPI": {
+            "entry_close": 5730.740234,
+            "exit_close": 5059.689941,
+            "return_pct": -11.7097,
+            "max_drawdown_pct": -13.6436
+          },
+          "KOSDAQ": {
+            "entry_close": 724.380005,
+            "exit_close": 644.27002,
+            "return_pct": -11.0591,
+            "max_drawdown_pct": -12.2678
+          }
         },
         "20": {
           "status": "pending",
-          "completed_sessions": 4,
+          "completed_sessions": 5,
           "needed_sessions": 20
         },
         "60": {
           "status": "pending",
-          "completed_sessions": 4,
+          "completed_sessions": 5,
           "needed_sessions": 60
         }
       }
@@ -6009,17 +6029,17 @@
       "forward": {
         "5": {
           "status": "pending",
-          "completed_sessions": 3,
+          "completed_sessions": 4,
           "needed_sessions": 5
         },
         "20": {
           "status": "pending",
-          "completed_sessions": 3,
+          "completed_sessions": 4,
           "needed_sessions": 20
         },
         "60": {
           "status": "pending",
-          "completed_sessions": 3,
+          "completed_sessions": 4,
           "needed_sessions": 60
         }
       }
@@ -6075,17 +6095,17 @@
       "forward": {
         "5": {
           "status": "pending",
-          "completed_sessions": 2,
+          "completed_sessions": 3,
           "needed_sessions": 5
         },
         "20": {
           "status": "pending",
-          "completed_sessions": 2,
+          "completed_sessions": 3,
           "needed_sessions": 20
         },
         "60": {
           "status": "pending",
-          "completed_sessions": 2,
+          "completed_sessions": 3,
           "needed_sessions": 60
         }
       }
@@ -6141,17 +6161,17 @@
       "forward": {
         "5": {
           "status": "pending",
-          "completed_sessions": 1,
+          "completed_sessions": 2,
           "needed_sessions": 5
         },
         "20": {
           "status": "pending",
-          "completed_sessions": 1,
+          "completed_sessions": 2,
           "needed_sessions": 20
         },
         "60": {
           "status": "pending",
-          "completed_sessions": 1,
+          "completed_sessions": 2,
           "needed_sessions": 60
         }
       }
@@ -6207,6 +6227,72 @@
       "forward": {
         "5": {
           "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 5
+        },
+        "20": {
+          "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 20
+        },
+        "60": {
+          "status": "pending",
+          "completed_sessions": 1,
+          "needed_sessions": 60
+        }
+      }
+    },
+    {
+      "date": "2026-11-06",
+      "code": "defensive",
+      "environment": "방어 우선",
+      "rule_version": "experiment-v1-2026-11",
+      "price_flags": 0,
+      "dd_counts": {
+        "KOSPI": 9,
+        "KOSDAQ": 3
+      },
+      "ftd_count": 0,
+      "adr20_date": "2026-11-05",
+      "adr20_value": 63.38,
+      "reasons": [
+        "유효 DD 과다 또는 가격 추세 약세와 시장 폭 위축이 겹칩니다",
+        "추세 0/8, 최대 유효 DD 9회, ADR20 63.38%"
+      ],
+      "index_close": {
+        "KOSPI": 5059.68994140625,
+        "KOSDAQ": 644.27001953125
+      },
+      "qa": {
+        "KOSPI": {
+          "status": "verified",
+          "reason": "검증된 최근 거래량과 두 독립 산식이 일치",
+          "date": "2026-11-06",
+          "dd_count": 9,
+          "ftd": null,
+          "market_status": "조정",
+          "source": "네이버 지수 차트",
+          "matched": 110
+        },
+        "KOSDAQ": {
+          "status": "verified",
+          "reason": "검증된 최근 거래량과 두 독립 산식이 일치",
+          "date": "2026-11-06",
+          "dd_count": 3,
+          "ftd": null,
+          "market_status": "조정",
+          "source": "네이버 지수 차트",
+          "matched": 110
+        }
+      },
+      "source_date_verified": {
+        "KOSPI": "2026-11-06",
+        "KOSDAQ": "2026-11-06"
+      },
+      "observed_at_kst": "2026-11-06T16:52:07.074430+09:00",
+      "forward": {
+        "5": {
+          "status": "pending",
           "completed_sessions": 0,
           "needed_sessions": 5
         },
@@ -6223,5 +6309,5 @@
       }
     }
   ],
-  "updated_at_kst": "2026-11-05T16:54:40.297961+09:00"
+  "updated_at_kst": "2026-11-06T16:52:07.074430+09:00"
 }
