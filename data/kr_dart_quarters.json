@@ -1,16 +1,16 @@
 {
   "source": "OpenDART official periodic financial statements",
-  "collected_at_kst": "2026-11-10T19:51:29.640008+09:00",
+  "collected_at_kst": "2026-11-11T19:46:09.674760+09:00",
   "data_quality": "current_endpoint_may_reflect_restatements_not_point_in_time",
   "target_universe": "saved TOP200",
-  "universe_asof": "2026-11-09",
+  "universe_asof": "2026-11-10",
   "coverage": {
     "in_top200": 200,
     "universe": 200,
     "latest_batch_count": 40,
-    "last_successes": 39,
+    "last_successes": 40,
     "last_failures": 0,
-    "api_calls": 114
+    "api_calls": 119
   },
   "notes": "Current OpenDART APIs may include later restatements. Original statutory filing date recorded, but not audited PIT. Fiscal Q4 = audited FY - Q3 YTD; separate financial statement scope not mixed with consolidated. Missing values stay null.",
   "rows": {
@@ -444,7 +444,7 @@
       "margin_qoq_pp": 9.22,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:46:48.253915+09:00"
+      "checked_at": "2026-11-11T19:45:50.522804+09:00"
     },
     "207940": {
       "status": "ok",
@@ -468,7 +468,7 @@
       "margin_qoq_pp": -1.8,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:46:57.950058+09:00"
+      "checked_at": "2026-11-11T19:45:51.419934+09:00"
     },
     "034020": {
       "status": "ok",
@@ -492,7 +492,7 @@
       "margin_qoq_pp": 1.17,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:47:11.472004+09:00"
+      "checked_at": "2026-11-11T19:45:52.458703+09:00"
     },
     "028050": {
       "status": "ok",
@@ -516,7 +516,7 @@
       "margin_qoq_pp": 2.17,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:47:22.977539+09:00"
+      "checked_at": "2026-11-11T19:45:53.366590+09:00"
     },
     "032830": {
       "status": "missing_financials",
@@ -524,7 +524,7 @@
       "code": "032830",
       "period": "2026Q2",
       "filing_date": "2026-08-14",
-      "checked_at": "2026-11-03T17:47:34.290798+09:00"
+      "checked_at": "2026-11-11T19:45:54.276657+09:00"
     },
     "055550": {
       "status": "missing_financials",
@@ -532,7 +532,7 @@
       "code": "055550",
       "period": "2026Q2",
       "filing_date": "2026-08-14",
-      "checked_at": "2026-11-03T17:47:53.981921+09:00"
+      "checked_at": "2026-11-11T19:45:55.481589+09:00"
     },
     "009830": {
       "status": "ok",
@@ -556,7 +556,7 @@
       "margin_qoq_pp": 4.3,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:48:13.632967+09:00"
+      "checked_at": "2026-11-11T19:45:56.682207+09:00"
     },
     "263860": {
       "status": "ok",
@@ -580,7 +580,7 @@
       "margin_qoq_pp": 4.65,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:48:25.300762+09:00"
+      "checked_at": "2026-11-11T19:45:57.557092+09:00"
     },
     "066570": {
       "status": "ok",
@@ -604,7 +604,7 @@
       "margin_qoq_pp": -0.42,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:48:41.317164+09:00"
+      "checked_at": "2026-11-11T19:45:58.776601+09:00"
     },
     "035420": {
       "status": "ok",
@@ -628,7 +628,7 @@
       "margin_qoq_pp": -1.37,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:48:54.270631+09:00"
+      "checked_at": "2026-11-11T19:45:59.712439+09:00"
     },
     "128940": {
       "status": "ok",
@@ -652,7 +652,7 @@
       "margin_qoq_pp": 14.41,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:49:09.194252+09:00"
+      "checked_at": "2026-11-11T19:46:00.907348+09:00"
     },
     "068270": {
       "status": "ok",
@@ -676,7 +676,7 @@
       "margin_qoq_pp": 4.31,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:49:24.684949+09:00"
+      "checked_at": "2026-11-11T19:46:02.110580+09:00"
     },
     "028260": {
       "status": "ok",
@@ -700,7 +700,7 @@
       "margin_qoq_pp": 1.72,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:49:36.190546+09:00"
+      "checked_at": "2026-11-11T19:46:03.034491+09:00"
     },
     "329180": {
       "status": "ok",
@@ -724,7 +724,7 @@
       "margin_qoq_pp": 1.12,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:49:47.494071+09:00"
+      "checked_at": "2026-11-11T19:46:03.958237+09:00"
     },
     "069540": {
       "status": "ok",
@@ -748,7 +748,7 @@
       "margin_qoq_pp": -21.26,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:49:55.916261+09:00"
+      "checked_at": "2026-11-11T19:46:04.848949+09:00"
     },
     "267260": {
       "status": "ok",
@@ -772,7 +772,7 @@
       "margin_qoq_pp": 0.22,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:50:06.156976+09:00"
+      "checked_at": "2026-11-11T19:46:05.759724+09:00"
     },
     "222800": {
       "status": "ok",
@@ -796,7 +796,7 @@
       "margin_qoq_pp": 8.97,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:50:15.337112+09:00"
+      "checked_at": "2026-11-11T19:46:06.642207+09:00"
     },
     "010140": {
       "status": "ok",
@@ -820,7 +820,7 @@
       "margin_qoq_pp": 0.65,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:50:26.838951+09:00"
+      "checked_at": "2026-11-11T19:46:07.547728+09:00"
     },
     "034730": {
       "status": "ok",
@@ -844,7 +844,7 @@
       "margin_qoq_pp": 1.5,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:50:41.111333+09:00"
+      "checked_at": "2026-11-11T19:46:08.736560+09:00"
     },
     "047040": {
       "status": "ok",
@@ -868,7 +868,7 @@
       "margin_qoq_pp": -1.74,
       "yoy_base_available": true,
       "qoq_base_available": true,
-      "checked_at": "2026-11-03T17:50:53.513709+09:00"
+      "checked_at": "2026-11-11T19:46:09.674733+09:00"
     },
     "359410": {
       "status": "no_original_filing",
@@ -5581,6 +5581,427 @@
       "yoy_base_available": true,
       "qoq_base_available": true,
       "checked_at": "2026-11-10T19:47:49.343141+09:00"
+    },
+    "272450": {
+      "status": "ok",
+      "code": "272450",
+      "name": "진에어",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814002710",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002710",
+      "fs_div": "OFS",
+      "sales_krw": 360297536785,
+      "operating_income_krw": -73103330430,
+      "margin_pct": -20.29,
+      "revenue_yoy_pct": 17.72,
+      "revenue_qoq_pct": -14.82,
+      "op_yoy_pct": null,
+      "op_yoy_status": "적자지속",
+      "op_qoq_pct": null,
+      "op_qoq_status": "적자전환",
+      "margin_yoy_pp": -6.47,
+      "margin_qoq_pp": -33.91,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:31.271589+09:00"
+    },
+    "067290": {
+      "status": "ok",
+      "code": "067290",
+      "name": "JW신약",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814002545",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814002545",
+      "fs_div": "OFS",
+      "sales_krw": 21543453045,
+      "operating_income_krw": 3583998173,
+      "margin_pct": 16.64,
+      "revenue_yoy_pct": 9.37,
+      "revenue_qoq_pct": 0.75,
+      "op_yoy_pct": 34.31,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 24.29,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 3.09,
+      "margin_qoq_pp": 3.15,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:32.429353+09:00"
+    },
+    "009420": {
+      "status": "ok",
+      "code": "009420",
+      "name": "한올바이오파마",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814003675",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003675",
+      "fs_div": "CFS",
+      "sales_krw": 44275731477,
+      "operating_income_krw": 5597740049,
+      "margin_pct": 12.64,
+      "revenue_yoy_pct": 8.83,
+      "revenue_qoq_pct": 10.6,
+      "op_yoy_pct": 388.54,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 567.41,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 9.82,
+      "margin_qoq_pp": 10.54,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:33.460714+09:00"
+    },
+    "430690": {
+      "status": "ok",
+      "code": "430690",
+      "name": "한싹",
+      "period": "2026Q2",
+      "filing_date": "2026-08-13",
+      "receipt": "20260813001256",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260813001256",
+      "fs_div": "CFS",
+      "sales_krw": 7573883224,
+      "operating_income_krw": 808114922,
+      "margin_pct": 10.67,
+      "revenue_yoy_pct": 44.23,
+      "revenue_qoq_pct": 114.91,
+      "op_yoy_pct": null,
+      "op_yoy_status": "흑자전환",
+      "op_qoq_pct": null,
+      "op_qoq_status": "흑자전환",
+      "margin_yoy_pp": 23.81,
+      "margin_qoq_pp": 62.01,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:34.337601+09:00"
+    },
+    "105740": {
+      "status": "ok",
+      "code": "105740",
+      "name": "디케이락",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814004085",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004085",
+      "fs_div": "CFS",
+      "sales_krw": 39520297781,
+      "operating_income_krw": 3806757079,
+      "margin_pct": 9.63,
+      "revenue_yoy_pct": 29.0,
+      "revenue_qoq_pct": 20.38,
+      "op_yoy_pct": 1114.24,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 1499.12,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 8.61,
+      "margin_qoq_pp": 8.9,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:35.219358+09:00"
+    },
+    "298690": {
+      "status": "ok",
+      "code": "298690",
+      "name": "에어부산",
+      "period": "2026Q2",
+      "filing_date": "2026-08-13",
+      "receipt": "20260813001537",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260813001537",
+      "fs_div": "OFS",
+      "sales_krw": 235319319021,
+      "operating_income_krw": -35515179763,
+      "margin_pct": -15.09,
+      "revenue_yoy_pct": 37.32,
+      "revenue_qoq_pct": -8.69,
+      "op_yoy_pct": null,
+      "op_yoy_status": "적자지속",
+      "op_qoq_pct": null,
+      "op_qoq_status": "적자전환",
+      "margin_yoy_pp": -8.6,
+      "margin_qoq_pp": -26.9,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:36.386439+09:00"
+    },
+    "004310": {
+      "status": "no_original_filing",
+      "name": "현대약품",
+      "code": "004310"
+    },
+    "079650": {
+      "status": "ok",
+      "code": "079650",
+      "name": "서산",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814001244",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814001244",
+      "fs_div": "CFS",
+      "sales_krw": 12976014916,
+      "operating_income_krw": -325586173,
+      "margin_pct": -2.51,
+      "revenue_yoy_pct": 17.85,
+      "revenue_qoq_pct": 12.93,
+      "op_yoy_pct": null,
+      "op_yoy_status": "적자지속",
+      "op_qoq_pct": null,
+      "op_qoq_status": "적자전환",
+      "margin_yoy_pp": 3.16,
+      "margin_qoq_pp": -5.19,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:37.564716+09:00"
+    },
+    "483650": {
+      "status": "ok",
+      "code": "483650",
+      "name": "달바글로벌",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814001262",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814001262",
+      "fs_div": "CFS",
+      "sales_krw": 186860908470,
+      "operating_income_krw": 47240874551,
+      "margin_pct": 25.28,
+      "revenue_yoy_pct": 45.56,
+      "revenue_qoq_pct": 9.12,
+      "op_yoy_pct": 61.62,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 4.77,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 2.51,
+      "margin_qoq_pp": -1.05,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:38.452508+09:00"
+    },
+    "079900": {
+      "status": "ok",
+      "code": "079900",
+      "name": "전진건설로봇",
+      "period": "2026Q2",
+      "filing_date": "2026-08-13",
+      "receipt": "20260813001268",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260813001268",
+      "fs_div": "CFS",
+      "sales_krw": 47254266109,
+      "operating_income_krw": 9608408667,
+      "margin_pct": 20.33,
+      "revenue_yoy_pct": -8.19,
+      "revenue_qoq_pct": 2.69,
+      "op_yoy_pct": 1.68,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 125.55,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 1.97,
+      "margin_qoq_pp": 11.07,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:39.331767+09:00"
+    },
+    "443060": {
+      "status": "ok",
+      "code": "443060",
+      "name": "HD현대마린솔루션",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814001752",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814001752",
+      "fs_div": "CFS",
+      "sales_krw": 580413871847,
+      "operating_income_krw": 97625286579,
+      "margin_pct": 16.82,
+      "revenue_yoy_pct": 24.09,
+      "revenue_qoq_pct": 1.01,
+      "op_yoy_pct": 17.61,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 4.53,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": -0.93,
+      "margin_qoq_pp": 0.57,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:40.224023+09:00"
+    },
+    "375500": {
+      "status": "ok",
+      "code": "375500",
+      "name": "DL이앤씨",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814003712",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003712",
+      "fs_div": "CFS",
+      "sales_krw": 1802922191209,
+      "operating_income_krw": 159428468832,
+      "margin_pct": 8.84,
+      "revenue_yoy_pct": -9.47,
+      "revenue_qoq_pct": 4.5,
+      "op_yoy_pct": 26.32,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 1.31,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 2.5,
+      "margin_qoq_pp": -0.28,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:41.260519+09:00"
+    },
+    "011790": {
+      "status": "ok",
+      "code": "011790",
+      "name": "SKC",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814003336",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003336",
+      "fs_div": "CFS",
+      "sales_krw": 645384981103,
+      "operating_income_krw": -14424072141,
+      "margin_pct": -2.23,
+      "revenue_yoy_pct": 38.24,
+      "revenue_qoq_pct": 29.95,
+      "op_yoy_pct": null,
+      "op_yoy_status": "적자지속",
+      "op_qoq_pct": null,
+      "op_qoq_status": "적자지속",
+      "margin_yoy_pp": 12.45,
+      "margin_qoq_pp": 3.56,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:42.436314+09:00"
+    },
+    "001450": {
+      "status": "missing_financials",
+      "name": "현대해상",
+      "code": "001450",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "checked_at": "2026-11-11T19:45:43.642140+09:00"
+    },
+    "051600": {
+      "status": "ok",
+      "code": "051600",
+      "name": "한전KPS",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814001938",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814001938",
+      "fs_div": "CFS",
+      "sales_krw": 437938590099,
+      "operating_income_krw": 43579646755,
+      "margin_pct": 9.95,
+      "revenue_yoy_pct": -3.53,
+      "revenue_qoq_pct": 24.28,
+      "op_yoy_pct": -33.59,
+      "op_yoy_status": "감소",
+      "op_qoq_pct": 17.72,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": -4.5,
+      "margin_qoq_pp": -0.55,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:44.823219+09:00"
+    },
+    "251970": {
+      "status": "ok",
+      "code": "251970",
+      "name": "펌텍코리아",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814003163",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003163",
+      "fs_div": "CFS",
+      "sales_krw": 116844346692,
+      "operating_income_krw": 21650582792,
+      "margin_pct": 18.53,
+      "revenue_yoy_pct": 10.84,
+      "revenue_qoq_pct": 27.35,
+      "op_yoy_pct": 11.44,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 67.01,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 0.1,
+      "margin_qoq_pp": 4.4,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:45.717750+09:00"
+    },
+    "052690": {
+      "status": "ok",
+      "code": "052690",
+      "name": "한전기술",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814001293",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814001293",
+      "fs_div": "CFS",
+      "sales_krw": 103284018907,
+      "operating_income_krw": 2992588463,
+      "margin_pct": 2.9,
+      "revenue_yoy_pct": -2.73,
+      "revenue_qoq_pct": -8.87,
+      "op_yoy_pct": null,
+      "op_yoy_status": "흑자전환",
+      "op_qoq_pct": -78.72,
+      "op_qoq_status": "감소",
+      "margin_yoy_pp": 3.38,
+      "margin_qoq_pp": -9.51,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:47.300326+09:00"
+    },
+    "319400": {
+      "status": "ok",
+      "code": "319400",
+      "name": "현대무벡스",
+      "period": "2026Q2",
+      "filing_date": "2026-08-14",
+      "receipt": "20260814003499",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814003499",
+      "fs_div": "CFS",
+      "sales_krw": 100360141285,
+      "operating_income_krw": 3196477707,
+      "margin_pct": 3.19,
+      "revenue_yoy_pct": 1.53,
+      "revenue_qoq_pct": 33.88,
+      "op_yoy_pct": -28.19,
+      "op_yoy_status": "감소",
+      "op_qoq_pct": null,
+      "op_qoq_status": "흑자전환",
+      "margin_yoy_pp": -1.31,
+      "margin_qoq_pp": 4.04,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:48.462592+09:00"
+    },
+    "006340": {
+      "status": "ok",
+      "code": "006340",
+      "name": "대원전선",
+      "period": "2026Q3",
+      "filing_date": "2026-11-09",
+      "receipt": "20261109000022",
+      "dart_link": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261109000022",
+      "fs_div": "CFS",
+      "sales_krw": 260662937051,
+      "operating_income_krw": 9158252593,
+      "margin_pct": 3.51,
+      "revenue_yoy_pct": 68.4,
+      "revenue_qoq_pct": -6.26,
+      "op_yoy_pct": 727.58,
+      "op_yoy_status": "증가",
+      "op_qoq_pct": 145.7,
+      "op_qoq_status": "증가",
+      "margin_yoy_pp": 2.8,
+      "margin_qoq_pp": 2.17,
+      "yoy_base_available": true,
+      "qoq_base_available": true,
+      "checked_at": "2026-11-11T19:45:49.350030+09:00"
     }
   }
 }
