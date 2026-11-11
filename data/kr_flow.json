@@ -1,13 +1,13 @@
 {
-  "collected_at_kst": "2026-11-10T19:25:50.385777+09:00",
+  "collected_at_kst": "2026-11-11T19:28:35.253699+09:00",
   "status": "verified",
   "top200": [
     {
       "ticker": "000660",
       "name": "SK하이닉스",
       "market": "KOSPI",
-      "close": 1136000,
-      "traded_krw": 5058042680498,
+      "close": 1212000,
+      "traded_krw": 4149676748000,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -15,8 +15,8 @@
       "ticker": "005930",
       "name": "삼성전자",
       "market": "KOSPI",
-      "close": 189900,
-      "traded_krw": 3790579717830,
+      "close": 198900,
+      "traded_krw": 3041497572150,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -24,35 +24,8 @@
       "ticker": "009150",
       "name": "삼성전기",
       "market": "KOSPI",
-      "close": 843000,
-      "traded_krw": 773809622000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "402340",
-      "name": "SK스퀘어",
-      "market": "KOSPI",
-      "close": 722000,
-      "traded_krw": 586418319000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "006400",
-      "name": "삼성SDI",
-      "market": "KOSPI",
-      "close": 415000,
-      "traded_krw": 543861381000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "196170",
-      "name": "알테오젠",
-      "market": "KOSDAQ",
-      "close": 168400,
-      "traded_krw": 474515299550,
+      "close": 882000,
+      "traded_krw": 611511985000,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -60,26 +33,26 @@
       "ticker": "005935",
       "name": "삼성전자우",
       "market": "KOSPI",
-      "close": 150900,
-      "traded_krw": 444533539300,
+      "close": 159000,
+      "traded_krw": 501777292016,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "036930",
-      "name": "주성엔지니어링",
-      "market": "KOSDAQ",
-      "close": 141700,
-      "traded_krw": 255248334700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "035420",
-      "name": "NAVER",
+      "ticker": "402340",
+      "name": "SK스퀘어",
       "market": "KOSPI",
-      "close": 187100,
-      "traded_krw": 176823157150,
+      "close": 760000,
+      "traded_krw": 473139969500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "market": "KOSPI",
+      "close": 456000,
+      "traded_krw": 337488679500,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -87,503 +60,8 @@
       "ticker": "180640",
       "name": "한진칼",
       "market": "KOSPI",
-      "close": 207500,
-      "traded_krw": 175560535250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "034020",
-      "name": "두산에너빌리티",
-      "market": "KOSPI",
-      "close": 43350,
-      "traded_krw": 170143390875,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "353200",
-      "name": "대덕전자",
-      "market": "KOSPI",
-      "close": 75200,
-      "traded_krw": 164732243650,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "105560",
-      "name": "KB금융",
-      "market": "KOSPI",
-      "close": 150900,
-      "traded_krw": 159453000750,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "009830",
-      "name": "한화솔루션",
-      "market": "KOSPI",
-      "close": 24250,
-      "traded_krw": 152180675800,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "028260",
-      "name": "삼성물산",
-      "market": "KOSPI",
-      "close": 269500,
-      "traded_krw": 140297638000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "373220",
-      "name": "LG에너지솔루션",
-      "market": "KOSPI",
-      "close": 318000,
-      "traded_krw": 139005591750,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "005380",
-      "name": "현대차",
-      "market": "KOSPI",
-      "close": 271500,
-      "traded_krw": 134634302250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "068270",
-      "name": "셀트리온",
-      "market": "KOSPI",
-      "close": 210000,
-      "traded_krw": 132698529250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "064400",
-      "name": "LG씨엔에스",
-      "market": "KOSPI",
-      "close": 77300,
-      "traded_krw": 127497779150,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "222800",
-      "name": "심텍",
-      "market": "KOSDAQ",
-      "close": 99900,
-      "traded_krw": 122359505450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "079550",
-      "name": "LIG디펜스앤에어로스페이스",
-      "market": "KOSPI",
-      "close": 297000,
-      "traded_krw": 116853820750,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "028050",
-      "name": "삼성E&A",
-      "market": "KOSPI",
-      "close": 60600,
-      "traded_krw": 114957787550,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "market": "KOSPI",
-      "close": 1510000,
-      "traded_krw": 104318796500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "012450",
-      "name": "한화에어로스페이스",
-      "market": "KOSPI",
-      "close": 639000,
-      "traded_krw": 99342780000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "012330",
-      "name": "현대모비스",
-      "market": "KOSPI",
-      "close": 332000,
-      "traded_krw": 95609637604,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "066570",
-      "name": "LG전자",
-      "market": "KOSPI",
-      "close": 134700,
-      "traded_krw": 94982396850,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "003230",
-      "name": "삼양식품",
-      "market": "KOSPI",
-      "close": 1152000,
-      "traded_krw": 93645330500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "042700",
-      "name": "한미반도체",
-      "market": "KOSPI",
-      "close": 160700,
-      "traded_krw": 93340848700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000810",
-      "name": "삼성화재",
-      "market": "KOSPI",
-      "close": 606000,
-      "traded_krw": 91719664690,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "010120",
-      "name": "LS ELECTRIC",
-      "market": "KOSPI",
-      "close": 111700,
-      "traded_krw": 89615637700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000150",
-      "name": "두산",
-      "market": "KOSPI",
-      "close": 611000,
-      "traded_krw": 87823774500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "017670",
-      "name": "SK텔레콤",
-      "market": "KOSPI",
-      "close": 77400,
-      "traded_krw": 83951965600,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "086520",
-      "name": "에코프로",
-      "market": "KOSDAQ",
-      "close": 60600,
-      "traded_krw": 82065765450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "010140",
-      "name": "삼성중공업",
-      "market": "KOSPI",
-      "close": 15320,
-      "traded_krw": 81336542680,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "033780",
-      "name": "KT&G",
-      "market": "KOSPI",
-      "close": 182400,
-      "traded_krw": 79044887900,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "298040",
-      "name": "효성중공업",
-      "market": "KOSPI",
-      "close": 1549000,
-      "traded_krw": 78795136000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "329180",
-      "name": "HD현대중공업",
-      "market": "KOSPI",
-      "close": 257500,
-      "traded_krw": 77959933750,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "055550",
-      "name": "신한지주",
-      "market": "KOSPI",
-      "close": 85800,
-      "traded_krw": 77931439700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "278470",
-      "name": "에이피알",
-      "market": "KOSPI",
-      "close": 247000,
-      "traded_krw": 76491176500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "018260",
-      "name": "삼성에스디에스",
-      "market": "KOSPI",
-      "close": 216500,
-      "traded_krw": 75474481500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "032830",
-      "name": "삼성생명",
-      "market": "KOSPI",
-      "close": 237000,
-      "traded_krw": 73082903053,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000270",
-      "name": "기아",
-      "market": "KOSPI",
-      "close": 97000,
-      "traded_krw": 72895193650,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "035720",
-      "name": "카카오",
-      "market": "KOSPI",
-      "close": 32100,
-      "traded_krw": 69675248425,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "003010",
-      "name": "혜인",
-      "market": "KOSPI",
-      "close": 8760,
-      "traded_krw": 69118900700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "034730",
-      "name": "SK",
-      "market": "KOSPI",
-      "close": 448000,
-      "traded_krw": 68020977250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "005490",
-      "name": "POSCO홀딩스",
-      "market": "KOSPI",
-      "close": 259000,
-      "traded_krw": 67661943250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "086790",
-      "name": "하나금융지주",
-      "market": "KOSPI",
-      "close": 116000,
-      "traded_krw": 66884729500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "267260",
-      "name": "HD현대일렉트릭",
-      "market": "KOSPI",
-      "close": 356000,
-      "traded_krw": 66624561250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "267850",
-      "name": "아시아나IDT",
-      "market": "KOSPI",
-      "close": 14130,
-      "traded_krw": 65313244135,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "128940",
-      "name": "한미약품",
-      "market": "KOSPI",
-      "close": 475000,
-      "traded_krw": 62255384000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "010060",
-      "name": "OCI홀딩스",
-      "market": "KOSPI",
-      "close": 196000,
-      "traded_krw": 61898903050,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "030530",
-      "name": "원익홀딩스",
-      "market": "KOSDAQ",
-      "close": 27200,
-      "traded_krw": 61571282475,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "003670",
-      "name": "포스코퓨처엠",
-      "market": "KOSPI",
-      "close": 153700,
-      "traded_krw": 60172433150,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "328130",
-      "name": "루닛",
-      "market": "KOSDAQ",
-      "close": 16170,
-      "traded_krw": 58455161070,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "096770",
-      "name": "SK이노베이션",
-      "market": "KOSPI",
-      "close": 106700,
-      "traded_krw": 57459934700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "053800",
-      "name": "안랩",
-      "market": "KOSDAQ",
-      "close": 106200,
-      "traded_krw": 56678268050,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "316140",
-      "name": "우리금융지주",
-      "market": "KOSPI",
-      "close": 30900,
-      "traded_krw": 55269085075,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "006360",
-      "name": "GS건설",
-      "market": "KOSPI",
-      "close": 30300,
-      "traded_krw": 54038020375,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "240810",
-      "name": "원익IPS",
-      "market": "KOSDAQ",
-      "close": 67300,
-      "traded_krw": 53918563650,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "247540",
-      "name": "에코프로비엠",
-      "market": "KOSDAQ",
-      "close": 75900,
-      "traded_krw": 53284906050,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "009540",
-      "name": "HD한국조선해양",
-      "market": "KOSPI",
-      "close": 235500,
-      "traded_krw": 52437895000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "403870",
-      "name": "HPSP",
-      "market": "KOSDAQ",
-      "close": 34450,
-      "traded_krw": 52063715525,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "271560",
-      "name": "오리온",
-      "market": "KOSPI",
-      "close": 116700,
-      "traded_krw": 51983086500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "119850",
-      "name": "지엔씨에너지",
-      "market": "KOSDAQ",
-      "close": 37450,
-      "traded_krw": 48978141950,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000720",
-      "name": "현대건설",
-      "market": "KOSPI",
-      "close": 75200,
-      "traded_krw": 48647494800,
+      "close": 239000,
+      "traded_krw": 298712338250,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -591,17 +69,251 @@
       "ticker": "003490",
       "name": "대한항공",
       "market": "KOSPI",
-      "close": 29100,
-      "traded_krw": 48154545125,
+      "close": 32450,
+      "traded_krw": 292646543650,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "080220",
-      "name": "제주반도체",
+      "ticker": "035420",
+      "name": "NAVER",
+      "market": "KOSPI",
+      "close": 193000,
+      "traded_krw": 231312493500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "036930",
+      "name": "주성엔지니어링",
       "market": "KOSDAQ",
-      "close": 52800,
-      "traded_krw": 47899793975,
+      "close": 152300,
+      "traded_krw": 197556092550,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "068270",
+      "name": "셀트리온",
+      "market": "KOSPI",
+      "close": 203000,
+      "traded_krw": 179379269000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "009830",
+      "name": "한화솔루션",
+      "market": "KOSPI",
+      "close": 24400,
+      "traded_krw": 150325849450,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "market": "KOSPI",
+      "close": 46950,
+      "traded_krw": 149016144825,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "000150",
+      "name": "두산",
+      "market": "KOSPI",
+      "close": 636000,
+      "traded_krw": 146636244000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "028050",
+      "name": "삼성E&A",
+      "market": "KOSPI",
+      "close": 64600,
+      "traded_krw": 132087171950,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "064400",
+      "name": "LG씨엔에스",
+      "market": "KOSPI",
+      "close": 80100,
+      "traded_krw": 127698989950,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "000270",
+      "name": "기아",
+      "market": "KOSPI",
+      "close": 96100,
+      "traded_krw": 124851155750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "353200",
+      "name": "대덕전자",
+      "market": "KOSPI",
+      "close": 80000,
+      "traded_krw": 122751815650,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "196170",
+      "name": "알테오젠",
+      "market": "KOSDAQ",
+      "close": 176300,
+      "traded_krw": 119563535450,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "017670",
+      "name": "SK텔레콤",
+      "market": "KOSPI",
+      "close": 81500,
+      "traded_krw": 118699432350,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "373220",
+      "name": "LG에너지솔루션",
+      "market": "KOSPI",
+      "close": 330500,
+      "traded_krw": 112741728750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "105560",
+      "name": "KB금융",
+      "market": "KOSPI",
+      "close": 152700,
+      "traded_krw": 105555692750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "267260",
+      "name": "HD현대일렉트릭",
+      "market": "KOSPI",
+      "close": 394000,
+      "traded_krw": 105290109750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "005380",
+      "name": "현대차",
+      "market": "KOSPI",
+      "close": 275000,
+      "traded_krw": 104257581000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "298040",
+      "name": "효성중공업",
+      "market": "KOSPI",
+      "close": 1746000,
+      "traded_krw": 102328315500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "181710",
+      "name": "NHN",
+      "market": "KOSPI",
+      "close": 77400,
+      "traded_krw": 102281751350,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
+      "market": "KOSPI",
+      "close": 659000,
+      "traded_krw": 101448476500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "207940",
+      "name": "삼성바이오로직스",
+      "market": "KOSPI",
+      "close": 1468000,
+      "traded_krw": 101264948500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "267850",
+      "name": "아시아나IDT",
+      "market": "KOSPI",
+      "close": 17870,
+      "traded_krw": 96220995305,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "000810",
+      "name": "삼성화재",
+      "market": "KOSPI",
+      "close": 599000,
+      "traded_krw": 94461131748,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "329180",
+      "name": "HD현대중공업",
+      "market": "KOSPI",
+      "close": 267500,
+      "traded_krw": 92641094250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "010120",
+      "name": "LS ELECTRIC",
+      "market": "KOSPI",
+      "close": 121000,
+      "traded_krw": 92087051900,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "222800",
+      "name": "심텍",
+      "market": "KOSDAQ",
+      "close": 106600,
+      "traded_krw": 91938549150,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "030530",
+      "name": "원익홀딩스",
+      "market": "KOSDAQ",
+      "close": 29050,
+      "traded_krw": 91446079775,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "042700",
+      "name": "한미반도체",
+      "market": "KOSPI",
+      "close": 173400,
+      "traded_krw": 91284563100,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -609,35 +321,134 @@
       "ticker": "443670",
       "name": "에스피소프트",
       "market": "KOSDAQ",
-      "close": 5350,
-      "traded_krw": 47412331053,
+      "close": 5930,
+      "traded_krw": 90801147015,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "071050",
-      "name": "한국금융지주",
+      "ticker": "055550",
+      "name": "신한지주",
       "market": "KOSPI",
-      "close": 117400,
-      "traded_krw": 46833355650,
+      "close": 85500,
+      "traded_krw": 88998195650,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "112610",
-      "name": "씨에스윈드",
+      "ticker": "018260",
+      "name": "삼성에스디에스",
       "market": "KOSPI",
-      "close": 48650,
-      "traded_krw": 46795375375,
+      "close": 232500,
+      "traded_krw": 88465740250,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "007810",
-      "name": "코리아써키트",
+      "ticker": "033780",
+      "name": "KT&G",
       "market": "KOSPI",
-      "close": 63200,
-      "traded_krw": 45402587600,
+      "close": 175700,
+      "traded_krw": 87905520500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "066570",
+      "name": "LG전자",
+      "market": "KOSPI",
+      "close": 140000,
+      "traded_krw": 84840694650,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "010140",
+      "name": "삼성중공업",
+      "market": "KOSPI",
+      "close": 16450,
+      "traded_krw": 81091206250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "028260",
+      "name": "삼성물산",
+      "market": "KOSPI",
+      "close": 279000,
+      "traded_krw": 81026291750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "086790",
+      "name": "하나금융지주",
+      "market": "KOSPI",
+      "close": 118400,
+      "traded_krw": 79880415137,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "272450",
+      "name": "진에어",
+      "market": "KOSPI",
+      "close": 7990,
+      "traded_krw": 79400900365,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "010060",
+      "name": "OCI홀딩스",
+      "market": "KOSPI",
+      "close": 197700,
+      "traded_krw": 76153880950,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "240810",
+      "name": "원익IPS",
+      "market": "KOSDAQ",
+      "close": 68400,
+      "traded_krw": 73295092550,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "067290",
+      "name": "JW신약",
+      "market": "KOSDAQ",
+      "close": 2455,
+      "traded_krw": 69007161631,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "079550",
+      "name": "LIG디펜스앤에어로스페이스",
+      "market": "KOSPI",
+      "close": 339000,
+      "traded_krw": 67402601000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "035720",
+      "name": "카카오",
+      "market": "KOSPI",
+      "close": 32050,
+      "traded_krw": 65536493200,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "012330",
+      "name": "현대모비스",
+      "market": "KOSPI",
+      "close": 351500,
+      "traded_krw": 63348506500,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -645,8 +456,8 @@
       "ticker": "051910",
       "name": "LG화학",
       "market": "KOSPI",
-      "close": 220000,
-      "traded_krw": 43567013000,
+      "close": 238000,
+      "traded_krw": 62053696000,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -654,143 +465,8 @@
       "ticker": "036540",
       "name": "SFA반도체",
       "market": "KOSDAQ",
-      "close": 6910,
-      "traded_krw": 43270002840,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "011070",
-      "name": "LG이노텍",
-      "market": "KOSPI",
-      "close": 264000,
-      "traded_krw": 43181982500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "042660",
-      "name": "한화오션",
-      "market": "KOSPI",
-      "close": 45550,
-      "traded_krw": 42055535500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "218410",
-      "name": "RFHIC",
-      "market": "KOSDAQ",
-      "close": 42450,
-      "traded_krw": 41544849800,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "047040",
-      "name": "대우건설",
-      "market": "KOSPI",
-      "close": 10320,
-      "traded_krw": 41427778875,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "108490",
-      "name": "로보티즈",
-      "market": "KOSDAQ",
-      "close": 205500,
-      "traded_krw": 41325517500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "089860",
-      "name": "롯데렌탈",
-      "market": "KOSPI",
-      "close": 58400,
-      "traded_krw": 39243243300,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "010170",
-      "name": "대한광통신",
-      "market": "KOSDAQ",
-      "close": 10840,
-      "traded_krw": 39062637255,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "078930",
-      "name": "GS",
-      "market": "KOSPI",
-      "close": 78900,
-      "traded_krw": 37736157000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "356680",
-      "name": "엑스게이트",
-      "market": "KOSDAQ",
-      "close": 12690,
-      "traded_krw": 36625329870,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "007660",
-      "name": "이수페타시스",
-      "market": "KOSPI",
-      "close": 63300,
-      "traded_krw": 36054802800,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "066310",
-      "name": "큐에스아이",
-      "market": "KOSDAQ",
-      "close": 7540,
-      "traded_krw": 36047669645,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "161890",
-      "name": "한국콜마",
-      "market": "KOSPI",
-      "close": 104200,
-      "traded_krw": 35845877400,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "420610",
-      "name": "인텔리빅스",
-      "market": "KOSDAQ",
-      "close": 10900,
-      "traded_krw": 35775558435,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "067310",
-      "name": "하나마이크론",
-      "market": "KOSDAQ",
-      "close": 25200,
-      "traded_krw": 35718208425,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "006260",
-      "name": "LS",
-      "market": "KOSPI",
-      "close": 172900,
-      "traded_krw": 35598539200,
+      "close": 7820,
+      "traded_krw": 60844401790,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -798,8 +474,521 @@
       "ticker": "015760",
       "name": "한국전력",
       "market": "KOSPI",
-      "close": 29900,
-      "traded_krw": 34619135500,
+      "close": 30600,
+      "traded_krw": 60645032125,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "128940",
+      "name": "한미약품",
+      "market": "KOSPI",
+      "close": 483500,
+      "traded_krw": 59798693500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "282720",
+      "name": "금양그린파워",
+      "market": "KOSDAQ",
+      "close": 9340,
+      "traded_krw": 59240125725,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "034730",
+      "name": "SK",
+      "market": "KOSPI",
+      "close": 480000,
+      "traded_krw": 59213961750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "003230",
+      "name": "삼양식품",
+      "market": "KOSPI",
+      "close": 1187000,
+      "traded_krw": 58889111000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "003670",
+      "name": "포스코퓨처엠",
+      "market": "KOSPI",
+      "close": 169000,
+      "traded_krw": 58807515650,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "053800",
+      "name": "안랩",
+      "market": "KOSDAQ",
+      "close": 108200,
+      "traded_krw": 58523503500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "008830",
+      "name": "대동기어",
+      "market": "KOSDAQ",
+      "close": 7220,
+      "traded_krw": 57988740055,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "278470",
+      "name": "에이피알",
+      "market": "KOSPI",
+      "close": 251000,
+      "traded_krw": 57643791750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "003010",
+      "name": "혜인",
+      "market": "KOSPI",
+      "close": 9500,
+      "traded_krw": 57579136265,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "047040",
+      "name": "대우건설",
+      "market": "KOSPI",
+      "close": 11270,
+      "traded_krw": 57128321070,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "086520",
+      "name": "에코프로",
+      "market": "KOSDAQ",
+      "close": 66800,
+      "traded_krw": 55900138250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "009540",
+      "name": "HD한국조선해양",
+      "market": "KOSPI",
+      "close": 245000,
+      "traded_krw": 55819875000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "316140",
+      "name": "우리금융지주",
+      "market": "KOSPI",
+      "close": 31050,
+      "traded_krw": 55419004075,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "218410",
+      "name": "RFHIC",
+      "market": "KOSDAQ",
+      "close": 50600,
+      "traded_krw": 53487386600,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "010170",
+      "name": "대한광통신",
+      "market": "KOSDAQ",
+      "close": 11820,
+      "traded_krw": 51977220000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "000720",
+      "name": "현대건설",
+      "market": "KOSPI",
+      "close": 84200,
+      "traded_krw": 50857206400,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "005490",
+      "name": "POSCO홀딩스",
+      "market": "KOSPI",
+      "close": 271000,
+      "traded_krw": 50695433250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "002320",
+      "name": "한진",
+      "market": "KOSPI",
+      "close": 18380,
+      "traded_krw": 50536464150,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "032830",
+      "name": "삼성생명",
+      "market": "KOSPI",
+      "close": 244500,
+      "traded_krw": 50257680000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "066310",
+      "name": "큐에스아이",
+      "market": "KOSDAQ",
+      "close": 7120,
+      "traded_krw": 49559130825,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "096770",
+      "name": "SK이노베이션",
+      "market": "KOSPI",
+      "close": 109700,
+      "traded_krw": 47549504250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "267270",
+      "name": "HD건설기계",
+      "market": "KOSPI",
+      "close": 92200,
+      "traded_krw": 46433463700,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "080220",
+      "name": "제주반도체",
+      "market": "KOSDAQ",
+      "close": 55900,
+      "traded_krw": 45783136400,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "042660",
+      "name": "한화오션",
+      "market": "KOSPI",
+      "close": 48100,
+      "traded_krw": 43156549225,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "247540",
+      "name": "에코프로비엠",
+      "market": "KOSDAQ",
+      "close": 82500,
+      "traded_krw": 42846256050,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "006360",
+      "name": "GS건설",
+      "market": "KOSPI",
+      "close": 31900,
+      "traded_krw": 42026987425,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "389260",
+      "name": "대명에너지",
+      "market": "KOSDAQ",
+      "close": 15250,
+      "traded_krw": 41303376700,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "009420",
+      "name": "한올바이오파마",
+      "market": "KOSPI",
+      "close": 46700,
+      "traded_krw": 41051769075,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "007810",
+      "name": "코리아써키트",
+      "market": "KOSPI",
+      "close": 68800,
+      "traded_krw": 40043617100,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "000500",
+      "name": "가온전선",
+      "market": "KOSPI",
+      "close": 205000,
+      "traded_krw": 39439394600,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "328130",
+      "name": "루닛",
+      "market": "KOSDAQ",
+      "close": 16840,
+      "traded_krw": 39175592360,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "011200",
+      "name": "HMM",
+      "market": "KOSPI",
+      "close": 20350,
+      "traded_krw": 37608035350,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "403870",
+      "name": "HPSP",
+      "market": "KOSDAQ",
+      "close": 36450,
+      "traded_krw": 37399266125,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "011070",
+      "name": "LG이노텍",
+      "market": "KOSPI",
+      "close": 278000,
+      "traded_krw": 37311568500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "430690",
+      "name": "한싹",
+      "market": "KOSDAQ",
+      "close": 3775,
+      "traded_krw": 37056400670,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "078930",
+      "name": "GS",
+      "market": "KOSPI",
+      "close": 82100,
+      "traded_krw": 36646093550,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "105740",
+      "name": "디케이락",
+      "market": "KOSDAQ",
+      "close": 13440,
+      "traded_krw": 36343241450,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "066970",
+      "name": "엘앤에프",
+      "market": "KOSPI",
+      "close": 77800,
+      "traded_krw": 36227208100,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "112610",
+      "name": "씨에스윈드",
+      "market": "KOSPI",
+      "close": 49500,
+      "traded_krw": 34674130650,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "039030",
+      "name": "이오테크닉스",
+      "market": "KOSDAQ",
+      "close": 344000,
+      "traded_krw": 34548886750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "010950",
+      "name": "S-Oil",
+      "market": "KOSPI",
+      "close": 105900,
+      "traded_krw": 34317544400,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "007660",
+      "name": "이수페타시스",
+      "market": "KOSPI",
+      "close": 68700,
+      "traded_krw": 34252554100,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "043260",
+      "name": "성호전자",
+      "market": "KOSDAQ",
+      "close": 20550,
+      "traded_krw": 32152513970,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "030200",
+      "name": "KT",
+      "market": "KOSPI",
+      "close": 51000,
+      "traded_krw": 32087561850,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "119850",
+      "name": "지엔씨에너지",
+      "market": "KOSDAQ",
+      "close": 38100,
+      "traded_krw": 32018946475,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "491000",
+      "name": "리브스메드",
+      "market": "KOSDAQ",
+      "close": 33300,
+      "traded_krw": 31806329200,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "263860",
+      "name": "지니언스",
+      "market": "KOSDAQ",
+      "close": 25000,
+      "traded_krw": 31658978800,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "067310",
+      "name": "하나마이크론",
+      "market": "KOSDAQ",
+      "close": 27200,
+      "traded_krw": 31491468400,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "352820",
+      "name": "하이브",
+      "market": "KOSPI",
+      "close": 143400,
+      "traded_krw": 31420896000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "298690",
+      "name": "에어부산",
+      "market": "KOSPI",
+      "close": 1882,
+      "traded_krw": 31234112631,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "062040",
+      "name": "산일전기",
+      "market": "KOSPI",
+      "close": 122600,
+      "traded_krw": 29935239250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "071050",
+      "name": "한국금융지주",
+      "market": "KOSPI",
+      "close": 120700,
+      "traded_krw": 29550354600,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "322000",
+      "name": "HD현대에너지솔루션",
+      "market": "KOSPI",
+      "close": 83600,
+      "traded_krw": 29488782050,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "108490",
+      "name": "로보티즈",
+      "market": "KOSDAQ",
+      "close": 220500,
+      "traded_krw": 29467098000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "004310",
+      "name": "현대약품",
+      "market": "KOSPI",
+      "close": 6620,
+      "traded_krw": 29127933095,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "079650",
+      "name": "서산",
+      "market": "KOSDAQ",
+      "close": 6310,
+      "traded_krw": 28861271060,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "095340",
+      "name": "ISC",
+      "market": "KOSDAQ",
+      "close": 132900,
+      "traded_krw": 28422938150,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -807,8 +996,62 @@
       "ticker": "031980",
       "name": "피에스케이홀딩스",
       "market": "KOSDAQ",
-      "close": 120600,
-      "traded_krw": 34341089750,
+      "close": 129000,
+      "traded_krw": 28264459400,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "058470",
+      "name": "리노공업",
+      "market": "KOSDAQ",
+      "close": 48600,
+      "traded_krw": 27795463375,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "001440",
+      "name": "대한전선",
+      "market": "KOSPI",
+      "close": 17980,
+      "traded_krw": 27737589915,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "098460",
+      "name": "고영",
+      "market": "KOSDAQ",
+      "close": 22350,
+      "traded_krw": 27327744325,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "126340",
+      "name": "비나텍",
+      "market": "KOSDAQ",
+      "close": 93200,
+      "traded_krw": 27104034700,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "092870",
+      "name": "엑시콘",
+      "market": "KOSDAQ",
+      "close": 52100,
+      "traded_krw": 26786905700,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "475150",
+      "name": "SK이터닉스",
+      "market": "KOSPI",
+      "close": 38000,
+      "traded_krw": 26552460450,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -817,178 +1060,7 @@
       "name": "메리츠금융지주",
       "market": "KOSPI",
       "close": 128500,
-      "traded_krw": 34058161630,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "181710",
-      "name": "NHN",
-      "market": "KOSPI",
-      "close": 59600,
-      "traded_krw": 33562959100,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "179880",
-      "name": "멜콘",
-      "market": "KOSDAQ",
-      "close": 11920,
-      "traded_krw": 33374235060,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "092870",
-      "name": "엑시콘",
-      "market": "KOSDAQ",
-      "close": 46050,
-      "traded_krw": 33353734800,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "322000",
-      "name": "HD현대에너지솔루션",
-      "market": "KOSPI",
-      "close": 79500,
-      "traded_krw": 31296100350,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "008830",
-      "name": "대동기어",
-      "market": "KOSDAQ",
-      "close": 6370,
-      "traded_krw": 30456910415,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "109610",
-      "name": "에스와이",
-      "market": "KOSDAQ",
-      "close": 2220,
-      "traded_krw": 29720932722,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "004540",
-      "name": "깨끗한나라",
-      "market": "KOSPI",
-      "close": 1727,
-      "traded_krw": 29597502616,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000990",
-      "name": "DB하이텍",
-      "market": "KOSPI",
-      "close": 82500,
-      "traded_krw": 29575924000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "066970",
-      "name": "엘앤에프",
-      "market": "KOSPI",
-      "close": 70100,
-      "traded_krw": 29000556450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "001440",
-      "name": "대한전선",
-      "market": "KOSPI",
-      "close": 16610,
-      "traded_krw": 28995188285,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "263860",
-      "name": "지니언스",
-      "market": "KOSDAQ",
-      "close": 24000,
-      "traded_krw": 28933285125,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "389260",
-      "name": "대명에너지",
-      "market": "KOSDAQ",
-      "close": 14710,
-      "traded_krw": 28922996420,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "352820",
-      "name": "하이브",
-      "market": "KOSPI",
-      "close": 143200,
-      "traded_krw": 28599358500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "096530",
-      "name": "씨젠",
-      "market": "KOSDAQ",
-      "close": 24800,
-      "traded_krw": 28576984950,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "011200",
-      "name": "HMM",
-      "market": "KOSPI",
-      "close": 20650,
-      "traded_krw": 28242805150,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "267270",
-      "name": "HD건설기계",
-      "market": "KOSPI",
-      "close": 82100,
-      "traded_krw": 27925477100,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "032640",
-      "name": "LG유플러스",
-      "market": "KOSPI",
-      "close": 15980,
-      "traded_krw": 27671722600,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "021240",
-      "name": "코웨이",
-      "market": "KOSPI",
-      "close": 99400,
-      "traded_krw": 27481593300,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "030200",
-      "name": "KT",
-      "market": "KOSPI",
-      "close": 52200,
-      "traded_krw": 27475061850,
+      "traded_krw": 26097618300,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -996,539 +1068,8 @@
       "ticker": "326030",
       "name": "SK바이오팜",
       "market": "KOSPI",
-      "close": 86700,
-      "traded_krw": 27057229650,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "082740",
-      "name": "한화엔진",
-      "market": "KOSPI",
-      "close": 24750,
-      "traded_krw": 26535127625,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "468530",
-      "name": "프로티나",
-      "market": "KOSDAQ",
-      "close": 58800,
-      "traded_krw": 26386963900,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "475150",
-      "name": "SK이터닉스",
-      "market": "KOSPI",
-      "close": 37250,
-      "traded_krw": 25944277400,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "272210",
-      "name": "한화시스템",
-      "market": "KOSPI",
-      "close": 50000,
-      "traded_krw": 25902068575,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "347850",
-      "name": "디앤디파마텍",
-      "market": "KOSDAQ",
-      "close": 37950,
-      "traded_krw": 25676060575,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "241710",
-      "name": "코스메카코리아",
-      "market": "KOSDAQ",
-      "close": 86100,
-      "traded_krw": 25647083300,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "039030",
-      "name": "이오테크닉스",
-      "market": "KOSDAQ",
-      "close": 300500,
-      "traded_krw": 25586184250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "006800",
-      "name": "미래에셋증권",
-      "market": "KOSPI",
-      "close": 21000,
-      "traded_krw": 25445298450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000500",
-      "name": "가온전선",
-      "market": "KOSPI",
-      "close": 176000,
-      "traded_krw": 25444189950,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "332570",
-      "name": "PS일렉트로닉스",
-      "market": "KOSDAQ",
-      "close": 5730,
-      "traded_krw": 24777155365,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "259960",
-      "name": "크래프톤",
-      "market": "KOSPI",
-      "close": 217500,
-      "traded_krw": 24493166250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "319660",
-      "name": "피에스케이",
-      "market": "KOSDAQ",
-      "close": 81400,
-      "traded_krw": 24398850600,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "131970",
-      "name": "두산테스나",
-      "market": "KOSDAQ",
-      "close": 62700,
-      "traded_krw": 24384417700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "043260",
-      "name": "성호전자",
-      "market": "KOSDAQ",
-      "close": 18900,
-      "traded_krw": 23766575660,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "014950",
-      "name": "삼익제약",
-      "market": "KOSDAQ",
-      "close": 6410,
-      "traded_krw": 23702446240,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "005830",
-      "name": "DB손해보험",
-      "market": "KOSPI",
-      "close": 171100,
-      "traded_krw": 23493078450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "086280",
-      "name": "현대글로비스",
-      "market": "KOSPI",
-      "close": 189300,
-      "traded_krw": 23048904550,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "047810",
-      "name": "한국항공우주",
-      "market": "KOSPI",
-      "close": 99000,
-      "traded_krw": 22967359450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "257720",
-      "name": "실리콘투",
-      "market": "KOSDAQ",
-      "close": 25600,
-      "traded_krw": 22941453425,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "138930",
-      "name": "BNK금융지주",
-      "market": "KOSPI",
-      "close": 12660,
-      "traded_krw": 22843476170,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "095610",
-      "name": "테스",
-      "market": "KOSDAQ",
-      "close": 81400,
-      "traded_krw": 22683747050,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "098460",
-      "name": "고영",
-      "market": "KOSDAQ",
-      "close": 20900,
-      "traded_krw": 22651390900,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "058470",
-      "name": "리노공업",
-      "market": "KOSDAQ",
-      "close": 46450,
-      "traded_krw": 22389227100,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "010950",
-      "name": "S-Oil",
-      "market": "KOSPI",
-      "close": 105600,
-      "traded_krw": 22162417300,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "192820",
-      "name": "코스맥스",
-      "market": "KOSPI",
-      "close": 241000,
-      "traded_krw": 21990315750,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "020400",
-      "name": "대동금속",
-      "market": "KOSDAQ",
-      "close": 3635,
-      "traded_krw": 21595427227,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "302440",
-      "name": "SK바이오사이언스",
-      "market": "KOSPI",
-      "close": 40400,
-      "traded_krw": 21355951800,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "178320",
-      "name": "서진시스템",
-      "market": "KOSDAQ",
-      "close": 27600,
-      "traded_krw": 21316103800,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "003160",
-      "name": "디아이",
-      "market": "KOSPI",
-      "close": 24300,
-      "traded_krw": 21233258325,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "267250",
-      "name": "HD현대",
-      "market": "KOSPI",
-      "close": 121500,
-      "traded_krw": 20664144150,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "062040",
-      "name": "산일전기",
-      "market": "KOSPI",
-      "close": 113800,
-      "traded_krw": 20621174450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "290650",
-      "name": "엘앤씨바이오",
-      "market": "KOSDAQ",
-      "close": 22550,
-      "traded_krw": 20588771125,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "089030",
-      "name": "테크윙",
-      "market": "KOSDAQ",
-      "close": 30300,
-      "traded_krw": 20568960200,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "095340",
-      "name": "ISC",
-      "market": "KOSDAQ",
-      "close": 124900,
-      "traded_krw": 20380605000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "064350",
-      "name": "현대로템",
-      "market": "KOSPI",
-      "close": 69800,
-      "traded_krw": 20346234250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "214450",
-      "name": "파마리서치",
-      "market": "KOSDAQ",
-      "close": 236000,
-      "traded_krw": 20285816500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "005387",
-      "name": "현대차2우B",
-      "market": "KOSPI",
-      "close": 144600,
-      "traded_krw": 19879160850,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "089970",
-      "name": "브이엠",
-      "market": "KOSDAQ",
-      "close": 31400,
-      "traded_krw": 19716676775,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "141080",
-      "name": "리가켐바이오",
-      "market": "KOSDAQ",
-      "close": 56800,
-      "traded_krw": 19152049450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "144960",
-      "name": "뉴파워프라즈마",
-      "market": "KOSDAQ",
-      "close": 11100,
-      "traded_krw": 19122554790,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000250",
-      "name": "삼천당제약",
-      "market": "KOSDAQ",
-      "close": 169700,
-      "traded_krw": 19095402500,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "253590",
-      "name": "네오셈",
-      "market": "KOSDAQ",
-      "close": 12900,
-      "traded_krw": 18992044395,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "005385",
-      "name": "현대차우",
-      "market": "KOSPI",
-      "close": 142000,
-      "traded_krw": 18769141100,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "289080",
-      "name": "SV인베스트먼트",
-      "market": "KOSDAQ",
-      "close": 2055,
-      "traded_krw": 18696642507,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "064290",
-      "name": "인텍플러스",
-      "market": "KOSDAQ",
-      "close": 39500,
-      "traded_krw": 18677021700,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "090430",
-      "name": "아모레퍼시픽",
-      "market": "KOSPI",
-      "close": 127100,
-      "traded_krw": 18568494900,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "226950",
-      "name": "올릭스",
-      "market": "KOSDAQ",
-      "close": 74100,
-      "traded_krw": 18480773250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "440110",
-      "name": "파두",
-      "market": "KOSDAQ",
-      "close": 32850,
-      "traded_krw": 18396564075,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "036570",
-      "name": "NC",
-      "market": "KOSPI",
-      "close": 209000,
-      "traded_krw": 18288428000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "008930",
-      "name": "한미사이언스",
-      "market": "KOSPI",
-      "close": 57300,
-      "traded_krw": 18190801100,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "028300",
-      "name": "HLB",
-      "market": "KOSDAQ",
-      "close": 30150,
-      "traded_krw": 18146284275,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "016360",
-      "name": "삼성증권",
-      "market": "KOSPI",
-      "close": 71200,
-      "traded_krw": 17998236850,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "161390",
-      "name": "한국타이어앤테크놀로지",
-      "market": "KOSPI",
-      "close": 59500,
-      "traded_krw": 17737284050,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "495910",
-      "name": "이에스티",
-      "market": "KOSDAQ",
-      "close": 6070,
-      "traded_krw": 17683143750,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "277810",
-      "name": "레인보우로보틱스",
-      "market": "KOSDAQ",
-      "close": 302500,
-      "traded_krw": 17393414250,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "000100",
-      "name": "유한양행",
-      "market": "KOSPI",
-      "close": 77800,
-      "traded_krw": 17265972300,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "425420",
-      "name": "티에프이",
-      "market": "KOSDAQ",
-      "close": 68600,
-      "traded_krw": 17126206450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "064760",
-      "name": "티씨케이",
-      "market": "KOSDAQ",
-      "close": 150500,
-      "traded_krw": 16981595000,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "069540",
-      "name": "빛과전자",
-      "market": "KOSDAQ",
-      "close": 3175,
-      "traded_krw": 16880182765,
+      "close": 87400,
+      "traded_krw": 25939971850,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -1536,62 +1077,98 @@
       "ticker": "327260",
       "name": "RF머트리얼즈",
       "market": "KOSDAQ",
-      "close": 23250,
-      "traded_krw": 16809106025,
+      "close": 26400,
+      "traded_krw": 25934132075,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "458870",
-      "name": "씨어스",
+      "ticker": "086280",
+      "name": "현대글로비스",
+      "market": "KOSPI",
+      "close": 199000,
+      "traded_krw": 25874905800,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "000990",
+      "name": "DB하이텍",
+      "market": "KOSPI",
+      "close": 87700,
+      "traded_krw": 24601693450,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "319660",
+      "name": "피에스케이",
       "market": "KOSDAQ",
-      "close": 13250,
-      "traded_krw": 16748665110,
+      "close": 84900,
+      "traded_krw": 24463618050,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "003550",
-      "name": "LG",
+      "ticker": "021240",
+      "name": "코웨이",
       "market": "KOSPI",
-      "close": 89700,
-      "traded_krw": 16572398400,
+      "close": 99600,
+      "traded_krw": 23495283550,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "010130",
-      "name": "고려아연",
+      "ticker": "047810",
+      "name": "한국항공우주",
       "market": "KOSPI",
-      "close": 935000,
-      "traded_krw": 16399842000,
+      "close": 101200,
+      "traded_krw": 23148989350,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "039490",
-      "name": "키움증권",
+      "ticker": "483650",
+      "name": "달바글로벌",
       "market": "KOSPI",
-      "close": 179200,
-      "traded_krw": 15996486950,
+      "close": 146500,
+      "traded_krw": 23108941000,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "001820",
-      "name": "삼화콘덴서",
+      "ticker": "272210",
+      "name": "한화시스템",
       "market": "KOSPI",
-      "close": 79300,
-      "traded_krw": 15991151350,
+      "close": 54500,
+      "traded_krw": 22356357100,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "126340",
-      "name": "비나텍",
+      "ticker": "267250",
+      "name": "HD현대",
+      "market": "KOSPI",
+      "close": 126700,
+      "traded_krw": 22216016200,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "079900",
+      "name": "전진건설로봇",
+      "market": "KOSPI",
+      "close": 45600,
+      "traded_krw": 22116051725,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "069540",
+      "name": "빛과전자",
       "market": "KOSDAQ",
-      "close": 78300,
-      "traded_krw": 15816197850,
+      "close": 3370,
+      "traded_krw": 21880062273,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -1599,89 +1176,134 @@
       "ticker": "281820",
       "name": "케이씨텍",
       "market": "KOSPI",
-      "close": 55500,
-      "traded_krw": 15709584250,
+      "close": 62600,
+      "traded_krw": 21781244500,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "457190",
-      "name": "이수스페셜티케미컬",
-      "market": "KOSPI",
-      "close": 59300,
-      "traded_krw": 15694064400,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "084370",
-      "name": "유진테크",
+      "ticker": "095610",
+      "name": "테스",
       "market": "KOSDAQ",
-      "close": 73200,
-      "traded_krw": 15685586050,
+      "close": 84000,
+      "traded_krw": 21731083400,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "491000",
-      "name": "리브스메드",
+      "ticker": "064290",
+      "name": "인텍플러스",
       "market": "KOSDAQ",
-      "close": 37000,
-      "traded_krw": 15574186450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "131290",
-      "name": "티에스이",
-      "market": "KOSDAQ",
-      "close": 171400,
-      "traded_krw": 15211908200,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "023530",
-      "name": "롯데쇼핑",
-      "market": "KOSPI",
-      "close": 81700,
-      "traded_krw": 15149199450,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "087010",
-      "name": "펩트론",
-      "market": "KOSDAQ",
-      "close": 93300,
-      "traded_krw": 15055084350,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "103590",
-      "name": "일진전기",
-      "market": "KOSPI",
       "close": 42100,
-      "traded_krw": 15010525550,
+      "traded_krw": 21707505575,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "454910",
-      "name": "두산로보틱스",
+      "ticker": "006260",
+      "name": "LS",
       "market": "KOSPI",
-      "close": 48800,
-      "traded_krw": 14911026825,
+      "close": 184700,
+      "traded_krw": 21469264000,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "078600",
-      "name": "대주전자재료",
+      "ticker": "005830",
+      "name": "DB손해보험",
+      "market": "KOSPI",
+      "close": 172300,
+      "traded_krw": 21087946000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "003160",
+      "name": "디아이",
+      "market": "KOSPI",
+      "close": 26100,
+      "traded_krw": 20715435250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "347850",
+      "name": "디앤디파마텍",
       "market": "KOSDAQ",
-      "close": 72800,
-      "traded_krw": 14388893600,
+      "close": 40350,
+      "traded_krw": 20697768175,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "014950",
+      "name": "삼익제약",
+      "market": "KOSDAQ",
+      "close": 8330,
+      "traded_krw": 20423143385,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "161390",
+      "name": "한국타이어앤테크놀로지",
+      "market": "KOSPI",
+      "close": 63200,
+      "traded_krw": 19904466750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "253590",
+      "name": "네오셈",
+      "market": "KOSDAQ",
+      "close": 13470,
+      "traded_krw": 19774768705,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "089590",
+      "name": "제주항공",
+      "market": "KOSPI",
+      "close": 7430,
+      "traded_krw": 19640714165,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "032640",
+      "name": "LG유플러스",
+      "market": "KOSPI",
+      "close": 15860,
+      "traded_krw": 19260819180,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "047050",
+      "name": "포스코인터내셔널",
+      "market": "KOSPI",
+      "close": 49300,
+      "traded_krw": 18975023850,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "178320",
+      "name": "서진시스템",
+      "market": "KOSDAQ",
+      "close": 29100,
+      "traded_krw": 18836768125,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "138930",
+      "name": "BNK금융지주",
+      "market": "KOSPI",
+      "close": 12960,
+      "traded_krw": 18830975290,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -1689,17 +1311,116 @@
       "ticker": "078350",
       "name": "한양디지텍",
       "market": "KOSDAQ",
-      "close": 29050,
-      "traded_krw": 14203506675,
+      "close": 28650,
+      "traded_krw": 18648815375,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "035900",
-      "name": "JYP Ent.",
+      "ticker": "277810",
+      "name": "레인보우로보틱스",
       "market": "KOSDAQ",
-      "close": 40300,
-      "traded_krw": 14177195575,
+      "close": 325000,
+      "traded_krw": 18582936750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "004170",
+      "name": "신세계",
+      "market": "KOSPI",
+      "close": 245500,
+      "traded_krw": 18452751500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "006800",
+      "name": "미래에셋증권",
+      "market": "KOSPI",
+      "close": 21750,
+      "traded_krw": 18407973550,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "028300",
+      "name": "HLB",
+      "market": "KOSDAQ",
+      "close": 30250,
+      "traded_krw": 18357720925,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "259960",
+      "name": "크래프톤",
+      "market": "KOSPI",
+      "close": 216500,
+      "traded_krw": 18221390250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "214450",
+      "name": "파마리서치",
+      "market": "KOSDAQ",
+      "close": 249000,
+      "traded_krw": 18210612000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "443060",
+      "name": "HD현대마린솔루션",
+      "market": "KOSPI",
+      "close": 166900,
+      "traded_krw": 17820518400,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "375500",
+      "name": "DL이앤씨",
+      "market": "KOSPI",
+      "close": 55900,
+      "traded_krw": 17670644800,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "082740",
+      "name": "한화엔진",
+      "market": "KOSPI",
+      "close": 27400,
+      "traded_krw": 17579879425,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "440110",
+      "name": "파두",
+      "market": "KOSDAQ",
+      "close": 34050,
+      "traded_krw": 17523292475,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "078600",
+      "name": "대주전자재료",
+      "market": "KOSDAQ",
+      "close": 80200,
+      "traded_krw": 17415738150,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "011790",
+      "name": "SKC",
+      "market": "KOSPI",
+      "close": 71900,
+      "traded_krw": 17127406750,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -1707,71 +1428,62 @@
       "ticker": "028670",
       "name": "팬오션",
       "market": "KOSPI",
-      "close": 4835,
-      "traded_krw": 14144047651,
+      "close": 4995,
+      "traded_krw": 17036088768,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "018880",
-      "name": "한온시스템",
-      "market": "KOSPI",
-      "close": 2960,
-      "traded_krw": 14090527445,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "489790",
-      "name": "한화비전",
-      "market": "KOSPI",
-      "close": 40650,
-      "traded_krw": 14011239675,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "241560",
-      "name": "두산밥캣",
-      "market": "KOSPI",
-      "close": 51600,
-      "traded_krw": 14009914300,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "042510",
-      "name": "라온시큐어",
+      "ticker": "109610",
+      "name": "에스와이",
       "market": "KOSDAQ",
-      "close": 13720,
-      "traded_krw": 13921700425,
+      "close": 2290,
+      "traded_krw": 16890522438,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "091580",
-      "name": "상신이디피",
-      "market": "KOSDAQ",
-      "close": 21250,
-      "traded_krw": 13892429900,
-      "foreign_net_krw": null,
-      "institution_net_krw": null
-    },
-    {
-      "ticker": "317400",
-      "name": "자이에스앤디",
+      "ticker": "103590",
+      "name": "일진전기",
       "market": "KOSPI",
-      "close": 7430,
-      "traded_krw": 13757735125,
+      "close": 46050,
+      "traded_krw": 16834913375,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "347700",
-      "name": "스피어",
+      "ticker": "089970",
+      "name": "브이엠",
       "market": "KOSDAQ",
-      "close": 14000,
-      "traded_krw": 13753680315,
+      "close": 34000,
+      "traded_krw": 16824693325,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "131290",
+      "name": "티에스이",
+      "market": "KOSDAQ",
+      "close": 184200,
+      "traded_krw": 16736961700,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "001450",
+      "name": "현대해상",
+      "market": "KOSPI",
+      "close": 40000,
+      "traded_krw": 16643450025,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "131970",
+      "name": "두산테스나",
+      "market": "KOSDAQ",
+      "close": 67300,
+      "traded_krw": 16516353300,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
@@ -1779,31 +1491,319 @@
       "ticker": "323990",
       "name": "박셀바이오",
       "market": "KOSDAQ",
-      "close": 4835,
-      "traded_krw": 13689309528,
+      "close": 4650,
+      "traded_krw": 16304082147,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "051900",
-      "name": "LG생활건강",
+      "ticker": "051600",
+      "name": "한전KPS",
       "market": "KOSPI",
-      "close": 234000,
-      "traded_krw": 13675204750,
+      "close": 37400,
+      "traded_krw": 16037960175,
       "foreign_net_krw": null,
       "institution_net_krw": null
     },
     {
-      "ticker": "356860",
-      "name": "티엘비",
+      "ticker": "000250",
+      "name": "삼천당제약",
       "market": "KOSDAQ",
-      "close": 27400,
-      "traded_krw": 13624885000,
+      "close": 179200,
+      "traded_krw": 15728141200,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "192820",
+      "name": "코스맥스",
+      "market": "KOSPI",
+      "close": 240000,
+      "traded_krw": 15410026250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "251970",
+      "name": "펌텍코리아",
+      "market": "KOSDAQ",
+      "close": 67400,
+      "traded_krw": 15212557550,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "036570",
+      "name": "NC",
+      "market": "KOSPI",
+      "close": 213500,
+      "traded_krw": 15190200622,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "052690",
+      "name": "한전기술",
+      "market": "KOSPI",
+      "close": 75000,
+      "traded_krw": 15163353850,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "016360",
+      "name": "삼성증권",
+      "market": "KOSPI",
+      "close": 72700,
+      "traded_krw": 15144445950,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "064350",
+      "name": "현대로템",
+      "market": "KOSPI",
+      "close": 73100,
+      "traded_krw": 15092799250,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "005387",
+      "name": "현대차2우B",
+      "market": "KOSPI",
+      "close": 145400,
+      "traded_krw": 14796062850,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "425420",
+      "name": "티에프이",
+      "market": "KOSDAQ",
+      "close": 73600,
+      "traded_krw": 14305738350,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "271560",
+      "name": "오리온",
+      "market": "KOSPI",
+      "close": 114100,
+      "traded_krw": 14297528700,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "161890",
+      "name": "한국콜마",
+      "market": "KOSPI",
+      "close": 105800,
+      "traded_krw": 14285268500,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "010130",
+      "name": "고려아연",
+      "market": "KOSPI",
+      "close": 967000,
+      "traded_krw": 14276081000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "226950",
+      "name": "올릭스",
+      "market": "KOSDAQ",
+      "close": 81800,
+      "traded_krw": 14108272050,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "001820",
+      "name": "삼화콘덴서",
+      "market": "KOSPI",
+      "close": 83000,
+      "traded_krw": 13769612300,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "458870",
+      "name": "씨어스",
+      "market": "KOSDAQ",
+      "close": 14950,
+      "traded_krw": 13710521510,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "039490",
+      "name": "키움증권",
+      "market": "KOSPI",
+      "close": 184700,
+      "traded_krw": 13628335750,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "468530",
+      "name": "프로티나",
+      "market": "KOSDAQ",
+      "close": 60200,
+      "traded_krw": 13613549550,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "317400",
+      "name": "자이에스앤디",
+      "market": "KOSPI",
+      "close": 8090,
+      "traded_krw": 13459467285,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "034220",
+      "name": "LG디스플레이",
+      "market": "KOSPI",
+      "close": 7290,
+      "traded_krw": 13066878940,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "144960",
+      "name": "뉴파워프라즈마",
+      "market": "KOSDAQ",
+      "close": 11960,
+      "traded_krw": 12935793005,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "145020",
+      "name": "휴젤",
+      "market": "KOSDAQ",
+      "close": 199300,
+      "traded_krw": 12846916450,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "018880",
+      "name": "한온시스템",
+      "market": "KOSPI",
+      "close": 3080,
+      "traded_krw": 12780911903,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "179880",
+      "name": "멜콘",
+      "market": "KOSDAQ",
+      "close": 12000,
+      "traded_krw": 12726446220,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "336260",
+      "name": "두산퓨얼셀",
+      "market": "KOSPI",
+      "close": 28500,
+      "traded_krw": 12596978975,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "319400",
+      "name": "현대무벡스",
+      "market": "KOSDAQ",
+      "close": 14990,
+      "traded_krw": 12550870835,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "020150",
+      "name": "롯데에너지머티리얼즈",
+      "market": "KOSPI",
+      "close": 36100,
+      "traded_krw": 12530715400,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "006340",
+      "name": "대원전선",
+      "market": "KOSPI",
+      "close": 8210,
+      "traded_krw": 12489035720,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "489790",
+      "name": "한화비전",
+      "market": "KOSPI",
+      "close": 43900,
+      "traded_krw": 12433358425,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "084370",
+      "name": "유진테크",
+      "market": "KOSDAQ",
+      "close": 77100,
+      "traded_krw": 12407851200,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "257720",
+      "name": "실리콘투",
+      "market": "KOSDAQ",
+      "close": 26650,
+      "traded_krw": 12393600900,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "064760",
+      "name": "티씨케이",
+      "market": "KOSDAQ",
+      "close": 159100,
+      "traded_krw": 12354663000,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "090430",
+      "name": "아모레퍼시픽",
+      "market": "KOSPI",
+      "close": 129000,
+      "traded_krw": 12302282850,
+      "foreign_net_krw": null,
+      "institution_net_krw": null
+    },
+    {
+      "ticker": "005385",
+      "name": "현대차우",
+      "market": "KOSPI",
+      "close": 142700,
+      "traded_krw": 12292498400,
       "foreign_net_krw": null,
       "institution_net_krw": null
     }
   ],
-  "date": "2026-11-09",
+  "date": "2026-11-10",
   "date_quality": "official_requested_date",
   "source": "KRX Open API (authenticated daily stock trades)",
   "source_url": "https://data.krx.co.kr/",
@@ -1812,1819 +1812,1819 @@
   },
   "unified": {
     "status": "verified_partial_nxt_sessions",
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "top200": [
       {
         "ticker": "000660",
         "name": "SK하이닉스",
         "market": "KOSPI",
-        "close": 1136000,
-        "krx_traded_krw": 5058042680498,
-        "nxt_traded_krw": 2553534614000,
-        "traded_krw": 7611577294498
+        "close": 1212000,
+        "krx_traded_krw": 4149676748000,
+        "nxt_traded_krw": 2098044210000,
+        "traded_krw": 6247720958000
       },
       {
         "ticker": "005930",
         "name": "삼성전자",
         "market": "KOSPI",
-        "close": 189900,
-        "krx_traded_krw": 3790579717830,
-        "nxt_traded_krw": 1948214996000,
-        "traded_krw": 5738794713830
+        "close": 198900,
+        "krx_traded_krw": 3041497572150,
+        "nxt_traded_krw": 1921337629450,
+        "traded_krw": 4962835201600
       },
       {
         "ticker": "009150",
         "name": "삼성전기",
         "market": "KOSPI",
-        "close": 843000,
-        "krx_traded_krw": 773809622000,
-        "nxt_traded_krw": 551808939500,
-        "traded_krw": 1325618561500
-      },
-      {
-        "ticker": "006400",
-        "name": "삼성SDI",
-        "market": "KOSPI",
-        "close": 415000,
-        "krx_traded_krw": 543861381000,
-        "nxt_traded_krw": 414290076000,
-        "traded_krw": 958151457000
-      },
-      {
-        "ticker": "196170",
-        "name": "알테오젠",
-        "market": "KOSDAQ",
-        "close": 168400,
-        "krx_traded_krw": 474515299550,
-        "nxt_traded_krw": 329395640550,
-        "traded_krw": 803910940100
+        "close": 882000,
+        "krx_traded_krw": 611511985000,
+        "nxt_traded_krw": 590977675000,
+        "traded_krw": 1202489660000
       },
       {
         "ticker": "402340",
         "name": "SK스퀘어",
         "market": "KOSPI",
-        "close": 722000,
-        "krx_traded_krw": 586418319000,
-        "nxt_traded_krw": 194619241500,
-        "traded_krw": 781037560500
-      },
-      {
-        "ticker": "005935",
-        "name": "삼성전자우",
-        "market": "KOSPI",
-        "close": 150900,
-        "krx_traded_krw": 444533539300,
-        "nxt_traded_krw": 0,
-        "traded_krw": 444533539300
+        "close": 760000,
+        "krx_traded_krw": 473139969500,
+        "nxt_traded_krw": 222563294000,
+        "traded_krw": 695703263500
       },
       {
         "ticker": "180640",
         "name": "한진칼",
         "market": "KOSPI",
-        "close": 207500,
-        "krx_traded_krw": 175560535250,
-        "nxt_traded_krw": 200065940700,
-        "traded_krw": 375626475950
+        "close": 239000,
+        "krx_traded_krw": 298712338250,
+        "nxt_traded_krw": 350208103000,
+        "traded_krw": 648920441250
+      },
+      {
+        "ticker": "006400",
+        "name": "삼성SDI",
+        "market": "KOSPI",
+        "close": 456000,
+        "krx_traded_krw": 337488679500,
+        "nxt_traded_krw": 295243639750,
+        "traded_krw": 632732319250
+      },
+      {
+        "ticker": "005935",
+        "name": "삼성전자우",
+        "market": "KOSPI",
+        "close": 159000,
+        "krx_traded_krw": 501777292016,
+        "nxt_traded_krw": 0,
+        "traded_krw": 501777292016
       },
       {
         "ticker": "035420",
         "name": "NAVER",
         "market": "KOSPI",
-        "close": 187100,
-        "krx_traded_krw": 176823157150,
-        "nxt_traded_krw": 124873768600,
-        "traded_krw": 301696925750
-      },
-      {
-        "ticker": "034020",
-        "name": "두산에너빌리티",
-        "market": "KOSPI",
-        "close": 43350,
-        "krx_traded_krw": 170143390875,
-        "nxt_traded_krw": 130360333500,
-        "traded_krw": 300503724375
-      },
-      {
-        "ticker": "036930",
-        "name": "주성엔지니어링",
-        "market": "KOSDAQ",
-        "close": 141700,
-        "krx_traded_krw": 255248334700,
-        "nxt_traded_krw": 0,
-        "traded_krw": 255248334700
-      },
-      {
-        "ticker": "005380",
-        "name": "현대차",
-        "market": "KOSPI",
-        "close": 271500,
-        "krx_traded_krw": 134634302250,
-        "nxt_traded_krw": 82440680500,
-        "traded_krw": 217074982750
-      },
-      {
-        "ticker": "222800",
-        "name": "심텍",
-        "market": "KOSDAQ",
-        "close": 99900,
-        "krx_traded_krw": 122359505450,
-        "nxt_traded_krw": 91343037000,
-        "traded_krw": 213702542450
-      },
-      {
-        "ticker": "068270",
-        "name": "셀트리온",
-        "market": "KOSPI",
-        "close": 210000,
-        "krx_traded_krw": 132698529250,
-        "nxt_traded_krw": 80686843500,
-        "traded_krw": 213385372750
-      },
-      {
-        "ticker": "373220",
-        "name": "LG에너지솔루션",
-        "market": "KOSPI",
-        "close": 318000,
-        "krx_traded_krw": 139005591750,
-        "nxt_traded_krw": 35837700250,
-        "traded_krw": 174843292000
-      },
-      {
-        "ticker": "105560",
-        "name": "KB금융",
-        "market": "KOSPI",
-        "close": 150900,
-        "krx_traded_krw": 159453000750,
-        "nxt_traded_krw": 13505547250,
-        "traded_krw": 172958548000
-      },
-      {
-        "ticker": "353200",
-        "name": "대덕전자",
-        "market": "KOSPI",
-        "close": 75200,
-        "krx_traded_krw": 164732243650,
-        "nxt_traded_krw": 0,
-        "traded_krw": 164732243650
-      },
-      {
-        "ticker": "028260",
-        "name": "삼성물산",
-        "market": "KOSPI",
-        "close": 269500,
-        "krx_traded_krw": 140297638000,
-        "nxt_traded_krw": 18227886000,
-        "traded_krw": 158525524000
-      },
-      {
-        "ticker": "009830",
-        "name": "한화솔루션",
-        "market": "KOSPI",
-        "close": 24250,
-        "krx_traded_krw": 152180675800,
-        "nxt_traded_krw": 0,
-        "traded_krw": 152180675800
-      },
-      {
-        "ticker": "042700",
-        "name": "한미반도체",
-        "market": "KOSPI",
-        "close": 160700,
-        "krx_traded_krw": 93340848700,
-        "nxt_traded_krw": 49617338100,
-        "traded_krw": 142958186800
-      },
-      {
-        "ticker": "079550",
-        "name": "LIG디펜스앤에어로스페이스",
-        "market": "KOSPI",
-        "close": 297000,
-        "krx_traded_krw": 116853820750,
-        "nxt_traded_krw": 25197278000,
-        "traded_krw": 142051098750
-      },
-      {
-        "ticker": "053800",
-        "name": "안랩",
-        "market": "KOSDAQ",
-        "close": 106200,
-        "krx_traded_krw": 56678268050,
-        "nxt_traded_krw": 84967620900,
-        "traded_krw": 141645888950
-      },
-      {
-        "ticker": "086520",
-        "name": "에코프로",
-        "market": "KOSDAQ",
-        "close": 60600,
-        "krx_traded_krw": 82065765450,
-        "nxt_traded_krw": 57874796050,
-        "traded_krw": 139940561500
-      },
-      {
-        "ticker": "066570",
-        "name": "LG전자",
-        "market": "KOSPI",
-        "close": 134700,
-        "krx_traded_krw": 94982396850,
-        "nxt_traded_krw": 39479052600,
-        "traded_krw": 134461449450
-      },
-      {
-        "ticker": "010120",
-        "name": "LS ELECTRIC",
-        "market": "KOSPI",
-        "close": 111700,
-        "krx_traded_krw": 89615637700,
-        "nxt_traded_krw": 44536625500,
-        "traded_krw": 134152263200
-      },
-      {
-        "ticker": "000150",
-        "name": "두산",
-        "market": "KOSPI",
-        "close": 611000,
-        "krx_traded_krw": 87823774500,
-        "nxt_traded_krw": 45969937500,
-        "traded_krw": 133793712000
-      },
-      {
-        "ticker": "064400",
-        "name": "LG씨엔에스",
-        "market": "KOSPI",
-        "close": 77300,
-        "krx_traded_krw": 127497779150,
-        "nxt_traded_krw": 0,
-        "traded_krw": 127497779150
-      },
-      {
-        "ticker": "298040",
-        "name": "효성중공업",
-        "market": "KOSPI",
-        "close": 1549000,
-        "krx_traded_krw": 78795136000,
-        "nxt_traded_krw": 48603425000,
-        "traded_krw": 127398561000
-      },
-      {
-        "ticker": "207940",
-        "name": "삼성바이오로직스",
-        "market": "KOSPI",
-        "close": 1510000,
-        "krx_traded_krw": 104318796500,
-        "nxt_traded_krw": 17824636000,
-        "traded_krw": 122143432500
-      },
-      {
-        "ticker": "328130",
-        "name": "루닛",
-        "market": "KOSDAQ",
-        "close": 16170,
-        "krx_traded_krw": 58455161070,
-        "nxt_traded_krw": 61298882495,
-        "traded_krw": 119754043565
-      },
-      {
-        "ticker": "012330",
-        "name": "현대모비스",
-        "market": "KOSPI",
-        "close": 332000,
-        "krx_traded_krw": 95609637604,
-        "nxt_traded_krw": 23746549750,
-        "traded_krw": 119356187354
-      },
-      {
-        "ticker": "012450",
-        "name": "한화에어로스페이스",
-        "market": "KOSPI",
-        "close": 639000,
-        "krx_traded_krw": 99342780000,
-        "nxt_traded_krw": 19243875000,
-        "traded_krw": 118586655000
-      },
-      {
-        "ticker": "010060",
-        "name": "OCI홀딩스",
-        "market": "KOSPI",
-        "close": 196000,
-        "krx_traded_krw": 61898903050,
-        "nxt_traded_krw": 55908561450,
-        "traded_krw": 117807464500
-      },
-      {
-        "ticker": "003230",
-        "name": "삼양식품",
-        "market": "KOSPI",
-        "close": 1152000,
-        "krx_traded_krw": 93645330500,
-        "nxt_traded_krw": 21707025000,
-        "traded_krw": 115352355500
-      },
-      {
-        "ticker": "028050",
-        "name": "삼성E&A",
-        "market": "KOSPI",
-        "close": 60600,
-        "krx_traded_krw": 114957787550,
-        "nxt_traded_krw": 0,
-        "traded_krw": 114957787550
-      },
-      {
-        "ticker": "010140",
-        "name": "삼성중공업",
-        "market": "KOSPI",
-        "close": 15320,
-        "krx_traded_krw": 81336542680,
-        "nxt_traded_krw": 33302185530,
-        "traded_krw": 114638728210
-      },
-      {
-        "ticker": "018260",
-        "name": "삼성에스디에스",
-        "market": "KOSPI",
-        "close": 216500,
-        "krx_traded_krw": 75474481500,
-        "nxt_traded_krw": 36623343500,
-        "traded_krw": 112097825000
-      },
-      {
-        "ticker": "017670",
-        "name": "SK텔레콤",
-        "market": "KOSPI",
-        "close": 77400,
-        "krx_traded_krw": 83951965600,
-        "nxt_traded_krw": 22543207600,
-        "traded_krw": 106495173200
-      },
-      {
-        "ticker": "329180",
-        "name": "HD현대중공업",
-        "market": "KOSPI",
-        "close": 257500,
-        "krx_traded_krw": 77959933750,
-        "nxt_traded_krw": 19751945250,
-        "traded_krw": 97711879000
-      },
-      {
-        "ticker": "128940",
-        "name": "한미약품",
-        "market": "KOSPI",
-        "close": 475000,
-        "krx_traded_krw": 62255384000,
-        "nxt_traded_krw": 35034702250,
-        "traded_krw": 97290086250
-      },
-      {
-        "ticker": "181710",
-        "name": "NHN",
-        "market": "KOSPI",
-        "close": 59600,
-        "krx_traded_krw": 33562959100,
-        "nxt_traded_krw": 63308649650,
-        "traded_krw": 96871608750
-      },
-      {
-        "ticker": "000810",
-        "name": "삼성화재",
-        "market": "KOSPI",
-        "close": 606000,
-        "krx_traded_krw": 91719664690,
-        "nxt_traded_krw": 4347127500,
-        "traded_krw": 96066792190
-      },
-      {
-        "ticker": "278470",
-        "name": "에이피알",
-        "market": "KOSPI",
-        "close": 247000,
-        "krx_traded_krw": 76491176500,
-        "nxt_traded_krw": 19338187500,
-        "traded_krw": 95829364000
-      },
-      {
-        "ticker": "119850",
-        "name": "지엔씨에너지",
-        "market": "KOSDAQ",
-        "close": 37450,
-        "krx_traded_krw": 48978141950,
-        "nxt_traded_krw": 46745492475,
-        "traded_krw": 95723634425
-      },
-      {
-        "ticker": "005490",
-        "name": "POSCO홀딩스",
-        "market": "KOSPI",
-        "close": 259000,
-        "krx_traded_krw": 67661943250,
-        "nxt_traded_krw": 25916236250,
-        "traded_krw": 93578179500
-      },
-      {
-        "ticker": "000270",
-        "name": "기아",
-        "market": "KOSPI",
-        "close": 97000,
-        "krx_traded_krw": 72895193650,
-        "nxt_traded_krw": 18291652100,
-        "traded_krw": 91186845750
-      },
-      {
-        "ticker": "007810",
-        "name": "코리아써키트",
-        "market": "KOSPI",
-        "close": 63200,
-        "krx_traded_krw": 45402587600,
-        "nxt_traded_krw": 45668498200,
-        "traded_krw": 91071085800
-      },
-      {
-        "ticker": "033780",
-        "name": "KT&G",
-        "market": "KOSPI",
-        "close": 182400,
-        "krx_traded_krw": 79044887900,
-        "nxt_traded_krw": 7658351800,
-        "traded_krw": 86703239700
-      },
-      {
-        "ticker": "108490",
-        "name": "로보티즈",
-        "market": "KOSDAQ",
-        "close": 205500,
-        "krx_traded_krw": 41325517500,
-        "nxt_traded_krw": 45181417500,
-        "traded_krw": 86506935000
-      },
-      {
-        "ticker": "003670",
-        "name": "포스코퓨처엠",
-        "market": "KOSPI",
-        "close": 153700,
-        "krx_traded_krw": 60172433150,
-        "nxt_traded_krw": 25978656700,
-        "traded_krw": 86151089850
-      },
-      {
-        "ticker": "055550",
-        "name": "신한지주",
-        "market": "KOSPI",
-        "close": 85800,
-        "krx_traded_krw": 77931439700,
-        "nxt_traded_krw": 6378751500,
-        "traded_krw": 84310191200
-      },
-      {
-        "ticker": "247540",
-        "name": "에코프로비엠",
-        "market": "KOSDAQ",
-        "close": 75900,
-        "krx_traded_krw": 53284906050,
-        "nxt_traded_krw": 29368398550,
-        "traded_krw": 82653304600
-      },
-      {
-        "ticker": "267260",
-        "name": "HD현대일렉트릭",
-        "market": "KOSPI",
-        "close": 356000,
-        "krx_traded_krw": 66624561250,
-        "nxt_traded_krw": 15913664750,
-        "traded_krw": 82538226000
-      },
-      {
-        "ticker": "032830",
-        "name": "삼성생명",
-        "market": "KOSPI",
-        "close": 237000,
-        "krx_traded_krw": 73082903053,
-        "nxt_traded_krw": 7485395250,
-        "traded_krw": 80568298303
-      },
-      {
-        "ticker": "034730",
-        "name": "SK",
-        "market": "KOSPI",
-        "close": 448000,
-        "krx_traded_krw": 68020977250,
-        "nxt_traded_krw": 10176876500,
-        "traded_krw": 78197853750
-      },
-      {
-        "ticker": "086790",
-        "name": "하나금융지주",
-        "market": "KOSPI",
-        "close": 116000,
-        "krx_traded_krw": 66884729500,
-        "nxt_traded_krw": 6177487700,
-        "traded_krw": 73062217200
-      },
-      {
-        "ticker": "096770",
-        "name": "SK이노베이션",
-        "market": "KOSPI",
-        "close": 106700,
-        "krx_traded_krw": 57459934700,
-        "nxt_traded_krw": 15469043150,
-        "traded_krw": 72928977850
-      },
-      {
-        "ticker": "042660",
-        "name": "한화오션",
-        "market": "KOSPI",
-        "close": 45550,
-        "krx_traded_krw": 42055535500,
-        "nxt_traded_krw": 27866703275,
-        "traded_krw": 69922238775
-      },
-      {
-        "ticker": "035720",
-        "name": "카카오",
-        "market": "KOSPI",
-        "close": 32100,
-        "krx_traded_krw": 69675248425,
-        "nxt_traded_krw": 0,
-        "traded_krw": 69675248425
-      },
-      {
-        "ticker": "003010",
-        "name": "혜인",
-        "market": "KOSPI",
-        "close": 8760,
-        "krx_traded_krw": 69118900700,
-        "nxt_traded_krw": 0,
-        "traded_krw": 69118900700
-      },
-      {
-        "ticker": "000720",
-        "name": "현대건설",
-        "market": "KOSPI",
-        "close": 75200,
-        "krx_traded_krw": 48647494800,
-        "nxt_traded_krw": 18656015850,
-        "traded_krw": 67303510650
-      },
-      {
-        "ticker": "267850",
-        "name": "아시아나IDT",
-        "market": "KOSPI",
-        "close": 14130,
-        "krx_traded_krw": 65313244135,
-        "nxt_traded_krw": 0,
-        "traded_krw": 65313244135
-      },
-      {
-        "ticker": "218410",
-        "name": "RFHIC",
-        "market": "KOSDAQ",
-        "close": 42450,
-        "krx_traded_krw": 41544849800,
-        "nxt_traded_krw": 21711279325,
-        "traded_krw": 63256129125
-      },
-      {
-        "ticker": "316140",
-        "name": "우리금융지주",
-        "market": "KOSPI",
-        "close": 30900,
-        "krx_traded_krw": 55269085075,
-        "nxt_traded_krw": 6961505925,
-        "traded_krw": 62230591000
-      },
-      {
-        "ticker": "071050",
-        "name": "한국금융지주",
-        "market": "KOSPI",
-        "close": 117400,
-        "krx_traded_krw": 46833355650,
-        "nxt_traded_krw": 15180070000,
-        "traded_krw": 62013425650
-      },
-      {
-        "ticker": "030530",
-        "name": "원익홀딩스",
-        "market": "KOSDAQ",
-        "close": 27200,
-        "krx_traded_krw": 61571282475,
-        "nxt_traded_krw": 0,
-        "traded_krw": 61571282475
-      },
-      {
-        "ticker": "011070",
-        "name": "LG이노텍",
-        "market": "KOSPI",
-        "close": 264000,
-        "krx_traded_krw": 43181982500,
-        "nxt_traded_krw": 16956107250,
-        "traded_krw": 60138089750
-      },
-      {
-        "ticker": "009540",
-        "name": "HD한국조선해양",
-        "market": "KOSPI",
-        "close": 235500,
-        "krx_traded_krw": 52437895000,
-        "nxt_traded_krw": 5007471250,
-        "traded_krw": 57445366250
-      },
-      {
-        "ticker": "051910",
-        "name": "LG화학",
-        "market": "KOSPI",
-        "close": 220000,
-        "krx_traded_krw": 43567013000,
-        "nxt_traded_krw": 11090201750,
-        "traded_krw": 54657214750
-      },
-      {
-        "ticker": "271560",
-        "name": "오리온",
-        "market": "KOSPI",
-        "close": 116700,
-        "krx_traded_krw": 51983086500,
-        "nxt_traded_krw": 2064063450,
-        "traded_krw": 54047149950
-      },
-      {
-        "ticker": "006360",
-        "name": "GS건설",
-        "market": "KOSPI",
-        "close": 30300,
-        "krx_traded_krw": 54038020375,
-        "nxt_traded_krw": 0,
-        "traded_krw": 54038020375
-      },
-      {
-        "ticker": "007660",
-        "name": "이수페타시스",
-        "market": "KOSPI",
-        "close": 63300,
-        "krx_traded_krw": 36054802800,
-        "nxt_traded_krw": 17961211100,
-        "traded_krw": 54016013900
-      },
-      {
-        "ticker": "240810",
-        "name": "원익IPS",
-        "market": "KOSDAQ",
-        "close": 67300,
-        "krx_traded_krw": 53918563650,
-        "nxt_traded_krw": 0,
-        "traded_krw": 53918563650
-      },
-      {
-        "ticker": "403870",
-        "name": "HPSP",
-        "market": "KOSDAQ",
-        "close": 34450,
-        "krx_traded_krw": 52063715525,
-        "nxt_traded_krw": 0,
-        "traded_krw": 52063715525
-      },
-      {
-        "ticker": "089860",
-        "name": "롯데렌탈",
-        "market": "KOSPI",
-        "close": 58400,
-        "krx_traded_krw": 39243243300,
-        "nxt_traded_krw": 12458092850,
-        "traded_krw": 51701336150
-      },
-      {
-        "ticker": "066970",
-        "name": "엘앤에프",
-        "market": "KOSPI",
-        "close": 70100,
-        "krx_traded_krw": 29000556450,
-        "nxt_traded_krw": 20523648100,
-        "traded_krw": 49524204550
-      },
-      {
-        "ticker": "000500",
-        "name": "가온전선",
-        "market": "KOSPI",
-        "close": 176000,
-        "krx_traded_krw": 25444189950,
-        "nxt_traded_krw": 22859810950,
-        "traded_krw": 48304000900
+        "close": 193000,
+        "krx_traded_krw": 231312493500,
+        "nxt_traded_krw": 114102252750,
+        "traded_krw": 345414746250
       },
       {
         "ticker": "003490",
         "name": "대한항공",
         "market": "KOSPI",
-        "close": 29100,
-        "krx_traded_krw": 48154545125,
+        "close": 32450,
+        "krx_traded_krw": 292646543650,
         "nxt_traded_krw": 0,
-        "traded_krw": 48154545125
+        "traded_krw": 292646543650
       },
       {
-        "ticker": "080220",
-        "name": "제주반도체",
+        "ticker": "068270",
+        "name": "셀트리온",
+        "market": "KOSPI",
+        "close": 203000,
+        "krx_traded_krw": 179379269000,
+        "nxt_traded_krw": 93480137500,
+        "traded_krw": 272859406500
+      },
+      {
+        "ticker": "034020",
+        "name": "두산에너빌리티",
+        "market": "KOSPI",
+        "close": 46950,
+        "krx_traded_krw": 149016144825,
+        "nxt_traded_krw": 117107039375,
+        "traded_krw": 266123184200
+      },
+      {
+        "ticker": "181710",
+        "name": "NHN",
+        "market": "KOSPI",
+        "close": 77400,
+        "krx_traded_krw": 102281751350,
+        "nxt_traded_krw": 144296465650,
+        "traded_krw": 246578217000
+      },
+      {
+        "ticker": "000150",
+        "name": "두산",
+        "market": "KOSPI",
+        "close": 636000,
+        "krx_traded_krw": 146636244000,
+        "nxt_traded_krw": 89066684000,
+        "traded_krw": 235702928000
+      },
+      {
+        "ticker": "196170",
+        "name": "알테오젠",
         "market": "KOSDAQ",
-        "close": 52800,
-        "krx_traded_krw": 47899793975,
+        "close": 176300,
+        "krx_traded_krw": 119563535450,
+        "nxt_traded_krw": 106126288950,
+        "traded_krw": 225689824400
+      },
+      {
+        "ticker": "222800",
+        "name": "심텍",
+        "market": "KOSDAQ",
+        "close": 106600,
+        "krx_traded_krw": 91938549150,
+        "nxt_traded_krw": 109983702750,
+        "traded_krw": 201922251900
+      },
+      {
+        "ticker": "036930",
+        "name": "주성엔지니어링",
+        "market": "KOSDAQ",
+        "close": 152300,
+        "krx_traded_krw": 197556092550,
         "nxt_traded_krw": 0,
-        "traded_krw": 47899793975
+        "traded_krw": 197556092550
       },
       {
-        "ticker": "468530",
-        "name": "프로티나",
-        "market": "KOSDAQ",
-        "close": 58800,
-        "krx_traded_krw": 26386963900,
-        "nxt_traded_krw": 21345175400,
-        "traded_krw": 47732139300
+        "ticker": "005380",
+        "name": "현대차",
+        "market": "KOSPI",
+        "close": 275000,
+        "krx_traded_krw": 104257581000,
+        "nxt_traded_krw": 85457044250,
+        "traded_krw": 189714625250
       },
       {
-        "ticker": "031980",
-        "name": "피에스케이홀딩스",
+        "ticker": "298040",
+        "name": "효성중공업",
+        "market": "KOSPI",
+        "close": 1746000,
+        "krx_traded_krw": 102328315500,
+        "nxt_traded_krw": 66219237500,
+        "traded_krw": 168547553000
+      },
+      {
+        "ticker": "017670",
+        "name": "SK텔레콤",
+        "market": "KOSPI",
+        "close": 81500,
+        "krx_traded_krw": 118699432350,
+        "nxt_traded_krw": 40561578650,
+        "traded_krw": 159261011000
+      },
+      {
+        "ticker": "000270",
+        "name": "기아",
+        "market": "KOSPI",
+        "close": 96100,
+        "krx_traded_krw": 124851155750,
+        "nxt_traded_krw": 27627618600,
+        "traded_krw": 152478774350
+      },
+      {
+        "ticker": "009830",
+        "name": "한화솔루션",
+        "market": "KOSPI",
+        "close": 24400,
+        "krx_traded_krw": 150325849450,
+        "nxt_traded_krw": 0,
+        "traded_krw": 150325849450
+      },
+      {
+        "ticker": "010060",
+        "name": "OCI홀딩스",
+        "market": "KOSPI",
+        "close": 197700,
+        "krx_traded_krw": 76153880950,
+        "nxt_traded_krw": 70698935650,
+        "traded_krw": 146852816600
+      },
+      {
+        "ticker": "010120",
+        "name": "LS ELECTRIC",
+        "market": "KOSPI",
+        "close": 121000,
+        "krx_traded_krw": 92087051900,
+        "nxt_traded_krw": 49451885900,
+        "traded_krw": 141538937800
+      },
+      {
+        "ticker": "042700",
+        "name": "한미반도체",
+        "market": "KOSPI",
+        "close": 173400,
+        "krx_traded_krw": 91284563100,
+        "nxt_traded_krw": 50139088350,
+        "traded_krw": 141423651450
+      },
+      {
+        "ticker": "373220",
+        "name": "LG에너지솔루션",
+        "market": "KOSPI",
+        "close": 330500,
+        "krx_traded_krw": 112741728750,
+        "nxt_traded_krw": 28151224000,
+        "traded_krw": 140892952750
+      },
+      {
+        "ticker": "018260",
+        "name": "삼성에스디에스",
+        "market": "KOSPI",
+        "close": 232500,
+        "krx_traded_krw": 88465740250,
+        "nxt_traded_krw": 49432568000,
+        "traded_krw": 137898308250
+      },
+      {
+        "ticker": "028050",
+        "name": "삼성E&A",
+        "market": "KOSPI",
+        "close": 64600,
+        "krx_traded_krw": 132087171950,
+        "nxt_traded_krw": 0,
+        "traded_krw": 132087171950
+      },
+      {
+        "ticker": "064400",
+        "name": "LG씨엔에스",
+        "market": "KOSPI",
+        "close": 80100,
+        "krx_traded_krw": 127698989950,
+        "nxt_traded_krw": 0,
+        "traded_krw": 127698989950
+      },
+      {
+        "ticker": "053800",
+        "name": "안랩",
         "market": "KOSDAQ",
-        "close": 120600,
-        "krx_traded_krw": 34341089750,
-        "nxt_traded_krw": 13366691250,
-        "traded_krw": 47707781000
+        "close": 108200,
+        "krx_traded_krw": 58523503500,
+        "nxt_traded_krw": 68715557850,
+        "traded_krw": 127239061350
+      },
+      {
+        "ticker": "267260",
+        "name": "HD현대일렉트릭",
+        "market": "KOSPI",
+        "close": 394000,
+        "krx_traded_krw": 105290109750,
+        "nxt_traded_krw": 21049504000,
+        "traded_krw": 126339613750
+      },
+      {
+        "ticker": "353200",
+        "name": "대덕전자",
+        "market": "KOSPI",
+        "close": 80000,
+        "krx_traded_krw": 122751815650,
+        "nxt_traded_krw": 0,
+        "traded_krw": 122751815650
+      },
+      {
+        "ticker": "207940",
+        "name": "삼성바이오로직스",
+        "market": "KOSPI",
+        "close": 1468000,
+        "krx_traded_krw": 101264948500,
+        "nxt_traded_krw": 19564953000,
+        "traded_krw": 120829901500
+      },
+      {
+        "ticker": "066570",
+        "name": "LG전자",
+        "market": "KOSPI",
+        "close": 140000,
+        "krx_traded_krw": 84840694650,
+        "nxt_traded_krw": 35873324900,
+        "traded_krw": 120714019550
+      },
+      {
+        "ticker": "012450",
+        "name": "한화에어로스페이스",
+        "market": "KOSPI",
+        "close": 659000,
+        "krx_traded_krw": 101448476500,
+        "nxt_traded_krw": 17012915000,
+        "traded_krw": 118461391500
+      },
+      {
+        "ticker": "105560",
+        "name": "KB금융",
+        "market": "KOSPI",
+        "close": 152700,
+        "krx_traded_krw": 105555692750,
+        "nxt_traded_krw": 12087038600,
+        "traded_krw": 117642731350
+      },
+      {
+        "ticker": "010140",
+        "name": "삼성중공업",
+        "market": "KOSPI",
+        "close": 16450,
+        "krx_traded_krw": 81091206250,
+        "nxt_traded_krw": 36156228715,
+        "traded_krw": 117247434965
+      },
+      {
+        "ticker": "329180",
+        "name": "HD현대중공업",
+        "market": "KOSPI",
+        "close": 267500,
+        "krx_traded_krw": 92641094250,
+        "nxt_traded_krw": 22891540000,
+        "traded_krw": 115532634250
+      },
+      {
+        "ticker": "002320",
+        "name": "한진",
+        "market": "KOSPI",
+        "close": 18380,
+        "krx_traded_krw": 50536464150,
+        "nxt_traded_krw": 58914929565,
+        "traded_krw": 109451393715
+      },
+      {
+        "ticker": "086520",
+        "name": "에코프로",
+        "market": "KOSDAQ",
+        "close": 66800,
+        "krx_traded_krw": 55900138250,
+        "nxt_traded_krw": 46359373850,
+        "traded_krw": 102259512100
+      },
+      {
+        "ticker": "000810",
+        "name": "삼성화재",
+        "market": "KOSPI",
+        "close": 599000,
+        "krx_traded_krw": 94461131748,
+        "nxt_traded_krw": 5499597000,
+        "traded_krw": 99960728748
+      },
+      {
+        "ticker": "007810",
+        "name": "코리아써키트",
+        "market": "KOSPI",
+        "close": 68800,
+        "krx_traded_krw": 40043617100,
+        "nxt_traded_krw": 57944335100,
+        "traded_krw": 97987952200
+      },
+      {
+        "ticker": "055550",
+        "name": "신한지주",
+        "market": "KOSPI",
+        "close": 85500,
+        "krx_traded_krw": 88998195650,
+        "nxt_traded_krw": 8980129000,
+        "traded_krw": 97978324650
+      },
+      {
+        "ticker": "033780",
+        "name": "KT&G",
+        "market": "KOSPI",
+        "close": 175700,
+        "krx_traded_krw": 87905520500,
+        "nxt_traded_krw": 9933771000,
+        "traded_krw": 97839291500
+      },
+      {
+        "ticker": "028260",
+        "name": "삼성물산",
+        "market": "KOSPI",
+        "close": 279000,
+        "krx_traded_krw": 81026291750,
+        "nxt_traded_krw": 15580980000,
+        "traded_krw": 96607271750
+      },
+      {
+        "ticker": "267850",
+        "name": "아시아나IDT",
+        "market": "KOSPI",
+        "close": 17870,
+        "krx_traded_krw": 96220995305,
+        "nxt_traded_krw": 0,
+        "traded_krw": 96220995305
+      },
+      {
+        "ticker": "218410",
+        "name": "RFHIC",
+        "market": "KOSDAQ",
+        "close": 50600,
+        "krx_traded_krw": 53487386600,
+        "nxt_traded_krw": 40879741600,
+        "traded_krw": 94367128200
+      },
+      {
+        "ticker": "128940",
+        "name": "한미약품",
+        "market": "KOSPI",
+        "close": 483500,
+        "krx_traded_krw": 59798693500,
+        "nxt_traded_krw": 32722540500,
+        "traded_krw": 92521234000
+      },
+      {
+        "ticker": "030530",
+        "name": "원익홀딩스",
+        "market": "KOSDAQ",
+        "close": 29050,
+        "krx_traded_krw": 91446079775,
+        "nxt_traded_krw": 0,
+        "traded_krw": 91446079775
       },
       {
         "ticker": "443670",
         "name": "에스피소프트",
         "market": "KOSDAQ",
-        "close": 5350,
-        "krx_traded_krw": 47412331053,
+        "close": 5930,
+        "krx_traded_krw": 90801147015,
         "nxt_traded_krw": 0,
-        "traded_krw": 47412331053
+        "traded_krw": 90801147015
       },
       {
-        "ticker": "112610",
-        "name": "씨에스윈드",
+        "ticker": "079550",
+        "name": "LIG디펜스앤에어로스페이스",
         "market": "KOSPI",
-        "close": 48650,
-        "krx_traded_krw": 46795375375,
-        "nxt_traded_krw": 0,
-        "traded_krw": 46795375375
+        "close": 339000,
+        "krx_traded_krw": 67402601000,
+        "nxt_traded_krw": 21345864500,
+        "traded_krw": 88748465500
       },
       {
-        "ticker": "161890",
-        "name": "한국콜마",
+        "ticker": "086790",
+        "name": "하나금융지주",
         "market": "KOSPI",
-        "close": 104200,
-        "krx_traded_krw": 35845877400,
-        "nxt_traded_krw": 10933965100,
-        "traded_krw": 46779842500
+        "close": 118400,
+        "krx_traded_krw": 79880415137,
+        "nxt_traded_krw": 7386075400,
+        "traded_krw": 87266490537
       },
       {
-        "ticker": "000990",
-        "name": "DB하이텍",
+        "ticker": "000500",
+        "name": "가온전선",
         "market": "KOSPI",
-        "close": 82500,
-        "krx_traded_krw": 29575924000,
-        "nxt_traded_krw": 16985153350,
-        "traded_krw": 46561077350
+        "close": 205000,
+        "krx_traded_krw": 39439394600,
+        "nxt_traded_krw": 46472385650,
+        "traded_krw": 85911780250
+      },
+      {
+        "ticker": "012330",
+        "name": "현대모비스",
+        "market": "KOSPI",
+        "close": 351500,
+        "krx_traded_krw": 63348506500,
+        "nxt_traded_krw": 20697736750,
+        "traded_krw": 84046243250
       },
       {
         "ticker": "015760",
         "name": "한국전력",
         "market": "KOSPI",
-        "close": 29900,
-        "krx_traded_krw": 34619135500,
-        "nxt_traded_krw": 11358829750,
-        "traded_krw": 45977965250
+        "close": 30600,
+        "krx_traded_krw": 60645032125,
+        "nxt_traded_krw": 22899210100,
+        "traded_krw": 83544242225
       },
       {
-        "ticker": "326030",
-        "name": "SK바이오팜",
+        "ticker": "003670",
+        "name": "포스코퓨처엠",
         "market": "KOSPI",
-        "close": 86700,
-        "krx_traded_krw": 27057229650,
-        "nxt_traded_krw": 17886510250,
-        "traded_krw": 44943739900
+        "close": 169000,
+        "krx_traded_krw": 58807515650,
+        "nxt_traded_krw": 23932500250,
+        "traded_krw": 82740015900
       },
       {
-        "ticker": "078930",
-        "name": "GS",
-        "market": "KOSPI",
-        "close": 78900,
-        "krx_traded_krw": 37736157000,
-        "nxt_traded_krw": 6170072600,
-        "traded_krw": 43906229600
-      },
-      {
-        "ticker": "036540",
-        "name": "SFA반도체",
+        "ticker": "328130",
+        "name": "루닛",
         "market": "KOSDAQ",
-        "close": 6910,
-        "krx_traded_krw": 43270002840,
+        "close": 16840,
+        "krx_traded_krw": 39175592360,
+        "nxt_traded_krw": 42663638620,
+        "traded_krw": 81839230980
+      },
+      {
+        "ticker": "272450",
+        "name": "진에어",
+        "market": "KOSPI",
+        "close": 7990,
+        "krx_traded_krw": 79400900365,
         "nxt_traded_krw": 0,
-        "traded_krw": 43270002840
+        "traded_krw": 79400900365
       },
       {
-        "ticker": "003160",
-        "name": "디아이",
+        "ticker": "278470",
+        "name": "에이피알",
         "market": "KOSPI",
-        "close": 24300,
-        "krx_traded_krw": 21233258325,
-        "nxt_traded_krw": 21866018125,
-        "traded_krw": 43099276450
+        "close": 251000,
+        "krx_traded_krw": 57643791750,
+        "nxt_traded_krw": 16947423250,
+        "traded_krw": 74591215000
       },
       {
-        "ticker": "011200",
-        "name": "HMM",
+        "ticker": "051910",
+        "name": "LG화학",
         "market": "KOSPI",
-        "close": 20650,
-        "krx_traded_krw": 28242805150,
-        "nxt_traded_krw": 14600328025,
-        "traded_krw": 42843133175
-      },
-      {
-        "ticker": "096530",
-        "name": "씨젠",
-        "market": "KOSDAQ",
-        "close": 24800,
-        "krx_traded_krw": 28576984950,
-        "nxt_traded_krw": 13928024625,
-        "traded_krw": 42505009575
-      },
-      {
-        "ticker": "047040",
-        "name": "대우건설",
-        "market": "KOSPI",
-        "close": 10320,
-        "krx_traded_krw": 41427778875,
-        "nxt_traded_krw": 0,
-        "traded_krw": 41427778875
+        "close": 238000,
+        "krx_traded_krw": 62053696000,
+        "nxt_traded_krw": 11919114500,
+        "traded_krw": 73972810500
       },
       {
         "ticker": "267270",
         "name": "HD건설기계",
         "market": "KOSPI",
-        "close": 82100,
-        "krx_traded_krw": 27925477100,
-        "nxt_traded_krw": 12944770750,
-        "traded_krw": 40870247850
+        "close": 92200,
+        "krx_traded_krw": 46433463700,
+        "nxt_traded_krw": 27525957800,
+        "traded_krw": 73959421500
       },
       {
-        "ticker": "006260",
-        "name": "LS",
+        "ticker": "003230",
+        "name": "삼양식품",
         "market": "KOSPI",
-        "close": 172900,
-        "krx_traded_krw": 35598539200,
-        "nxt_traded_krw": 4895816150,
-        "traded_krw": 40494355350
+        "close": 1187000,
+        "krx_traded_krw": 58889111000,
+        "nxt_traded_krw": 14829999000,
+        "traded_krw": 73719110000
       },
       {
-        "ticker": "082740",
-        "name": "한화엔진",
-        "market": "KOSPI",
-        "close": 24750,
-        "krx_traded_krw": 26535127625,
-        "nxt_traded_krw": 13735167950,
-        "traded_krw": 40270295575
+        "ticker": "240810",
+        "name": "원익IPS",
+        "market": "KOSDAQ",
+        "close": 68400,
+        "krx_traded_krw": 73295092550,
+        "nxt_traded_krw": 0,
+        "traded_krw": 73295092550
       },
       {
-        "ticker": "006800",
-        "name": "미래에셋증권",
+        "ticker": "000720",
+        "name": "현대건설",
         "market": "KOSPI",
-        "close": 21000,
-        "krx_traded_krw": 25445298450,
-        "nxt_traded_krw": 14195800950,
-        "traded_krw": 39641099400
+        "close": 84200,
+        "krx_traded_krw": 50857206400,
+        "nxt_traded_krw": 22246781800,
+        "traded_krw": 73103988200
+      },
+      {
+        "ticker": "009420",
+        "name": "한올바이오파마",
+        "market": "KOSPI",
+        "close": 46700,
+        "krx_traded_krw": 41051769075,
+        "nxt_traded_krw": 31744224600,
+        "traded_krw": 72795993675
+      },
+      {
+        "ticker": "005490",
+        "name": "POSCO홀딩스",
+        "market": "KOSPI",
+        "close": 271000,
+        "krx_traded_krw": 50695433250,
+        "nxt_traded_krw": 20142080750,
+        "traded_krw": 70837514000
+      },
+      {
+        "ticker": "042660",
+        "name": "한화오션",
+        "market": "KOSPI",
+        "close": 48100,
+        "krx_traded_krw": 43156549225,
+        "nxt_traded_krw": 27260727250,
+        "traded_krw": 70417276475
+      },
+      {
+        "ticker": "067290",
+        "name": "JW신약",
+        "market": "KOSDAQ",
+        "close": 2455,
+        "krx_traded_krw": 69007161631,
+        "nxt_traded_krw": 0,
+        "traded_krw": 69007161631
+      },
+      {
+        "ticker": "119850",
+        "name": "지엔씨에너지",
+        "market": "KOSDAQ",
+        "close": 38100,
+        "krx_traded_krw": 32018946475,
+        "nxt_traded_krw": 36952355575,
+        "traded_krw": 68971302050
+      },
+      {
+        "ticker": "034730",
+        "name": "SK",
+        "market": "KOSPI",
+        "close": 480000,
+        "krx_traded_krw": 59213961750,
+        "nxt_traded_krw": 9456784250,
+        "traded_krw": 68670746000
+      },
+      {
+        "ticker": "035720",
+        "name": "카카오",
+        "market": "KOSPI",
+        "close": 32050,
+        "krx_traded_krw": 65536493200,
+        "nxt_traded_krw": 0,
+        "traded_krw": 65536493200
+      },
+      {
+        "ticker": "108490",
+        "name": "로보티즈",
+        "market": "KOSDAQ",
+        "close": 220500,
+        "krx_traded_krw": 29467098000,
+        "nxt_traded_krw": 34344444750,
+        "traded_krw": 63811542750
+      },
+      {
+        "ticker": "096770",
+        "name": "SK이노베이션",
+        "market": "KOSPI",
+        "close": 109700,
+        "krx_traded_krw": 47549504250,
+        "nxt_traded_krw": 15334301700,
+        "traded_krw": 62883805950
+      },
+      {
+        "ticker": "247540",
+        "name": "에코프로비엠",
+        "market": "KOSDAQ",
+        "close": 82500,
+        "krx_traded_krw": 42846256050,
+        "nxt_traded_krw": 18773024900,
+        "traded_krw": 61619280950
+      },
+      {
+        "ticker": "007660",
+        "name": "이수페타시스",
+        "market": "KOSPI",
+        "close": 68700,
+        "krx_traded_krw": 34252554100,
+        "nxt_traded_krw": 27109497650,
+        "traded_krw": 61362051750
+      },
+      {
+        "ticker": "009540",
+        "name": "HD한국조선해양",
+        "market": "KOSPI",
+        "close": 245000,
+        "krx_traded_krw": 55819875000,
+        "nxt_traded_krw": 5473626250,
+        "traded_krw": 61293501250
+      },
+      {
+        "ticker": "036540",
+        "name": "SFA반도체",
+        "market": "KOSDAQ",
+        "close": 7820,
+        "krx_traded_krw": 60844401790,
+        "nxt_traded_krw": 0,
+        "traded_krw": 60844401790
+      },
+      {
+        "ticker": "316140",
+        "name": "우리금융지주",
+        "market": "KOSPI",
+        "close": 31050,
+        "krx_traded_krw": 55419004075,
+        "nxt_traded_krw": 4976082075,
+        "traded_krw": 60395086150
+      },
+      {
+        "ticker": "011070",
+        "name": "LG이노텍",
+        "market": "KOSPI",
+        "close": 278000,
+        "krx_traded_krw": 37311568500,
+        "nxt_traded_krw": 22295029250,
+        "traded_krw": 59606597750
+      },
+      {
+        "ticker": "282720",
+        "name": "금양그린파워",
+        "market": "KOSDAQ",
+        "close": 9340,
+        "krx_traded_krw": 59240125725,
+        "nxt_traded_krw": 0,
+        "traded_krw": 59240125725
+      },
+      {
+        "ticker": "032830",
+        "name": "삼성생명",
+        "market": "KOSPI",
+        "close": 244500,
+        "krx_traded_krw": 50257680000,
+        "nxt_traded_krw": 8734553500,
+        "traded_krw": 58992233500
+      },
+      {
+        "ticker": "008830",
+        "name": "대동기어",
+        "market": "KOSDAQ",
+        "close": 7220,
+        "krx_traded_krw": 57988740055,
+        "nxt_traded_krw": 0,
+        "traded_krw": 57988740055
+      },
+      {
+        "ticker": "003010",
+        "name": "혜인",
+        "market": "KOSPI",
+        "close": 9500,
+        "krx_traded_krw": 57579136265,
+        "nxt_traded_krw": 0,
+        "traded_krw": 57579136265
+      },
+      {
+        "ticker": "047040",
+        "name": "대우건설",
+        "market": "KOSPI",
+        "close": 11270,
+        "krx_traded_krw": 57128321070,
+        "nxt_traded_krw": 0,
+        "traded_krw": 57128321070
+      },
+      {
+        "ticker": "066970",
+        "name": "엘앤에프",
+        "market": "KOSPI",
+        "close": 77800,
+        "krx_traded_krw": 36227208100,
+        "nxt_traded_krw": 20863028550,
+        "traded_krw": 57090236650
+      },
+      {
+        "ticker": "079900",
+        "name": "전진건설로봇",
+        "market": "KOSPI",
+        "close": 45600,
+        "krx_traded_krw": 22116051725,
+        "nxt_traded_krw": 34774370900,
+        "traded_krw": 56890422625
       },
       {
         "ticker": "010170",
         "name": "대한광통신",
         "market": "KOSDAQ",
-        "close": 10840,
-        "krx_traded_krw": 39062637255,
+        "close": 11820,
+        "krx_traded_krw": 51977220000,
         "nxt_traded_krw": 0,
-        "traded_krw": 39062637255
+        "traded_krw": 51977220000
+      },
+      {
+        "ticker": "126340",
+        "name": "비나텍",
+        "market": "KOSDAQ",
+        "close": 93200,
+        "krx_traded_krw": 27104034700,
+        "nxt_traded_krw": 24793249650,
+        "traded_krw": 51897284350
+      },
+      {
+        "ticker": "062040",
+        "name": "산일전기",
+        "market": "KOSPI",
+        "close": 122600,
+        "krx_traded_krw": 29935239250,
+        "nxt_traded_krw": 21236596850,
+        "traded_krw": 51171836100
+      },
+      {
+        "ticker": "011200",
+        "name": "HMM",
+        "market": "KOSPI",
+        "close": 20350,
+        "krx_traded_krw": 37608035350,
+        "nxt_traded_krw": 13024824925,
+        "traded_krw": 50632860275
+      },
+      {
+        "ticker": "066310",
+        "name": "큐에스아이",
+        "market": "KOSDAQ",
+        "close": 7120,
+        "krx_traded_krw": 49559130825,
+        "nxt_traded_krw": 0,
+        "traded_krw": 49559130825
+      },
+      {
+        "ticker": "003160",
+        "name": "디아이",
+        "market": "KOSPI",
+        "close": 26100,
+        "krx_traded_krw": 20715435250,
+        "nxt_traded_krw": 28736705975,
+        "traded_krw": 49452141225
+      },
+      {
+        "ticker": "080220",
+        "name": "제주반도체",
+        "market": "KOSDAQ",
+        "close": 55900,
+        "krx_traded_krw": 45783136400,
+        "nxt_traded_krw": 0,
+        "traded_krw": 45783136400
+      },
+      {
+        "ticker": "039030",
+        "name": "이오테크닉스",
+        "market": "KOSDAQ",
+        "close": 344000,
+        "krx_traded_krw": 34548886750,
+        "nxt_traded_krw": 9882402750,
+        "traded_krw": 44431289500
+      },
+      {
+        "ticker": "006360",
+        "name": "GS건설",
+        "market": "KOSPI",
+        "close": 31900,
+        "krx_traded_krw": 42026987425,
+        "nxt_traded_krw": 0,
+        "traded_krw": 42026987425
+      },
+      {
+        "ticker": "352820",
+        "name": "하이브",
+        "market": "KOSPI",
+        "close": 143400,
+        "krx_traded_krw": 31420896000,
+        "nxt_traded_krw": 10500871000,
+        "traded_krw": 41921767000
+      },
+      {
+        "ticker": "010950",
+        "name": "S-Oil",
+        "market": "KOSPI",
+        "close": 105900,
+        "krx_traded_krw": 34317544400,
+        "nxt_traded_krw": 7199549800,
+        "traded_krw": 41517094200
+      },
+      {
+        "ticker": "389260",
+        "name": "대명에너지",
+        "market": "KOSDAQ",
+        "close": 15250,
+        "krx_traded_krw": 41303376700,
+        "nxt_traded_krw": 0,
+        "traded_krw": 41303376700
+      },
+      {
+        "ticker": "058470",
+        "name": "리노공업",
+        "market": "KOSDAQ",
+        "close": 48600,
+        "krx_traded_krw": 27795463375,
+        "nxt_traded_krw": 12984540450,
+        "traded_krw": 40780003825
+      },
+      {
+        "ticker": "031980",
+        "name": "피에스케이홀딩스",
+        "market": "KOSDAQ",
+        "close": 129000,
+        "krx_traded_krw": 28264459400,
+        "nxt_traded_krw": 11689177650,
+        "traded_krw": 39953637050
+      },
+      {
+        "ticker": "071050",
+        "name": "한국금융지주",
+        "market": "KOSPI",
+        "close": 120700,
+        "krx_traded_krw": 29550354600,
+        "nxt_traded_krw": 10052859400,
+        "traded_krw": 39603214000
+      },
+      {
+        "ticker": "078930",
+        "name": "GS",
+        "market": "KOSPI",
+        "close": 82100,
+        "krx_traded_krw": 36646093550,
+        "nxt_traded_krw": 2404957850,
+        "traded_krw": 39051051400
+      },
+      {
+        "ticker": "000990",
+        "name": "DB하이텍",
+        "market": "KOSPI",
+        "close": 87700,
+        "krx_traded_krw": 24601693450,
+        "nxt_traded_krw": 14275768400,
+        "traded_krw": 38877461850
+      },
+      {
+        "ticker": "030200",
+        "name": "KT",
+        "market": "KOSPI",
+        "close": 51000,
+        "krx_traded_krw": 32087561850,
+        "nxt_traded_krw": 5504364100,
+        "traded_krw": 37591925950
+      },
+      {
+        "ticker": "403870",
+        "name": "HPSP",
+        "market": "KOSDAQ",
+        "close": 36450,
+        "krx_traded_krw": 37399266125,
+        "nxt_traded_krw": 0,
+        "traded_krw": 37399266125
+      },
+      {
+        "ticker": "430690",
+        "name": "한싹",
+        "market": "KOSDAQ",
+        "close": 3775,
+        "krx_traded_krw": 37056400670,
+        "nxt_traded_krw": 0,
+        "traded_krw": 37056400670
+      },
+      {
+        "ticker": "105740",
+        "name": "디케이락",
+        "market": "KOSDAQ",
+        "close": 13440,
+        "krx_traded_krw": 36343241450,
+        "nxt_traded_krw": 0,
+        "traded_krw": 36343241450
+      },
+      {
+        "ticker": "095340",
+        "name": "ISC",
+        "market": "KOSDAQ",
+        "close": 132900,
+        "krx_traded_krw": 28422938150,
+        "nxt_traded_krw": 7521100500,
+        "traded_krw": 35944038650
+      },
+      {
+        "ticker": "326030",
+        "name": "SK바이오팜",
+        "market": "KOSPI",
+        "close": 87400,
+        "krx_traded_krw": 25939971850,
+        "nxt_traded_krw": 9361666800,
+        "traded_krw": 35301638650
+      },
+      {
+        "ticker": "319660",
+        "name": "피에스케이",
+        "market": "KOSDAQ",
+        "close": 84900,
+        "krx_traded_krw": 24463618050,
+        "nxt_traded_krw": 10587551550,
+        "traded_krw": 35051169600
+      },
+      {
+        "ticker": "112610",
+        "name": "씨에스윈드",
+        "market": "KOSPI",
+        "close": 49500,
+        "krx_traded_krw": 34674130650,
+        "nxt_traded_krw": 0,
+        "traded_krw": 34674130650
+      },
+      {
+        "ticker": "272210",
+        "name": "한화시스템",
+        "market": "KOSPI",
+        "close": 54500,
+        "krx_traded_krw": 22356357100,
+        "nxt_traded_krw": 12170602800,
+        "traded_krw": 34526959900
+      },
+      {
+        "ticker": "281820",
+        "name": "케이씨텍",
+        "market": "KOSPI",
+        "close": 62600,
+        "krx_traded_krw": 21781244500,
+        "nxt_traded_krw": 12610330400,
+        "traded_krw": 34391574900
+      },
+      {
+        "ticker": "028300",
+        "name": "HLB",
+        "market": "KOSDAQ",
+        "close": 30250,
+        "krx_traded_krw": 18357720925,
+        "nxt_traded_krw": 15855187050,
+        "traded_krw": 34212907975
+      },
+      {
+        "ticker": "277810",
+        "name": "레인보우로보틱스",
+        "market": "KOSDAQ",
+        "close": 325000,
+        "krx_traded_krw": 18582936750,
+        "nxt_traded_krw": 14889588250,
+        "traded_krw": 33472525000
+      },
+      {
+        "ticker": "095610",
+        "name": "테스",
+        "market": "KOSDAQ",
+        "close": 84000,
+        "krx_traded_krw": 21731083400,
+        "nxt_traded_krw": 11514204650,
+        "traded_krw": 33245288050
+      },
+      {
+        "ticker": "043260",
+        "name": "성호전자",
+        "market": "KOSDAQ",
+        "close": 20550,
+        "krx_traded_krw": 32152513970,
+        "nxt_traded_krw": 0,
+        "traded_krw": 32152513970
+      },
+      {
+        "ticker": "491000",
+        "name": "리브스메드",
+        "market": "KOSDAQ",
+        "close": 33300,
+        "krx_traded_krw": 31806329200,
+        "nxt_traded_krw": 0,
+        "traded_krw": 31806329200
+      },
+      {
+        "ticker": "263860",
+        "name": "지니언스",
+        "market": "KOSDAQ",
+        "close": 25000,
+        "krx_traded_krw": 31658978800,
+        "nxt_traded_krw": 0,
+        "traded_krw": 31658978800
+      },
+      {
+        "ticker": "067310",
+        "name": "하나마이크론",
+        "market": "KOSDAQ",
+        "close": 27200,
+        "krx_traded_krw": 31491468400,
+        "nxt_traded_krw": 0,
+        "traded_krw": 31491468400
+      },
+      {
+        "ticker": "298690",
+        "name": "에어부산",
+        "market": "KOSPI",
+        "close": 1882,
+        "krx_traded_krw": 31234112631,
+        "nxt_traded_krw": 0,
+        "traded_krw": 31234112631
       },
       {
         "ticker": "131970",
         "name": "두산테스나",
         "market": "KOSDAQ",
-        "close": 62700,
-        "krx_traded_krw": 24384417700,
-        "nxt_traded_krw": 13881632600,
-        "traded_krw": 38266050300
+        "close": 67300,
+        "krx_traded_krw": 16516353300,
+        "nxt_traded_krw": 14583048350,
+        "traded_krw": 31099401650
+      },
+      {
+        "ticker": "047810",
+        "name": "한국항공우주",
+        "market": "KOSPI",
+        "close": 101200,
+        "krx_traded_krw": 23148989350,
+        "nxt_traded_krw": 7913119600,
+        "traded_krw": 31062108950
+      },
+      {
+        "ticker": "425420",
+        "name": "티에프이",
+        "market": "KOSDAQ",
+        "close": 73600,
+        "krx_traded_krw": 14305738350,
+        "nxt_traded_krw": 16693882500,
+        "traded_krw": 30999620850
+      },
+      {
+        "ticker": "078350",
+        "name": "한양디지텍",
+        "market": "KOSDAQ",
+        "close": 28650,
+        "krx_traded_krw": 18648815375,
+        "nxt_traded_krw": 11854207125,
+        "traded_krw": 30503022500
+      },
+      {
+        "ticker": "078600",
+        "name": "대주전자재료",
+        "market": "KOSDAQ",
+        "close": 80200,
+        "krx_traded_krw": 17415738150,
+        "nxt_traded_krw": 13057291100,
+        "traded_krw": 30473029250
+      },
+      {
+        "ticker": "046890",
+        "name": "서울반도체",
+        "market": "KOSDAQ",
+        "close": 9400,
+        "krx_traded_krw": 7553201765,
+        "nxt_traded_krw": 22525243220,
+        "traded_krw": 30078444985
       },
       {
         "ticker": "138040",
         "name": "메리츠금융지주",
         "market": "KOSPI",
         "close": 128500,
-        "krx_traded_krw": 34058161630,
-        "nxt_traded_krw": 2843973800,
-        "traded_krw": 36902135430
-      },
-      {
-        "ticker": "356680",
-        "name": "엑스게이트",
-        "market": "KOSDAQ",
-        "close": 12690,
-        "krx_traded_krw": 36625329870,
-        "nxt_traded_krw": 0,
-        "traded_krw": 36625329870
-      },
-      {
-        "ticker": "066310",
-        "name": "큐에스아이",
-        "market": "KOSDAQ",
-        "close": 7540,
-        "krx_traded_krw": 36047669645,
-        "nxt_traded_krw": 0,
-        "traded_krw": 36047669645
-      },
-      {
-        "ticker": "062040",
-        "name": "산일전기",
-        "market": "KOSPI",
-        "close": 113800,
-        "krx_traded_krw": 20621174450,
-        "nxt_traded_krw": 15239485900,
-        "traded_krw": 35860660350
-      },
-      {
-        "ticker": "420610",
-        "name": "인텔리빅스",
-        "market": "KOSDAQ",
-        "close": 10900,
-        "krx_traded_krw": 35775558435,
-        "nxt_traded_krw": 0,
-        "traded_krw": 35775558435
-      },
-      {
-        "ticker": "067310",
-        "name": "하나마이크론",
-        "market": "KOSDAQ",
-        "close": 25200,
-        "krx_traded_krw": 35718208425,
-        "nxt_traded_krw": 0,
-        "traded_krw": 35718208425
-      },
-      {
-        "ticker": "352820",
-        "name": "하이브",
-        "market": "KOSPI",
-        "close": 143200,
-        "krx_traded_krw": 28599358500,
-        "nxt_traded_krw": 6990317500,
-        "traded_krw": 35589676000
-      },
-      {
-        "ticker": "272210",
-        "name": "한화시스템",
-        "market": "KOSPI",
-        "close": 50000,
-        "krx_traded_krw": 25902068575,
-        "nxt_traded_krw": 9360420525,
-        "traded_krw": 35262489100
-      },
-      {
-        "ticker": "028300",
-        "name": "HLB",
-        "market": "KOSDAQ",
-        "close": 30150,
-        "krx_traded_krw": 18146284275,
-        "nxt_traded_krw": 15319338825,
-        "traded_krw": 33465623100
-      },
-      {
-        "ticker": "179880",
-        "name": "멜콘",
-        "market": "KOSDAQ",
-        "close": 11920,
-        "krx_traded_krw": 33374235060,
-        "nxt_traded_krw": 0,
-        "traded_krw": 33374235060
-      },
-      {
-        "ticker": "092870",
-        "name": "엑시콘",
-        "market": "KOSDAQ",
-        "close": 46050,
-        "krx_traded_krw": 33353734800,
-        "nxt_traded_krw": 0,
-        "traded_krw": 33353734800
-      },
-      {
-        "ticker": "277810",
-        "name": "레인보우로보틱스",
-        "market": "KOSDAQ",
-        "close": 302500,
-        "krx_traded_krw": 17393414250,
-        "nxt_traded_krw": 15529115750,
-        "traded_krw": 32922530000
-      },
-      {
-        "ticker": "290650",
-        "name": "엘앤씨바이오",
-        "market": "KOSDAQ",
-        "close": 22550,
-        "krx_traded_krw": 20588771125,
-        "nxt_traded_krw": 11736704725,
-        "traded_krw": 32325475850
-      },
-      {
-        "ticker": "058470",
-        "name": "리노공업",
-        "market": "KOSDAQ",
-        "close": 46450,
-        "krx_traded_krw": 22389227100,
-        "nxt_traded_krw": 9800529375,
-        "traded_krw": 32189756475
-      },
-      {
-        "ticker": "319660",
-        "name": "피에스케이",
-        "market": "KOSDAQ",
-        "close": 81400,
-        "krx_traded_krw": 24398850600,
-        "nxt_traded_krw": 7643812500,
-        "traded_krw": 32042663100
-      },
-      {
-        "ticker": "095610",
-        "name": "테스",
-        "market": "KOSDAQ",
-        "close": 81400,
-        "krx_traded_krw": 22683747050,
-        "nxt_traded_krw": 9147935750,
-        "traded_krw": 31831682800
-      },
-      {
-        "ticker": "257720",
-        "name": "실리콘투",
-        "market": "KOSDAQ",
-        "close": 25600,
-        "krx_traded_krw": 22941453425,
-        "nxt_traded_krw": 8837895275,
-        "traded_krw": 31779348700
-      },
-      {
-        "ticker": "039030",
-        "name": "이오테크닉스",
-        "market": "KOSDAQ",
-        "close": 300500,
-        "krx_traded_krw": 25586184250,
-        "nxt_traded_krw": 5969754500,
-        "traded_krw": 31555938750
+        "krx_traded_krw": 26097618300,
+        "nxt_traded_krw": 3815436450,
+        "traded_krw": 29913054750
       },
       {
         "ticker": "322000",
         "name": "HD현대에너지솔루션",
         "market": "KOSPI",
-        "close": 79500,
-        "krx_traded_krw": 31296100350,
+        "close": 83600,
+        "krx_traded_krw": 29488782050,
         "nxt_traded_krw": 0,
-        "traded_krw": 31296100350
-      },
-      {
-        "ticker": "030200",
-        "name": "KT",
-        "market": "KOSPI",
-        "close": 52200,
-        "krx_traded_krw": 27475061850,
-        "nxt_traded_krw": 3524112100,
-        "traded_krw": 30999173950
-      },
-      {
-        "ticker": "302440",
-        "name": "SK바이오사이언스",
-        "market": "KOSPI",
-        "close": 40400,
-        "krx_traded_krw": 21355951800,
-        "nxt_traded_krw": 9356174700,
-        "traded_krw": 30712126500
-      },
-      {
-        "ticker": "458870",
-        "name": "씨어스",
-        "market": "KOSDAQ",
-        "close": 13250,
-        "krx_traded_krw": 16748665110,
-        "nxt_traded_krw": 13746178740,
-        "traded_krw": 30494843850
-      },
-      {
-        "ticker": "008830",
-        "name": "대동기어",
-        "market": "KOSDAQ",
-        "close": 6370,
-        "krx_traded_krw": 30456910415,
-        "nxt_traded_krw": 0,
-        "traded_krw": 30456910415
-      },
-      {
-        "ticker": "021240",
-        "name": "코웨이",
-        "market": "KOSPI",
-        "close": 99400,
-        "krx_traded_krw": 27481593300,
-        "nxt_traded_krw": 2658809550,
-        "traded_krw": 30140402850
-      },
-      {
-        "ticker": "032640",
-        "name": "LG유플러스",
-        "market": "KOSPI",
-        "close": 15980,
-        "krx_traded_krw": 27671722600,
-        "nxt_traded_krw": 2274903175,
-        "traded_krw": 29946625775
-      },
-      {
-        "ticker": "109610",
-        "name": "에스와이",
-        "market": "KOSDAQ",
-        "close": 2220,
-        "krx_traded_krw": 29720932722,
-        "nxt_traded_krw": 0,
-        "traded_krw": 29720932722
-      },
-      {
-        "ticker": "047810",
-        "name": "한국항공우주",
-        "market": "KOSPI",
-        "close": 99000,
-        "krx_traded_krw": 22967359450,
-        "nxt_traded_krw": 6725379850,
-        "traded_krw": 29692739300
-      },
-      {
-        "ticker": "241710",
-        "name": "코스메카코리아",
-        "market": "KOSDAQ",
-        "close": 86100,
-        "krx_traded_krw": 25647083300,
-        "nxt_traded_krw": 3980249000,
-        "traded_krw": 29627332300
-      },
-      {
-        "ticker": "004540",
-        "name": "깨끗한나라",
-        "market": "KOSPI",
-        "close": 1727,
-        "krx_traded_krw": 29597502616,
-        "nxt_traded_krw": 0,
-        "traded_krw": 29597502616
-      },
-      {
-        "ticker": "126340",
-        "name": "비나텍",
-        "market": "KOSDAQ",
-        "close": 78300,
-        "krx_traded_krw": 15816197850,
-        "nxt_traded_krw": 13293197350,
-        "traded_krw": 29109395200
-      },
-      {
-        "ticker": "001440",
-        "name": "대한전선",
-        "market": "KOSPI",
-        "close": 16610,
-        "krx_traded_krw": 28995188285,
-        "nxt_traded_krw": 0,
-        "traded_krw": 28995188285
-      },
-      {
-        "ticker": "263860",
-        "name": "지니언스",
-        "market": "KOSDAQ",
-        "close": 24000,
-        "krx_traded_krw": 28933285125,
-        "nxt_traded_krw": 0,
-        "traded_krw": 28933285125
-      },
-      {
-        "ticker": "389260",
-        "name": "대명에너지",
-        "market": "KOSDAQ",
-        "close": 14710,
-        "krx_traded_krw": 28922996420,
-        "nxt_traded_krw": 0,
-        "traded_krw": 28922996420
-      },
-      {
-        "ticker": "008930",
-        "name": "한미사이언스",
-        "market": "KOSPI",
-        "close": 57300,
-        "krx_traded_krw": 18190801100,
-        "nxt_traded_krw": 10093870550,
-        "traded_krw": 28284671650
-      },
-      {
-        "ticker": "214450",
-        "name": "파마리서치",
-        "market": "KOSDAQ",
-        "close": 236000,
-        "krx_traded_krw": 20285816500,
-        "nxt_traded_krw": 7910244000,
-        "traded_krw": 28196060500
-      },
-      {
-        "ticker": "457190",
-        "name": "이수스페셜티케미컬",
-        "market": "KOSPI",
-        "close": 59300,
-        "krx_traded_krw": 15694064400,
-        "nxt_traded_krw": 12478442000,
-        "traded_krw": 28172506400
-      },
-      {
-        "ticker": "226950",
-        "name": "올릭스",
-        "market": "KOSDAQ",
-        "close": 74100,
-        "krx_traded_krw": 18480773250,
-        "nxt_traded_krw": 8880426800,
-        "traded_krw": 27361200050
-      },
-      {
-        "ticker": "010950",
-        "name": "S-Oil",
-        "market": "KOSPI",
-        "close": 105600,
-        "krx_traded_krw": 22162417300,
-        "nxt_traded_krw": 5177740400,
-        "traded_krw": 27340157700
-      },
-      {
-        "ticker": "000250",
-        "name": "삼천당제약",
-        "market": "KOSDAQ",
-        "close": 169700,
-        "krx_traded_krw": 19095402500,
-        "nxt_traded_krw": 8223247600,
-        "traded_krw": 27318650100
-      },
-      {
-        "ticker": "259960",
-        "name": "크래프톤",
-        "market": "KOSPI",
-        "close": 217500,
-        "krx_traded_krw": 24493166250,
-        "nxt_traded_krw": 2494940250,
-        "traded_krw": 26988106500
-      },
-      {
-        "ticker": "086280",
-        "name": "현대글로비스",
-        "market": "KOSPI",
-        "close": 189300,
-        "krx_traded_krw": 23048904550,
-        "nxt_traded_krw": 3521560350,
-        "traded_krw": 26570464900
-      },
-      {
-        "ticker": "089970",
-        "name": "브이엠",
-        "market": "KOSDAQ",
-        "close": 31400,
-        "krx_traded_krw": 19716676775,
-        "nxt_traded_krw": 6848827850,
-        "traded_krw": 26565504625
-      },
-      {
-        "ticker": "064350",
-        "name": "현대로템",
-        "market": "KOSPI",
-        "close": 69800,
-        "krx_traded_krw": 20346234250,
-        "nxt_traded_krw": 5626946100,
-        "traded_krw": 25973180350
-      },
-      {
-        "ticker": "475150",
-        "name": "SK이터닉스",
-        "market": "KOSPI",
-        "close": 37250,
-        "krx_traded_krw": 25944277400,
-        "nxt_traded_krw": 0,
-        "traded_krw": 25944277400
-      },
-      {
-        "ticker": "087010",
-        "name": "펩트론",
-        "market": "KOSDAQ",
-        "close": 93300,
-        "krx_traded_krw": 15055084350,
-        "nxt_traded_krw": 10730340350,
-        "traded_krw": 25785424700
-      },
-      {
-        "ticker": "323280",
-        "name": "태성",
-        "market": "KOSDAQ",
-        "close": 43100,
-        "krx_traded_krw": 12982591450,
-        "nxt_traded_krw": 12725626200,
-        "traded_krw": 25708217650
-      },
-      {
-        "ticker": "347850",
-        "name": "디앤디파마텍",
-        "market": "KOSDAQ",
-        "close": 37950,
-        "krx_traded_krw": 25676060575,
-        "nxt_traded_krw": 0,
-        "traded_krw": 25676060575
-      },
-      {
-        "ticker": "016360",
-        "name": "삼성증권",
-        "market": "KOSPI",
-        "close": 71200,
-        "krx_traded_krw": 17998236850,
-        "nxt_traded_krw": 7667110600,
-        "traded_krw": 25665347450
-      },
-      {
-        "ticker": "192820",
-        "name": "코스맥스",
-        "market": "KOSPI",
-        "close": 241000,
-        "krx_traded_krw": 21990315750,
-        "nxt_traded_krw": 3599410250,
-        "traded_krw": 25589726000
+        "traded_krw": 29488782050
       },
       {
         "ticker": "103590",
         "name": "일진전기",
         "market": "KOSPI",
-        "close": 42100,
-        "krx_traded_krw": 15010525550,
-        "nxt_traded_krw": 10398917375,
-        "traded_krw": 25409442925
+        "close": 46050,
+        "krx_traded_krw": 16834913375,
+        "nxt_traded_krw": 12619204950,
+        "traded_krw": 29454118325
       },
       {
-        "ticker": "141080",
-        "name": "리가켐바이오",
-        "market": "KOSDAQ",
-        "close": 56800,
-        "krx_traded_krw": 19152049450,
-        "nxt_traded_krw": 6217382300,
-        "traded_krw": 25369431750
-      },
-      {
-        "ticker": "095340",
-        "name": "ISC",
-        "market": "KOSDAQ",
-        "close": 124900,
-        "krx_traded_krw": 20380605000,
-        "nxt_traded_krw": 4743316750,
-        "traded_krw": 25123921750
-      },
-      {
-        "ticker": "005830",
-        "name": "DB손해보험",
+        "ticker": "004310",
+        "name": "현대약품",
         "market": "KOSPI",
-        "close": 171100,
-        "krx_traded_krw": 23493078450,
-        "nxt_traded_krw": 1519419450,
-        "traded_krw": 25012497900
-      },
-      {
-        "ticker": "332570",
-        "name": "PS일렉트로닉스",
-        "market": "KOSDAQ",
-        "close": 5730,
-        "krx_traded_krw": 24777155365,
+        "close": 6620,
+        "krx_traded_krw": 29127933095,
         "nxt_traded_krw": 0,
-        "traded_krw": 24777155365
+        "traded_krw": 29127933095
       },
       {
-        "ticker": "356860",
-        "name": "티엘비",
+        "ticker": "000250",
+        "name": "삼천당제약",
         "market": "KOSDAQ",
+        "close": 179200,
+        "krx_traded_krw": 15728141200,
+        "nxt_traded_krw": 13231243900,
+        "traded_krw": 28959385100
+      },
+      {
+        "ticker": "079650",
+        "name": "서산",
+        "market": "KOSDAQ",
+        "close": 6310,
+        "krx_traded_krw": 28861271060,
+        "nxt_traded_krw": 0,
+        "traded_krw": 28861271060
+      },
+      {
+        "ticker": "086280",
+        "name": "현대글로비스",
+        "market": "KOSPI",
+        "close": 199000,
+        "krx_traded_krw": 25874905800,
+        "nxt_traded_krw": 2982845500,
+        "traded_krw": 28857751300
+      },
+      {
+        "ticker": "006800",
+        "name": "미래에셋증권",
+        "market": "KOSPI",
+        "close": 21750,
+        "krx_traded_krw": 18407973550,
+        "nxt_traded_krw": 10290608775,
+        "traded_krw": 28698582325
+      },
+      {
+        "ticker": "468530",
+        "name": "프로티나",
+        "market": "KOSDAQ",
+        "close": 60200,
+        "krx_traded_krw": 13613549550,
+        "nxt_traded_krw": 14760772950,
+        "traded_krw": 28374322500
+      },
+      {
+        "ticker": "082740",
+        "name": "한화엔진",
+        "market": "KOSPI",
         "close": 27400,
-        "krx_traded_krw": 13624885000,
-        "nxt_traded_krw": 11127135225,
-        "traded_krw": 24752020225
+        "krx_traded_krw": 17579879425,
+        "nxt_traded_krw": 10327108650,
+        "traded_krw": 27906988075
       },
       {
-        "ticker": "078600",
-        "name": "대주전자재료",
-        "market": "KOSDAQ",
-        "close": 72800,
-        "krx_traded_krw": 14388893600,
-        "nxt_traded_krw": 10115752500,
-        "traded_krw": 24504646100
-      },
-      {
-        "ticker": "425420",
-        "name": "티에프이",
-        "market": "KOSDAQ",
-        "close": 68600,
-        "krx_traded_krw": 17126206450,
-        "nxt_traded_krw": 7318953550,
-        "traded_krw": 24445160000
-      },
-      {
-        "ticker": "138930",
-        "name": "BNK금융지주",
+        "ticker": "001440",
+        "name": "대한전선",
         "market": "KOSPI",
-        "close": 12660,
-        "krx_traded_krw": 22843476170,
-        "nxt_traded_krw": 1399872450,
-        "traded_krw": 24243348620
-      },
-      {
-        "ticker": "043260",
-        "name": "성호전자",
-        "market": "KOSDAQ",
-        "close": 18900,
-        "krx_traded_krw": 23766575660,
+        "close": 17980,
+        "krx_traded_krw": 27737589915,
         "nxt_traded_krw": 0,
-        "traded_krw": 23766575660
+        "traded_krw": 27737589915
       },
       {
-        "ticker": "014950",
-        "name": "삼익제약",
+        "ticker": "214450",
+        "name": "파마리서치",
         "market": "KOSDAQ",
-        "close": 6410,
-        "krx_traded_krw": 23702446240,
-        "nxt_traded_krw": 0,
-        "traded_krw": 23702446240
-      },
-      {
-        "ticker": "267250",
-        "name": "HD현대",
-        "market": "KOSPI",
-        "close": 121500,
-        "krx_traded_krw": 20664144150,
-        "nxt_traded_krw": 2621518900,
-        "traded_krw": 23285663050
-      },
-      {
-        "ticker": "036570",
-        "name": "NC",
-        "market": "KOSPI",
-        "close": 209000,
-        "krx_traded_krw": 18288428000,
-        "nxt_traded_krw": 4728287250,
-        "traded_krw": 23016715250
-      },
-      {
-        "ticker": "000100",
-        "name": "유한양행",
-        "market": "KOSPI",
-        "close": 77800,
-        "krx_traded_krw": 17265972300,
-        "nxt_traded_krw": 5721583350,
-        "traded_krw": 22987555650
-      },
-      {
-        "ticker": "281820",
-        "name": "케이씨텍",
-        "market": "KOSPI",
-        "close": 55500,
-        "krx_traded_krw": 15709584250,
-        "nxt_traded_krw": 7089720450,
-        "traded_krw": 22799304700
+        "close": 249000,
+        "krx_traded_krw": 18210612000,
+        "nxt_traded_krw": 9360800750,
+        "traded_krw": 27571412750
       },
       {
         "ticker": "098460",
         "name": "고영",
         "market": "KOSDAQ",
-        "close": 20900,
-        "krx_traded_krw": 22651390900,
+        "close": 22350,
+        "krx_traded_krw": 27327744325,
         "nxt_traded_krw": 0,
-        "traded_krw": 22651390900
+        "traded_krw": 27327744325
       },
       {
-        "ticker": "489790",
-        "name": "한화비전",
+        "ticker": "483650",
+        "name": "달바글로벌",
         "market": "KOSPI",
-        "close": 40650,
-        "krx_traded_krw": 14011239675,
-        "nxt_traded_krw": 8176783275,
-        "traded_krw": 22188022950
+        "close": 146500,
+        "krx_traded_krw": 23108941000,
+        "nxt_traded_krw": 4205113350,
+        "traded_krw": 27314054350
       },
       {
-        "ticker": "020400",
-        "name": "대동금속",
+        "ticker": "011790",
+        "name": "SKC",
+        "market": "KOSPI",
+        "close": 71900,
+        "krx_traded_krw": 17127406750,
+        "nxt_traded_krw": 9963325750,
+        "traded_krw": 27090732500
+      },
+      {
+        "ticker": "092870",
+        "name": "엑시콘",
         "market": "KOSDAQ",
-        "close": 3635,
-        "krx_traded_krw": 21595427227,
+        "close": 52100,
+        "krx_traded_krw": 26786905700,
         "nxt_traded_krw": 0,
-        "traded_krw": 21595427227
+        "traded_krw": 26786905700
       },
       {
-        "ticker": "010130",
-        "name": "고려아연",
+        "ticker": "475150",
+        "name": "SK이터닉스",
         "market": "KOSPI",
-        "close": 935000,
-        "krx_traded_krw": 16399842000,
-        "nxt_traded_krw": 5154194500,
-        "traded_krw": 21554036500
-      },
-      {
-        "ticker": "039490",
-        "name": "키움증권",
-        "market": "KOSPI",
-        "close": 179200,
-        "krx_traded_krw": 15996486950,
-        "nxt_traded_krw": 5486575650,
-        "traded_krw": 21483062600
-      },
-      {
-        "ticker": "178320",
-        "name": "서진시스템",
-        "market": "KOSDAQ",
-        "close": 27600,
-        "krx_traded_krw": 21316103800,
+        "close": 38000,
+        "krx_traded_krw": 26552460450,
         "nxt_traded_krw": 0,
-        "traded_krw": 21316103800
+        "traded_krw": 26552460450
       },
       {
-        "ticker": "090430",
-        "name": "아모레퍼시픽",
+        "ticker": "006260",
+        "name": "LS",
         "market": "KOSPI",
-        "close": 127100,
-        "krx_traded_krw": 18568494900,
-        "nxt_traded_krw": 2721436100,
-        "traded_krw": 21289931000
-      },
-      {
-        "ticker": "035900",
-        "name": "JYP Ent.",
-        "market": "KOSDAQ",
-        "close": 40300,
-        "krx_traded_krw": 14177195575,
-        "nxt_traded_krw": 7074562550,
-        "traded_krw": 21251758125
-      },
-      {
-        "ticker": "064760",
-        "name": "티씨케이",
-        "market": "KOSDAQ",
-        "close": 150500,
-        "krx_traded_krw": 16981595000,
-        "nxt_traded_krw": 3830694800,
-        "traded_krw": 20812289800
-      },
-      {
-        "ticker": "131290",
-        "name": "티에스이",
-        "market": "KOSDAQ",
-        "close": 171400,
-        "krx_traded_krw": 15211908200,
-        "nxt_traded_krw": 5378028200,
-        "traded_krw": 20589936400
-      },
-      {
-        "ticker": "089030",
-        "name": "테크윙",
-        "market": "KOSDAQ",
-        "close": 30300,
-        "krx_traded_krw": 20568960200,
-        "nxt_traded_krw": 0,
-        "traded_krw": 20568960200
-      },
-      {
-        "ticker": "445680",
-        "name": "큐리옥스바이오시스템즈",
-        "market": "KOSDAQ",
-        "close": 51800,
-        "krx_traded_krw": 10665032275,
-        "nxt_traded_krw": 9809993800,
-        "traded_krw": 20475026075
-      },
-      {
-        "ticker": "084370",
-        "name": "유진테크",
-        "market": "KOSDAQ",
-        "close": 73200,
-        "krx_traded_krw": 15685586050,
-        "nxt_traded_krw": 4465789450,
-        "traded_krw": 20151375500
-      },
-      {
-        "ticker": "078350",
-        "name": "한양디지텍",
-        "market": "KOSDAQ",
-        "close": 29050,
-        "krx_traded_krw": 14203506675,
-        "nxt_traded_krw": 5909632525,
-        "traded_krw": 20113139200
-      },
-      {
-        "ticker": "023530",
-        "name": "롯데쇼핑",
-        "market": "KOSPI",
-        "close": 81700,
-        "krx_traded_krw": 15149199450,
-        "nxt_traded_krw": 4734719050,
-        "traded_krw": 19883918500
-      },
-      {
-        "ticker": "005387",
-        "name": "현대차2우B",
-        "market": "KOSPI",
-        "close": 144600,
-        "krx_traded_krw": 19879160850,
-        "nxt_traded_krw": 0,
-        "traded_krw": 19879160850
-      },
-      {
-        "ticker": "058610",
-        "name": "에스피지",
-        "market": "KOSDAQ",
-        "close": 70500,
-        "krx_traded_krw": 9941432350,
-        "nxt_traded_krw": 9871613500,
-        "traded_krw": 19813045850
-      },
-      {
-        "ticker": "144960",
-        "name": "뉴파워프라즈마",
-        "market": "KOSDAQ",
-        "close": 11100,
-        "krx_traded_krw": 19122554790,
-        "nxt_traded_krw": 0,
-        "traded_krw": 19122554790
-      },
-      {
-        "ticker": "003550",
-        "name": "LG",
-        "market": "KOSPI",
-        "close": 89700,
-        "krx_traded_krw": 16572398400,
-        "nxt_traded_krw": 2519213850,
-        "traded_krw": 19091612250
-      },
-      {
-        "ticker": "161390",
-        "name": "한국타이어앤테크놀로지",
-        "market": "KOSPI",
-        "close": 59500,
-        "krx_traded_krw": 17737284050,
-        "nxt_traded_krw": 1304780550,
-        "traded_krw": 19042064600
-      },
-      {
-        "ticker": "253590",
-        "name": "네오셈",
-        "market": "KOSDAQ",
-        "close": 12900,
-        "krx_traded_krw": 18992044395,
-        "nxt_traded_krw": 0,
-        "traded_krw": 18992044395
-      },
-      {
-        "ticker": "307950",
-        "name": "현대오토에버",
-        "market": "KOSPI",
-        "close": 269000,
-        "krx_traded_krw": 12791197250,
-        "nxt_traded_krw": 6103102250,
-        "traded_krw": 18894299500
-      },
-      {
-        "ticker": "005385",
-        "name": "현대차우",
-        "market": "KOSPI",
-        "close": 142000,
-        "krx_traded_krw": 18769141100,
-        "nxt_traded_krw": 0,
-        "traded_krw": 18769141100
-      },
-      {
-        "ticker": "289080",
-        "name": "SV인베스트먼트",
-        "market": "KOSDAQ",
-        "close": 2055,
-        "krx_traded_krw": 18696642507,
-        "nxt_traded_krw": 0,
-        "traded_krw": 18696642507
-      },
-      {
-        "ticker": "064290",
-        "name": "인텍플러스",
-        "market": "KOSDAQ",
-        "close": 39500,
-        "krx_traded_krw": 18677021700,
-        "nxt_traded_krw": 0,
-        "traded_krw": 18677021700
-      },
-      {
-        "ticker": "440110",
-        "name": "파두",
-        "market": "KOSDAQ",
-        "close": 32850,
-        "krx_traded_krw": 18396564075,
-        "nxt_traded_krw": 0,
-        "traded_krw": 18396564075
-      },
-      {
-        "ticker": "376900",
-        "name": "로킷헬스케어",
-        "market": "KOSDAQ",
-        "close": 17210,
-        "krx_traded_krw": 4388239365,
-        "nxt_traded_krw": 13944094775,
-        "traded_krw": 18332334140
-      },
-      {
-        "ticker": "005290",
-        "name": "동진쎄미켐",
-        "market": "KOSDAQ",
-        "close": 31700,
-        "krx_traded_krw": 10776904975,
-        "nxt_traded_krw": 7485399025,
-        "traded_krw": 18262304000
-      },
-      {
-        "ticker": "047050",
-        "name": "포스코인터내셔널",
-        "market": "KOSPI",
-        "close": 47300,
-        "krx_traded_krw": 12877987625,
-        "nxt_traded_krw": 5287663225,
-        "traded_krw": 18165650850
-      },
-      {
-        "ticker": "298380",
-        "name": "에이비엘바이오",
-        "market": "KOSDAQ",
-        "close": 35600,
-        "krx_traded_krw": 10247113325,
-        "nxt_traded_krw": 7634982750,
-        "traded_krw": 17882096075
-      },
-      {
-        "ticker": "495910",
-        "name": "이에스티",
-        "market": "KOSDAQ",
-        "close": 6070,
-        "krx_traded_krw": 17683143750,
-        "nxt_traded_krw": 0,
-        "traded_krw": 17683143750
-      },
-      {
-        "ticker": "006110",
-        "name": "삼아알미늄",
-        "market": "KOSPI",
-        "close": 38200,
-        "krx_traded_krw": 11175184000,
-        "nxt_traded_krw": 6405021625,
-        "traded_krw": 17580205625
-      },
-      {
-        "ticker": "336260",
-        "name": "두산퓨얼셀",
-        "market": "KOSPI",
-        "close": 25350,
-        "krx_traded_krw": 10552762950,
-        "nxt_traded_krw": 7023788250,
-        "traded_krw": 17576551200
-      },
-      {
-        "ticker": "121600",
-        "name": "나노신소재",
-        "market": "KOSDAQ",
-        "close": 60900,
-        "krx_traded_krw": 10607909100,
-        "nxt_traded_krw": 6770818350,
-        "traded_krw": 17378727450
-      },
-      {
-        "ticker": "069540",
-        "name": "빛과전자",
-        "market": "KOSDAQ",
-        "close": 3175,
-        "krx_traded_krw": 16880182765,
-        "nxt_traded_krw": 0,
-        "traded_krw": 16880182765
-      },
-      {
-        "ticker": "394800",
-        "name": "쓰리빌리언",
-        "market": "KOSDAQ",
-        "close": 5820,
-        "krx_traded_krw": 8781288230,
-        "nxt_traded_krw": 8056096840,
-        "traded_krw": 16837385070
+        "close": 184700,
+        "krx_traded_krw": 21469264000,
+        "nxt_traded_krw": 4856847800,
+        "traded_krw": 26326111800
       },
       {
         "ticker": "327260",
         "name": "RF머트리얼즈",
         "market": "KOSDAQ",
-        "close": 23250,
-        "krx_traded_krw": 16809106025,
+        "close": 26400,
+        "krx_traded_krw": 25934132075,
         "nxt_traded_krw": 0,
-        "traded_krw": 16809106025
+        "traded_krw": 25934132075
+      },
+      {
+        "ticker": "323280",
+        "name": "태성",
+        "market": "KOSDAQ",
+        "close": 45200,
+        "krx_traded_krw": 11147854925,
+        "nxt_traded_krw": 13566943600,
+        "traded_krw": 24714798525
+      },
+      {
+        "ticker": "047050",
+        "name": "포스코인터내셔널",
+        "market": "KOSPI",
+        "close": 49300,
+        "krx_traded_krw": 18975023850,
+        "nxt_traded_krw": 5665724925,
+        "traded_krw": 24640748775
+      },
+      {
+        "ticker": "021240",
+        "name": "코웨이",
+        "market": "KOSPI",
+        "close": 99600,
+        "krx_traded_krw": 23495283550,
+        "nxt_traded_krw": 1116225850,
+        "traded_krw": 24611509400
+      },
+      {
+        "ticker": "267250",
+        "name": "HD현대",
+        "market": "KOSPI",
+        "close": 126700,
+        "krx_traded_krw": 22216016200,
+        "nxt_traded_krw": 2388459550,
+        "traded_krw": 24604475750
+      },
+      {
+        "ticker": "356860",
+        "name": "티엘비",
+        "market": "KOSDAQ",
+        "close": 29450,
+        "krx_traded_krw": 11942754150,
+        "nxt_traded_krw": 12511111400,
+        "traded_krw": 24453865550
+      },
+      {
+        "ticker": "458870",
+        "name": "씨어스",
+        "market": "KOSDAQ",
+        "close": 14950,
+        "krx_traded_krw": 13710521510,
+        "nxt_traded_krw": 10228756995,
+        "traded_krw": 23939278505
+      },
+      {
+        "ticker": "052690",
+        "name": "한전기술",
+        "market": "KOSPI",
+        "close": 75000,
+        "krx_traded_krw": 15163353850,
+        "nxt_traded_krw": 8684104150,
+        "traded_krw": 23847458000
+      },
+      {
+        "ticker": "051600",
+        "name": "한전KPS",
+        "market": "KOSPI",
+        "close": 37400,
+        "krx_traded_krw": 16037960175,
+        "nxt_traded_krw": 7734919550,
+        "traded_krw": 23772879725
+      },
+      {
+        "ticker": "089970",
+        "name": "브이엠",
+        "market": "KOSDAQ",
+        "close": 34000,
+        "krx_traded_krw": 16824693325,
+        "nxt_traded_krw": 6687960600,
+        "traded_krw": 23512653925
+      },
+      {
+        "ticker": "131290",
+        "name": "티에스이",
+        "market": "KOSDAQ",
+        "close": 184200,
+        "krx_traded_krw": 16736961700,
+        "nxt_traded_krw": 6749704250,
+        "traded_krw": 23486665950
+      },
+      {
+        "ticker": "005830",
+        "name": "DB손해보험",
+        "market": "KOSPI",
+        "close": 172300,
+        "krx_traded_krw": 21087946000,
+        "nxt_traded_krw": 1723408700,
+        "traded_krw": 22811354700
+      },
+      {
+        "ticker": "226950",
+        "name": "올릭스",
+        "market": "KOSDAQ",
+        "close": 81800,
+        "krx_traded_krw": 14108272050,
+        "nxt_traded_krw": 8547785650,
+        "traded_krw": 22656057700
+      },
+      {
+        "ticker": "089890",
+        "name": "코세스",
+        "market": "KOSDAQ",
+        "close": 28650,
+        "krx_traded_krw": 11121463950,
+        "nxt_traded_krw": 11496327600,
+        "traded_krw": 22617791550
+      },
+      {
+        "ticker": "251970",
+        "name": "펌텍코리아",
+        "market": "KOSDAQ",
+        "close": 67400,
+        "krx_traded_krw": 15212557550,
+        "nxt_traded_krw": 7054980800,
+        "traded_krw": 22267538350
+      },
+      {
+        "ticker": "336260",
+        "name": "두산퓨얼셀",
+        "market": "KOSPI",
+        "close": 28500,
+        "krx_traded_krw": 12596978975,
+        "nxt_traded_krw": 9596553950,
+        "traded_krw": 22193532925
+      },
+      {
+        "ticker": "161390",
+        "name": "한국타이어앤테크놀로지",
+        "market": "KOSPI",
+        "close": 63200,
+        "krx_traded_krw": 19904466750,
+        "nxt_traded_krw": 2035727500,
+        "traded_krw": 21940194250
+      },
+      {
+        "ticker": "259960",
+        "name": "크래프톤",
+        "market": "KOSPI",
+        "close": 216500,
+        "krx_traded_krw": 18221390250,
+        "nxt_traded_krw": 3683805500,
+        "traded_krw": 21905195750
+      },
+      {
+        "ticker": "004170",
+        "name": "신세계",
+        "market": "KOSPI",
+        "close": 245500,
+        "krx_traded_krw": 18452751500,
+        "nxt_traded_krw": 3431070000,
+        "traded_krw": 21883821500
+      },
+      {
+        "ticker": "069540",
+        "name": "빛과전자",
+        "market": "KOSDAQ",
+        "close": 3370,
+        "krx_traded_krw": 21880062273,
+        "nxt_traded_krw": 0,
+        "traded_krw": 21880062273
+      },
+      {
+        "ticker": "010130",
+        "name": "고려아연",
+        "market": "KOSPI",
+        "close": 967000,
+        "krx_traded_krw": 14276081000,
+        "nxt_traded_krw": 7558456000,
+        "traded_krw": 21834537000
+      },
+      {
+        "ticker": "064290",
+        "name": "인텍플러스",
+        "market": "KOSDAQ",
+        "close": 42100,
+        "krx_traded_krw": 21707505575,
+        "nxt_traded_krw": 0,
+        "traded_krw": 21707505575
+      },
+      {
+        "ticker": "032640",
+        "name": "LG유플러스",
+        "market": "KOSPI",
+        "close": 15860,
+        "krx_traded_krw": 19260819180,
+        "nxt_traded_krw": 1999584490,
+        "traded_krw": 21260403670
+      },
+      {
+        "ticker": "347850",
+        "name": "디앤디파마텍",
+        "market": "KOSDAQ",
+        "close": 40350,
+        "krx_traded_krw": 20697768175,
+        "nxt_traded_krw": 0,
+        "traded_krw": 20697768175
+      },
+      {
+        "ticker": "016360",
+        "name": "삼성증권",
+        "market": "KOSPI",
+        "close": 72700,
+        "krx_traded_krw": 15144445950,
+        "nxt_traded_krw": 5436069050,
+        "traded_krw": 20580515000
+      },
+      {
+        "ticker": "008930",
+        "name": "한미사이언스",
+        "market": "KOSPI",
+        "close": 57200,
+        "krx_traded_krw": 11786239550,
+        "nxt_traded_krw": 8777673250,
+        "traded_krw": 20563912800
+      },
+      {
+        "ticker": "138930",
+        "name": "BNK금융지주",
+        "market": "KOSPI",
+        "close": 12960,
+        "krx_traded_krw": 18830975290,
+        "nxt_traded_krw": 1622974585,
+        "traded_krw": 20453949875
+      },
+      {
+        "ticker": "014950",
+        "name": "삼익제약",
+        "market": "KOSDAQ",
+        "close": 8330,
+        "krx_traded_krw": 20423143385,
+        "nxt_traded_krw": 0,
+        "traded_krw": 20423143385
+      },
+      {
+        "ticker": "257720",
+        "name": "실리콘투",
+        "market": "KOSDAQ",
+        "close": 26650,
+        "krx_traded_krw": 12393600900,
+        "nxt_traded_krw": 7851722525,
+        "traded_krw": 20245323425
+      },
+      {
+        "ticker": "443060",
+        "name": "HD현대마린솔루션",
+        "market": "KOSPI",
+        "close": 166900,
+        "krx_traded_krw": 17820518400,
+        "nxt_traded_krw": 2418292000,
+        "traded_krw": 20238810400
+      },
+      {
+        "ticker": "394800",
+        "name": "쓰리빌리언",
+        "market": "KOSDAQ",
+        "close": 6440,
+        "krx_traded_krw": 9205850765,
+        "nxt_traded_krw": 10998883130,
+        "traded_krw": 20204733895
+      },
+      {
+        "ticker": "064350",
+        "name": "현대로템",
+        "market": "KOSPI",
+        "close": 73100,
+        "krx_traded_krw": 15092799250,
+        "nxt_traded_krw": 5095333800,
+        "traded_krw": 20188133050
+      },
+      {
+        "ticker": "161890",
+        "name": "한국콜마",
+        "market": "KOSPI",
+        "close": 105800,
+        "krx_traded_krw": 14285268500,
+        "nxt_traded_krw": 5764653400,
+        "traded_krw": 20049921900
+      },
+      {
+        "ticker": "058610",
+        "name": "에스피지",
+        "market": "KOSDAQ",
+        "close": 73100,
+        "krx_traded_krw": 9595701800,
+        "nxt_traded_krw": 10302089900,
+        "traded_krw": 19897791700
+      },
+      {
+        "ticker": "253590",
+        "name": "네오셈",
+        "market": "KOSDAQ",
+        "close": 13470,
+        "krx_traded_krw": 19774768705,
+        "nxt_traded_krw": 0,
+        "traded_krw": 19774768705
+      },
+      {
+        "ticker": "089590",
+        "name": "제주항공",
+        "market": "KOSPI",
+        "close": 7430,
+        "krx_traded_krw": 19640714165,
+        "nxt_traded_krw": 0,
+        "traded_krw": 19640714165
+      },
+      {
+        "ticker": "020150",
+        "name": "롯데에너지머티리얼즈",
+        "market": "KOSPI",
+        "close": 36100,
+        "krx_traded_krw": 12530715400,
+        "nxt_traded_krw": 6955926600,
+        "traded_krw": 19486642000
+      },
+      {
+        "ticker": "456160",
+        "name": "지투지바이오",
+        "market": "KOSDAQ",
+        "close": 35100,
+        "krx_traded_krw": 10151994075,
+        "nxt_traded_krw": 9139750650,
+        "traded_krw": 19291744725
+      },
+      {
+        "ticker": "084370",
+        "name": "유진테크",
+        "market": "KOSDAQ",
+        "close": 77100,
+        "krx_traded_krw": 12407851200,
+        "nxt_traded_krw": 6844663850,
+        "traded_krw": 19252515050
+      },
+      {
+        "ticker": "192820",
+        "name": "코스맥스",
+        "market": "KOSPI",
+        "close": 240000,
+        "krx_traded_krw": 15410026250,
+        "nxt_traded_krw": 3592364000,
+        "traded_krw": 19002390250
+      },
+      {
+        "ticker": "457190",
+        "name": "이수스페셜티케미컬",
+        "market": "KOSPI",
+        "close": 63600,
+        "krx_traded_krw": 9686933650,
+        "nxt_traded_krw": 9194883600,
+        "traded_krw": 18881817250
+      },
+      {
+        "ticker": "178320",
+        "name": "서진시스템",
+        "market": "KOSDAQ",
+        "close": 29100,
+        "krx_traded_krw": 18836768125,
+        "nxt_traded_krw": 0,
+        "traded_krw": 18836768125
+      },
+      {
+        "ticker": "489790",
+        "name": "한화비전",
+        "market": "KOSPI",
+        "close": 43900,
+        "krx_traded_krw": 12433358425,
+        "nxt_traded_krw": 6249142450,
+        "traded_krw": 18682500875
+      },
+      {
+        "ticker": "437730",
+        "name": "삼현",
+        "market": "KOSDAQ",
+        "close": 36150,
+        "krx_traded_krw": 9780220175,
+        "nxt_traded_krw": 8892306150,
+        "traded_krw": 18672526325
+      },
+      {
+        "ticker": "001450",
+        "name": "현대해상",
+        "market": "KOSPI",
+        "close": 40000,
+        "krx_traded_krw": 16643450025,
+        "nxt_traded_krw": 1705826000,
+        "traded_krw": 18349276025
+      },
+      {
+        "ticker": "036570",
+        "name": "NC",
+        "market": "KOSPI",
+        "close": 213500,
+        "krx_traded_krw": 15190200622,
+        "nxt_traded_krw": 3133525000,
+        "traded_krw": 18323725622
+      },
+      {
+        "ticker": "039490",
+        "name": "키움증권",
+        "market": "KOSPI",
+        "close": 184700,
+        "krx_traded_krw": 13628335750,
+        "nxt_traded_krw": 4431277800,
+        "traded_krw": 18059613550
+      },
+      {
+        "ticker": "375500",
+        "name": "DL이앤씨",
+        "market": "KOSPI",
+        "close": 55900,
+        "krx_traded_krw": 17670644800,
+        "nxt_traded_krw": 0,
+        "traded_krw": 17670644800
+      },
+      {
+        "ticker": "440110",
+        "name": "파두",
+        "market": "KOSDAQ",
+        "close": 34050,
+        "krx_traded_krw": 17523292475,
+        "nxt_traded_krw": 0,
+        "traded_krw": 17523292475
+      },
+      {
+        "ticker": "028670",
+        "name": "팬오션",
+        "market": "KOSPI",
+        "close": 4995,
+        "krx_traded_krw": 17036088768,
+        "nxt_traded_krw": 0,
+        "traded_krw": 17036088768
+      },
+      {
+        "ticker": "121600",
+        "name": "나노신소재",
+        "market": "KOSDAQ",
+        "close": 64400,
+        "krx_traded_krw": 10924382600,
+        "nxt_traded_krw": 6086974100,
+        "traded_krw": 17011356700
+      },
+      {
+        "ticker": "109610",
+        "name": "에스와이",
+        "market": "KOSDAQ",
+        "close": 2290,
+        "krx_traded_krw": 16890522438,
+        "nxt_traded_krw": 0,
+        "traded_krw": 16890522438
+      },
+      {
+        "ticker": "007390",
+        "name": "네이처셀",
+        "market": "KOSDAQ",
+        "close": 20550,
+        "krx_traded_krw": 10105301560,
+        "nxt_traded_krw": 6675644460,
+        "traded_krw": 16780946020
+      },
+      {
+        "ticker": "141080",
+        "name": "리가켐바이오",
+        "market": "KOSDAQ",
+        "close": 59300,
+        "krx_traded_krw": 11219688850,
+        "nxt_traded_krw": 5527793900,
+        "traded_krw": 16747482750
+      },
+      {
+        "ticker": "035900",
+        "name": "JYP Ent.",
+        "market": "KOSDAQ",
+        "close": 39800,
+        "krx_traded_krw": 11749219125,
+        "nxt_traded_krw": 4831976025,
+        "traded_krw": 16581195150
+      },
+      {
+        "ticker": "087010",
+        "name": "펩트론",
+        "market": "KOSDAQ",
+        "close": 93400,
+        "krx_traded_krw": 9512367500,
+        "nxt_traded_krw": 6984099650,
+        "traded_krw": 16496467150
       }
     ],
     "coverage": "KRX + NXT regular/closing; NXT block/basket excluded",
     "investor_flow_scope": "KRX ONLY; no NXT investor net flows",
     "matched_nxt_codes": 599,
     "unmatched_nxt_codes": 4,
-    "krx_universe_count": 2566,
-    "source_nxt_day": "2026-11-09"
+    "krx_universe_count": 2568,
+    "source_nxt_day": "2026-11-10"
   },
   "market_flows": {},
   "errors": [
-    "KRX 2026-11-10: DataValidationError: KRX KOSPI: 빈/비정상 API 응답"
+    "KRX 2026-11-11: DataValidationError: KRX KOSPI: 빈/비정상 API 응답"
   ],
   "notice": "T+1 EOD stocks only. Trade date verified from source, not collection time. Foreign and institutional investor net purchases are NOT in this file. aikstockdata license: attribution, noncommercial use only."
 }
