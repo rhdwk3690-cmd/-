@@ -5,15 +5,15 @@
   "market_scope": "KOSPI+KOSDAQ aggregate market breadth; as classified by provider",
   "source_data_quality": "prior-weekday dated observations; provisional current date excluded",
   "unit": "stocks",
-  "latest_date": "2026-11-09",
-  "observations": 31,
+  "latest_date": "2026-11-10",
+  "observations": 32,
   "adr20": {
-    "start_date": "2026-10-13",
-    "end_date": "2026-11-09",
+    "start_date": "2026-10-14",
+    "end_date": "2026-11-10",
     "days": 20,
-    "up_sum": 20050,
-    "down_sum": 30886,
-    "value_pct": 64.92
+    "up_sum": 21496,
+    "down_sum": 29470,
+    "value_pct": 72.94
   },
   "history": [
     {
@@ -232,24 +232,31 @@
       "down": 1368,
       "flat": 115,
       "universe_total": 2660
+    },
+    {
+      "date": "2026-11-10",
+      "up": 2115,
+      "down": 463,
+      "flat": 84,
+      "universe_total": 2662
     }
   ],
   "provisional_adr20": {
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "provisional": true,
-    "up": 2110,
-    "down": 470,
-    "flat": 81,
-    "universe_total": 2661,
-    "start_date": "2026-10-14",
-    "confirmed_through": "2026-11-09",
-    "up_sum": 21491,
-    "down_sum": 29477,
+    "up": 1855,
+    "down": 692,
+    "flat": 117,
+    "universe_total": 2664,
+    "start_date": "2026-10-15",
+    "confirmed_through": "2026-11-10",
+    "up_sum": 22061,
+    "down_sum": 28935,
     "days": 20,
-    "value_pct": 72.91,
+    "value_pct": 76.24,
     "note": "19 previously confirmed days + same-day provisional market breadth; may be revised"
   },
-  "collected_at_kst": "2026-11-10T17:28:08.716106+09:00",
+  "collected_at_kst": "2026-11-11T16:53:36.680015+09:00",
   "notice": "Free public non-KRX source; the earliest/backfilled dates were not independently reconciled against KRX. Holidays absent, not zero-filled. No intraday provisional.",
   "skipped_or_invalid_dates": []
 }
