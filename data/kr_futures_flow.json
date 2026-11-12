@@ -8,9 +8,9 @@
   "nominal_quality": "estimated_from_Npay_trade_prices_million_krw",
   "nominal_is_cash_flow": false,
   "contract_multiplier_krw_per_point": 250000,
-  "latest_date": "2026-11-11",
-  "observations": 53,
-  "collected_at_kst": "2026-11-11T17:27:18.732063+09:00",
+  "latest_date": "2026-11-12",
+  "observations": 54,
+  "collected_at_kst": "2026-11-12T16:54:50.293596+09:00",
   "history": [
     {
       "date": "2026-08-25",
@@ -594,6 +594,17 @@
       "institution_net_notional_krw": 627334000000,
       "individual_net_notional_krw": 129284000000,
       "estimated_reference_points": 820.77
+    },
+    {
+      "date": "2026-11-12",
+      "foreign_net_contracts": 468,
+      "institution_net_contracts": -647,
+      "individual_net_contracts": 42,
+      "other_net_contracts": 137,
+      "foreign_net_notional_krw": 92583000000,
+      "institution_net_notional_krw": -130520000000,
+      "individual_net_notional_krw": 8647000000,
+      "estimated_reference_points": 839.734
     }
   ],
   "note": "Net traded futures notional, NOT cash investment. Derivatives might be hedges. Price-unit inferred from KRW-million trading value and futures multiplier with plausibility screen."
