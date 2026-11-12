@@ -1,76 +1,76 @@
 {
-  "collected_at_utc": "2026-11-11T07:12:36.097418+00:00",
-  "collected_at_kst": "2026-11-11T16:12:36.097418+09:00",
+  "collected_at_utc": "2026-11-12T01:08:52.856278+00:00",
+  "collected_at_kst": "2026-11-12T10:08:52.856278+09:00",
   "markets": {
     "KOSPI": {
       "ticker": "^KS11",
-      "price": 5375.35986,
-      "change_pct": 2.6,
-      "price_date": "2026-11-11",
+      "price": 5398.62988,
+      "change_pct": 3.044,
+      "price_date": "2026-11-12",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "KOSDAQ": {
       "ticker": "^KQ11",
-      "price": 705.09998,
-      "change_pct": 5.616,
-      "price_date": "2026-11-11",
+      "price": 699.52002,
+      "change_pct": 4.78,
+      "price_date": "2026-11-12",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "S&P500": {
       "ticker": "^GSPC",
-      "price": 7520.93018,
-      "change_pct": -0.384,
-      "price_date": "2026-11-10",
+      "price": 7619.37988,
+      "change_pct": 1.309,
+      "price_date": "2026-11-11",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "NASDAQ": {
       "ticker": "^IXIC",
-      "price": 25065.86914,
-      "change_pct": -0.742,
-      "price_date": "2026-11-10",
+      "price": 25466.18945,
+      "change_pct": 1.597,
+      "price_date": "2026-11-11",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "USD/KRW": {
       "ticker": "KRW=X",
-      "price": 1334.44995,
-      "change_pct": -0.699,
-      "price_date": "2026-11-11",
+      "price": 1335.18005,
+      "change_pct": -0.502,
+      "price_date": "2026-11-12",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "WTI": {
       "ticker": "CL=F",
-      "price": 86.38,
-      "change_pct": 0.395,
+      "price": 85.99,
+      "change_pct": -0.058,
       "price_date": "2026-11-11",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "BRENT": {
       "ticker": "BZ=F",
-      "price": 92.2,
-      "change_pct": 0.776,
+      "price": 92.18,
+      "change_pct": 0.754,
       "price_date": "2026-11-11",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "US10Y": {
       "ticker": "^TNX",
-      "price": 4.983,
-      "change_pct": 2.447,
-      "price_date": "2026-11-10",
+      "price": 4.998,
+      "change_pct": 0.301,
+      "price_date": "2026-11-11",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "VIX": {
       "ticker": "^VIX",
-      "price": 19.46,
-      "change_pct": -2.309,
-      "price_date": "2026-11-10",
+      "price": 17.49,
+      "change_pct": -10.123,
+      "price_date": "2026-11-11",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     }
