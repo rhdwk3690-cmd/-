@@ -1,34 +1,29 @@
 {
   "source": "maedong.kr API /api/v1/stock/{code}/flow",
-  "collected_at_kst": "2026-11-12T19:33:45.362600+09:00",
-  "date": "2026-11-11",
-  "fingerprint": "3202d14286bd7bd86e7acebbe64724f0ae76b789fb8486aeffc8588c221fd754",
+  "collected_at_kst": "2026-11-13T19:31:53.451379+09:00",
+  "date": "2026-11-12",
+  "fingerprint": "4a8aff9cb2d91e2009ccbf4efa76b821d2585c5123f825aec9ff67b43c961fc2",
   "target_codes": 200,
   "attempted_codes": [
+    "000100",
     "000150",
-    "000250",
     "000270",
     "000500",
     "000660",
     "000720",
     "000810",
     "000990",
-    "001040",
     "001440",
     "001450",
     "001820",
     "002320",
-    "002990",
-    "003010",
     "003160",
     "003230",
-    "003380",
     "003490",
     "003495",
+    "003550",
     "003670",
-    "004170",
     "005380",
-    "005387",
     "005490",
     "005830",
     "005930",
@@ -39,7 +34,6 @@
     "006800",
     "007660",
     "007810",
-    "008830",
     "008930",
     "009150",
     "009420",
@@ -73,22 +67,23 @@
     "033780",
     "034020",
     "034220",
-    "034230",
     "034730",
     "035420",
     "035720",
     "035900",
+    "036460",
     "036540",
     "036570",
     "036710",
     "036930",
+    "037270",
     "039030",
-    "039610",
-    "042510",
+    "039490",
     "042660",
     "042700",
     "043260",
     "047040",
+    "047050",
     "047810",
     "051910",
     "053800",
@@ -99,64 +94,66 @@
     "064290",
     "064350",
     "064400",
-    "064760",
     "066570",
     "066970",
-    "067290",
     "067310",
     "068270",
+    "069510",
     "069540",
     "071050",
     "078350",
     "078600",
     "078930",
     "079550",
-    "080160",
     "080220",
-    "080580",
     "082740",
     "084370",
     "086280",
     "086520",
     "086790",
-    "087010",
     "089030",
+    "089890",
     "089970",
+    "090430",
     "092870",
     "093370",
+    "094850",
     "095340",
     "095610",
     "096770",
     "098460",
     "103590",
-    "104620",
     "105560",
-    "105740",
     "108490",
     "112610",
     "119850",
+    "120110",
     "121600",
-    "126340",
+    "125490",
     "128940",
     "131290",
     "131970",
     "138040",
+    "138930",
     "139480",
-    "141080",
+    "141000",
     "144960",
+    "161390",
     "161890",
+    "170920",
     "178320",
-    "179880",
     "180640",
     "181710",
     "192820",
+    "195870",
     "196170",
+    "204270",
     "207940",
-    "208370",
+    "211270",
     "214450",
     "218410",
     "222800",
-    "232140",
+    "235980",
     "240810",
     "247540",
     "252990",
@@ -175,12 +172,12 @@
     "281820",
     "282720",
     "290550",
+    "290650",
     "298040",
     "298380",
     "316140",
     "319660",
-    "322000",
-    "323280",
+    "323410",
     "326030",
     "327260",
     "328130",
@@ -188,8 +185,9 @@
     "347850",
     "352820",
     "353200",
-    "356680",
     "356860",
+    "359410",
+    "368770",
     "373220",
     "389260",
     "402340",
@@ -198,1278 +196,1280 @@
     "425420",
     "437730",
     "440110",
+    "443060",
     "443670",
+    "451760",
+    "452190",
     "457190",
-    "460940",
-    "468530",
     "475150",
+    "483650",
     "489790",
-    "491000"
+    "493410"
   ],
   "published_codes": 200,
   "complete_codes": 200,
   "status": "complete",
   "rows": {
     "000660": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 129155000000,
-      "institution_net_krw": -192517000000,
-      "individual_net_krw": -370707000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -861810000000,
+      "institution_net_krw": 491034000000,
+      "individual_net_krw": -69995000000
     },
     "005930": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 541143000000,
-      "institution_net_krw": -130950000000,
-      "individual_net_krw": -418242000000
-    },
-    "009150": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 36044000000,
-      "institution_net_krw": 1207000000,
-      "individual_net_krw": -37085000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 756644000000,
+      "institution_net_krw": -267500000000,
+      "individual_net_krw": -467053000000
     },
     "005935": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -37361000000,
-      "institution_net_krw": -13322000000,
-      "individual_net_krw": 45959000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 138830000000,
+      "institution_net_krw": 17956000000,
+      "individual_net_krw": -143050000000
+    },
+    "009150": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -12081000000,
+      "institution_net_krw": -107522000000,
+      "individual_net_krw": 117072000000
     },
     "402340": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 45081000000,
-      "institution_net_krw": -37453000000,
-      "individual_net_krw": -8553000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 138358000000,
+      "institution_net_krw": -154758000000,
+      "individual_net_krw": 14735000000
     },
     "036930": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 10423000000,
-      "institution_net_krw": 26043000000,
-      "individual_net_krw": -36266000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -68639000000,
+      "institution_net_krw": 12049000000,
+      "individual_net_krw": 56149000000
     },
     "006400": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 31786000000,
-      "institution_net_krw": 17002000000,
-      "individual_net_krw": -45675000000
-    },
-    "180640": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -6054000000,
-      "institution_net_krw": 9365000000,
-      "individual_net_krw": -3110000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -5037000000,
+      "institution_net_krw": 9845000000,
+      "individual_net_krw": -4727000000
     },
     "035420": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 9512000000,
-      "institution_net_krw": 24773000000,
-      "individual_net_krw": -32981000000
-    },
-    "012450": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10830000000,
-      "institution_net_krw": -27009000000,
-      "individual_net_krw": 12944000000
-    },
-    "028050": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -15514000000,
-      "institution_net_krw": 10606000000,
-      "individual_net_krw": -12398000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -11448000000,
+      "institution_net_krw": -72002000000,
+      "individual_net_krw": 80590000000
     },
     "353200": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -29115000000,
-      "institution_net_krw": 23622000000,
-      "individual_net_krw": 5229000000
-    },
-    "222800": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -17954000000,
-      "institution_net_krw": 23845000000,
-      "individual_net_krw": -6668000000
-    },
-    "068270": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 19485000000,
-      "institution_net_krw": -4703000000,
-      "individual_net_krw": -20942000000
-    },
-    "042700": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2220000000,
-      "institution_net_krw": 9050000000,
-      "individual_net_krw": -6856000000
-    },
-    "034020": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -11182000000,
-      "institution_net_krw": -20526000000,
-      "individual_net_krw": 32026000000
-    },
-    "009830": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1894000000,
-      "institution_net_krw": 1926000000,
-      "individual_net_krw": -4104000000
-    },
-    "105560": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 44628000000,
-      "institution_net_krw": -42415000000,
-      "individual_net_krw": -1910000000
-    },
-    "007810": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2542000000,
-      "institution_net_krw": 14923000000,
-      "individual_net_krw": -17640000000
-    },
-    "003490": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2176000000,
-      "institution_net_krw": 7556000000,
-      "individual_net_krw": -9807000000
-    },
-    "030530": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -347000000,
-      "institution_net_krw": 4866000000,
-      "individual_net_krw": -4081000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -15703000000,
+      "institution_net_krw": 19319000000,
+      "individual_net_krw": -3255000000
     },
     "263860": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -8326000000,
-      "institution_net_krw": -798000000,
-      "individual_net_krw": 9055000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -3701000000,
+      "institution_net_krw": 1980000000,
+      "individual_net_krw": 1170000000
+    },
+    "180640": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -6816000000,
+      "institution_net_krw": 6277000000,
+      "individual_net_krw": 558000000
     },
     "000810": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2769000000,
-      "institution_net_krw": -12693000000,
-      "individual_net_krw": 9661000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -1567000000,
+      "institution_net_krw": -7888000000,
+      "individual_net_krw": 9419000000
     },
-    "010120": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -4949000000,
-      "institution_net_krw": -20033000000,
-      "individual_net_krw": 24383000000
+    "493410": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 601000000,
+      "institution_net_krw": -20800000000,
+      "individual_net_krw": 23954000000
     },
-    "207940": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -6448000000,
-      "institution_net_krw": -7298000000,
-      "individual_net_krw": 13945000000
+    "105560": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 62234000000,
+      "institution_net_krw": -66461000000,
+      "individual_net_krw": 4174000000
     },
-    "007660": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -25158000000,
-      "institution_net_krw": 28255000000,
-      "individual_net_krw": -2802000000
-    },
-    "181710": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 12613000000,
-      "institution_net_krw": -6146000000,
-      "individual_net_krw": -6259000000
+    "222800": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -32092000000,
+      "institution_net_krw": 25286000000,
+      "individual_net_krw": 7075000000
     },
     "005380": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -9310000000,
-      "institution_net_krw": -19941000000,
-      "individual_net_krw": 28939000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 13327000000,
+      "institution_net_krw": -46867000000,
+      "individual_net_krw": 33501000000
     },
-    "053800": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 7711000000,
-      "institution_net_krw": -3648000000,
-      "individual_net_krw": -4109000000
+    "007660": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -19391000000,
+      "institution_net_krw": 19350000000,
+      "individual_net_krw": 1376000000
     },
-    "240810": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 923000000,
-      "institution_net_krw": 6203000000,
-      "individual_net_krw": -7109000000
+    "207940": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 5727000000,
+      "institution_net_krw": -450000000,
+      "individual_net_krw": -5211000000
     },
-    "196170": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 25587000000,
-      "institution_net_krw": -6842000000,
-      "individual_net_krw": -19841000000
-    },
-    "278470": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 25359000000,
-      "institution_net_krw": -16122000000,
-      "individual_net_krw": -9489000000
-    },
-    "000150": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10757000000,
-      "institution_net_krw": 11425000000,
-      "individual_net_krw": -661000000
-    },
-    "329180": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -5800000000,
-      "institution_net_krw": -16332000000,
-      "individual_net_krw": 22178000000
-    },
-    "055550": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -403000000,
-      "institution_net_krw": -1704000000,
-      "individual_net_krw": 1979000000
-    },
-    "086520": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 14585000000,
-      "institution_net_krw": 9082000000,
-      "individual_net_krw": -23684000000
-    },
-    "017670": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1969000000,
-      "institution_net_krw": 14868000000,
-      "individual_net_krw": -12583000000
-    },
-    "373220": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10970000000,
-      "institution_net_krw": 9869000000,
-      "individual_net_krw": 1268000000
-    },
-    "064400": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1506000000,
-      "institution_net_krw": -7717000000,
-      "individual_net_krw": 6018000000
-    },
-    "298040": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 4556000000,
-      "institution_net_krw": -2884000000,
-      "individual_net_krw": -1775000000
-    },
-    "000270": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -478000000,
-      "institution_net_krw": -22149000000,
-      "individual_net_krw": 21608000000
-    },
-    "028260": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 5719000000,
-      "institution_net_krw": -7944000000,
-      "individual_net_krw": 2821000000
-    },
-    "034730": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3516000000,
-      "institution_net_krw": -130000000,
-      "individual_net_krw": -3117000000
-    },
-    "010060": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3704000000,
-      "institution_net_krw": 10868000000,
-      "individual_net_krw": -14690000000
-    },
-    "128940": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 244000000,
-      "institution_net_krw": 19961000000,
-      "individual_net_krw": -19068000000
-    },
-    "079550": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3783000000,
-      "institution_net_krw": -2393000000,
-      "individual_net_krw": -1533000000
-    },
-    "267260": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 7409000000,
-      "institution_net_krw": -7390000000,
-      "individual_net_krw": -268000000
-    },
-    "003495": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -20000000,
-      "institution_net_krw": -173000000,
-      "individual_net_krw": 72000000
-    },
-    "328130": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3151000000,
-      "institution_net_krw": -15641000000,
-      "individual_net_krw": 18724000000
-    },
-    "108490": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 975000000,
-      "institution_net_krw": 11152000000,
-      "individual_net_krw": -12529000000
-    },
-    "192820": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -17458000000,
-      "institution_net_krw": 7221000000,
-      "individual_net_krw": 10046000000
-    },
-    "403870": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10893000000,
-      "institution_net_krw": 5768000000,
-      "individual_net_krw": 4942000000
-    },
-    "247540": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3502000000,
-      "institution_net_krw": 18712000000,
-      "individual_net_krw": -22128000000
-    },
-    "010170": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 7579000000,
-      "institution_net_krw": 443000000,
-      "individual_net_krw": -8027000000
-    },
-    "272450": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3367000000,
-      "institution_net_krw": 5444000000,
-      "individual_net_krw": -8743000000
-    },
-    "066570": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 610000000,
-      "institution_net_krw": -5066000000,
-      "individual_net_krw": 4244000000
-    },
-    "086790": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 4195000000,
-      "institution_net_krw": 61000000,
-      "individual_net_krw": -3836000000
-    },
-    "009540": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 4583000000,
-      "institution_net_krw": -7104000000,
-      "individual_net_krw": 2389000000
-    },
-    "006360": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2126000000,
-      "institution_net_krw": -9428000000,
-      "individual_net_krw": 11420000000
-    },
-    "080220": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2526000000,
-      "institution_net_krw": 504000000,
-      "individual_net_krw": -3241000000
-    },
-    "014950": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1305000000,
-      "institution_net_krw": -233000000,
-      "individual_net_krw": 1591000000
-    },
-    "003230": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 11757000000,
-      "institution_net_krw": -9788000000,
-      "individual_net_krw": -2274000000
-    },
-    "012330": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 5360000000,
-      "institution_net_krw": -9339000000,
-      "individual_net_krw": 3762000000
-    },
-    "018260": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -4469000000,
-      "institution_net_krw": 5018000000,
-      "individual_net_krw": -556000000
-    },
-    "047040": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1629000000,
-      "institution_net_krw": -1176000000,
-      "individual_net_krw": -437000000
-    },
-    "267850": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1222000000,
-      "institution_net_krw": 17000000,
-      "individual_net_krw": -1273000000
-    },
-    "035720": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -5277000000,
-      "institution_net_krw": -7402000000,
-      "individual_net_krw": 1459000000
-    },
-    "437730": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 6522000000,
-      "institution_net_krw": -1816000000,
-      "individual_net_krw": -4245000000
-    },
-    "032830": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -12821000000,
-      "institution_net_krw": 12634000000,
-      "individual_net_krw": 366000000
-    },
-    "003670": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1525000000,
-      "institution_net_krw": 10180000000,
-      "individual_net_krw": -11337000000
-    },
-    "131290": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -18782000000,
-      "institution_net_krw": 15995000000,
-      "individual_net_krw": 2204000000
-    },
-    "015760": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3890000000,
-      "institution_net_krw": 5539000000,
-      "individual_net_krw": -1561000000
-    },
-    "033780": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -17893000000,
-      "institution_net_krw": -4390000000,
-      "individual_net_krw": 5689000000
+    "042700": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 17828000000,
+      "institution_net_krw": -26758000000,
+      "individual_net_krw": 9100000000
     },
     "000990": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -4724000000,
-      "institution_net_krw": 7020000000,
-      "individual_net_krw": -2332000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -58394000000,
+      "institution_net_krw": -12683000000,
+      "individual_net_krw": 71344000000
     },
-    "039030": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -16355000000,
-      "institution_net_krw": 14269000000,
-      "individual_net_krw": 1837000000
-    },
-    "259960": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -5065000000,
-      "institution_net_krw": -9334000000,
-      "individual_net_krw": 8615000000
-    },
-    "003160": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -4175000000,
-      "institution_net_krw": 7142000000,
-      "individual_net_krw": -2917000000
-    },
-    "036540": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -8185000000,
-      "institution_net_krw": 7163000000,
-      "individual_net_krw": 933000000
-    },
-    "010140": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1839000000,
-      "institution_net_krw": -145000000,
-      "individual_net_krw": 2033000000
-    },
-    "218410": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -8935000000,
-      "institution_net_krw": 16209000000,
-      "individual_net_krw": -7191000000
-    },
-    "356860": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -5279000000,
-      "institution_net_krw": 9339000000,
-      "individual_net_krw": -4329000000
-    },
-    "005830": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 10430000000,
-      "institution_net_krw": -13226000000,
-      "individual_net_krw": 2800000000
-    },
-    "043260": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2608000000,
-      "institution_net_krw": 664000000,
-      "individual_net_krw": -3213000000
-    },
-    "005490": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -185000000,
-      "institution_net_krw": 2431000000,
-      "individual_net_krw": -5099000000
-    },
-    "096770": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1110000000,
-      "institution_net_krw": -5396000000,
-      "individual_net_krw": 6478000000
-    },
-    "089030": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 464000000,
-      "institution_net_krw": 6591000000,
-      "individual_net_krw": -7059000000
-    },
-    "031980": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -14804000000,
-      "institution_net_krw": 13202000000,
-      "individual_net_krw": 1222000000
-    },
-    "067310": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10119000000,
-      "institution_net_krw": 2768000000,
-      "individual_net_krw": 7261000000
-    },
-    "347850": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1368000000,
-      "institution_net_krw": 2447000000,
-      "individual_net_krw": -3566000000
-    },
-    "047810": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3175000000,
-      "institution_net_krw": 6282000000,
-      "individual_net_krw": -9461000000
-    },
-    "051910": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 4098000000,
-      "institution_net_krw": -861000000,
-      "individual_net_krw": -3210000000
-    },
-    "316140": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1326000000,
-      "institution_net_krw": 2015000000,
-      "individual_net_krw": -833000000
-    },
-    "095610": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10200000000,
-      "institution_net_krw": 13928000000,
-      "individual_net_krw": -3413000000
-    },
-    "042660": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 409000000,
-      "institution_net_krw": -7758000000,
-      "individual_net_krw": 7218000000
-    },
-    "103590": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -5325000000,
-      "institution_net_krw": 819000000,
-      "individual_net_krw": 4494000000
-    },
-    "139480": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -13508000000,
-      "institution_net_krw": -3298000000,
-      "individual_net_krw": 16705000000
-    },
-    "011200": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3883000000,
-      "institution_net_krw": -6519000000,
-      "individual_net_krw": 10088000000
-    },
-    "252990": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -7877000000,
-      "institution_net_krw": 9701000000,
-      "individual_net_krw": -2276000000
-    },
-    "008830": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2484000000,
-      "institution_net_krw": 0,
-      "individual_net_krw": 2515000000
-    },
-    "078600": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -571000000,
-      "institution_net_krw": 11639000000,
-      "individual_net_krw": -11535000000
-    },
-    "098460": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -422000000,
-      "institution_net_krw": 862000000,
-      "individual_net_krw": -761000000
-    },
-    "078930": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -13371000000,
-      "institution_net_krw": 12784000000,
-      "individual_net_krw": 284000000
-    },
-    "352820": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 795000000,
-      "institution_net_krw": 3397000000,
-      "individual_net_krw": -4263000000
-    },
-    "042510": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2496000000,
-      "institution_net_krw": 342000000,
-      "individual_net_krw": -2844000000
-    },
-    "104620": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -175000000,
-      "institution_net_krw": -14000000,
-      "individual_net_krw": 189000000
-    },
-    "257720": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2270000000,
-      "institution_net_krw": -1178000000,
-      "individual_net_krw": 3652000000
-    },
-    "011070": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 958000000,
-      "institution_net_krw": -1005000000,
-      "individual_net_krw": -257000000
-    },
-    "121600": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1497000000,
-      "institution_net_krw": 11271000000,
-      "individual_net_krw": -13043000000
-    },
-    "440110": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -45000000,
-      "institution_net_krw": -4765000000,
-      "individual_net_krw": 4907000000
-    },
-    "089970": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -7082000000,
-      "institution_net_krw": 6455000000,
-      "individual_net_krw": 171000000
-    },
-    "010950": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 6382000000,
-      "institution_net_krw": -14900000000,
-      "individual_net_krw": 8267000000
-    },
-    "319660": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3446000000,
-      "institution_net_krw": 4220000000,
-      "individual_net_krw": -613000000
-    },
-    "112610": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 6490000000,
-      "institution_net_krw": -3439000000,
-      "individual_net_krw": -2736000000
+    "012450": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1391000000,
+      "institution_net_krw": -29990000000,
+      "individual_net_krw": 121000000
     },
     "035900": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1457000000,
-      "institution_net_krw": -4292000000,
-      "individual_net_krw": 5591000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 6145000000,
+      "institution_net_krw": 1802000000,
+      "individual_net_krw": -7017000000
     },
-    "009420": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3223000000,
-      "institution_net_krw": 8526000000,
-      "individual_net_krw": -5143000000
+    "128940": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2661000000,
+      "institution_net_krw": -12877000000,
+      "individual_net_krw": 10214000000
     },
-    "034230": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1065000000,
-      "institution_net_krw": 1897000000,
-      "individual_net_krw": -511000000
+    "028050": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -15451000000,
+      "institution_net_krw": 10220000000,
+      "individual_net_krw": -11816000000
     },
-    "093370": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2603000000,
-      "institution_net_krw": 2422000000,
-      "individual_net_krw": 250000000
+    "003230": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -18280000000,
+      "institution_net_krw": 17566000000,
+      "individual_net_krw": -764000000
     },
-    "253590": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 875000000,
-      "institution_net_krw": -1133000000,
-      "individual_net_krw": -165000000
+    "298040": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 12852000000,
+      "institution_net_krw": 7687000000,
+      "individual_net_krw": -20512000000
     },
-    "001450": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 8790000000,
-      "institution_net_krw": -10849000000,
-      "individual_net_krw": 1978000000
+    "028260": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 21510000000,
+      "institution_net_krw": -13801000000,
+      "individual_net_krw": -7887000000
     },
-    "092870": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -9227000000,
-      "institution_net_krw": 5811000000,
-      "individual_net_krw": 3277000000
+    "034020": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 598000000,
+      "institution_net_krw": -8853000000,
+      "individual_net_krw": 8211000000
     },
-    "131970": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -8674000000,
-      "institution_net_krw": 10103000000,
-      "individual_net_krw": -1668000000
+    "068270": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 10645000000,
+      "institution_net_krw": -2777000000,
+      "individual_net_krw": -8001000000
     },
-    "084370": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3624000000,
-      "institution_net_krw": -1756000000,
-      "individual_net_krw": 5805000000
+    "007810": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1258000000,
+      "institution_net_krw": 5574000000,
+      "individual_net_krw": -7592000000
     },
-    "001820": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2343000000,
-      "institution_net_krw": 1120000000,
-      "individual_net_krw": 1229000000
+    "010120": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 11356000000,
+      "institution_net_krw": 1657000000,
+      "individual_net_krw": -13153000000
     },
-    "298380": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -9000000000,
-      "institution_net_krw": 14127000000,
-      "individual_net_krw": -5336000000
+    "009830": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2896000000,
+      "institution_net_krw": -14647000000,
+      "individual_net_krw": 18426000000
     },
-    "066970": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3843000000,
-      "institution_net_krw": -2140000000,
-      "individual_net_krw": -1690000000
+    "278470": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 8905000000,
+      "institution_net_krw": -18773000000,
+      "individual_net_krw": 10619000000
     },
-    "327260": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -6385000000,
-      "institution_net_krw": 4656000000,
-      "individual_net_krw": 1521000000
+    "032830": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 20178000000,
+      "institution_net_krw": 26945000000,
+      "individual_net_krw": -47156000000
     },
-    "144960": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 439000000,
-      "institution_net_krw": 3635000000,
-      "individual_net_krw": -3800000000
+    "055550": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 34804000000,
+      "institution_net_krw": -33224000000,
+      "individual_net_krw": -1298000000
     },
-    "036710": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1315000000,
-      "institution_net_krw": -711000000,
-      "individual_net_krw": -707000000
+    "267260": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 27493000000,
+      "institution_net_krw": -21232000000,
+      "individual_net_krw": -6270000000
     },
-    "058470": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2669000000,
-      "institution_net_krw": 685000000,
-      "individual_net_krw": 2095000000
+    "373220": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2218000000,
+      "institution_net_krw": -7075000000,
+      "individual_net_krw": 4913000000
     },
-    "277810": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2496000000,
-      "institution_net_krw": 3048000000,
-      "individual_net_krw": -5502000000
+    "000150": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 5756000000,
+      "institution_net_krw": -4402000000,
+      "individual_net_krw": -1120000000
     },
-    "062040": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 827000000,
-      "institution_net_krw": -4271000000,
-      "individual_net_krw": 3330000000
+    "012330": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 27692000000,
+      "institution_net_krw": -21491000000,
+      "individual_net_krw": -5816000000
     },
-    "281820": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10475000000,
-      "institution_net_krw": 10950000000,
-      "individual_net_krw": -593000000
+    "329180": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 19817000000,
+      "institution_net_krw": -10860000000,
+      "individual_net_krw": -8977000000
     },
-    "119850": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1097000000,
-      "institution_net_krw": 2581000000,
-      "individual_net_krw": -3995000000
+    "356860": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 4965000000,
+      "institution_net_krw": 8243000000,
+      "individual_net_krw": -13797000000
     },
-    "141080": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -10116000000,
-      "institution_net_krw": 13644000000,
-      "individual_net_krw": -3493000000
+    "003490": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 23218000000,
+      "institution_net_krw": -15580000000,
+      "individual_net_krw": -6900000000
     },
-    "001440": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -167000000,
-      "institution_net_krw": 287000000,
-      "individual_net_krw": 31000000
-    },
-    "000500": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1217000000,
-      "institution_net_krw": 3941000000,
-      "individual_net_krw": -3121000000
-    },
-    "036570": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 529000000,
-      "institution_net_krw": -2207000000,
-      "individual_net_krw": 1716000000
-    },
-    "267270": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -13538000000,
-      "institution_net_krw": 8705000000,
-      "individual_net_krw": 4265000000
-    },
-    "000720": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -623000000,
-      "institution_net_krw": 64000000,
-      "individual_net_krw": 531000000
-    },
-    "002320": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1505000000,
-      "institution_net_krw": 747000000,
-      "individual_net_krw": 1020000000
+    "267850": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1121000000,
+      "institution_net_krw": -2000000,
+      "individual_net_krw": 1194000000
     },
     "138040": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2138000000,
-      "institution_net_krw": -1177000000,
-      "individual_net_krw": -1105000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -9717000000,
+      "institution_net_krw": -17263000000,
+      "individual_net_krw": 25551000000
     },
-    "178320": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1159000000,
-      "institution_net_krw": -816000000,
-      "individual_net_krw": -707000000
+    "000270": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 15255000000,
+      "institution_net_krw": -20408000000,
+      "individual_net_krw": 5144000000
     },
-    "008930": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 10628000000,
-      "institution_net_krw": -9406000000,
-      "individual_net_krw": -1025000000
+    "034730": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 12700000000,
+      "institution_net_krw": -5479000000,
+      "individual_net_krw": -6928000000
+    },
+    "079550": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 14174000000,
+      "institution_net_krw": -13429000000,
+      "individual_net_krw": -726000000
+    },
+    "005490": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -16007000000,
+      "institution_net_krw": 7562000000,
+      "individual_net_krw": -5484000000
+    },
+    "066570": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 6083000000,
+      "institution_net_krw": -8952000000,
+      "individual_net_krw": 3123000000
+    },
+    "204270": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2254000000,
+      "institution_net_krw": -268000000,
+      "individual_net_krw": 3001000000
+    },
+    "086790": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 21454000000,
+      "institution_net_krw": -19748000000,
+      "individual_net_krw": -1366000000
+    },
+    "010170": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1389000000,
+      "institution_net_krw": 373000000,
+      "individual_net_krw": -1758000000
+    },
+    "240810": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -6017000000,
+      "institution_net_krw": 4224000000,
+      "individual_net_krw": 2482000000
+    },
+    "403870": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -4629000000,
+      "institution_net_krw": -2136000000,
+      "individual_net_krw": 6699000000
+    },
+    "017670": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 12464000000,
+      "institution_net_krw": -11556000000,
+      "individual_net_krw": -967000000
+    },
+    "196170": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 8989000000,
+      "institution_net_krw": -19100000000,
+      "individual_net_krw": 10138000000
+    },
+    "030530": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 813000000,
+      "institution_net_krw": 1916000000,
+      "individual_net_krw": -3030000000
+    },
+    "211270": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2782000000,
+      "institution_net_krw": -30000000,
+      "individual_net_krw": 2806000000
+    },
+    "192820": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -17907000000,
+      "institution_net_krw": 4096000000,
+      "individual_net_krw": 11989000000
+    },
+    "247540": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -20062000000,
+      "institution_net_krw": 14550000000,
+      "individual_net_krw": 5486000000
+    },
+    "015760": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 7220000000,
+      "institution_net_krw": -1101000000,
+      "individual_net_krw": -5419000000
+    },
+    "010060": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -9095000000,
+      "institution_net_krw": -5112000000,
+      "individual_net_krw": 13882000000
+    },
+    "010140": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 26781000000,
+      "institution_net_krw": -17820000000,
+      "individual_net_krw": -8738000000
+    },
+    "033780": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2488000000,
+      "institution_net_krw": -15847000000,
+      "individual_net_krw": 3491000000
+    },
+    "352820": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 831000000,
+      "institution_net_krw": 11887000000,
+      "individual_net_krw": -13014000000
+    },
+    "036540": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3108000000,
+      "institution_net_krw": 783000000,
+      "individual_net_krw": 1807000000
+    },
+    "316140": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 19511000000,
+      "institution_net_krw": -16754000000,
+      "individual_net_krw": -2742000000
     },
     "443670": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 456000000,
-      "institution_net_krw": 0,
-      "individual_net_krw": -421000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -1161000000,
+      "institution_net_krw": -5000000,
+      "individual_net_krw": 1174000000
     },
-    "272210": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 5510000000,
-      "institution_net_krw": -3741000000,
-      "individual_net_krw": -1774000000
+    "036570": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1526000000,
+      "institution_net_krw": -20899000000,
+      "individual_net_krw": 19284000000
     },
-    "475150": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3453000000,
-      "institution_net_krw": 810000000,
-      "individual_net_krw": -4212000000
-    },
-    "208370": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -606000000,
-      "institution_net_krw": 0,
-      "individual_net_krw": 639000000
-    },
-    "095340": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2471000000,
-      "institution_net_krw": 4578000000,
-      "individual_net_krw": -2107000000
-    },
-    "425420": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1605000000,
-      "institution_net_krw": 1510000000,
-      "individual_net_krw": 244000000
-    },
-    "071050": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2065000000,
-      "institution_net_krw": -1472000000,
-      "individual_net_krw": 3451000000
-    },
-    "064290": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -6829000000,
-      "institution_net_krw": 6390000000,
-      "individual_net_krw": 134000000
-    },
-    "006260": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -860000000,
-      "institution_net_krw": -4517000000,
-      "individual_net_krw": 5335000000
-    },
-    "010130": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3519000000,
-      "institution_net_krw": -10589000000,
-      "individual_net_krw": 6774000000
-    },
-    "179880": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -352000000,
-      "institution_net_krw": 123000000,
-      "individual_net_krw": 179000000
-    },
-    "460940": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -959000000,
-      "institution_net_krw": -2000000,
-      "individual_net_krw": 964000000
-    },
-    "290550": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3177000000,
-      "institution_net_krw": 4116000000,
-      "individual_net_krw": -7056000000
-    },
-    "069540": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1320000000,
-      "institution_net_krw": 0,
-      "individual_net_krw": -1322000000
-    },
-    "006800": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1283000000,
-      "institution_net_krw": -1266000000,
-      "individual_net_krw": 8000000
-    },
-    "086280": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -147000000,
-      "institution_net_krw": 1701000000,
-      "individual_net_krw": -1538000000
-    },
-    "080160": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1457000000,
-      "institution_net_krw": 178000000,
-      "individual_net_krw": 1023000000
-    },
-    "326030": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1967000000,
-      "institution_net_krw": 1507000000,
-      "individual_net_krw": -513000000
-    },
-    "003010": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1068000000,
-      "institution_net_krw": 213000000,
-      "individual_net_krw": -1223000000
-    },
-    "021240": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 5282000000,
-      "institution_net_krw": -6459000000,
-      "individual_net_krw": -1354000000
-    },
-    "032640": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2990000000,
-      "institution_net_krw": 2906000000,
-      "individual_net_krw": -32000000
+    "064400": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3477000000,
+      "institution_net_krw": -4854000000,
+      "individual_net_krw": 1588000000
     },
     "282720": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -78000000,
-      "institution_net_krw": -2000000,
-      "individual_net_krw": 70000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 255000000,
+      "institution_net_krw": -12000000,
+      "individual_net_krw": -230000000
     },
-    "004170": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3054000000,
-      "institution_net_krw": -3657000000,
-      "individual_net_krw": 606000000
+    "086520": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -12006000000,
+      "institution_net_krw": 1002000000,
+      "individual_net_krw": 10811000000
     },
-    "087010": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -710000000,
-      "institution_net_krw": 7577000000,
-      "individual_net_krw": -6820000000
+    "018260": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 5221000000,
+      "institution_net_krw": 6638000000,
+      "individual_net_krw": -11962000000
     },
-    "105740": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2268000000,
-      "institution_net_krw": 0,
-      "individual_net_krw": 2367000000
+    "051910": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -10637000000,
+      "institution_net_krw": 8963000000,
+      "individual_net_krw": 1642000000
     },
-    "457190": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3493000000,
-      "institution_net_krw": 2722000000,
-      "individual_net_krw": -6306000000
+    "053800": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -6753000000,
+      "institution_net_krw": -1323000000,
+      "individual_net_krw": 8237000000
     },
-    "039610": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -996000000,
-      "institution_net_krw": -4000000,
-      "individual_net_krw": 999000000
+    "257720": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -11377000000,
+      "institution_net_krw": -12669000000,
+      "individual_net_krw": 23958000000
     },
-    "214450": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1019000000,
-      "institution_net_krw": -485000000,
-      "individual_net_krw": 1550000000
+    "043260": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1031000000,
+      "institution_net_krw": 1294000000,
+      "individual_net_krw": -369000000
     },
-    "064760": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -206000000,
-      "institution_net_krw": -723000000,
-      "individual_net_krw": 917000000
+    "035720": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 5660000000,
+      "institution_net_krw": -10951000000,
+      "individual_net_krw": -5786000000
     },
-    "002990": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1515000000,
-      "institution_net_krw": 118000000,
-      "individual_net_krw": 1349000000
+    "483650": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -20786000000,
+      "institution_net_krw": -7238000000,
+      "individual_net_krw": 27424000000
     },
-    "491000": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3240000000,
-      "institution_net_krw": 306000000,
-      "individual_net_krw": -3506000000
+    "006800": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 9889000000,
+      "institution_net_krw": -11587000000,
+      "individual_net_krw": 1461000000
     },
-    "232140": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3721000000,
-      "institution_net_krw": 6059000000,
-      "individual_net_krw": -2339000000
+    "003670": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -4521000000,
+      "institution_net_krw": 1209000000,
+      "individual_net_krw": 3236000000
     },
-    "082740": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1081000000,
-      "institution_net_krw": -2727000000,
-      "individual_net_krw": 3536000000
+    "011200": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 10103000000,
+      "institution_net_krw": -12033000000,
+      "individual_net_krw": 1755000000
     },
-    "078350": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1394000000,
-      "institution_net_krw": -1136000000,
-      "individual_net_krw": -576000000
+    "067310": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 601000000,
+      "institution_net_krw": -5657000000,
+      "individual_net_krw": 5775000000
     },
-    "000250": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 170000000,
-      "institution_net_krw": 1557000000,
-      "individual_net_krw": -1764000000
+    "096770": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 6749000000,
+      "institution_net_krw": -15678000000,
+      "individual_net_krw": 8781000000
     },
-    "028300": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1390000000,
-      "institution_net_krw": -2046000000,
-      "individual_net_krw": 3500000000
+    "005830": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 6245000000,
+      "institution_net_krw": -8233000000,
+      "individual_net_krw": 1959000000
     },
-    "064350": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -2074000000,
-      "institution_net_krw": -817000000,
-      "individual_net_krw": 2668000000
+    "069540": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2123000000,
+      "institution_net_krw": -7000000,
+      "individual_net_krw": 2112000000
     },
-    "322000": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 4283000000,
-      "institution_net_krw": -1545000000,
-      "individual_net_krw": -2660000000
+    "080220": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -5003000000,
+      "institution_net_krw": -2288000000,
+      "individual_net_krw": 7331000000
     },
-    "034220": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3268000000,
-      "institution_net_krw": 839000000,
-      "individual_net_krw": 2390000000
+    "328130": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 565000000,
+      "institution_net_krw": 1347000000,
+      "individual_net_krw": -1967000000
+    },
+    "003495": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -8000000,
+      "institution_net_krw": 45000000,
+      "individual_net_krw": -38000000
+    },
+    "108490": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3770000000,
+      "institution_net_krw": 2178000000,
+      "individual_net_krw": -5048000000
+    },
+    "181710": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 358000000,
+      "institution_net_krw": -5422000000,
+      "individual_net_krw": 4348000000
+    },
+    "009540": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 8918000000,
+      "institution_net_krw": -10773000000,
+      "individual_net_krw": 1707000000
+    },
+    "036710": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3005000000,
+      "institution_net_krw": 1161000000,
+      "individual_net_krw": -3887000000
     },
     "420610": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -53000000,
-      "institution_net_krw": -1000000,
-      "individual_net_krw": 53000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 531000000,
+      "institution_net_krw": -13000000,
+      "individual_net_krw": -565000000
     },
-    "323280": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 3483000000,
-      "institution_net_krw": -415000000,
-      "individual_net_krw": -3056000000
-    },
-    "468530": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2775000000,
-      "institution_net_krw": -2796000000,
-      "individual_net_krw": 72000000
+    "011070": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 161000000,
+      "institution_net_krw": -3502000000,
+      "individual_net_krw": 3073000000
     },
     "058610": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 494000000,
-      "institution_net_krw": 3044000000,
-      "individual_net_krw": -3484000000
+      "date": "2026-11-12",
+      "foreign_net_krw": -13748000000,
+      "institution_net_krw": -5840000000,
+      "individual_net_krw": 19410000000
     },
-    "126340": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -316000000,
-      "institution_net_krw": -185000000,
-      "individual_net_krw": 266000000
+    "071050": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3214000000,
+      "institution_net_krw": 4169000000,
+      "individual_net_krw": -1793000000
     },
-    "161890": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -1634000000,
-      "institution_net_krw": -1006000000,
-      "individual_net_krw": 2700000000
+    "047040": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 428000000,
+      "institution_net_krw": -1796000000,
+      "individual_net_krw": 1413000000
     },
-    "067290": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 115000000,
-      "institution_net_krw": -11000000,
-      "individual_net_krw": -107000000
+    "010950": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 10928000000,
+      "institution_net_krw": -16395000000,
+      "individual_net_krw": 5431000000
     },
-    "080580": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -5983000000,
-      "institution_net_krw": 6342000000,
-      "individual_net_krw": -359000000
+    "042660": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 565000000,
+      "institution_net_krw": -4410000000,
+      "individual_net_krw": 4002000000
     },
-    "489790": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2444000000,
-      "institution_net_krw": -3561000000,
-      "individual_net_krw": 1122000000
+    "139480": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -9935000000,
+      "institution_net_krw": 8596000000,
+      "individual_net_krw": 1166000000
     },
-    "389260": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 525000000,
-      "institution_net_krw": -300000000,
-      "individual_net_krw": -241000000
+    "047810": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2530000000,
+      "institution_net_krw": 270000000,
+      "individual_net_krw": 2349000000
     },
-    "005387": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 389000000,
-      "institution_net_krw": -1744000000,
-      "individual_net_krw": 1326000000
+    "039030": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2831000000,
+      "institution_net_krw": 2183000000,
+      "individual_net_krw": 565000000
     },
-    "028670": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 127000000,
-      "institution_net_krw": -1617000000,
-      "individual_net_krw": 1148000000
+    "098460": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3299000000,
+      "institution_net_krw": 897000000,
+      "individual_net_krw": 2294000000
     },
-    "267250": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 2692000000,
-      "institution_net_krw": -5213000000,
-      "individual_net_krw": 2464000000
+    "086280": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 8716000000,
+      "institution_net_krw": 888000000,
+      "individual_net_krw": -9600000000
     },
-    "356680": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 1528000000,
-      "institution_net_krw": 2000000,
-      "individual_net_krw": -1560000000
+    "066970": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -7067000000,
+      "institution_net_krw": 5869000000,
+      "individual_net_krw": 1198000000
     },
-    "016360": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -3043000000,
-      "institution_net_krw": -2163000000,
-      "individual_net_krw": 5303000000
+    "359410": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 114000000,
+      "institution_net_krw": 6000000,
+      "individual_net_krw": -122000000
     },
-    "001040": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 6434000000,
-      "institution_net_krw": -7872000000,
-      "individual_net_krw": 1414000000
+    "000720": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 4068000000,
+      "institution_net_krw": -3995000000,
+      "individual_net_krw": 1000000
     },
-    "003380": {
-      "date": "2026-11-11",
-      "foreign_net_krw": -618000000,
-      "institution_net_krw": -18000000,
-      "individual_net_krw": 676000000
+    "014950": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 59000000,
+      "institution_net_krw": -30000000,
+      "individual_net_krw": -28000000
+    },
+    "131290": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -13528000000,
+      "institution_net_krw": 9712000000,
+      "individual_net_krw": 3556000000
+    },
+    "327260": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -7433000000,
+      "institution_net_krw": 3629000000,
+      "individual_net_krw": 3724000000
+    },
+    "093370": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -12762000000,
+      "institution_net_krw": -3385000000,
+      "individual_net_krw": 15759000000
+    },
+    "031980": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -7317000000,
+      "institution_net_krw": 2116000000,
+      "individual_net_krw": 4943000000
+    },
+    "259960": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2981000000,
+      "institution_net_krw": -116000000,
+      "individual_net_krw": -3211000000
+    },
+    "062040": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 514000000,
+      "institution_net_krw": -1021000000,
+      "individual_net_krw": 407000000
+    },
+    "078350": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3770000000,
+      "institution_net_krw": 1631000000,
+      "individual_net_krw": 2167000000
+    },
+    "451760": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -998000000,
+      "institution_net_krw": -162000000,
+      "individual_net_krw": 1708000000
     },
     "030200": {
-      "date": "2026-11-11",
-      "foreign_net_krw": 877000000,
-      "institution_net_krw": -1230000000,
-      "individual_net_krw": 324000000
+      "date": "2026-11-12",
+      "foreign_net_krw": 12541000000,
+      "institution_net_krw": -10232000000,
+      "individual_net_krw": -2336000000
+    },
+    "001440": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2094000000,
+      "institution_net_krw": -3804000000,
+      "individual_net_krw": 1998000000
+    },
+    "272210": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2713000000,
+      "institution_net_krw": -4350000000,
+      "individual_net_krw": 1668000000
+    },
+    "103590": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1721000000,
+      "institution_net_krw": 395000000,
+      "individual_net_krw": -2161000000
+    },
+    "120110": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -5634000000,
+      "institution_net_krw": 6267000000,
+      "individual_net_krw": -826000000
+    },
+    "319660": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2196000000,
+      "institution_net_krw": -5380000000,
+      "individual_net_krw": 3174000000
+    },
+    "006360": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3003000000,
+      "institution_net_krw": -753000000,
+      "individual_net_krw": -2254000000
+    },
+    "218410": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -7096000000,
+      "institution_net_krw": 12301000000,
+      "individual_net_krw": -5216000000
+    },
+    "389260": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1493000000,
+      "institution_net_krw": -49000000,
+      "individual_net_krw": 1541000000
+    },
+    "069510": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -9093000000,
+      "institution_net_krw": 24498000000,
+      "individual_net_krw": -13461000000
+    },
+    "000500": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3641000000,
+      "institution_net_krw": 1556000000,
+      "individual_net_krw": 2003000000
+    },
+    "058470": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 159000000,
+      "institution_net_krw": -791000000,
+      "individual_net_krw": 558000000
+    },
+    "016360": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3283000000,
+      "institution_net_krw": -1297000000,
+      "individual_net_krw": -1986000000
+    },
+    "078930": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1306000000,
+      "institution_net_krw": 2662000000,
+      "individual_net_krw": -1392000000
+    },
+    "457190": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -8791000000,
+      "institution_net_krw": 11672000000,
+      "individual_net_krw": -3942000000
+    },
+    "064350": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1244000000,
+      "institution_net_krw": 1905000000,
+      "individual_net_krw": -680000000
+    },
+    "089890": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1295000000,
+      "institution_net_krw": 531000000,
+      "individual_net_krw": 189000000
+    },
+    "452190": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1638000000,
+      "institution_net_krw": -2000000,
+      "individual_net_krw": 1417000000
+    },
+    "161890": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 484000000,
+      "institution_net_krw": -319000000,
+      "individual_net_krw": -61000000
+    },
+    "437730": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1375000000,
+      "institution_net_krw": -2661000000,
+      "individual_net_krw": 1250000000
+    },
+    "131970": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -72000000,
+      "institution_net_krw": -1467000000,
+      "individual_net_krw": 1949000000
+    },
+    "006260": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 4247000000,
+      "institution_net_krw": -4930000000,
+      "individual_net_krw": 677000000
+    },
+    "003550": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 5247000000,
+      "institution_net_krw": -5168000000,
+      "individual_net_krw": -107000000
+    },
+    "112610": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2545000000,
+      "institution_net_krw": -2466000000,
+      "individual_net_krw": 170000000
+    },
+    "003160": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -6727000000,
+      "institution_net_krw": 1216000000,
+      "individual_net_krw": 5554000000
+    },
+    "277810": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -190000000,
+      "institution_net_krw": -1964000000,
+      "individual_net_krw": 659000000
+    },
+    "092870": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1679000000,
+      "institution_net_krw": -731000000,
+      "individual_net_krw": 2150000000
+    },
+    "001450": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 7552000000,
+      "institution_net_krw": -11176000000,
+      "individual_net_krw": 3548000000
+    },
+    "267250": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 9434000000,
+      "institution_net_krw": -10163000000,
+      "individual_net_krw": 774000000
+    },
+    "089030": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1064000000,
+      "institution_net_krw": 873000000,
+      "individual_net_krw": 169000000
+    },
+    "089970": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1110000000,
+      "institution_net_krw": 1719000000,
+      "individual_net_krw": -796000000
+    },
+    "144960": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2401000000,
+      "institution_net_krw": -1392000000,
+      "individual_net_krw": -455000000
+    },
+    "010130": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 2600000000,
+      "institution_net_krw": -8164000000,
+      "individual_net_krw": 5448000000
+    },
+    "178320": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 308000000,
+      "institution_net_krw": -529000000,
+      "individual_net_krw": 174000000
+    },
+    "440110": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2815000000,
+      "institution_net_krw": -821000000,
+      "individual_net_krw": 2911000000
+    },
+    "094850": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -379000000,
+      "institution_net_krw": -1000000,
+      "individual_net_krw": 375000000
+    },
+    "281820": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -4833000000,
+      "institution_net_krw": 8265000000,
+      "individual_net_krw": -3351000000
+    },
+    "090430": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2057000000,
+      "institution_net_krw": 38000000,
+      "individual_net_krw": 2009000000
+    },
+    "095340": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -6049000000,
+      "institution_net_krw": 4255000000,
+      "individual_net_krw": 1801000000
+    },
+    "443060": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 601000000,
+      "institution_net_krw": 197000000,
+      "individual_net_krw": -803000000
+    },
+    "252990": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2310000000,
+      "institution_net_krw": 3852000000,
+      "individual_net_krw": -1762000000
+    },
+    "082740": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 5509000000,
+      "institution_net_krw": -5155000000,
+      "individual_net_krw": 19000000
+    },
+    "095610": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -687000000,
+      "institution_net_krw": -1441000000,
+      "individual_net_krw": 2122000000
+    },
+    "195870": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1906000000,
+      "institution_net_krw": 5718000000,
+      "individual_net_krw": -3832000000
+    },
+    "047050": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3296000000,
+      "institution_net_krw": -7100000000,
+      "individual_net_krw": 3813000000
+    },
+    "119850": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2456000000,
+      "institution_net_krw": -417000000,
+      "individual_net_krw": 2644000000
+    },
+    "078600": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3300000000,
+      "institution_net_krw": 2810000000,
+      "individual_net_krw": 756000000
+    },
+    "121600": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3740000000,
+      "institution_net_krw": 6924000000,
+      "individual_net_krw": -3169000000
+    },
+    "138930": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1892000000,
+      "institution_net_krw": -3161000000,
+      "individual_net_krw": 797000000
+    },
+    "001820": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -3671000000,
+      "institution_net_krw": 101000000,
+      "individual_net_krw": 3578000000
+    },
+    "009420": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -4213000000,
+      "institution_net_krw": 7952000000,
+      "individual_net_krw": -3688000000
+    },
+    "084370": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3424000000,
+      "institution_net_krw": -4462000000,
+      "individual_net_krw": 1150000000
+    },
+    "032640": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -212000000,
+      "institution_net_krw": -1021000000,
+      "individual_net_krw": 1262000000
+    },
+    "034220": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2395000000,
+      "institution_net_krw": 621000000,
+      "individual_net_krw": 1708000000
+    },
+    "039490": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2133000000,
+      "institution_net_krw": 1780000000,
+      "individual_net_krw": 429000000
+    },
+    "347850": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -687000000,
+      "institution_net_krw": -1945000000,
+      "individual_net_krw": 2601000000
+    },
+    "272450": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -204000000,
+      "institution_net_krw": 1328000000,
+      "individual_net_krw": -1123000000
+    },
+    "425420": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 878000000,
+      "institution_net_krw": 901000000,
+      "individual_net_krw": -1822000000
+    },
+    "000100": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -480000000,
+      "institution_net_krw": 2112000000,
+      "individual_net_krw": -1624000000
+    },
+    "253590": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -312000000,
+      "institution_net_krw": -275000000,
+      "individual_net_krw": 261000000
+    },
+    "214450": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -620000000,
+      "institution_net_krw": 2090000000,
+      "individual_net_krw": -1461000000
+    },
+    "475150": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -4180000000,
+      "institution_net_krw": -706000000,
+      "individual_net_krw": 5263000000
+    },
+    "326030": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1649000000,
+      "institution_net_krw": 2482000000,
+      "individual_net_krw": -2154000000
+    },
+    "368770": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1348000000,
+      "institution_net_krw": -40000000,
+      "individual_net_krw": 1317000000
+    },
+    "141000": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1107000000,
+      "institution_net_krw": -3000000,
+      "individual_net_krw": -1058000000
+    },
+    "125490": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -847000000,
+      "institution_net_krw": 2728000000,
+      "individual_net_krw": -1866000000
+    },
+    "064290": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2943000000,
+      "institution_net_krw": 3613000000,
+      "individual_net_krw": -698000000
+    },
+    "235980": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -476000000,
+      "institution_net_krw": 8000000,
+      "individual_net_krw": 504000000
+    },
+    "008930": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2054000000,
+      "institution_net_krw": 4505000000,
+      "individual_net_krw": -2312000000
+    },
+    "298380": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -441000000,
+      "institution_net_krw": -3263000000,
+      "individual_net_krw": 3044000000
+    },
+    "036460": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3638000000,
+      "institution_net_krw": 3411000000,
+      "individual_net_krw": -7069000000
+    },
+    "028300": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -2165000000,
+      "institution_net_krw": -1418000000,
+      "individual_net_krw": 3561000000
+    },
+    "170920": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -640000000,
+      "institution_net_krw": -323000000,
+      "individual_net_krw": 821000000
+    },
+    "290550": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -120000000,
+      "institution_net_krw": 3183000000,
+      "individual_net_krw": -3165000000
+    },
+    "021240": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1686000000,
+      "institution_net_krw": -3357000000,
+      "individual_net_krw": -947000000
+    },
+    "002320": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -1933000000,
+      "institution_net_krw": 426000000,
+      "individual_net_krw": 1564000000
+    },
+    "037270": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 458000000,
+      "institution_net_krw": -38000000,
+      "individual_net_krw": -421000000
+    },
+    "290650": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 1954000000,
+      "institution_net_krw": -3286000000,
+      "individual_net_krw": 1476000000
+    },
+    "489790": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 319000000,
+      "institution_net_krw": -3836000000,
+      "individual_net_krw": 3353000000
+    },
+    "267270": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -634000000,
+      "institution_net_krw": 756000000,
+      "individual_net_krw": -35000000
+    },
+    "028670": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 3350000000,
+      "institution_net_krw": -5592000000,
+      "individual_net_krw": 2230000000
+    },
+    "161390": {
+      "date": "2026-11-12",
+      "foreign_net_krw": -606000000,
+      "institution_net_krw": -43000000,
+      "individual_net_krw": 604000000
+    },
+    "323410": {
+      "date": "2026-11-12",
+      "foreign_net_krw": 6729000000,
+      "institution_net_krw": -6425000000,
+      "individual_net_krw": -305000000
     }
   },
   "errors": [],
   "note": "Published EOD investor flows only. Missing records are null, not zero. Coverage differs from TOP200; no inference.",
   "summary": {
-    "date": "2026-11-11",
+    "date": "2026-11-12",
     "scope": "Daily changing KOSPI+KOSDAQ traded-value TOP200 only",
     "metrics": {
       "ALL": {
         "target_count": 200,
         "paired_count": 200,
-        "target_traded_krw": 19848018893760,
-        "paired_traded_krw": 19848018893760,
+        "target_traded_krw": 24145095883006,
+        "paired_traded_krw": 24145095883006,
         "coverage_pct": 100.0,
         "turnover_coverage_pct": 100.0,
-        "foreign_net_krw": 580914000000,
-        "institution_net_krw": -176021000000,
-        "joint_net_krw": 404893000000,
-        "foreign_strength_pct": 2.9268109986666375,
-        "institution_strength_pct": -0.8868441779614543,
-        "joint_strength_pct": 2.0399668207051835,
-        "both_buy_count": 37,
-        "both_sell_count": 41,
-        "combined_buy_count": 101,
-        "diffusion_pct": -2.0
+        "foreign_net_krw": 205555000000,
+        "institution_net_krw": -548852000000,
+        "joint_net_krw": -343297000000,
+        "foreign_strength_pct": 0.8513322995112867,
+        "institution_strength_pct": -2.2731406934950193,
+        "joint_strength_pct": -1.4218083939837327,
+        "both_buy_count": 21,
+        "both_sell_count": 40,
+        "combined_buy_count": 79,
+        "diffusion_pct": -9.5
       },
       "KOSPI": {
-        "target_count": 117,
-        "paired_count": 117,
-        "target_traded_krw": 16281917296253,
-        "paired_traded_krw": 16281917296253,
+        "target_count": 124,
+        "paired_count": 124,
+        "target_traded_krw": 20203901471889,
+        "paired_traded_krw": 20203901471889,
         "coverage_pct": 100.0,
         "turnover_coverage_pct": 100.0,
-        "foreign_net_krw": 707886000000,
-        "institution_net_krw": -478009000000,
-        "joint_net_krw": 229877000000,
-        "foreign_strength_pct": 4.347682076501566,
-        "institution_strength_pct": -2.935827466154772,
-        "joint_strength_pct": 1.4118546103467937,
-        "both_buy_count": 17,
-        "both_sell_count": 24,
+        "foreign_net_krw": 450088000000,
+        "institution_net_krw": -614499000000,
+        "joint_net_krw": -164411000000,
+        "foreign_strength_pct": 2.2277281475869235,
+        "institution_strength_pct": -3.041486818053396,
+        "joint_strength_pct": -0.8137586704664725,
+        "both_buy_count": 11,
+        "both_sell_count": 15,
         "combined_buy_count": 54,
-        "diffusion_pct": -5.982905982905983
+        "diffusion_pct": -3.225806451612903
       },
       "KOSDAQ": {
-        "target_count": 83,
-        "paired_count": 83,
-        "target_traded_krw": 3566101597507,
-        "paired_traded_krw": 3566101597507,
+        "target_count": 76,
+        "paired_count": 76,
+        "target_traded_krw": 3941194411117,
+        "paired_traded_krw": 3941194411117,
         "coverage_pct": 100.0,
         "turnover_coverage_pct": 100.0,
-        "foreign_net_krw": -126972000000,
-        "institution_net_krw": 301988000000,
-        "joint_net_krw": 175016000000,
-        "foreign_strength_pct": -3.560526713225555,
-        "institution_strength_pct": 8.468294908118002,
-        "joint_strength_pct": 4.907768194892447,
-        "both_buy_count": 20,
-        "both_sell_count": 17,
-        "combined_buy_count": 47,
-        "diffusion_pct": 3.6144578313253013
+        "foreign_net_krw": -244533000000,
+        "institution_net_krw": 65647000000,
+        "joint_net_krw": -178886000000,
+        "foreign_strength_pct": -6.20454041318645,
+        "institution_strength_pct": 1.6656625670336964,
+        "joint_strength_pct": -4.5388778461527535,
+        "both_buy_count": 10,
+        "both_sell_count": 25,
+        "combined_buy_count": 25,
+        "diffusion_pct": -19.736842105263158
       }
     }
   },
@@ -2071,6 +2071,66 @@
           "both_sell_count": 17,
           "combined_buy_count": 47,
           "diffusion_pct": 3.6144578313253013
+        }
+      }
+    },
+    {
+      "date": "2026-11-12",
+      "scope": "Daily changing KOSPI+KOSDAQ traded-value TOP200 only",
+      "metrics": {
+        "ALL": {
+          "target_count": 200,
+          "paired_count": 200,
+          "target_traded_krw": 24145095883006,
+          "paired_traded_krw": 24145095883006,
+          "coverage_pct": 100.0,
+          "turnover_coverage_pct": 100.0,
+          "foreign_net_krw": 205555000000,
+          "institution_net_krw": -548852000000,
+          "joint_net_krw": -343297000000,
+          "foreign_strength_pct": 0.8513322995112867,
+          "institution_strength_pct": -2.2731406934950193,
+          "joint_strength_pct": -1.4218083939837327,
+          "both_buy_count": 21,
+          "both_sell_count": 40,
+          "combined_buy_count": 79,
+          "diffusion_pct": -9.5
+        },
+        "KOSPI": {
+          "target_count": 124,
+          "paired_count": 124,
+          "target_traded_krw": 20203901471889,
+          "paired_traded_krw": 20203901471889,
+          "coverage_pct": 100.0,
+          "turnover_coverage_pct": 100.0,
+          "foreign_net_krw": 450088000000,
+          "institution_net_krw": -614499000000,
+          "joint_net_krw": -164411000000,
+          "foreign_strength_pct": 2.2277281475869235,
+          "institution_strength_pct": -3.041486818053396,
+          "joint_strength_pct": -0.8137586704664725,
+          "both_buy_count": 11,
+          "both_sell_count": 15,
+          "combined_buy_count": 54,
+          "diffusion_pct": -3.225806451612903
+        },
+        "KOSDAQ": {
+          "target_count": 76,
+          "paired_count": 76,
+          "target_traded_krw": 3941194411117,
+          "paired_traded_krw": 3941194411117,
+          "coverage_pct": 100.0,
+          "turnover_coverage_pct": 100.0,
+          "foreign_net_krw": -244533000000,
+          "institution_net_krw": 65647000000,
+          "joint_net_krw": -178886000000,
+          "foreign_strength_pct": -6.20454041318645,
+          "institution_strength_pct": 1.6656625670336964,
+          "joint_strength_pct": -4.5388778461527535,
+          "both_buy_count": 10,
+          "both_sell_count": 25,
+          "combined_buy_count": 25,
+          "diffusion_pct": -19.736842105263158
         }
       }
     }
