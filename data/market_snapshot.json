@@ -1,19 +1,19 @@
 {
-  "collected_at_utc": "2026-11-19T04:36:41.743153+00:00",
-  "collected_at_kst": "2026-11-19T13:36:41.743153+09:00",
+  "collected_at_utc": "2026-11-19T05:38:48.999731+00:00",
+  "collected_at_kst": "2026-11-19T14:38:48.999731+09:00",
   "markets": {
     "KOSPI": {
       "ticker": "^KS11",
-      "price": 5078.81006,
-      "change_pct": 0.224,
+      "price": 5048.99023,
+      "change_pct": -0.364,
       "price_date": "2026-11-19",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "KOSDAQ": {
       "ticker": "^KQ11",
-      "price": 664.53003,
-      "change_pct": 0.26,
+      "price": 662.65002,
+      "change_pct": -0.024,
       "price_date": "2026-11-19",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
@@ -28,7 +28,7 @@
     },
     "NASDAQ": {
       "ticker": "^IXIC",
-      "price": 24429.88477,
+      "price": 24429.88086,
       "change_pct": 0.417,
       "price_date": "2026-11-18",
       "source": "Yahoo Finance (daily close)",
@@ -36,25 +36,25 @@
     },
     "USD/KRW": {
       "ticker": "KRW=X",
-      "price": 1331.65002,
-      "change_pct": -0.102,
+      "price": 1330.18005,
+      "change_pct": -0.212,
       "price_date": "2026-11-19",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "WTI": {
       "ticker": "CL=F",
-      "price": 82.09,
-      "change_pct": -4.558,
-      "price_date": "2026-11-18",
+      "price": 82.23,
+      "change_pct": -1.237,
+      "price_date": "2026-11-19",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
     "BRENT": {
       "ticker": "BZ=F",
-      "price": 89.24,
-      "change_pct": -4.187,
-      "price_date": "2026-11-18",
+      "price": 89.35,
+      "change_pct": -2.828,
+      "price_date": "2026-11-19",
       "source": "Yahoo Finance (daily close)",
       "status": "daily_close"
     },
