@@ -286,19 +286,19 @@
   "provisional_adr20": {
     "date": "2026-11-19",
     "provisional": true,
-    "up": 1063,
-    "down": 520,
-    "flat": 73,
-    "universe_total": 1656,
+    "up": 1733,
+    "down": 810,
+    "flat": 118,
+    "universe_total": 2661,
     "start_date": "2026-10-23",
     "confirmed_through": "2026-11-18",
-    "up_sum": 21405,
-    "down_sum": 28575,
+    "up_sum": 22075,
+    "down_sum": 28865,
     "days": 20,
-    "value_pct": 74.91,
+    "value_pct": 76.48,
     "note": "19 previously confirmed days + same-day provisional market breadth; may be revised"
   },
-  "collected_at_kst": "2026-11-19T16:57:40.185569+09:00",
+  "collected_at_kst": "2026-11-19T17:36:39.126964+09:00",
   "notice": "Free public non-KRX source; the earliest/backfilled dates were not independently reconciled against KRX. Holidays absent, not zero-filled. No intraday provisional.",
   "skipped_or_invalid_dates": []
 }
