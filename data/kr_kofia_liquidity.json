@@ -8,17 +8,10 @@
   "unit_confirmed_from": "FreeSIS official public homepage: 백만원",
   "credit_definition": "신용거래융자 전체 (KOSPI/KOSDAQ market total from FreeSIS credit balance screen)",
   "deposit_definition": "투자자예탁금 (장내파생상품 거래예수금 포함)",
-  "latest_date": "2026-11-20",
+  "latest_date": "2026-11-23",
   "observations": 280,
-  "collected_at_kst": "2026-11-23T17:50:55.726425+09:00",
+  "collected_at_kst": "2026-11-24T17:00:57.408031+09:00",
   "history": [
-    {
-      "date": "2025-09-26",
-      "deposit_million_krw": 75617889,
-      "credit_million_krw": 23537790,
-      "credit_kospi_million_krw": 14223322,
-      "credit_kosdaq_million_krw": 9314468
-    },
     {
       "date": "2025-09-29",
       "deposit_million_krw": 76808482,
@@ -1971,6 +1964,13 @@
       "credit_million_krw": 25957908,
       "credit_kospi_million_krw": 20095547,
       "credit_kosdaq_million_krw": 5862361
+    },
+    {
+      "date": "2026-11-23",
+      "deposit_million_krw": 85336163,
+      "credit_million_krw": 25942655,
+      "credit_kospi_million_krw": 20055285,
+      "credit_kosdaq_million_krw": 5887370
     }
   ],
   "note": "Official published balances, not real-time flows. Compare Npay on matching dates only; no synthetic data."
