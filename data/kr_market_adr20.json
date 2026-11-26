@@ -333,7 +333,7 @@
     "value_pct": 75.27,
     "note": "19 previously confirmed days + same-day provisional market breadth; may be revised"
   },
-  "collected_at_kst": "2026-11-26T17:03:45.140581+09:00",
+  "collected_at_kst": "2026-11-26T17:40:59.993549+09:00",
   "notice": "Free public non-KRX source; the earliest/backfilled dates were not independently reconciled against KRX. Holidays absent, not zero-filled. No intraday provisional.",
   "skipped_or_invalid_dates": []
 }
