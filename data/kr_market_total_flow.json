@@ -21,9 +21,9 @@
     "other_corporate_excluded": "7100",
     "other_foreign_excluded": "9001"
   },
-  "collected_at_kst": "2026-11-26T17:40:51.813716+09:00",
-  "latest_date": "2026-11-26",
-  "observations": 39,
+  "collected_at_kst": "2026-11-27T17:01:53.406316+09:00",
+  "latest_date": "2026-11-27",
+  "observations": 40,
   "history": [
     {
       "date": "2026-10-01",
@@ -674,18 +674,35 @@
     {
       "date": "2026-11-26",
       "KOSPI": {
-        "foreign_net_krw": -102446000000,
-        "institution_net_krw": 754228000000,
-        "individual_net_krw": -1055536000000,
-        "other_corporate_net_krw": 407736000000,
-        "other_foreign_net_krw": -3982000000
+        "foreign_net_krw": -84113000000,
+        "institution_net_krw": 752904000000,
+        "individual_net_krw": -1074789000000,
+        "other_corporate_net_krw": 409835000000,
+        "other_foreign_net_krw": -3838000000
       },
       "KOSDAQ": {
-        "foreign_net_krw": -105418000000,
-        "institution_net_krw": 236977000000,
-        "individual_net_krw": -138630000000,
-        "other_corporate_net_krw": 9232000000,
-        "other_foreign_net_krw": -2160000000
+        "foreign_net_krw": -109609000000,
+        "institution_net_krw": 237831000000,
+        "individual_net_krw": -133879000000,
+        "other_corporate_net_krw": 7508000000,
+        "other_foreign_net_krw": -1849000000
+      }
+    },
+    {
+      "date": "2026-11-27",
+      "KOSPI": {
+        "foreign_net_krw": 1136222000000,
+        "institution_net_krw": 235634000000,
+        "individual_net_krw": -1778139000000,
+        "other_corporate_net_krw": 410868000000,
+        "other_foreign_net_krw": -4589000000
+      },
+      "KOSDAQ": {
+        "foreign_net_krw": 307032000000,
+        "institution_net_krw": 587143000000,
+        "individual_net_krw": -885052000000,
+        "other_corporate_net_krw": -4676000000,
+        "other_foreign_net_krw": -4450000000
       }
     }
   ],
